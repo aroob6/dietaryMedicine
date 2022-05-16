@@ -6,7 +6,6 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -92,53 +91,26 @@
                                     <constraint firstAttribute="width" constant="100" id="hXJ-bK-3fI"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신의 영양제와 식품의 영양성분을 조합하세요." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFl-4V-e5M">
-                                <rect key="frame" x="20" y="188" width="200" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Abf-aL-w2l"/>
-                                    <constraint firstAttribute="width" constant="200" id="HHi-3g-ZFw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tNk-Wk-hcB">
-                                <rect key="frame" x="20" y="258" width="394" height="100"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="hYb-Kn-Wal"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UTm-tM-Ulu">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Xre-Xg-MKN">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oBi-8S-Z6h">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zSg-Zx-rOX">
+                                <rect key="frame" x="20" y="158" width="394" height="655"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jKg-pf-uds"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="jKg-pf-uds" firstAttribute="bottom" secondItem="zSg-Zx-rOX" secondAttribute="bottom" id="0vQ-Om-Mgc"/>
                             <constraint firstItem="pXc-J1-inY" firstAttribute="top" secondItem="jKg-pf-uds" secondAttribute="top" id="2qm-WO-XJK"/>
-                            <constraint firstItem="jKg-pf-uds" firstAttribute="trailing" secondItem="tNk-Wk-hcB" secondAttribute="trailing" id="NIV-Os-u8Z"/>
-                            <constraint firstItem="pFl-4V-e5M" firstAttribute="top" secondItem="pXc-J1-inY" secondAttribute="bottom" constant="50" id="TYG-GL-paZ"/>
-                            <constraint firstItem="tNk-Wk-hcB" firstAttribute="top" secondItem="pFl-4V-e5M" secondAttribute="bottom" constant="20" id="VVL-sI-rXe"/>
-                            <constraint firstItem="pFl-4V-e5M" firstAttribute="leading" secondItem="jKg-pf-uds" secondAttribute="leading" constant="20" id="bgh-99-eL0"/>
+                            <constraint firstItem="zSg-Zx-rOX" firstAttribute="leading" secondItem="jKg-pf-uds" secondAttribute="leading" constant="20" id="VNg-vb-TFt"/>
+                            <constraint firstItem="zSg-Zx-rOX" firstAttribute="top" secondItem="pXc-J1-inY" secondAttribute="bottom" constant="20" id="a2J-VA-rQL"/>
                             <constraint firstItem="pXc-J1-inY" firstAttribute="leading" secondItem="jKg-pf-uds" secondAttribute="leading" constant="20" id="iBn-1K-g6q"/>
-                            <constraint firstItem="tNk-Wk-hcB" firstAttribute="leading" secondItem="jKg-pf-uds" secondAttribute="leading" constant="20" id="qYQ-2U-vcn"/>
+                            <constraint firstItem="jKg-pf-uds" firstAttribute="trailing" secondItem="zSg-Zx-rOX" secondAttribute="trailing" id="zGo-ZA-B06"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZaH-pC-esR"/>
+                    <connections>
+                        <outlet property="mainTableView" destination="zSg-Zx-rOX" id="Fd2-8N-12k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKV-eH-606" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

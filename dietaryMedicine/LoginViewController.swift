@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
@@ -14,6 +15,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        setUpButton()
+    }
+    
+    func setUpButton() {
         loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
     }
 

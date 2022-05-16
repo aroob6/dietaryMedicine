@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,18 @@
 		9A4C3EDA28314447001960FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3ED928314447001960FF /* Main.storyboard */; };
 		9A4C3EDF2831469B001960FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EDE2831469B001960FF /* MainViewController.swift */; };
 		9A4C3EE128314907001960FF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EE028314907001960FF /* MainTabBarController.swift */; };
+		9A4C3EE4283213C0001960FF /* FoodUnionSupplementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EE2283213BF001960FF /* FoodUnionSupplementsTableViewCell.swift */; };
+		9A4C3EE5283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EE3283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib */; };
+		9A4C3EE8283219BB001960FF /* UnionAnalysisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EE6283219BB001960FF /* UnionAnalysisTableViewCell.swift */; };
+		9A4C3EE9283219BB001960FF /* UnionAnalysisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EE7283219BB001960FF /* UnionAnalysisTableViewCell.xib */; };
+		9A4C3EEC28321DD1001960FF /* HotNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EEA28321DD1001960FF /* HotNewsTableViewCell.swift */; };
+		9A4C3EED28321DD1001960FF /* HotNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EEB28321DD1001960FF /* HotNewsTableViewCell.xib */; };
+		9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */; };
+		9A4C3EF428322082001960FF /* AddCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */; };
+		9A4C3EF6283230F0001960FF /* FoodUnionSupplements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF5283230F0001960FF /* FoodUnionSupplements.storyboard */; };
+		9A4C3EF928324113001960FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF828324113001960FF /* UIColor.swift */; };
+		9A4C3EFB283243BC001960FF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EFA283243BC001960FF /* ProductListViewController.swift */; };
+		9A4C3EFD28324510001960FF /* CustomTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EFC28324510001960FF /* CustomTabBarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +45,18 @@
 		9A4C3ED928314447001960FF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9A4C3EDE2831469B001960FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9A4C3EE028314907001960FF /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		9A4C3EE2283213BF001960FF /* FoodUnionSupplementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodUnionSupplementsTableViewCell.swift; sourceTree = "<group>"; };
+		9A4C3EE3283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodUnionSupplementsTableViewCell.xib; sourceTree = "<group>"; };
+		9A4C3EE6283219BB001960FF /* UnionAnalysisTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionAnalysisTableViewCell.swift; sourceTree = "<group>"; };
+		9A4C3EE7283219BB001960FF /* UnionAnalysisTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnionAnalysisTableViewCell.xib; sourceTree = "<group>"; };
+		9A4C3EEA28321DD1001960FF /* HotNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsTableViewCell.swift; sourceTree = "<group>"; };
+		9A4C3EEB28321DD1001960FF /* HotNewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotNewsTableViewCell.xib; sourceTree = "<group>"; };
+		9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollectionViewCell.swift; sourceTree = "<group>"; };
+		9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCollectionViewCell.xib; sourceTree = "<group>"; };
+		9A4C3EF5283230F0001960FF /* FoodUnionSupplements.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodUnionSupplements.storyboard; sourceTree = "<group>"; };
+		9A4C3EF828324113001960FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9A4C3EFA283243BC001960FF /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		9A4C3EFC28324510001960FF /* CustomTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarCell.swift; sourceTree = "<group>"; };
 		B5D6626179DC6AFC862A1D3D /* Pods-dietaryMedicine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.debug.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +86,6 @@
 				B5D6626179DC6AFC862A1D3D /* Pods-dietaryMedicine.debug.xcconfig */,
 				7E8778B6256CBDCC52975E3A /* Pods-dietaryMedicine.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -87,6 +110,7 @@
 		9A4C3EC428313B2E001960FF /* dietaryMedicine */ = {
 			isa = PBXGroup;
 			children = (
+				9A4C3EF72832405B001960FF /* Extension */,
 				9A4C3EDD28314661001960FF /* View */,
 				9A4C3EDC28314645001960FF /* ViewModel */,
 				9A4C3EDB2831463D001960FF /* Model */,
@@ -121,8 +145,51 @@
 		9A4C3EDD28314661001960FF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9A4C3EEE2832202C001960FF /* FoodUnionSupplements */,
+				9A4C3EEF28322039001960FF /* UnionAnalysis */,
+				9A4C3EF028322043001960FF /* HotNews */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9A4C3EEE2832202C001960FF /* FoodUnionSupplements */ = {
+			isa = PBXGroup;
+			children = (
+				9A4C3EE2283213BF001960FF /* FoodUnionSupplementsTableViewCell.swift */,
+				9A4C3EE3283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib */,
+				9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */,
+				9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */,
+				9A4C3EF5283230F0001960FF /* FoodUnionSupplements.storyboard */,
+				9A4C3EFA283243BC001960FF /* ProductListViewController.swift */,
+				9A4C3EFC28324510001960FF /* CustomTabBarCell.swift */,
+			);
+			path = FoodUnionSupplements;
+			sourceTree = "<group>";
+		};
+		9A4C3EEF28322039001960FF /* UnionAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				9A4C3EE6283219BB001960FF /* UnionAnalysisTableViewCell.swift */,
+				9A4C3EE7283219BB001960FF /* UnionAnalysisTableViewCell.xib */,
+			);
+			path = UnionAnalysis;
+			sourceTree = "<group>";
+		};
+		9A4C3EF028322043001960FF /* HotNews */ = {
+			isa = PBXGroup;
+			children = (
+				9A4C3EEA28321DD1001960FF /* HotNewsTableViewCell.swift */,
+				9A4C3EEB28321DD1001960FF /* HotNewsTableViewCell.xib */,
+			);
+			path = HotNews;
+			sourceTree = "<group>";
+		};
+		9A4C3EF72832405B001960FF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9A4C3EF828324113001960FF /* UIColor.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +230,7 @@
 				};
 			};
 			buildConfigurationList = 9A4C3EBD28313B2E001960FF /* Build configuration list for PBXProject "dietaryMedicine" */;
-			compatibilityVersion = "Xcode 12.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -185,10 +252,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A4C3EED28321DD1001960FF /* HotNewsTableViewCell.xib in Resources */,
 				9A4C3ED228313B30001960FF /* LaunchScreen.storyboard in Resources */,
+				9A4C3EF428322082001960FF /* AddCollectionViewCell.xib in Resources */,
 				9A4C3ECF28313B30001960FF /* Assets.xcassets in Resources */,
+				9A4C3EF6283230F0001960FF /* FoodUnionSupplements.storyboard in Resources */,
 				9A4C3ECD28313B2E001960FF /* Login.storyboard in Resources */,
+				9A4C3EE5283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib in Resources */,
 				9A4C3EDA28314447001960FF /* Main.storyboard in Resources */,
+				9A4C3EE9283219BB001960FF /* UnionAnalysisTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,11 +313,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A4C3EEC28321DD1001960FF /* HotNewsTableViewCell.swift in Sources */,
 				9A4C3ECA28313B2E001960FF /* LoginViewController.swift in Sources */,
 				9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */,
+				9A4C3EE8283219BB001960FF /* UnionAnalysisTableViewCell.swift in Sources */,
 				9A4C3EE128314907001960FF /* MainTabBarController.swift in Sources */,
 				9A4C3EC828313B2E001960FF /* SceneDelegate.swift in Sources */,
+				9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */,
+				9A4C3EE4283213C0001960FF /* FoodUnionSupplementsTableViewCell.swift in Sources */,
+				9A4C3EFD28324510001960FF /* CustomTabBarCell.swift in Sources */,
 				9A4C3EDF2831469B001960FF /* MainViewController.swift in Sources */,
+				9A4C3EFB283243BC001960FF /* ProductListViewController.swift in Sources */,
+				9A4C3EF928324113001960FF /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
