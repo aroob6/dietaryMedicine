@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="q3G-Vu-PNs">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+                        <rect key="frame" x="0.0" y="10" width="300" height="240"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7X-AL-zG1">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
@@ -30,7 +30,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rTU-Ox-kQd">
-                                        <rect key="frame" x="277.5" y="2" width="12.5" height="46.5"/>
+                                        <rect key="frame" x="267.5" y="2" width="12.5" height="46.5"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -38,13 +39,13 @@
                                     <constraint firstItem="YN0-gi-BuO" firstAttribute="top" secondItem="Z7X-AL-zG1" secondAttribute="top" id="RO9-jF-Gmv"/>
                                     <constraint firstItem="YN0-gi-BuO" firstAttribute="leading" secondItem="Z7X-AL-zG1" secondAttribute="leading" id="RdJ-z7-lVB"/>
                                     <constraint firstItem="rTU-Ox-kQd" firstAttribute="top" secondItem="Z7X-AL-zG1" secondAttribute="top" id="VBX-LK-5ns"/>
-                                    <constraint firstAttribute="trailing" secondItem="rTU-Ox-kQd" secondAttribute="trailing" constant="10" id="ZSj-Ml-g4k"/>
+                                    <constraint firstAttribute="trailing" secondItem="rTU-Ox-kQd" secondAttribute="trailing" constant="20" id="ZSj-Ml-g4k"/>
                                     <constraint firstAttribute="bottom" secondItem="YN0-gi-BuO" secondAttribute="bottom" id="bfC-Ry-o4T"/>
                                     <constraint firstAttribute="bottom" secondItem="rTU-Ox-kQd" secondAttribute="bottom" id="i6D-2e-qZb"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="O7y-oY-eyC">
-                                <rect key="frame" x="0.0" y="50" width="300" height="72"/>
+                                <rect key="frame" x="0.0" y="50" width="300" height="68.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kH7-rP-WNa">
                                     <size key="itemSize" width="128" height="128"/>
@@ -54,7 +55,7 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Dzu-vQ-raB">
-                                <rect key="frame" x="0.0" y="122" width="300" height="128"/>
+                                <rect key="frame" x="0.0" y="118.5" width="300" height="121.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OWa-zb-8SS">
                                     <size key="itemSize" width="280" height="150"/>
@@ -65,7 +66,7 @@
                             </collectionView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="250" id="COI-C1-HMD"/>
+                            <constraint firstAttribute="height" constant="240" id="LEV-pF-bP3"/>
                         </constraints>
                     </stackView>
                 </subviews>
@@ -73,7 +74,7 @@
                     <constraint firstItem="q3G-Vu-PNs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2kM-y9-Ucc"/>
                     <constraint firstAttribute="bottom" secondItem="q3G-Vu-PNs" secondAttribute="bottom" id="Aaa-Rt-ro0"/>
                     <constraint firstAttribute="trailing" secondItem="q3G-Vu-PNs" secondAttribute="trailing" id="BuF-NT-nrq"/>
-                    <constraint firstItem="q3G-Vu-PNs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Kr1-o2-2aP"/>
+                    <constraint firstItem="q3G-Vu-PNs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Kr1-o2-2aP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
