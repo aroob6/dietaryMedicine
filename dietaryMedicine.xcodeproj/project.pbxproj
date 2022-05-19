@@ -14,7 +14,7 @@
 		84F2FEB22833294100AA927B /* SupplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB12833294100AA927B /* SupplementsViewController.swift */; };
 		84F2FEB528332A4C00AA927B /* PlusHashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB328332A4C00AA927B /* PlusHashTagCollectionViewCell.swift */; };
 		84F2FEB628332A4C00AA927B /* PlusHashTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2FEB428332A4C00AA927B /* PlusHashTagCollectionViewCell.xib */; };
-		84F2FEB828335DE400AA927B /* DetailFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB728335DE400AA927B /* DetailFoodViewController.swift */; };
+		84F2FEB828335DE400AA927B /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */; };
 		9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC528313B2E001960FF /* AppDelegate.swift */; };
 		9A4C3EC828313B2E001960FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC728313B2E001960FF /* SceneDelegate.swift */; };
 		9A4C3ECA28313B2E001960FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC928313B2E001960FF /* LoginViewController.swift */; };
@@ -47,7 +47,7 @@
 		84F2FEB12833294100AA927B /* SupplementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementsViewController.swift; sourceTree = "<group>"; };
 		84F2FEB328332A4C00AA927B /* PlusHashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusHashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		84F2FEB428332A4C00AA927B /* PlusHashTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlusHashTagCollectionViewCell.xib; sourceTree = "<group>"; };
-		84F2FEB728335DE400AA927B /* DetailFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFoodViewController.swift; sourceTree = "<group>"; };
+		84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		9A4C3EC228313B2E001960FF /* dietaryMedicine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dietaryMedicine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4C3EC528313B2E001960FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A4C3EC728313B2E001960FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				9A4C3EFA283243BC001960FF /* ProductListViewController.swift */,
 				84F2FEAF283327ED00AA927B /* FoodViewController.swift */,
 				84F2FEB12833294100AA927B /* SupplementsViewController.swift */,
-				84F2FEB728335DE400AA927B /* DetailFoodViewController.swift */,
+				84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */,
 			);
 			path = FoodUnionSupplements;
 			sourceTree = "<group>";
@@ -364,7 +364,7 @@
 				9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */,
 				84F2FEB0283327ED00AA927B /* FoodViewController.swift in Sources */,
 				9A4C3EE4283213C0001960FF /* FoodUnionSupplementsTableViewCell.swift in Sources */,
-				84F2FEB828335DE400AA927B /* DetailFoodViewController.swift in Sources */,
+				84F2FEB828335DE400AA927B /* ItemDetailViewController.swift in Sources */,
 				9A4C3EFD28324510001960FF /* CustomTabBarCell.swift in Sources */,
 				9A4C3EDF2831469B001960FF /* MainViewController.swift in Sources */,
 				9A4C3EFB283243BC001960FF /* ProductListViewController.swift in Sources */,

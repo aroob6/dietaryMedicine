@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class DetailFoodViewController: UIViewController {
+class ItemDetailViewController: UIViewController {
     private var stackView: UIStackView = {
         let view = UIStackView()
         view.backgroundColor = .clear

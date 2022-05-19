@@ -9,6 +9,11 @@ import UIKit
 
 class PlusTableViewCell: UITableViewCell {
     public static let identifier = "PlusTableViewCell"
+    
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var price: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

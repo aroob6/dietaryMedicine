@@ -58,7 +58,7 @@ extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DetailFoodViewController()
+        let vc = ItemDetailViewController()
         self.navigationController?.pushViewController(vc, animated: false)
     }
 }
