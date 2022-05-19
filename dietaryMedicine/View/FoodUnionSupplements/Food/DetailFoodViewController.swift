@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailFoodViewController: UIViewController {
+    public static let identifier = "DetailFoodViewController"
 
     override func viewDidLoad() {
         super.viewDidLoad()

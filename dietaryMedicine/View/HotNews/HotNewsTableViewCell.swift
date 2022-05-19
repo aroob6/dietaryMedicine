@@ -8,7 +8,8 @@
 import UIKit
 
 class HotNewsTableViewCell: UITableViewCell {
-
+    public static let identifier = "HotNewsTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

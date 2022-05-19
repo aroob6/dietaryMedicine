@@ -8,6 +8,7 @@
 import UIKit
 
 class FoodTableViewCell: UITableViewCell {
+    public static let identifier = "FoodTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

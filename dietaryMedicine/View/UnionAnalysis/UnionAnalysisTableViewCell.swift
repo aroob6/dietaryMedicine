@@ -8,6 +8,7 @@
 import UIKit
 
 class UnionAnalysisTableViewCell: UITableViewCell {
+    public static let identifier = "UnionAnalysisTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

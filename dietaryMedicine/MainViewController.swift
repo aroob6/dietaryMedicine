@@ -10,26 +10,29 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var mainTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setTableView()
+        registerXib()
     }
     private func setTableView () {
         mainTableView.delegate = self
         mainTableView.dataSource = self
         mainTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        
-        registerXib()
     }
     private func registerXib() {
-        let foodUnionSupplementsNibName = UINib(nibName: "FoodUnionSupplementsTableViewCell", bundle: nil)
-        let unionAnalysisNibName = UINib(nibName: "UnionAnalysisTableViewCell", bundle: nil)
-        let hotNewsNibName = UINib(nibName: "HotNewsTableViewCell", bundle: nil)
-        
-        mainTableView.register(foodUnionSupplementsNibName, forCellReuseIdentifier: "FoodUnionSupplementsTableViewCell")
-        mainTableView.register(unionAnalysisNibName, forCellReuseIdentifier: "UnionAnalysisTableViewCell")
-        mainTableView.register(hotNewsNibName, forCellReuseIdentifier: "HotNewsTableViewCell")
+
+        mainTableView.register(
+            UINib(nibName: FoodUnionSupplementsTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: FoodUnionSupplementsTableViewCell.identifier)
+        mainTableView.register(
+            UINib(nibName: UnionAnalysisTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: UnionAnalysisTableViewCell.identifier)
+        mainTableView.register(
+            UINib(nibName: HotNewsTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: HotNewsTableViewCell.identifier)
     }
 }
 
@@ -37,9 +40,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -49,18 +54,32 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
         switch section {
         case 0:
-            let foodUnionSupplementsCell = tableView.dequeueReusableCell(withIdentifier: "FoodUnionSupplementsTableViewCell", for: indexPath) as! FoodUnionSupplementsTableViewCell
-            foodUnionSupplementsCell.viewController = self
-            return foodUnionSupplementsCell
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: FoodUnionSupplementsTableViewCell.identifier,
+                for: indexPath
+            ) as? FoodUnionSupplementsTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.viewController = self
+            return cell
         case 1:
-            let unionAnalysisCell = tableView.dequeueReusableCell(withIdentifier: "UnionAnalysisTableViewCell", for: indexPath)
-            return unionAnalysisCell
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: UnionAnalysisTableViewCell.identifier,
+                for: indexPath
+            ) as? UnionAnalysisTableViewCell else {
+                return UITableViewCell()
+            }
+            return cell
         case 2:
-            let hotNewsCell = tableView.dequeueReusableCell(withIdentifier: "HotNewsTableViewCell", for: indexPath)
-            return hotNewsCell
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: HotNewsTableViewCell.identifier,
+                for: indexPath
+            ) as? HotNewsTableViewCell else {
+                return UITableViewCell()
+            }
+            return cell
         default:
-            let foodUnionSupplementsCell = tableView.dequeueReusableCell(withIdentifier: "FoodUnionSupplementsTableViewCell", for: indexPath)
-            return foodUnionSupplementsCell
+            return UITableViewCell()
         }
     }
     

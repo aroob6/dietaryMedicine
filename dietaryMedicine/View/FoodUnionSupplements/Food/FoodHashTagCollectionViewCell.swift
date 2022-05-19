@@ -8,6 +8,8 @@
 import UIKit
 
 class FoodHashTagCollectionViewCell: UICollectionViewCell {
+    public static let identifier = "FoodHashTagCollectionViewCell"
+    
     @IBOutlet var title: UILabel!
     @IBOutlet var view: UIView!
     

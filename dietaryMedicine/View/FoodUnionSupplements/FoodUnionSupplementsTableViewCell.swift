@@ -8,6 +8,7 @@
 import UIKit
 
 class FoodUnionSupplementsTableViewCell: UITableViewCell {
+    public static let identifier = "FoodUnionSupplementsTableViewCell"
 
     @IBOutlet weak var addCollectionView: UICollectionView!
     weak var viewController: UIViewController?
