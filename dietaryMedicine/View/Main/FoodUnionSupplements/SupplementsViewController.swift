@@ -31,12 +31,13 @@ class SupplementsViewController: UIViewController {
     
     private func registerXib() {
         tableView.register(
-            UINib(nibName: FoodTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: FoodTableViewCell.identifier)
+            UINib(nibName: PlusTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: PlusTableViewCell.identifier)
         
         collectionView.register(
-            UINib(nibName: FoodHashTagCollectionViewCell.identifier, bundle: nil),
-            forCellWithReuseIdentifier: FoodHashTagCollectionViewCell.identifier)
+            UINib(nibName: PlusHashTagCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: PlusHashTagCollectionViewCell.identifier
+        )
     }
 }
 
@@ -47,9 +48,9 @@ extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: FoodTableViewCell.identifier,
+            withIdentifier: PlusTableViewCell.identifier,
             for: indexPath
-        ) as? FoodTableViewCell else {
+        ) as? PlusTableViewCell else {
                 return UITableViewCell()
         }
         cell.selectionStyle = .none
@@ -57,11 +58,8 @@ extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // DetailFoodViewController
-        let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
-        let detailFoodVC = storyboard.instantiateViewController(withIdentifier: "DetailFoodViewController") as! DetailFoodViewController
-        
-        self.navigationController?.pushViewController(detailFoodVC, animated: false)
+        let vc = DetailFoodViewController()
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 }
 
@@ -72,11 +70,10 @@ extension SupplementsViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: FoodHashTagCollectionViewCell.identifier,
-            for: indexPath
-        ) as? FoodHashTagCollectionViewCell else {
+            withReuseIdentifier: PlusHashTagCollectionViewCell.identifier,
+            for: indexPath) as? PlusHashTagCollectionViewCell else {
                 return UICollectionViewCell()
-        }
+            }
         cell.deSelectItem()
         return cell
     }

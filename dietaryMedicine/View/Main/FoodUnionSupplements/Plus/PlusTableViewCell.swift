@@ -7,8 +7,8 @@
 
 import UIKit
 
-class FoodTableViewCell: UITableViewCell {
-    public static let identifier = "FoodTableViewCell"
+class PlusTableViewCell: UITableViewCell {
+    public static let identifier = "PlusTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
