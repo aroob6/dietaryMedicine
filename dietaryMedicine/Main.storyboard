@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -29,11 +30,11 @@
             </objects>
             <point key="canvasLocation" x="-691" y="-275"/>
         </scene>
-        <!--Main-->
+        <!--Navigation Controller-->
         <scene sceneID="bBB-Rr-nHu">
             <objects>
                 <navigationController id="1tc-an-ZVF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Main" id="HQw-LW-RGy"/>
+                    <tabBarItem key="tabBarItem" title="" id="HQw-LW-RGy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9vX-84-1Rn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -87,11 +88,11 @@
             </objects>
             <point key="canvasLocation" x="-1665" y="1302"/>
         </scene>
-        <!--Article-->
+        <!--Navigation Controller-->
         <scene sceneID="R10-u3-D6v">
             <objects>
                 <navigationController id="Mnt-Jb-Gu7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Article" id="YM7-ec-Rqh"/>
+                    <tabBarItem key="tabBarItem" title="" id="YM7-ec-Rqh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WIR-ja-Clu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -104,11 +105,11 @@
             </objects>
             <point key="canvasLocation" x="-691" y="589"/>
         </scene>
-        <!--Setting-->
+        <!--Navigation Controller-->
         <scene sceneID="ppA-SE-ngE">
             <objects>
                 <navigationController id="eus-g8-Kll" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" id="GeF-EY-fYO"/>
+                    <tabBarItem key="tabBarItem" title="" id="GeF-EY-fYO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BAW-aj-yLJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

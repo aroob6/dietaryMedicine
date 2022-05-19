@@ -14,12 +14,7 @@ class CustomTabBarCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         willSet {
-            if newValue {
-                selectTabItem()
-            }
-            else{
-                deselectTabItem()
-            }
+            newValue ? selectTabItem() : deselectTabItem()
         }
     }
     

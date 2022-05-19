@@ -9,21 +9,37 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    let tabBartitle = ["Main", "Article", "Setting"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setTabBarItem()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setTabBarItem() {
+//        let tabMainItem = UITabBarItem(
+//            title: "Main", image: nil, tag: 0
+//        )
+//
+//        let tabArticleItem = UITabBarItem(
+//            title: "Article", image: nil, tag: 1
+//        )
+//
+//        let tabSettingItem = UITabBarItem(
+//            title: "Setting", image: nil, tag: 2
+//        )
+//
+//
+//
+//        self.viewControllers = [
+//        ]
+        
+        guard let items = tabBar.items else { return }
+        items[0].title = tabBartitle[0]
+        items[1].title = tabBartitle[1]
+        items[2].title = tabBartitle[2]
     }
-    */
 
 }
