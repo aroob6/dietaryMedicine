@@ -7,8 +7,8 @@
 
 import UIKit
 
-class PlusHashTagCollectionViewCell: UICollectionViewCell {
-    public static let identifier = "PlusHashTagCollectionViewCell"
+class AddHashTagCollectionViewCell: UICollectionViewCell {
+    public static let identifier = "AddHashTagCollectionViewCell"
     
     @IBOutlet var title: UILabel!
     @IBOutlet var view: UIView!

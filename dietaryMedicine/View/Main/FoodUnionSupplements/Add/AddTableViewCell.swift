@@ -7,8 +7,8 @@
 
 import UIKit
 
-class PlusTableViewCell: UITableViewCell {
-    public static let identifier = "PlusTableViewCell"
+class AddTableViewCell: UITableViewCell {
+    public static let identifier = "AddTableViewCell"
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var name: UILabel!

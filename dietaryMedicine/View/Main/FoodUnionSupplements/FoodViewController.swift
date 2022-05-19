@@ -25,12 +25,12 @@ class FoodViewController: UIViewController {
     }
     private func registerXib() {
         tableView.register(
-            UINib(nibName: PlusTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: PlusTableViewCell.identifier)
+            UINib(nibName: AddTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: AddTableViewCell.identifier)
         
         collectionView.register(
-            UINib(nibName: PlusHashTagCollectionViewCell.identifier, bundle: nil),
-            forCellWithReuseIdentifier: PlusHashTagCollectionViewCell.identifier
+            UINib(nibName: AddHashTagCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: AddHashTagCollectionViewCell.identifier
         )
     }
 }
@@ -42,9 +42,9 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: PlusTableViewCell.identifier,
+            withIdentifier: AddTableViewCell.identifier,
             for: indexPath
-        ) as? PlusTableViewCell else {
+        ) as? AddTableViewCell else {
                 return UITableViewCell()
         }
         cell.selectionStyle = .none
@@ -63,8 +63,8 @@ extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PlusHashTagCollectionViewCell.identifier,
-            for: indexPath) as? PlusHashTagCollectionViewCell else {
+            withReuseIdentifier: AddHashTagCollectionViewCell.identifier,
+            for: indexPath) as? AddHashTagCollectionViewCell else {
                 return UICollectionViewCell()
             }
         cell.deSelectItem()
