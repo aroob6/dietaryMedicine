@@ -12,21 +12,18 @@ class HashTagCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var title: UILabel!
     @IBOutlet var view: UIView!
+
     
     override var isSelected: Bool {
         willSet {
-            if newValue {
-                selectItem()
-            }
-            else{
-                deSelectItem()
-            }
+            newValue ? selectItem() : deSelectItem()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        isSelected = false
         view.layer.cornerRadius = view.frame.height / 2
     }
     

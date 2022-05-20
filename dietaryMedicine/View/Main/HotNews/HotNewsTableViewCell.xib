@@ -46,10 +46,10 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="O7y-oY-eyC">
-                                <rect key="frame" x="0.0" y="45" width="300" height="60"/>
+                                <rect key="frame" x="0.0" y="45" width="300" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="iFh-9w-PL7"/>
+                                    <constraint firstAttribute="height" constant="40" id="iFh-9w-PL7"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kH7-rP-WNa">
                                     <size key="itemSize" width="100" height="40"/>
@@ -59,10 +59,10 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Dzu-vQ-raB">
-                                <rect key="frame" x="0.0" y="105" width="300" height="185"/>
+                                <rect key="frame" x="0.0" y="85" width="300" height="205"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="185" id="Beu-sv-hHq"/>
+                                    <constraint firstAttribute="height" constant="205" id="tbm-ZA-4tp"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OWa-zb-8SS">
                                     <size key="itemSize" width="280" height="170"/>

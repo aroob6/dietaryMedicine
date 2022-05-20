@@ -9,12 +9,19 @@ import UIKit
 
 class NewsCollectionViewCell: UICollectionViewCell {
     public static let identifier = "NewsCollectionViewCell"
-
-    @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var view: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setUpView()
     }
 
+    private func setUpView() {
+        view.layer.cornerRadius = 8
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.masksToBounds = false
+    }
 }

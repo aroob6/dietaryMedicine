@@ -63,7 +63,7 @@ extension HotNewsTableViewCell: UICollectionViewDataSource {
                 for: indexPath) as? HashTagCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.deSelectItem()
+//            cell.deSelectItem()
             return cell
         case newsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(

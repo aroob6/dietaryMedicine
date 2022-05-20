@@ -76,11 +76,21 @@ extension TabBarPageViewController: UICollectionViewDelegate, UICollectionViewDa
             for: indexPath) as? HashTagCollectionViewCell else {
                 return UICollectionViewCell()
             }
-        cell.deSelectItem()
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("## \(indexPath)")
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: HashTagCollectionViewCell.identifier,
+            for: indexPath) as? HashTagCollectionViewCell else {
+                return true
+            }
+        
+        if cell.isSelected {
+            collectionView.deselectItem(at: indexPath, animated: false)
+            return false
+        } else {
+            return true
+        }
     }
 }
