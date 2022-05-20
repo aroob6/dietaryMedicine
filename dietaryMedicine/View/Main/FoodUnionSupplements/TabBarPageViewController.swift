@@ -1,17 +1,18 @@
 //
-//  SupplementsViewController.swift
+//  TabBarPageViewController.swift
 //  dietaryMedicine
 //
-//  Created by bora on 2022/05/17.
+//  Created by bora on 2022/05/20.
 //
 
 import UIKit
 
-class SupplementsViewController: UIViewController {
+class TabBarPageViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
@@ -22,6 +23,7 @@ class SupplementsViewController: UIViewController {
     private func setTableView () {
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
     
     private func setCollectionView () {
@@ -35,13 +37,13 @@ class SupplementsViewController: UIViewController {
             forCellReuseIdentifier: AddTableViewCell.identifier)
         
         collectionView.register(
-            UINib(nibName: AddHashTagCollectionViewCell.identifier, bundle: nil),
-            forCellWithReuseIdentifier: AddHashTagCollectionViewCell.identifier
+            UINib(nibName: HashTagCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: HashTagCollectionViewCell.identifier
         )
     }
 }
 
-extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource {
+extension TabBarPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
@@ -51,7 +53,7 @@ extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource 
             withIdentifier: AddTableViewCell.identifier,
             for: indexPath
         ) as? AddTableViewCell else {
-                return UITableViewCell()
+            return UITableViewCell()
         }
         cell.selectionStyle = .none
         return cell
@@ -63,15 +65,15 @@ extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-extension SupplementsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TabBarPageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: AddHashTagCollectionViewCell.identifier,
-            for: indexPath) as? AddHashTagCollectionViewCell else {
+            withReuseIdentifier: HashTagCollectionViewCell.identifier,
+            for: indexPath) as? HashTagCollectionViewCell else {
                 return UICollectionViewCell()
             }
         cell.deSelectItem()

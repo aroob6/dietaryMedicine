@@ -31,8 +31,10 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
         registerXib()
     }
     private func registerXib() {
-        let addCollectionViewNibName = UINib(nibName: "AddCollectionViewCell", bundle: nil)
-        addCollectionView.register(addCollectionViewNibName, forCellWithReuseIdentifier: "AddCollectionViewCell")
+        addCollectionView.register(
+            UINib(nibName: AddCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: AddCollectionViewCell.identifier
+        )
     }
     
 }
@@ -42,14 +44,19 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let addCell = addCollectionView.dequeueReusableCell(withReuseIdentifier: "AddCollectionViewCell", for: indexPath) as! AddCollectionViewCell
+        guard let addCell = addCollectionView.dequeueReusableCell(
+            withReuseIdentifier: AddCollectionViewCell.identifier,
+            for: indexPath
+        ) as? AddCollectionViewCell else {
+            return UICollectionViewCell()
+            
+        }
         return addCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
-        let productListVC = storyboard.instantiateViewController(withIdentifier: "ProductListViewController") as! ProductListViewController
-        viewController?.navigationController?.pushViewController(productListVC, animated: false)
+        let vc = FoodSupplementsListViewController()
+        viewController?.navigationController?.pushViewController(vc, animated: false)
     }
     
 }

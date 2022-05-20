@@ -7,8 +7,8 @@
 
 import UIKit
 
-class AddHashTagCollectionViewCell: UICollectionViewCell {
-    public static let identifier = "AddHashTagCollectionViewCell"
+class HashTagCollectionViewCell: UICollectionViewCell {
+    public static let identifier = "HashTagCollectionViewCell"
     
     @IBOutlet var title: UILabel!
     @IBOutlet var view: UIView!
@@ -26,7 +26,6 @@ class AddHashTagCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         view.layer.cornerRadius = view.frame.height / 2
     }

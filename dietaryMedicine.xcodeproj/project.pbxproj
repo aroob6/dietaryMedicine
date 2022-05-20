@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		46DA1F5EC6ABEF7747217A94 /* Pods_dietaryMedicine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 236BFF1A4EB20C3659E90B47 /* Pods_dietaryMedicine.framework */; };
+		842BFAF9283713EE00BC6B21 /* FoodSupplementsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFAF7283713EE00BC6B21 /* FoodSupplementsListViewController.swift */; };
+		842BFAFA283713EE00BC6B21 /* FoodSupplementsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842BFAF8283713EE00BC6B21 /* FoodSupplementsListViewController.xib */; };
+		842BFAFC2837159C00BC6B21 /* TabBarHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFAFB2837159C00BC6B21 /* TabBarHeaderCell.swift */; };
+		842BFB002837223600BC6B21 /* TabBarPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFAFE2837223600BC6B21 /* TabBarPageViewController.swift */; };
+		842BFB012837223600BC6B21 /* TabBarPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842BFAFF2837223600BC6B21 /* TabBarPageViewController.xib */; };
+		842BFB042837561B00BC6B21 /* AnalysisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB022837561B00BC6B21 /* AnalysisTableViewCell.swift */; };
+		842BFB052837561B00BC6B21 /* AnalysisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842BFB032837561B00BC6B21 /* AnalysisTableViewCell.xib */; };
+		842BFB082837699300BC6B21 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB062837699300BC6B21 /* NewsCollectionViewCell.swift */; };
+		842BFB092837699300BC6B21 /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842BFB072837699300BC6B21 /* NewsCollectionViewCell.xib */; };
+		8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */; };
 		84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */; };
 		84F2FEAE2833261B00AA927B /* AddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2FEAC2833261B00AA927B /* AddTableViewCell.xib */; };
-		84F2FEB0283327ED00AA927B /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEAF283327ED00AA927B /* FoodViewController.swift */; };
-		84F2FEB22833294100AA927B /* SupplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB12833294100AA927B /* SupplementsViewController.swift */; };
-		84F2FEB528332A4C00AA927B /* AddHashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB328332A4C00AA927B /* AddHashTagCollectionViewCell.swift */; };
-		84F2FEB628332A4C00AA927B /* AddHashTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2FEB428332A4C00AA927B /* AddHashTagCollectionViewCell.xib */; };
+		84F2FEB528332A4C00AA927B /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB328332A4C00AA927B /* HashTagCollectionViewCell.swift */; };
 		84F2FEB828335DE400AA927B /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */; };
 		9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC528313B2E001960FF /* AppDelegate.swift */; };
 		9A4C3EC828313B2E001960FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC728313B2E001960FF /* SceneDelegate.swift */; };
@@ -32,21 +39,25 @@
 		9A4C3EED28321DD1001960FF /* HotNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EEB28321DD1001960FF /* HotNewsTableViewCell.xib */; };
 		9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */; };
 		9A4C3EF428322082001960FF /* AddCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */; };
-		9A4C3EF6283230F0001960FF /* FoodUnionSupplements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF5283230F0001960FF /* FoodUnionSupplements.storyboard */; };
 		9A4C3EF928324113001960FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF828324113001960FF /* UIColor.swift */; };
-		9A4C3EFB283243BC001960FF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EFA283243BC001960FF /* ProductListViewController.swift */; };
-		9A4C3EFD28324510001960FF /* CustomTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EFC28324510001960FF /* CustomTabBarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		236BFF1A4EB20C3659E90B47 /* Pods_dietaryMedicine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dietaryMedicine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8778B6256CBDCC52975E3A /* Pods-dietaryMedicine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.release.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.release.xcconfig"; sourceTree = "<group>"; };
+		842BFAF7283713EE00BC6B21 /* FoodSupplementsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSupplementsListViewController.swift; sourceTree = "<group>"; };
+		842BFAF8283713EE00BC6B21 /* FoodSupplementsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodSupplementsListViewController.xib; sourceTree = "<group>"; };
+		842BFAFB2837159C00BC6B21 /* TabBarHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarHeaderCell.swift; sourceTree = "<group>"; };
+		842BFAFE2837223600BC6B21 /* TabBarPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPageViewController.swift; sourceTree = "<group>"; };
+		842BFAFF2837223600BC6B21 /* TabBarPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarPageViewController.xib; sourceTree = "<group>"; };
+		842BFB022837561B00BC6B21 /* AnalysisTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisTableViewCell.swift; sourceTree = "<group>"; };
+		842BFB032837561B00BC6B21 /* AnalysisTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnalysisTableViewCell.xib; sourceTree = "<group>"; };
+		842BFB062837699300BC6B21 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		842BFB072837699300BC6B21 /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
+		8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HashTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		84F2FEAC2833261B00AA927B /* AddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTableViewCell.xib; sourceTree = "<group>"; };
-		84F2FEAF283327ED00AA927B /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
-		84F2FEB12833294100AA927B /* SupplementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementsViewController.swift; sourceTree = "<group>"; };
-		84F2FEB328332A4C00AA927B /* AddHashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHashTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		84F2FEB428332A4C00AA927B /* AddHashTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddHashTagCollectionViewCell.xib; sourceTree = "<group>"; };
+		84F2FEB328332A4C00AA927B /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		9A4C3EC228313B2E001960FF /* dietaryMedicine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dietaryMedicine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4C3EC528313B2E001960FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,10 +78,7 @@
 		9A4C3EEB28321DD1001960FF /* HotNewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotNewsTableViewCell.xib; sourceTree = "<group>"; };
 		9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollectionViewCell.swift; sourceTree = "<group>"; };
 		9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCollectionViewCell.xib; sourceTree = "<group>"; };
-		9A4C3EF5283230F0001960FF /* FoodUnionSupplements.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodUnionSupplements.storyboard; sourceTree = "<group>"; };
 		9A4C3EF828324113001960FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		9A4C3EFA283243BC001960FF /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
-		9A4C3EFC28324510001960FF /* CustomTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarCell.swift; sourceTree = "<group>"; };
 		B5D6626179DC6AFC862A1D3D /* Pods-dietaryMedicine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.debug.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +114,8 @@
 		8446636A2835E3840085E2D7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				84F2FEB328332A4C00AA927B /* HashTagCollectionViewCell.swift */,
+				8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */,
 				9A4C3EEE2832202C001960FF /* FoodUnionSupplements */,
 				9A4C3EEF28322039001960FF /* UnionAnalysis */,
 				9A4C3EF028322043001960FF /* HotNews */,
@@ -118,8 +128,6 @@
 			children = (
 				84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */,
 				84F2FEAC2833261B00AA927B /* AddTableViewCell.xib */,
-				84F2FEB328332A4C00AA927B /* AddHashTagCollectionViewCell.swift */,
-				84F2FEB428332A4C00AA927B /* AddHashTagCollectionViewCell.xib */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -193,11 +201,11 @@
 				9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */,
 				9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */,
 				84F2FEAA283325F100AA927B /* Add */,
-				9A4C3EF5283230F0001960FF /* FoodUnionSupplements.storyboard */,
-				9A4C3EFC28324510001960FF /* CustomTabBarCell.swift */,
-				9A4C3EFA283243BC001960FF /* ProductListViewController.swift */,
-				84F2FEAF283327ED00AA927B /* FoodViewController.swift */,
-				84F2FEB12833294100AA927B /* SupplementsViewController.swift */,
+				842BFAF7283713EE00BC6B21 /* FoodSupplementsListViewController.swift */,
+				842BFAF8283713EE00BC6B21 /* FoodSupplementsListViewController.xib */,
+				842BFAFB2837159C00BC6B21 /* TabBarHeaderCell.swift */,
+				842BFAFE2837223600BC6B21 /* TabBarPageViewController.swift */,
+				842BFAFF2837223600BC6B21 /* TabBarPageViewController.xib */,
 				84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */,
 			);
 			path = FoodUnionSupplements;
@@ -208,6 +216,8 @@
 			children = (
 				9A4C3EE6283219BB001960FF /* UnionAnalysisTableViewCell.swift */,
 				9A4C3EE7283219BB001960FF /* UnionAnalysisTableViewCell.xib */,
+				842BFB022837561B00BC6B21 /* AnalysisTableViewCell.swift */,
+				842BFB032837561B00BC6B21 /* AnalysisTableViewCell.xib */,
 			);
 			path = UnionAnalysis;
 			sourceTree = "<group>";
@@ -217,6 +227,8 @@
 			children = (
 				9A4C3EEA28321DD1001960FF /* HotNewsTableViewCell.swift */,
 				9A4C3EEB28321DD1001960FF /* HotNewsTableViewCell.xib */,
+				842BFB062837699300BC6B21 /* NewsCollectionViewCell.swift */,
+				842BFB072837699300BC6B21 /* NewsCollectionViewCell.xib */,
 			);
 			path = HotNews;
 			sourceTree = "<group>";
@@ -293,12 +305,15 @@
 				9A4C3ED228313B30001960FF /* LaunchScreen.storyboard in Resources */,
 				9A4C3EF428322082001960FF /* AddCollectionViewCell.xib in Resources */,
 				9A4C3ECF28313B30001960FF /* Assets.xcassets in Resources */,
-				9A4C3EF6283230F0001960FF /* FoodUnionSupplements.storyboard in Resources */,
-				84F2FEB628332A4C00AA927B /* AddHashTagCollectionViewCell.xib in Resources */,
+				842BFAFA283713EE00BC6B21 /* FoodSupplementsListViewController.xib in Resources */,
 				9A4C3ECD28313B2E001960FF /* Login.storyboard in Resources */,
 				9A4C3EE5283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib in Resources */,
+				842BFB092837699300BC6B21 /* NewsCollectionViewCell.xib in Resources */,
 				84F2FEAE2833261B00AA927B /* AddTableViewCell.xib in Resources */,
 				9A4C3EDA28314447001960FF /* Main.storyboard in Resources */,
+				8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */,
+				842BFB012837223600BC6B21 /* TabBarPageViewController.xib in Resources */,
+				842BFB052837561B00BC6B21 /* AnalysisTableViewCell.xib in Resources */,
 				9A4C3EE9283219BB001960FF /* UnionAnalysisTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,19 +370,20 @@
 				9A4C3EEC28321DD1001960FF /* HotNewsTableViewCell.swift in Sources */,
 				9A4C3ECA28313B2E001960FF /* LoginViewController.swift in Sources */,
 				9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */,
+				842BFAF9283713EE00BC6B21 /* FoodSupplementsListViewController.swift in Sources */,
 				84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */,
 				9A4C3EE8283219BB001960FF /* UnionAnalysisTableViewCell.swift in Sources */,
-				84F2FEB528332A4C00AA927B /* AddHashTagCollectionViewCell.swift in Sources */,
+				842BFB042837561B00BC6B21 /* AnalysisTableViewCell.swift in Sources */,
+				842BFB082837699300BC6B21 /* NewsCollectionViewCell.swift in Sources */,
+				842BFAFC2837159C00BC6B21 /* TabBarHeaderCell.swift in Sources */,
+				84F2FEB528332A4C00AA927B /* HashTagCollectionViewCell.swift in Sources */,
 				9A4C3EE128314907001960FF /* MainTabBarController.swift in Sources */,
-				84F2FEB22833294100AA927B /* SupplementsViewController.swift in Sources */,
 				9A4C3EC828313B2E001960FF /* SceneDelegate.swift in Sources */,
 				9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */,
-				84F2FEB0283327ED00AA927B /* FoodViewController.swift in Sources */,
+				842BFB002837223600BC6B21 /* TabBarPageViewController.swift in Sources */,
 				9A4C3EE4283213C0001960FF /* FoodUnionSupplementsTableViewCell.swift in Sources */,
 				84F2FEB828335DE400AA927B /* ItemDetailViewController.swift in Sources */,
-				9A4C3EFD28324510001960FF /* CustomTabBarCell.swift in Sources */,
 				9A4C3EDF2831469B001960FF /* MainViewController.swift in Sources */,
-				9A4C3EFB283243BC001960FF /* ProductListViewController.swift in Sources */,
 				9A4C3EF928324113001960FF /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

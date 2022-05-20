@@ -8,9 +8,10 @@
 import UIKit
 
 class AddCollectionViewCell: UICollectionViewCell {
+    public static let identifier = "AddCollectionViewCell"
+    
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var addImage: UIImageView!
-//    weak var viewController: UIViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
