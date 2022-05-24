@@ -10,9 +10,11 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet weak var name: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        name.text = UserDefaultsManager.email
 
         setTableView()
         registerXib()

@@ -7,25 +7,92 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import Resolver
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var pwTextField: UITextField!
+    
+    @Injected private var loginViewModel: LoginViewModel
+    
+    // id, pw
+    private var idText: String = ""
+    private var pwText: String = ""
 
+    //RxSwift
+    @Injected private var disposeBag : DisposeBag
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        idTextField.text = "test@naver.com"
+        pwTextField.text = "test"
         
         setUpButton()
+        bindLogin()
     }
     
-    func setUpButton() {
-        loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
+    private func setUpButton() {
+        loginButton.rx.tap.bind { [weak self] in
+            self?.loginAction()
+        }.disposed(by: disposeBag)
+    }
+    
+    private func requestLogin() {
+        let parameters: [String: String] = [
+            "email": idText,
+            "password": pwText
+        ]
+        
+        loginViewModel.fetch(parameters: parameters)
+    }
+    
+    private func bindLogin() {
+        loginViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
+            .drive { result in
+                switch result {
+                case .success(let loginData):
+                    if !loginData.token.isEmpty {
+                        self.requestLoginSuccess(loginData)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func requestLoginSuccess(_ result: Login) {
+        print("✅: LOGIN NET SUCCESS")
+        
+        UserDefaultsManager.token = result.token
+        UserDefaultsManager.email = result.email
+        moveMainView()
     }
 
     @objc func loginAction() {
+        guard let idText = idTextField.text, !idText.isEmpty else {
+            let msg = "아이디를 입력하세요"
+            UtilFunction.showMessage(msg: msg, vc: self)
+            return
+        }
+        guard let pwText = pwTextField.text, !pwText.isEmpty else {
+            let msg = "비밀번호를 입력하세요"
+            UtilFunction.showMessage(msg: msg, vc: self)
+            return
+        }
+        self.idText = idText
+        self.pwText = pwText
+        
+        requestLogin()
+    }
+    
+    func moveMainView() {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let main = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
         main.modalPresentationStyle = .fullScreen
+
         self.present(main, animated: false)
     }
 }

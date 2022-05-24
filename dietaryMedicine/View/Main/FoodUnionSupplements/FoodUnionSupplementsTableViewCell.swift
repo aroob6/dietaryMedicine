@@ -55,8 +55,14 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = FoodSupplementsListViewController()
+//        let vc = FoodSupplementsListViewController()
+//        viewController?.navigationController?.pushViewController(vc, animated: false)
+        let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ProductListViewController") as! AddListViewController
+//        vc.modalPresentationStyle = .fullScreen
+//        viewController?.present(vc, animated: false)
         viewController?.navigationController?.pushViewController(vc, animated: false)
+    
     }
     
 }

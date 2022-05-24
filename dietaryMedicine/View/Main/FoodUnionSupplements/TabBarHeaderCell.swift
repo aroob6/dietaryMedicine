@@ -1,22 +1,17 @@
 //
-//  FoodSupplementsListHeaderCell.swift
+//  CutomTabBarCell.swift
 //  dietaryMedicine
 //
-//  Created by bora on 2022/05/20.
+//  Created by 이보라 on 2022/05/16.
 //
 
 import UIKit
 
 class TabBarHeaderCell: UICollectionViewCell {
-    
-    public let indicatior = UIView()
-    public let label = UILabel()
-    
-    public var text: String! {
-        didSet {
-            label.text = text
-        }
-    }
+    public static let identifier = "TabBarHeaderCell"
+ 
+    @IBOutlet weak var tabBarTitle: UILabel!
+    @IBOutlet weak var selectLine: UIView!
     
     override var isSelected: Bool {
         willSet {
@@ -24,40 +19,18 @@ class TabBarHeaderCell: UICollectionViewCell {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setFrame()
+    override func prepareForReuse() {
+        isSelected = false
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setFrame(){
-        self.addSubview(indicatior)
-        self.addSubview(label)
-        
-        indicatior.backgroundColor = .mainColor
-        indicatior.snp.makeConstraints { make in
-            make.height.equalTo(5)
-            make.top.trailing.leading.equalToSuperview()
-        }
-        
-        label.textAlignment = .center
-        label.snp.makeConstraints { make in
-            make.top.equalTo(indicatior.snp.bottom)
-            make.trailing.leading.bottom.equalToSuperview()
-        }
-    }
-
     func selectTabItem(){
-        label.textColor = .black
-        indicatior.isHidden = false
+        tabBarTitle.textColor = .black
+        selectLine.backgroundColor = .black
     }
     
     func deselectTabItem(){
-        label.textColor = .lightGray
-        indicatior.isHidden = true
+        tabBarTitle.textColor = .lightGray
+        selectLine.backgroundColor = .mainGray
     }
     
 }

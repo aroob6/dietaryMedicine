@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AddTableViewCell: UITableViewCell {
     public static let identifier = "AddTableViewCell"
@@ -18,12 +19,38 @@ class AddTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(supplementList: SupplementList, indexPath: IndexPath) {
+        let supplementData = supplementList.data[indexPath.row]
+        name.text = supplementData.name
+        content.text = supplementData.content
+        price.text = String(supplementData.price)
+        
+        if supplementData.image != "" {
+            let imgURL = supplementData.image
+            let url = URL(string: imgURL)
+            
+            imgView.kf.setImage(
+                with: url,
+                options: [
+                    .transition(ImageTransition.fade(0.3)),
+                    .keepCurrentImageWhileLoading
+                ]
+            )
+        }
+        else {
+            imageView?.image = nil
+        }
     }
     
 }

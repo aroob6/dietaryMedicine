@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		46DA1F5EC6ABEF7747217A94 /* Pods_dietaryMedicine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 236BFF1A4EB20C3659E90B47 /* Pods_dietaryMedicine.framework */; };
-		842BFAF9283713EE00BC6B21 /* FoodSupplementsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFAF7283713EE00BC6B21 /* FoodSupplementsListViewController.swift */; };
-		842BFAFA283713EE00BC6B21 /* FoodSupplementsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842BFAF8283713EE00BC6B21 /* FoodSupplementsListViewController.xib */; };
-		842BFAFC2837159C00BC6B21 /* TabBarHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFAFB2837159C00BC6B21 /* TabBarHeaderCell.swift */; };
-		842BFB002837223600BC6B21 /* TabBarPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFAFE2837223600BC6B21 /* TabBarPageViewController.swift */; };
-		842BFB012837223600BC6B21 /* TabBarPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842BFAFF2837223600BC6B21 /* TabBarPageViewController.xib */; };
 		842BFB042837561B00BC6B21 /* AnalysisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB022837561B00BC6B21 /* AnalysisTableViewCell.swift */; };
 		842BFB052837561B00BC6B21 /* AnalysisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842BFB032837561B00BC6B21 /* AnalysisTableViewCell.xib */; };
 		842BFB082837699300BC6B21 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB062837699300BC6B21 /* NewsCollectionViewCell.swift */; };
@@ -40,16 +35,28 @@
 		9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */; };
 		9A4C3EF428322082001960FF /* AddCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */; };
 		9A4C3EF928324113001960FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF828324113001960FF /* UIColor.swift */; };
+		9A69F1A42838D0B400FEDED6 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1A12838D0B300FEDED6 /* AddListViewController.swift */; };
+		9A69F1A52838D0B400FEDED6 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1A22838D0B300FEDED6 /* FoodViewController.swift */; };
+		9A69F1A62838D0B400FEDED6 /* SupplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1A02838D0B300FEDED6 /* SupplementsViewController.swift */; };
+		9A69F1A72838D0B400FEDED6 /* TabBarHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1A32838D0B400FEDED6 /* TabBarHeaderCell.swift */; };
+		9A69F1A92838D69900FEDED6 /* FoodUnionSupplements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A69F1A82838D69900FEDED6 /* FoodUnionSupplements.storyboard */; };
+		9A69F1AC2838D89100FEDED6 /* ApiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1AB2838D89100FEDED6 /* ApiUrl.swift */; };
+		9A69F1AE2838EF4900FEDED6 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1AD2838EF4900FEDED6 /* Login.swift */; };
+		9A69F1B02838F04E00FEDED6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1AF2838F04E00FEDED6 /* LoginViewModel.swift */; };
+		9A69F1B32838F3B200FEDED6 /* UtilFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1B22838F3B200FEDED6 /* UtilFunction.swift */; };
+		9A69F1B52838F65700FEDED6 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1B42838F65700FEDED6 /* ViewModelProtocol.swift */; };
+		9A69F1B728393FAE00FEDED6 /* Supplements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1B628393FAE00FEDED6 /* Supplements.swift */; };
+		9A69F1B92839404300FEDED6 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1B82839404300FEDED6 /* UserDefaultsManager.swift */; };
+		9A69F1BB283944F500FEDED6 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1BA283944F500FEDED6 /* Injection.swift */; };
+		9A69F1BD283B2E5900FEDED6 /* SupplementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */; };
+		9A69F1BF283BCEFE00FEDED6 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1BE283BCEFD00FEDED6 /* NetworkingManager.swift */; };
+		9A69F1C1283CC7A300FEDED6 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1C0283CC7A300FEDED6 /* ItemDetailViewModel.swift */; };
+		9A69F1C3283CCA6700FEDED6 /* UnionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1C2283CCA6700FEDED6 /* UnionItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		236BFF1A4EB20C3659E90B47 /* Pods_dietaryMedicine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dietaryMedicine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8778B6256CBDCC52975E3A /* Pods-dietaryMedicine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.release.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.release.xcconfig"; sourceTree = "<group>"; };
-		842BFAF7283713EE00BC6B21 /* FoodSupplementsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSupplementsListViewController.swift; sourceTree = "<group>"; };
-		842BFAF8283713EE00BC6B21 /* FoodSupplementsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodSupplementsListViewController.xib; sourceTree = "<group>"; };
-		842BFAFB2837159C00BC6B21 /* TabBarHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarHeaderCell.swift; sourceTree = "<group>"; };
-		842BFAFE2837223600BC6B21 /* TabBarPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPageViewController.swift; sourceTree = "<group>"; };
-		842BFAFF2837223600BC6B21 /* TabBarPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarPageViewController.xib; sourceTree = "<group>"; };
 		842BFB022837561B00BC6B21 /* AnalysisTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisTableViewCell.swift; sourceTree = "<group>"; };
 		842BFB032837561B00BC6B21 /* AnalysisTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnalysisTableViewCell.xib; sourceTree = "<group>"; };
 		842BFB062837699300BC6B21 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -79,6 +86,23 @@
 		9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollectionViewCell.swift; sourceTree = "<group>"; };
 		9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCollectionViewCell.xib; sourceTree = "<group>"; };
 		9A4C3EF828324113001960FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9A69F1A02838D0B300FEDED6 /* SupplementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementsViewController.swift; sourceTree = "<group>"; };
+		9A69F1A12838D0B300FEDED6 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
+		9A69F1A22838D0B300FEDED6 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		9A69F1A32838D0B400FEDED6 /* TabBarHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarHeaderCell.swift; sourceTree = "<group>"; };
+		9A69F1A82838D69900FEDED6 /* FoodUnionSupplements.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FoodUnionSupplements.storyboard; path = "../../../../../백업/FoodUnionSupplements.storyboard"; sourceTree = "<group>"; };
+		9A69F1AB2838D89100FEDED6 /* ApiUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrl.swift; sourceTree = "<group>"; };
+		9A69F1AD2838EF4900FEDED6 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Login.swift; path = dietaryMedicine/Networking/Login.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1AF2838F04E00FEDED6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = dietaryMedicine/Networking/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1B22838F3B200FEDED6 /* UtilFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunction.swift; sourceTree = "<group>"; };
+		9A69F1B42838F65700FEDED6 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModelProtocol.swift; path = dietaryMedicine/Utility/ViewModelProtocol.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1B628393FAE00FEDED6 /* Supplements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Supplements.swift; path = dietaryMedicine/Utility/Supplements.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1B82839404300FEDED6 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		9A69F1BA283944F500FEDED6 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SupplementsViewModel.swift; path = dietaryMedicine/Utility/SupplementsViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1BE283BCEFD00FEDED6 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		9A69F1C0283CC7A300FEDED6 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDetailViewModel.swift; path = dietaryMedicine/Networking/ItemDetailViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1C2283CCA6700FEDED6 /* UnionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnionItem.swift; path = dietaryMedicine/Networking/UnionItem.swift; sourceTree = SOURCE_ROOT; };
 		B5D6626179DC6AFC862A1D3D /* Pods-dietaryMedicine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.debug.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +177,8 @@
 		9A4C3EC428313B2E001960FF /* dietaryMedicine */ = {
 			isa = PBXGroup;
 			children = (
+				9A69F1B12838F39E00FEDED6 /* Utility */,
+				9A69F1AA2838D85B00FEDED6 /* Networking */,
 				9A4C3EF72832405B001960FF /* Extension */,
 				9A4C3EDD28314661001960FF /* View */,
 				9A4C3EDC28314645001960FF /* ViewModel */,
@@ -174,6 +200,9 @@
 		9A4C3EDB2831463D001960FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9A69F1AD2838EF4900FEDED6 /* Login.swift */,
+				9A69F1B628393FAE00FEDED6 /* Supplements.swift */,
+				9A69F1C2283CCA6700FEDED6 /* UnionItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +210,10 @@
 		9A4C3EDC28314645001960FF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9A69F1B42838F65700FEDED6 /* ViewModelProtocol.swift */,
+				9A69F1AF2838F04E00FEDED6 /* LoginViewModel.swift */,
+				9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */,
+				9A69F1C0283CC7A300FEDED6 /* ItemDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -201,11 +234,11 @@
 				9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */,
 				9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */,
 				84F2FEAA283325F100AA927B /* Add */,
-				842BFAF7283713EE00BC6B21 /* FoodSupplementsListViewController.swift */,
-				842BFAF8283713EE00BC6B21 /* FoodSupplementsListViewController.xib */,
-				842BFAFB2837159C00BC6B21 /* TabBarHeaderCell.swift */,
-				842BFAFE2837223600BC6B21 /* TabBarPageViewController.swift */,
-				842BFAFF2837223600BC6B21 /* TabBarPageViewController.xib */,
+				9A69F1A82838D69900FEDED6 /* FoodUnionSupplements.storyboard */,
+				9A69F1A32838D0B400FEDED6 /* TabBarHeaderCell.swift */,
+				9A69F1A12838D0B300FEDED6 /* AddListViewController.swift */,
+				9A69F1A02838D0B300FEDED6 /* SupplementsViewController.swift */,
+				9A69F1A22838D0B300FEDED6 /* FoodViewController.swift */,
 				84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */,
 			);
 			path = FoodUnionSupplements;
@@ -239,6 +272,25 @@
 				9A4C3EF828324113001960FF /* UIColor.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9A69F1AA2838D85B00FEDED6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9A69F1AB2838D89100FEDED6 /* ApiUrl.swift */,
+				9A69F1BE283BCEFD00FEDED6 /* NetworkingManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9A69F1B12838F39E00FEDED6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9A69F1B22838F3B200FEDED6 /* UtilFunction.swift */,
+				9A69F1B82839404300FEDED6 /* UserDefaultsManager.swift */,
+				9A69F1BA283944F500FEDED6 /* Injection.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,14 +357,13 @@
 				9A4C3ED228313B30001960FF /* LaunchScreen.storyboard in Resources */,
 				9A4C3EF428322082001960FF /* AddCollectionViewCell.xib in Resources */,
 				9A4C3ECF28313B30001960FF /* Assets.xcassets in Resources */,
-				842BFAFA283713EE00BC6B21 /* FoodSupplementsListViewController.xib in Resources */,
 				9A4C3ECD28313B2E001960FF /* Login.storyboard in Resources */,
+				9A69F1A92838D69900FEDED6 /* FoodUnionSupplements.storyboard in Resources */,
 				9A4C3EE5283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib in Resources */,
 				842BFB092837699300BC6B21 /* NewsCollectionViewCell.xib in Resources */,
 				84F2FEAE2833261B00AA927B /* AddTableViewCell.xib in Resources */,
 				9A4C3EDA28314447001960FF /* Main.storyboard in Resources */,
 				8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */,
-				842BFB012837223600BC6B21 /* TabBarPageViewController.xib in Resources */,
 				842BFB052837561B00BC6B21 /* AnalysisTableViewCell.xib in Resources */,
 				9A4C3EE9283219BB001960FF /* UnionAnalysisTableViewCell.xib in Resources */,
 			);
@@ -367,24 +418,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A69F1AE2838EF4900FEDED6 /* Login.swift in Sources */,
+				9A69F1A52838D0B400FEDED6 /* FoodViewController.swift in Sources */,
+				9A69F1B02838F04E00FEDED6 /* LoginViewModel.swift in Sources */,
 				9A4C3EEC28321DD1001960FF /* HotNewsTableViewCell.swift in Sources */,
+				9A69F1A42838D0B400FEDED6 /* AddListViewController.swift in Sources */,
+				9A69F1BD283B2E5900FEDED6 /* SupplementsViewModel.swift in Sources */,
 				9A4C3ECA28313B2E001960FF /* LoginViewController.swift in Sources */,
 				9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */,
-				842BFAF9283713EE00BC6B21 /* FoodSupplementsListViewController.swift in Sources */,
 				84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */,
+				9A69F1B52838F65700FEDED6 /* ViewModelProtocol.swift in Sources */,
+				9A69F1C3283CCA6700FEDED6 /* UnionItem.swift in Sources */,
+				9A69F1B728393FAE00FEDED6 /* Supplements.swift in Sources */,
+				9A69F1A62838D0B400FEDED6 /* SupplementsViewController.swift in Sources */,
 				9A4C3EE8283219BB001960FF /* UnionAnalysisTableViewCell.swift in Sources */,
+				9A69F1BF283BCEFE00FEDED6 /* NetworkingManager.swift in Sources */,
 				842BFB042837561B00BC6B21 /* AnalysisTableViewCell.swift in Sources */,
 				842BFB082837699300BC6B21 /* NewsCollectionViewCell.swift in Sources */,
-				842BFAFC2837159C00BC6B21 /* TabBarHeaderCell.swift in Sources */,
+				9A69F1C1283CC7A300FEDED6 /* ItemDetailViewModel.swift in Sources */,
 				84F2FEB528332A4C00AA927B /* HashTagCollectionViewCell.swift in Sources */,
+				9A69F1BB283944F500FEDED6 /* Injection.swift in Sources */,
 				9A4C3EE128314907001960FF /* MainTabBarController.swift in Sources */,
+				9A69F1B92839404300FEDED6 /* UserDefaultsManager.swift in Sources */,
+				9A69F1B32838F3B200FEDED6 /* UtilFunction.swift in Sources */,
 				9A4C3EC828313B2E001960FF /* SceneDelegate.swift in Sources */,
 				9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */,
-				842BFB002837223600BC6B21 /* TabBarPageViewController.swift in Sources */,
 				9A4C3EE4283213C0001960FF /* FoodUnionSupplementsTableViewCell.swift in Sources */,
 				84F2FEB828335DE400AA927B /* ItemDetailViewController.swift in Sources */,
+				9A69F1AC2838D89100FEDED6 /* ApiUrl.swift in Sources */,
 				9A4C3EDF2831469B001960FF /* MainViewController.swift in Sources */,
 				9A4C3EF928324113001960FF /* UIColor.swift in Sources */,
+				9A69F1A72838D0B400FEDED6 /* TabBarHeaderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

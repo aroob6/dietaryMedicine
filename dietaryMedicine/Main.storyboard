@@ -67,14 +67,26 @@
                                 <rect key="frame" x="20" y="158" width="394" height="655"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPs-c1-HC2">
+                                <rect key="frame" x="336" y="103" width="38" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="LKa-oL-xzu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jKg-pf-uds"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jKg-pf-uds" firstAttribute="bottom" secondItem="zSg-Zx-rOX" secondAttribute="bottom" id="0vQ-Om-Mgc"/>
                             <constraint firstItem="pXc-J1-inY" firstAttribute="top" secondItem="jKg-pf-uds" secondAttribute="top" id="2qm-WO-XJK"/>
+                            <constraint firstItem="jKg-pf-uds" firstAttribute="trailing" secondItem="fPs-c1-HC2" secondAttribute="trailing" constant="40" id="AT7-G3-kkI"/>
+                            <constraint firstItem="fPs-c1-HC2" firstAttribute="top" secondItem="jKg-pf-uds" secondAttribute="top" constant="15" id="Tyt-DV-MZu"/>
                             <constraint firstItem="zSg-Zx-rOX" firstAttribute="leading" secondItem="jKg-pf-uds" secondAttribute="leading" constant="20" id="VNg-vb-TFt"/>
                             <constraint firstItem="zSg-Zx-rOX" firstAttribute="top" secondItem="pXc-J1-inY" secondAttribute="bottom" constant="20" id="a2J-VA-rQL"/>
+                            <constraint firstItem="zSg-Zx-rOX" firstAttribute="top" secondItem="fPs-c1-HC2" secondAttribute="bottom" constant="35" id="glG-nP-WlD"/>
                             <constraint firstItem="pXc-J1-inY" firstAttribute="leading" secondItem="jKg-pf-uds" secondAttribute="leading" constant="20" id="iBn-1K-g6q"/>
                             <constraint firstItem="jKg-pf-uds" firstAttribute="trailing" secondItem="zSg-Zx-rOX" secondAttribute="trailing" id="zGo-ZA-B06"/>
                         </constraints>
@@ -82,6 +94,7 @@
                     <navigationItem key="navigationItem" id="ZaH-pC-esR"/>
                     <connections>
                         <outlet property="mainTableView" destination="zSg-Zx-rOX" id="Fd2-8N-12k"/>
+                        <outlet property="name" destination="fPs-c1-HC2" id="MBY-65-pIL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKV-eH-606" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
