@@ -5,7 +5,12 @@ target 'dietaryMedicine' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-pod 'Alamofire'
+pod 'Moya'
+pod 'Moya/RxSwift'
+pod 'RxCocoa'
+pod 'Resolver'
+pod 'SwiftyJSON'
+pod 'SwiftLint'
 pod 'Kingfisher'
 pod 'SnapKit'
 

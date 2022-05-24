@@ -131,6 +131,7 @@ class ItemDetailViewController: UIViewController {
         
         itemDetailViewModel.fetch(parameters: parameter)
         self.navigationController?.popToRootViewController(animated: false)
+        
     }
     
     func configureCell(supplementList: SupplementList, indexPath: IndexPath) {

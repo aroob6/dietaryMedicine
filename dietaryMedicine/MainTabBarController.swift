@@ -15,7 +15,6 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         setTabBarItem()
-        // Do any additional setup after loading the view.
     }
     
     func setTabBarItem() {
@@ -41,5 +40,5 @@ class MainTabBarController: UITabBarController {
         items[1].title = tabBartitle[1]
         items[2].title = tabBartitle[2]
     }
-
+    
 }

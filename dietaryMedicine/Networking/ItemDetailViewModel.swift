@@ -11,13 +11,8 @@ import Moya
 import Resolver
 import SwiftyJSON
 
-class ItemDetailViewModel: ViewModelProtocol {
-    struct Output {
-        let data = PublishRelay<Result<SupplementList, NetworkError>>()
-    }
-    
+class ItemDetailViewModel: GetViewModelProtocol {
     @Injected private var provider: MoyaProvider<NetworkingManager>
-    public let output = Output()
     
     func fetch(parameters: Parameters) {
         NetworkingManager.parameter = parameters

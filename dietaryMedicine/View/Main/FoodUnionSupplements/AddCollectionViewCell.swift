@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AddCollectionViewCell: UICollectionViewCell {
     public static let identifier = "AddCollectionViewCell"
@@ -24,5 +25,26 @@ class AddCollectionViewCell: UICollectionViewCell {
         view.layer.shadowOpacity = 0.1
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         view.layer.masksToBounds = false
+    }
+    
+    func configureCell(unionItemList: UnionItemList, indexPath: IndexPath) {
+        if unionItemList.list.count == indexPath.row {
+            addImage.image = UIImage(systemName: "plus")
+            return
+        }
+        
+        let unionItemData = unionItemList.list[indexPath.row]
+        
+        if unionItemData.image != "" {
+            let imgURL = URL(string: unionItemData.image)
+            
+            addImage.kf.setImage(
+                with: imgURL,
+                options: [
+                    .transition(ImageTransition.fade(0.3)),
+                    .keepCurrentImageWhileLoading
+                ]
+            )
+        }
     }
 }

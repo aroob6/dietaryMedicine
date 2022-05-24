@@ -17,7 +17,11 @@ extension Resolver: ResolverRegistering {
         
         // Controller
         register { MainTabBarController() }
+        register { MainViewController() }
         register { ItemDetailViewController() }
+        
+        //Cell
+        register { FoodUnionSupplementsTableViewCell() }
         
         // Networking
         register { MoyaProvider<NetworkingManager>() }.scope(.application)
@@ -29,5 +33,6 @@ extension Resolver: ResolverRegistering {
         register { LoginViewModel() }
         register { SupplementsViewModel() }
         register { ItemDetailViewModel() }
+        register { FoodUnionSupplementsViewModel() }
     }
 }

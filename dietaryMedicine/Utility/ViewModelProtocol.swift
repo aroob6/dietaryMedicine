@@ -13,3 +13,8 @@ protocol ViewModelProtocol: AnyObject {
     
     func fetch(parameters: Parameters)
 }
+
+protocol GetViewModelProtocol: AnyObject {
+    
+    func fetch(parameters: Parameters)
+}

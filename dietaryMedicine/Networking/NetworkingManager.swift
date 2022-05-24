@@ -21,6 +21,7 @@ public enum NetworkingManager {
     public static var parameter = Parameters()
     
     case signUp, logIn, logOut
+    case unionList
     case supplementAll, supplementAdd
     
 }
@@ -35,7 +36,7 @@ extension NetworkingManager: TargetType {
     
     public var method: Moya.Method {
         switch self {
-        case .supplementAll:
+        case .supplementAll, .unionList:
             return .get
         default:
             return .post
@@ -44,7 +45,7 @@ extension NetworkingManager: TargetType {
     
     public var task: Task {
         switch self {
-        case .supplementAll:
+        case .supplementAll, .unionList:
             return .requestPlain //.get
         default:
             return .requestParameters(
@@ -59,7 +60,8 @@ extension NetworkingManager: TargetType {
         case .signUp, .logIn:
             return header
         default:
-            header["Authorization"] = "Bearer \(UserDefaultsManager.token)"
+//            header["Authorization"] = "Bearer \(UserDefaultsManager.token)"
+            header["Authorization"] = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiaXNzIjoiamsiLCJpYXQiOjE2NTMzODU2MDcsImV4cCI6MTY1NTk3NzYwN30.sFqontGRRSl4RTKbmjKcnYCqP4y_Pku9NXje4dYec1lsGUbPi3sxUCVH4HHbVASDBM-l5KH_LBlIb-gM60Sd5w"
             return header
         }
     }
@@ -68,6 +70,7 @@ extension NetworkingManager: TargetType {
         switch self {
         case .signUp: return "auth/signup" //가입
         case .logIn: return "auth/signin" //로그인
+        case .unionList: return "combination/list" // 조합 리스트
         case .supplementAll: return "supplement/all" //영양제 리스트
         case .supplementAdd: return "combination-item/supplement" //영양제 조합 리스트
         default:

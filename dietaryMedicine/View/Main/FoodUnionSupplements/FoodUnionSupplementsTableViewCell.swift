@@ -6,12 +6,26 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import Resolver
+import Alamofire
 
 class FoodUnionSupplementsTableViewCell: UITableViewCell {
     public static let identifier = "FoodUnionSupplementsTableViewCell"
 
     @IBOutlet weak var addCollectionView: UICollectionView!
     weak var viewController: UIViewController?
+    var unionItemList: UnionItemList? {
+        didSet {
+            addCollectionView.reloadData()
+        }
+    }
+    
+    @Injected private var foodUnionSupplementsViewModel: FoodUnionSupplementsViewModel
+    
+    //RxSwift
+    @Injected private var disposeBag : DisposeBag
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,31 +50,38 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
             forCellWithReuseIdentifier: AddCollectionViewCell.identifier
         )
     }
-    
 }
+
 extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        guard let unionItemListCount = unionItemList?.list.count else { return 0 }
+        if unionItemListCount == 0 {
+            return 0
+        }
+        else {
+            return unionItemListCount + 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let addCell = addCollectionView.dequeueReusableCell(
+        guard let cell = addCollectionView.dequeueReusableCell(
             withReuseIdentifier: AddCollectionViewCell.identifier,
             for: indexPath
         ) as? AddCollectionViewCell else {
             return UICollectionViewCell()
-            
         }
-        return addCell
+        
+        guard let unionItemList = unionItemList else { return cell }
+        cell.configureCell(unionItemList: unionItemList, indexPath: indexPath)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vc = FoodSupplementsListViewController()
-//        viewController?.navigationController?.pushViewController(vc, animated: false)
+        guard let unionItemListCount = unionItemList?.list.count else { return }
+        guard unionItemListCount == indexPath.row else { return }
+        
         let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "ProductListViewController") as! AddListViewController
-//        vc.modalPresentationStyle = .fullScreen
-//        viewController?.present(vc, animated: false)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AddListViewController") as! AddListViewController
         viewController?.navigationController?.pushViewController(vc, animated: false)
     
     }

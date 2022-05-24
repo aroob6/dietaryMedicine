@@ -6,11 +6,28 @@
 //
 
 import UIKit
+import SnapKit
+import RxSwift
+import RxCocoa
+import Resolver
+import Alamofire
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var name: UILabel!
+    
+    private var unionItemList = UnionItemList()
+    
+    @Injected private var foodUnionSupplementsViewModel: FoodUnionSupplementsViewModel
+    
+    //RxSwift
+    @Injected private var disposeBag : DisposeBag
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        tabBarController?.tabBar.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +35,9 @@ class MainViewController: UIViewController {
 
         setTableView()
         registerXib()
+        
+        bindUnionList()
+        requestUnionList()
     }
     private func setTableView () {
         mainTableView.delegate = self
@@ -35,6 +55,31 @@ class MainViewController: UIViewController {
         mainTableView.register(
             UINib(nibName: HotNewsTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: HotNewsTableViewCell.identifier)
+    }
+    
+    private func requestUnionList() {
+        let parameter: [String : String] = [:]
+        
+        foodUnionSupplementsViewModel.fetch(parameters: parameter)
+    }
+    
+    private func bindUnionList() {
+        foodUnionSupplementsViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
+            .drive { result in
+            switch result {
+            case .success(let unionListData):
+                self.requestUnionListSuccess(unionListData)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }.disposed(by: disposeBag)
+    }
+    
+    private func requestUnionListSuccess(_ result: UnionItemList) {
+        print("✅: UNIONLIST NET SUCCESS")
+        
+        unionItemList = result
+        mainTableView.reloadData()
     }
 }
 
@@ -63,6 +108,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.viewController = self
+            cell.unionItemList = unionItemList
+            
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(
@@ -84,6 +131,4 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
-    
 }
