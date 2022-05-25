@@ -31,9 +31,6 @@ class AddCollectionViewCell: UICollectionViewCell {
     func configureCell(unionItemList: UnionItemList, indexPath: IndexPath) {
         if unionItemList.list.count == indexPath.row {
             addImage.image = UIImage(systemName: "plus")
-            addImage.snp.updateConstraints { make in
-                make.width.height.equalTo(40)
-            }
             return
         }
         

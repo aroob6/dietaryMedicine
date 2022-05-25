@@ -103,6 +103,9 @@
                                         </connections>
                                     </containerView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="714" id="DHQ-fo-TUg"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
