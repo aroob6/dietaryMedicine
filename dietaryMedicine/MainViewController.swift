@@ -27,17 +27,18 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         tabBarController?.tabBar.isHidden = false
+        requestUnionList()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         name.text = UserDefaultsManager.email
+        StaticDelegate.delegate = self
 
         setTableView()
         registerXib()
         
         bindUnionList()
-        requestUnionList()
     }
     private func setTableView () {
         mainTableView.delegate = self
@@ -130,5 +131,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+}
+
+extension MainViewController: ViewDelegate {
+    func unionItemRefresh() {
+        requestUnionList()
     }
 }

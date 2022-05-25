@@ -26,14 +26,24 @@ class LoginViewController: UIViewController {
     @Injected private var disposeBag : DisposeBag
     override func viewDidLoad() {
         super.viewDidLoad()
-        idTextField.text = "test@naver.com"
-        pwTextField.text = "test"
-        
-        setUpButton()
+        setUI()
+        bindButton()
         bindLogin()
     }
     
-    private func setUpButton() {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    private func setUI() {
+        idTextField.text = "test@naver.com"
+        pwTextField.text = "test"
+        
+        idTextField.delegate = self
+        pwTextField.delegate = self
+    }
+    
+    private func bindButton() {
         loginButton.rx.tap.bind { [weak self] in
             self?.loginAction()
         }.disposed(by: disposeBag)
@@ -97,3 +107,14 @@ class LoginViewController: UIViewController {
     }
 }
 
+// MARK: - UITextField Delegate
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextResponder = textField.superview?.viewWithTag(textField.tag + 1) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+}
