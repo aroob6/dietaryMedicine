@@ -14,6 +14,7 @@ import Alamofire
 class FoodUnionSupplementsTableViewCell: UITableViewCell {
     public static let identifier = "FoodUnionSupplementsTableViewCell"
 
+    @IBOutlet var title: UILabel!
     @IBOutlet weak var addCollectionView: UICollectionView!
     weak var viewController: UIViewController?
     var unionItemList: UnionItemList? {
@@ -30,13 +31,20 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setView()
         setCollectionView()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private func setView() {
+        let titleText = "당신의 영양제와 식품의 영양성분을 조합하세요."
+        let pointText = "영양제와 식품"
+        let pointColor = UIColor.mainColor!.withAlphaComponent(0.3)
+        let attributedString = NSMutableAttributedString()
+            .normal("당신의 ", fontSize: 20)
+            .bold( pointText, fontSize: 20)
+            .normal("의 영양성분을 조합하세요.", fontSize: 20)
+        attributedString.addAttribute(.backgroundColor, value: pointColor, range: (titleText as NSString).range(of: pointText))
+        title.attributedText = attributedString
     }
     
     private func setCollectionView () {

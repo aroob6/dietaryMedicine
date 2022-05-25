@@ -1,5 +1,5 @@
 //
-//  SupplementsViewController.swift
+//  FoodViewController.swift
 //  dietaryMedicine
 //
 //  Created by bora on 2022/05/17.
@@ -10,24 +10,23 @@ import RxSwift
 import RxCocoa
 import Resolver
 
-class SupplementsViewController: UIViewController {
-    
+class FoodViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var supplementList = SupplementList()
+    private var foodList = FoodList()
     
-    @Injected private var supplementsViewModel: SupplementsViewModel
-
+    @Injected private var foodsViewModel: FoodsViewModel
     @Injected private var disposeBag : DisposeBag
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
         setCollectionView()
         registerXib()
-        requestSupplements()
-        bindSupplements()
+        
+        requestFoods()
+        bindFoods()
     }
     
     private func setTableView () {
@@ -51,18 +50,18 @@ class SupplementsViewController: UIViewController {
         )
     }
     
-    private func requestSupplements() {
+    private func requestFoods() {
         let parameters: [String: String] = [:]
         
-        supplementsViewModel.fetch(parameters: parameters)
+        foodsViewModel.fetch(parameters: parameters)
     }
     
-    private func bindSupplements() {
-        supplementsViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty()).drive {
+    private func bindFoods() {
+        foodsViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty()).drive {
             result in
             switch result {
             case .success(let data):
-                self.requestSupplementsSuccess(data)
+                self.requestFoodsSuccess(data)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -70,17 +69,17 @@ class SupplementsViewController: UIViewController {
         .disposed(by: disposeBag)
     }
     
-    private func requestSupplementsSuccess(_ result: SupplementList) {
-        print("✅: SUPPLEMENTS NET SUCCESS")
+    private func requestFoodsSuccess(_ result: FoodList) {
+        print("✅: ALL FOODS LIST NET SUCCESS")
         
-        supplementList = result
+        foodList = result
         tableView.reloadData()
     }
 }
 
-extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource {
+extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return supplementList.data.count
+        return foodList.data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,18 +90,17 @@ extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource 
                 return UITableViewCell()
         }
         cell.selectionStyle = .none
-        cell.configureCell(supplementList: supplementList, indexPath: indexPath)
+        cell.configureCell(foodList: foodList, indexPath: indexPath)
         return cell
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ItemDetailViewController()
-        vc.configureCell(supplementList: supplementList, indexPath: indexPath)
+        vc.configureCell(foodList: foodList, indexPath: indexPath)
         self.navigationController?.pushViewController(vc, animated: false)
     }
 }
 
-extension SupplementsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }

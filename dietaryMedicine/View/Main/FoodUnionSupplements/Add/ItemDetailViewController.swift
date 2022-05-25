@@ -10,7 +10,14 @@ import SnapKit
 import Moya
 import Kingfisher
 import RxSwift
+import RxCocoa
 import Resolver
+import SwiftUI
+
+enum ItemType {
+    case supplement
+    case food
+}
 
 class ItemDetailViewController: UIViewController {
     private var stackView: UIStackView = {
@@ -38,6 +45,8 @@ class ItemDetailViewController: UIViewController {
     private var bookMarkButton = UIButton()
     private var addButton = UIButton()
     private var supplementID = 0
+    private var foodID = 0
+    var itemType = ItemType.supplement
     
     @Injected private var itemDetailViewModel: ItemDetailViewModel
     
@@ -48,7 +57,8 @@ class ItemDetailViewController: UIViewController {
         super.viewDidLoad()
 
         setFrame()
-        setUpButton()
+        bindButton()
+        bindAddItem()
     }
     
     private func setFrame() {
@@ -84,7 +94,6 @@ class ItemDetailViewController: UIViewController {
         addButton.layer.cornerRadius = 8
         
         stackView.snp.makeConstraints { make in
-//            make.edges.equalTo(self.view.safeAreaLayoutGuide).inset(20)
             make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
 
         }
@@ -118,20 +127,46 @@ class ItemDetailViewController: UIViewController {
         
     }
     
-    private func setUpButton() {
+    private func bindButton() {
         addButton.rx.tap.bind { [weak self] in
-            self?.addButtonAction()
+            self?.requestAddSupplement()
         }.disposed(by: disposeBag)
     }
     
-    @objc func addButtonAction() {
-        let parameter : [String: Int] = [
-            "supplement_id": supplementID
-        ]
+    private func bindAddItem() {
+        itemDetailViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
+            .drive { result in
+                switch result {
+                case .success(let code):
+                    if code == 2000 {
+                        self.requestAddItemSuccess()
+                        StaticDelegate.delegate?.unionItemRefresh()
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func requestAddItemSuccess() {
+        print("✅: ITEM ADD SUCCESS")
         
-        itemDetailViewModel.fetch(parameters: parameter)
         self.navigationController?.popToRootViewController(animated: false)
+    }
+    
+    @objc func requestAddSupplement() {
+        var parameter : [String: Int] = [:]
         
+        switch itemType {
+        case .supplement:
+            parameter["supplement_id"] = supplementID
+        case .food:
+            parameter["food_id"] = foodID
+        }
+        itemDetailViewModel.itemType = itemType
+        itemDetailViewModel.fetch(parameters: parameter)
     }
     
     func configureCell(supplementList: SupplementList, indexPath: IndexPath) {
@@ -140,6 +175,7 @@ class ItemDetailViewController: UIViewController {
         name.text = supplementData.name
         content.text = supplementData.content
         link.text = supplementData.link
+        itemType = .supplement
         
         if supplementData.image != "" {
             let imgURL = supplementData.image
@@ -157,5 +193,31 @@ class ItemDetailViewController: UIViewController {
             imgView.image = nil
         }
     }
+    
+    func configureCell(foodList: FoodList, indexPath: IndexPath) {
+        let foodData = foodList.data[indexPath.row]
+        foodID = foodData.foodID
+        name.text = foodData.name
+        content.text = foodData.content
+        link.text = foodData.link
+        itemType = .food
+        
+        if foodData.image != "" {
+            let imgURL = foodData.image
+            let url = URL(string: imgURL)
+            
+            imgView.kf.setImage(
+                with: url,
+                options: [
+                    .transition(ImageTransition.fade(0.3)),
+                    .keepCurrentImageWhileLoading
+                ]
+            )
+        }
+        else {
+            imgView.image = nil
+        }
+    }
+
 
 }

@@ -53,4 +53,27 @@ class AddTableViewCell: UITableViewCell {
         }
     }
     
+    func configureCell(foodList: FoodList, indexPath: IndexPath) {
+        let foodData = foodList.data[indexPath.row]
+        name.text = foodData.name
+        content.text = foodData.content
+        price.text = String(foodData.price)
+        
+        if foodData.image != "" {
+            let imgURL = foodData.image
+            let url = URL(string: imgURL)
+            
+            imgView.kf.setImage(
+                with: url,
+                options: [
+                    .transition(ImageTransition.fade(0.3)),
+                    .keepCurrentImageWhileLoading
+                ]
+            )
+        }
+        else {
+            imageView?.image = nil
+        }
+    }
+    
 }

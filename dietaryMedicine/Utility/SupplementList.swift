@@ -1,5 +1,5 @@
 //
-//  Supplements.swift
+//  SupplementList.swift
 //  dietaryMedicine
 //
 //  Created by 이보라 on 2022/05/22.
@@ -61,12 +61,12 @@ class Supplements {
 class NutrientAmount {
     var nutrientNameEng = ""
     var nutrientNameKor = ""
-    var nutrientAmount = 0
+    var nutrientAmount = 0.0
     var nutrientAmountUnit = ""
     init(_ json: JSON) {
         nutrientNameEng = json["nutrient_name_eng"].stringValue
         nutrientNameKor = json["nutrient_name_kor"].stringValue
-        nutrientAmount = json["nutrient_amount"].intValue
+        nutrientAmount = json["nutrient_amount"].doubleValue
         nutrientAmountUnit = json["unit"].stringValue
     }
 }

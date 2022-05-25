@@ -32,6 +32,7 @@ extension Resolver: ResolverRegistering {
         //viewModel
         register { LoginViewModel() }
         register { SupplementsViewModel() }
+        register { FoodsViewModel() }
         register { ItemDetailViewModel() }
         register { FoodUnionSupplementsViewModel() }
     }
