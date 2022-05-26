@@ -22,8 +22,8 @@ public enum NetworkingManager {
     
     case signUp, logIn, logOut
     case unionList
-    case supplementAll, supplementAdd
-    case foodAll, foodAdd
+    case supplementAll, supplementAdd, supplementDelete
+    case foodAll, foodAdd, foodDelete
     
 }
 
@@ -39,6 +39,8 @@ extension NetworkingManager: TargetType {
         switch self {
         case .supplementAll, .foodAll, .unionList:
             return .get
+        case .supplementDelete, .foodDelete:
+            return .delete
         default:
             return .post
         }
@@ -74,8 +76,10 @@ extension NetworkingManager: TargetType {
         case .unionList: return "combination/list" // 조합 리스트
         case .supplementAll: return "supplement/all" //영양제 리스트
         case .supplementAdd: return "combination-item/supplement" //조합 - 영양제 추가
+        case .supplementDelete: return "combination-item/supplement" //조합 - 영양제 삭제
         case .foodAll: return "food/all" //음식 리스트
         case .foodAdd: return "combination-item/food" //조합 - 음식 추가
+        case .foodDelete: return "combination-item/food" //조합 - 음식 삭제
         default:
             return ""
         }

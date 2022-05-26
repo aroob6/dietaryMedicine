@@ -11,7 +11,7 @@ import Moya
 import Resolver
 import SwiftyJSON
 
-class ItemDetailViewModel: ViewModelProtocol {
+class ItemAddViewModel: ViewModelProtocol {
     var itemType = ItemType.supplement
     
     struct Output {
@@ -25,15 +25,15 @@ class ItemDetailViewModel: ViewModelProtocol {
     func fetch(parameters: Parameters) {
         NetworkingManager.parameter = parameters
         
-        var type = NetworkingManager.supplementAdd
+        var path = NetworkingManager.supplementAdd
         switch itemType {
         case .supplement:
-            type = NetworkingManager.supplementAdd
+            path = NetworkingManager.supplementAdd
         case .food:
-            type = NetworkingManager.foodAdd
+            path = NetworkingManager.foodAdd
         }
         
-        provider.request(type) { result in
+        provider.request(path) { result in
             switch result {
             case .success:
                 self.output.data.accept(.success(2000))

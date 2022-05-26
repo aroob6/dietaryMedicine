@@ -9,24 +9,55 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Resolver
+import Then
 
 class FoodViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
+//    @IBOutlet weak var tableView: UITableView!
+//    @IBOutlet weak var collectionView: UICollectionView!
     
+    private var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout().then {
+            $0.scrollDirection = .horizontal
+            $0.minimumInteritemSpacing = 0
+            $0.minimumLineSpacing = 15
+        }
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return view
+    }()
+    private var tableView = UITableView()
     private var foodList = FoodList()
+    private var tagList = ["# 비타민", "# 비타민", "# 비타민", "# 비타민", "# 비타민"]
     
     @Injected private var foodsViewModel: FoodsViewModel
     @Injected private var disposeBag : DisposeBag
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUI()
         setTableView()
         setCollectionView()
         registerXib()
         
         requestFoods()
         bindFoods()
+    }
+    
+    private func setUI (){
+        view.addSubview(collectionView)
+        view.addSubview(tableView)
+        
+        collectionView.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(10)
+            $0.top.trailing.equalToSuperview()
+            $0.height.equalTo(50)
+        }
+        
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(collectionView.snp.bottom)
+            $0.bottom.trailing.leading.equalToSuperview()
+        }
     }
     
     private func setTableView () {
@@ -78,6 +109,10 @@ class FoodViewController: UIViewController {
 }
 
 extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return foodList.data.count
     }
@@ -102,7 +137,7 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return tagList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -111,6 +146,7 @@ extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSour
             for: indexPath) as? HashTagCollectionViewCell else {
                 return UICollectionViewCell()
             }
+        cell.title.text = tagList[indexPath.row]
         cell.deSelectItem()
         return cell
     }
@@ -119,3 +155,17 @@ extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSour
         print("## \(indexPath)")
     }
 }
+
+extension FoodViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let label = UILabel().then {
+                $0.font = .systemFont(ofSize: 14)
+                $0.text = tagList[indexPath.item]
+                $0.sizeToFit()
+            }
+            let size = label.frame.size
+            
+            return CGSize(width: size.width + 40, height: size.height + 20)
+    }
+}
+

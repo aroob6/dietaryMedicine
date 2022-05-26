@@ -9,25 +9,57 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Resolver
+import SnapKit
+import Then
 
 class SupplementsViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    private var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout().then {
+            $0.scrollDirection = .horizontal
+            $0.minimumInteritemSpacing = 0
+            $0.minimumLineSpacing = 15
+        }
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return view
+    }()
     
+    private var tableView = UITableView()
     private var supplementList = SupplementList()
+    private var tagList = ["# 비타민", "# 비타민", "# 비타민", "# 비타민", "# 비타민"]
+    private let collectionViewHeight: CGFloat = 50
     
     @Injected private var supplementsViewModel: SupplementsViewModel
     @Injected private var disposeBag : DisposeBag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUI()
         setTableView()
         setCollectionView()
         registerXib()
         
         requestSupplements()
         bindSupplements()
+    }
+    
+    private func setUI (){
+        view.addSubview(collectionView)
+        view.addSubview(tableView)
+        
+        collectionView.snp.makeConstraints {
+            $0.leading.equalTo(self.view.safeAreaLayoutGuide).inset(10)
+            $0.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.height.equalTo(collectionViewHeight)
+        }
+        
+        tableView.snp.makeConstraints { 
+            $0.top.equalTo(collectionView.snp.bottom)
+            $0.bottom.trailing.leading.equalTo(self.view.safeAreaLayoutGuide)
+//            $0.height.equalTo(714 - collectionViewHeight)
+        }
     }
     
     private func setTableView () {
@@ -79,6 +111,10 @@ class SupplementsViewController: UIViewController {
 }
 
 extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return supplementList.data.count
     }
@@ -104,7 +140,7 @@ extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource 
 
 extension SupplementsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return tagList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -113,11 +149,25 @@ extension SupplementsViewController: UICollectionViewDelegate, UICollectionViewD
             for: indexPath) as? HashTagCollectionViewCell else {
                 return UICollectionViewCell()
             }
+        cell.title.text = tagList[indexPath.row]
         cell.deSelectItem()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("## \(indexPath)")
+    }
+}
+
+extension SupplementsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let label = UILabel().then {
+                $0.font = .systemFont(ofSize: 14)
+                $0.text = tagList[indexPath.item]
+                $0.sizeToFit()
+            }
+            let size = label.frame.size
+            
+            return CGSize(width: size.width + 40, height: size.height + 20)
     }
 }

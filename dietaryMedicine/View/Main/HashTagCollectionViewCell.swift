@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import SnapKit
 
 class HashTagCollectionViewCell: UICollectionViewCell {
     public static let identifier = "HashTagCollectionViewCell"
-    
-    @IBOutlet var title: UILabel!
-    @IBOutlet var view: UIView!
 
+    var title: UILabel = {
+        let label = UILabel().then {
+            $0.font = .systemFont(ofSize: 14)
+        }
+        return label
+    }()
     
     override var isSelected: Bool {
         willSet {
@@ -23,22 +27,33 @@ class HashTagCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        isSelected = false
-        view.layer.cornerRadius = view.frame.height / 2
+        setUI()
     }
     
     override func prepareForReuse() {
         isSelected = false
     }
     
+    func setUI() {
+        contentView.addSubview(title)
+    
+        title.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        isSelected = false
+        contentView.layer.masksToBounds = true
+        contentView.layer.cornerRadius = contentView.frame.height / 2
+    }
+    
     func selectItem(){
         title.textColor = .white
-        view.backgroundColor = .mainColor
+        contentView.backgroundColor = .mainColor
     }
     
     func deSelectItem(){
         title.textColor = .textGray
-        view.backgroundColor = .mainGray
+        contentView.backgroundColor = .mainGray
     }
 
 }

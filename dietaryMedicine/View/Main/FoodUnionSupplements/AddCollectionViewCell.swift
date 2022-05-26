@@ -7,6 +7,10 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import Resolver
+import Alamofire
 import Kingfisher
 
 class AddCollectionViewCell: UICollectionViewCell {
@@ -14,10 +18,21 @@ class AddCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var addImage: UIImageView!
+    @IBOutlet var clearButton: UIButton!
+    
+    private var item: Item?
+    var itemType: ItemType = .supplement
+    
+    @Injected private var itemDeleteViewModel: ItemDeleteViewModel
+    @Injected private var disposeBag : DisposeBag
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         setUpView()
+        
+        bindButton()
+        bindDeleteItem()
     }
     
     private func setUpView() {
@@ -28,13 +43,63 @@ class AddCollectionViewCell: UICollectionViewCell {
         view.layer.masksToBounds = false
     }
     
-    func configureCell(unionItemList: UnionItemList, indexPath: IndexPath) {
-        if unionItemList.list.count == indexPath.row {
+    private func bindButton() {
+        clearButton.rx.tap.bind { [weak self] in
+            self?.requestDelete()
+        }.disposed(by: disposeBag)
+
+    }
+    
+    @objc func requestDelete() {
+        var parameter : [String: Int] = [:]
+        
+        if item?.supplementId == 0 {
+            itemType = .food
+        }
+        if item?.foodId == 0 {
+            itemType = .supplement
+        }
+
+        switch itemType {
+        case .supplement:
+            parameter["supplement_id"] = item?.supplementId
+        case .food:
+            parameter["food_id"] = item?.foodId
+        }
+        
+        itemDeleteViewModel.itemType = itemType
+        itemDeleteViewModel.fetch(parameters: parameter)
+    }
+    
+    private func bindDeleteItem() {
+        itemDeleteViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
+            .drive { result in
+            switch result {
+            case .success(let code):
+                if code == 2000 {
+                    self.requestDeleteSuccess()
+                    StaticDelegate.delegate?.unionItemRefresh()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }.disposed(by: disposeBag)
+    }
+    
+    private func requestDeleteSuccess() {
+        print("✅: DELETE ITEM NET SUCCESS")
+    }
+    
+    func configureCell(unionItemList: UnionItemList, indexPathRow: Int) {
+        if unionItemList.list.count == indexPathRow {
             addImage.image = UIImage(systemName: "plus")
+            clearButton.isHidden = true
             return
         }
         
-        let unionItemData = unionItemList.list[indexPath.row]
+        let unionItemData = unionItemList.list[indexPathRow]
+        self.item = unionItemData
+        clearButton.isHidden = false
         
         if unionItemData.image != "" {
             let imgURL = URL(string: unionItemData.image)

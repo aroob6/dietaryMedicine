@@ -17,6 +17,7 @@
 		842BFB12283DE58900BC6B21 /* FoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB11283DE58900BC6B21 /* FoodList.swift */; };
 		842BFB14283DE70400BC6B21 /* FoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */; };
 		842BFB16283DF35300BC6B21 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB15283DF35300BC6B21 /* UIFont.swift */; };
+		842BFB18283F67B800BC6B21 /* ItemDeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */; };
 		8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */; };
 		84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */; };
 		84F2FEAE2833261B00AA927B /* AddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2FEAC2833261B00AA927B /* AddTableViewCell.xib */; };
@@ -54,7 +55,7 @@
 		9A69F1BB283944F500FEDED6 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1BA283944F500FEDED6 /* Injection.swift */; };
 		9A69F1BD283B2E5900FEDED6 /* SupplementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */; };
 		9A69F1BF283BCEFE00FEDED6 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1BE283BCEFD00FEDED6 /* NetworkingManager.swift */; };
-		9A69F1C1283CC7A300FEDED6 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1C0283CC7A300FEDED6 /* ItemDetailViewModel.swift */; };
+		9A69F1C1283CC7A300FEDED6 /* ItemAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1C0283CC7A300FEDED6 /* ItemAddViewModel.swift */; };
 		9A69F1C3283CCA6700FEDED6 /* UnionItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1C2283CCA6700FEDED6 /* UnionItemList.swift */; };
 		9A69F1C5283CEDE100FEDED6 /* FoodUnionSupplementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1C4283CEDE100FEDED6 /* FoodUnionSupplementsViewModel.swift */; };
 		9A69F1C7283CF31300FEDED6 /* MainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1C6283CF31300FEDED6 /* MainInfo.swift */; };
@@ -72,6 +73,7 @@
 		842BFB11283DE58900BC6B21 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodList.swift; path = dietaryMedicine/Utility/FoodList.swift; sourceTree = SOURCE_ROOT; };
 		842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodsViewModel.swift; path = dietaryMedicine/Utility/FoodsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		842BFB15283DF35300BC6B21 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDeleteViewModel.swift; path = dietaryMedicine/Extension/ItemDeleteViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HashTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		84F2FEAC2833261B00AA927B /* AddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTableViewCell.xib; sourceTree = "<group>"; };
@@ -111,7 +113,7 @@
 		9A69F1BA283944F500FEDED6 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SupplementsViewModel.swift; path = dietaryMedicine/Utility/SupplementsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1BE283BCEFD00FEDED6 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
-		9A69F1C0283CC7A300FEDED6 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDetailViewModel.swift; path = dietaryMedicine/Networking/ItemDetailViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1C0283CC7A300FEDED6 /* ItemAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemAddViewModel.swift; path = dietaryMedicine/Networking/ItemAddViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1C2283CCA6700FEDED6 /* UnionItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnionItemList.swift; path = dietaryMedicine/Networking/UnionItemList.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1C4283CEDE100FEDED6 /* FoodUnionSupplementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodUnionSupplementsViewModel.swift; path = dietaryMedicine/Networking/FoodUnionSupplementsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1C6283CF31300FEDED6 /* MainInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainInfo.swift; path = dietaryMedicine/Networking/MainInfo.swift; sourceTree = SOURCE_ROOT; };
@@ -232,10 +234,11 @@
 			children = (
 				9A69F1B42838F65700FEDED6 /* ViewModelProtocol.swift */,
 				9A69F1AF2838F04E00FEDED6 /* LoginViewModel.swift */,
-				9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */,
-				9A69F1C0283CC7A300FEDED6 /* ItemDetailViewModel.swift */,
 				9A69F1C4283CEDE100FEDED6 /* FoodUnionSupplementsViewModel.swift */,
+				9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */,
 				842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */,
+				9A69F1C0283CC7A300FEDED6 /* ItemAddViewModel.swift */,
+				842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -455,7 +458,7 @@
 				842BFB042837561B00BC6B21 /* AnalysisTableViewCell.swift in Sources */,
 				842BFB16283DF35300BC6B21 /* UIFont.swift in Sources */,
 				842BFB082837699300BC6B21 /* NewsCollectionViewCell.swift in Sources */,
-				9A69F1C1283CC7A300FEDED6 /* ItemDetailViewModel.swift in Sources */,
+				9A69F1C1283CC7A300FEDED6 /* ItemAddViewModel.swift in Sources */,
 				84F2FEB528332A4C00AA927B /* HashTagCollectionViewCell.swift in Sources */,
 				9A69F1C5283CEDE100FEDED6 /* FoodUnionSupplementsViewModel.swift in Sources */,
 				9A69F1BB283944F500FEDED6 /* Injection.swift in Sources */,
@@ -470,6 +473,7 @@
 				842BFB12283DE58900BC6B21 /* FoodList.swift in Sources */,
 				9A4C3EDF2831469B001960FF /* MainViewController.swift in Sources */,
 				9A4C3EF928324113001960FF /* UIColor.swift in Sources */,
+				842BFB18283F67B800BC6B21 /* ItemDeleteViewModel.swift in Sources */,
 				9A69F1A72838D0B400FEDED6 /* TabBarHeaderCell.swift in Sources */,
 				842BFB14283DE70400BC6B21 /* FoodsViewModel.swift in Sources */,
 				9A69F1C7283CF31300FEDED6 /* MainInfo.swift in Sources */,

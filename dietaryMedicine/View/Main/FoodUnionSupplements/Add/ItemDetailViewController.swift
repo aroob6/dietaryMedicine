@@ -21,23 +21,26 @@ enum ItemType {
 
 class ItemDetailViewController: UIViewController {
     private var stackView: UIStackView = {
-        let view = UIStackView()
-        view.backgroundColor = .clear
-        view.axis = .vertical
-        view.alignment = .fill
-        view.distribution = .fill
+        let view = UIStackView().then {
+            $0.backgroundColor = .clear
+            $0.axis = .vertical
+            $0.alignment = .fill
+            $0.distribution = .fill
+        }
         return view
     }()
     
     private var buttonStackView: UIStackView = {
-        let view = UIStackView()
-        view.backgroundColor = .clear
-        view.axis = .horizontal
-        view.alignment = .fill
-        view.distribution = .fill
+        let view = UIStackView().then {
+            $0.backgroundColor = .clear
+            $0.axis = .horizontal
+            $0.alignment = .fill
+            $0.distribution = .fill
+        }
         return view
     }()
     
+    private let scrollView = UIScrollView()
     private var imgView = UIImageView()
     private var name = UILabel()
     private var content = UILabel()
@@ -48,7 +51,7 @@ class ItemDetailViewController: UIViewController {
     private var foodID = 0
     var itemType = ItemType.supplement
     
-    @Injected private var itemDetailViewModel: ItemDetailViewModel
+    @Injected private var itemDetailViewModel: ItemAddViewModel
     
     //RxSwift
     @Injected private var disposeBag : DisposeBag
@@ -56,21 +59,21 @@ class ItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setFrame()
+        setUI()
         bindButton()
         bindAddItem()
     }
     
-    private func setFrame() {
+    private func setUI(){
         view.backgroundColor = .white
-        view.addSubview(stackView)
-        view.addSubview(buttonStackView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(stackView)
+        scrollView.addSubview(buttonStackView)
         
         stackView.addArrangedSubview(imgView)
         stackView.addArrangedSubview(name)
         stackView.addArrangedSubview(content)
         stackView.addArrangedSubview(link)
-//        stackView.addArrangedSubview(buttonStackView)
         
         buttonStackView.addArrangedSubview(bookMarkButton)
         buttonStackView.addArrangedSubview(addButton)
@@ -93,43 +96,47 @@ class ItemDetailViewController: UIViewController {
         addButton.setTitleColor(.white, for: .normal)
         addButton.layer.cornerRadius = 8
         
-        stackView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
-
-        }
-        imgView.snp.makeConstraints { make in
-            make.height.equalTo(360)
-        }
-        name.snp.makeConstraints { make in
-            make.height.equalTo(30)
-        }
-        content.snp.makeConstraints { make in
-            make.height.equalTo(250)
-        }
-        link.snp.makeConstraints { make in
-            make.height.equalTo(30)
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(10)
         }
         
-        buttonStackView.snp.makeConstraints { make in
-            make.height.equalTo(60)
-            make.top.equalTo(stackView.snp.bottom).inset(-20)
-            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
+        stackView.snp.makeConstraints {
+            $0.width.equalTo(self.view.frame.width - 20)
+            $0.top.leading.trailing.equalToSuperview()
+
+        }
+        imgView.snp.makeConstraints {
+            $0.height.equalTo(view.frame.height/12 * 5)
+        }
+        name.snp.makeConstraints {
+            $0.height.equalTo(view.frame.height/12 * 1)
+        }
+        content.snp.makeConstraints {
+            $0.height.equalTo(view.frame.height/12 * 5)
+        }
+        link.snp.makeConstraints {
+            $0.height.equalTo(view.frame.height/12 * 1)
+        }
+        
+        buttonStackView.snp.makeConstraints {
+            $0.height.equalTo(60)
+            $0.top.equalTo(stackView.snp.bottom).offset(20)
+            $0.bottom.leading.trailing.equalToSuperview()
             
         }
         
-        bookMarkButton.snp.makeConstraints { make in
-            make.width.height.equalTo(55)
+        bookMarkButton.snp.makeConstraints {
+            $0.width.height.equalTo(60)
         }
         
-        addButton.snp.makeConstraints { make in
-            make.height.equalTo(55)
+        addButton.snp.makeConstraints {
+            $0.height.equalTo(60)
         }
-        
     }
     
     private func bindButton() {
         addButton.rx.tap.bind { [weak self] in
-            self?.requestAddSupplement()
+            self?.requestAddItem()
         }.disposed(by: disposeBag)
     }
     
@@ -156,7 +163,7 @@ class ItemDetailViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: false)
     }
     
-    @objc func requestAddSupplement() {
+    @objc func requestAddItem() {
         var parameter : [String: Int] = [:]
         
         switch itemType {

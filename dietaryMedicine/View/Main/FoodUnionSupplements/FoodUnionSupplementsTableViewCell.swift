@@ -80,13 +80,15 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
         }
         
         guard let unionItemList = unionItemList else { return cell }
-        cell.configureCell(unionItemList: unionItemList, indexPath: indexPath)
+        
+        cell.configureCell(unionItemList: unionItemList, indexPathRow: indexPath.item)
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let unionItemListCount = unionItemList?.list.count else { return }
-        guard unionItemListCount == indexPath.row else { return }
+        guard unionItemListCount == indexPath.item else { return }
         
         let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "AddListViewController") as! AddListViewController

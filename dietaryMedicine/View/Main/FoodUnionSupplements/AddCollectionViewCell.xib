@@ -29,11 +29,23 @@
                                     <constraint firstAttribute="width" constant="70" id="HUv-k3-JeZ"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvz-Pn-kCY">
+                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="CQ1-UZ-0eK"/>
+                                    <constraint firstAttribute="width" constant="20" id="ELG-wM-THt"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="clear" catalog="system" title=" "/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kce-PD-32z" firstAttribute="centerY" secondItem="cxU-J0-PGa" secondAttribute="centerY" id="H5j-E7-7UM"/>
                             <constraint firstItem="kce-PD-32z" firstAttribute="centerX" secondItem="cxU-J0-PGa" secondAttribute="centerX" id="Ril-ak-NHg"/>
+                            <constraint firstItem="Pvz-Pn-kCY" firstAttribute="top" secondItem="cxU-J0-PGa" secondAttribute="top" id="egz-Mn-uF4"/>
+                            <constraint firstItem="Pvz-Pn-kCY" firstAttribute="leading" secondItem="cxU-J0-PGa" secondAttribute="leading" id="khH-tR-K0L"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -48,12 +60,14 @@
             <size key="customSize" width="105" height="100"/>
             <connections>
                 <outlet property="addImage" destination="kce-PD-32z" id="dEU-7r-E83"/>
+                <outlet property="clearButton" destination="Pvz-Pn-kCY" id="gsY-X1-2tP"/>
                 <outlet property="view" destination="cxU-J0-PGa" id="2Xb-75-RKp"/>
             </connections>
             <point key="canvasLocation" x="141.30434782608697" y="77.678571428571431"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="clear" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

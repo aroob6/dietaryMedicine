@@ -17,8 +17,8 @@ extension Resolver: ResolverRegistering {
         
         // Controller
         register { MainTabBarController() }
-        register { MainViewController() }
-        register { ItemDetailViewController() }
+//        register { MainViewController() }
+//        register { ItemDetailViewController() }
         
         //Cell
         register { FoodUnionSupplementsTableViewCell() }
@@ -31,9 +31,10 @@ extension Resolver: ResolverRegistering {
         
         //viewModel
         register { LoginViewModel() }
+        register { FoodUnionSupplementsViewModel() }
         register { SupplementsViewModel() }
         register { FoodsViewModel() }
-        register { ItemDetailViewModel() }
-        register { FoodUnionSupplementsViewModel() }
+        register { ItemAddViewModel() }
+        register { ItemDeleteViewModel() }
     }
 }

@@ -13,6 +13,7 @@ pod 'SwiftyJSON'
 pod 'SwiftLint'
 pod 'Kingfisher'
 pod 'SnapKit'
+pod 'Then'
 
   # Pods for dietaryMedicine
 
