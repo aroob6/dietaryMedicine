@@ -60,11 +60,11 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
     }
 }
 
-extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let unionItemListCount = unionItemList?.list.count else { return 0 }
         if unionItemListCount == 0 {
-            return 0
+            return 1
         }
         else {
             return unionItemListCount + 1
@@ -80,7 +80,6 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
         }
         
         guard let unionItemList = unionItemList else { return cell }
-        
         cell.configureCell(unionItemList: unionItemList, indexPathRow: indexPath.item)
         
         return cell
@@ -96,4 +95,14 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
     
     }
     
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        let cellCount = unionItemList?.list.count ?? 1
+//        let totalCellWidth = 110 * (cellCount)
+//        let totalSpacingWidth = 5 * (cellCount - 1)
+//
+//        let leftInset = (collectionView.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+//        let rightInset = leftInset
+//
+//        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: 120)
+//    }
 }

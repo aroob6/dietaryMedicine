@@ -17,8 +17,6 @@ extension Resolver: ResolverRegistering {
         
         // Controller
         register { MainTabBarController() }
-//        register { MainViewController() }
-//        register { ItemDetailViewController() }
         
         //Cell
         register { FoodUnionSupplementsTableViewCell() }
@@ -30,6 +28,7 @@ extension Resolver: ResolverRegistering {
         register { DisposeBag() }.scope(.application)
         
         //viewModel
+        register { SignUpViewModel() }
         register { LoginViewModel() }
         register { FoodUnionSupplementsViewModel() }
         register { SupplementsViewModel() }

@@ -63,8 +63,8 @@ extension NetworkingManager: TargetType {
         case .signUp, .logIn:
             return header
         default:
-//            header["Authorization"] = "Bearer \(UserDefaultsManager.token)"
-            header["Authorization"] = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiaXNzIjoiamsiLCJpYXQiOjE2NTMzODU2MDcsImV4cCI6MTY1NTk3NzYwN30.sFqontGRRSl4RTKbmjKcnYCqP4y_Pku9NXje4dYec1lsGUbPi3sxUCVH4HHbVASDBM-l5KH_LBlIb-gM60Sd5w"
+            header["Authorization"] = "Bearer \(UserDefaultsManager.token)"
+//            header["Authorization"] = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiaXNzIjoiamsiLCJpYXQiOjE2NTMzODU2MDcsImV4cCI6MTY1NTk3NzYwN30.sFqontGRRSl4RTKbmjKcnYCqP4y_Pku9NXje4dYec1lsGUbPi3sxUCVH4HHbVASDBM-l5KH_LBlIb-gM60Sd5w"
             return header
         }
     }

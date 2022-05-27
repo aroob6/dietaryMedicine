@@ -7,8 +7,9 @@
 
 import Foundation
 
-class MainInfo {
-    static let share = MainInfo()
-    var unionList = UnionItemList()
+class Info {
+    static let share = Info()
+    var name = ""
+    var email = ""
     
 }

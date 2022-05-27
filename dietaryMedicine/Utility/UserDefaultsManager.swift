@@ -20,14 +20,8 @@ struct UserDefault<T> {
 
 struct UserDefaultsManager {
     private static let TOKEN: String = "token"
-    private static let EMAIL: String = "email"
     
     /// 사용자 토큰
     @UserDefault(key: TOKEN, defaultValue: "")
     static var token: String
-    
-    /// 사용자 이메일
-    @UserDefault(key: EMAIL, defaultValue: "")
-    static var email: String
-    
 }

@@ -147,7 +147,7 @@ class ItemDetailViewController: UIViewController {
                 case .success(let code):
                     if code == 2000 {
                         self.requestAddItemSuccess()
-                        StaticDelegate.delegate?.unionItemRefresh()
+                        StaticDelegate.mainDelegate?.unionItemRefresh()
                     }
                 case .failure(let error):
                     print(error.localizedDescription)

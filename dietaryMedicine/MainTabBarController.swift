@@ -9,7 +9,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
-    let tabBartitle = ["Main", "Article", "Setting"]
+    let tabBartitle = ["홈", "검색", "마이페이지"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,27 +18,14 @@ class MainTabBarController: UITabBarController {
     }
     
     func setTabBarItem() {
-//        let tabMainItem = UITabBarItem(
-//            title: "Main", image: nil, tag: 0
-//        )
-//
-//        let tabArticleItem = UITabBarItem(
-//            title: "Article", image: nil, tag: 1
-//        )
-//
-//        let tabSettingItem = UITabBarItem(
-//            title: "Setting", image: nil, tag: 2
-//        )
-//
-//
-//
-//        self.viewControllers = [
-//        ]
-        
         guard let items = tabBar.items else { return }
         items[0].title = tabBartitle[0]
         items[1].title = tabBartitle[1]
         items[2].title = tabBartitle[2]
+        
+        items[0].image = UIImage(systemName: "house")
+        items[1].image = UIImage(systemName: "magnifyingglass")
+        items[2].image = UIImage(systemName: "person.fill")
     }
     
 }

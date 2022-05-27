@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  HomeViewController.swift
 //  dietaryMedicine
 //
 //  Created by 이보라 on 2022/05/15.
@@ -12,7 +12,7 @@ import RxCocoa
 import Resolver
 import Alamofire
 
-class MainViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var name: UILabel!
@@ -32,8 +32,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        name.text = UserDefaultsManager.email
-        StaticDelegate.delegate = self
+        name.text = Info.share.email
+        StaticDelegate.mainDelegate = self
 
         setTableView()
         registerXib()
@@ -84,7 +84,7 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -134,7 +134,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MainViewController: ViewDelegate {
+extension HomeViewController: ViewDelegate {
     func unionItemRefresh() {
         requestUnionList()
     }

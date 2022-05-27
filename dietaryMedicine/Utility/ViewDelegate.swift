@@ -12,9 +12,9 @@ protocol ViewDelegate: AnyObject {
 }
 
 class StaticDelegate: ViewDelegate {
-    static weak var delegate: ViewDelegate?
+    static weak var mainDelegate: ViewDelegate?
     
     func unionItemRefresh() {
-        StaticDelegate.delegate?.unionItemRefresh()
+        StaticDelegate.mainDelegate?.unionItemRefresh()
     }
 }

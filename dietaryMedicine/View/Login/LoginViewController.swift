@@ -36,8 +36,8 @@ class LoginViewController: UIViewController {
     }
     
     private func setUI() {
-        idTextField.text = "test@naver.com"
-        pwTextField.text = "test"
+        idTextField.text = "test1@naver.com"
+        pwTextField.text = "test1"
         
         idTextField.delegate = self
         pwTextField.delegate = self
@@ -77,7 +77,8 @@ class LoginViewController: UIViewController {
         print("✅: LOGIN NET SUCCESS")
         
         UserDefaultsManager.token = result.token
-        UserDefaultsManager.email = result.email
+        Info.share.name = result.name
+        Info.share.email = result.email
         moveMainView()
     }
 

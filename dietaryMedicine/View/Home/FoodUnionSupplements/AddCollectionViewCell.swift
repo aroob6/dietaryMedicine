@@ -78,7 +78,7 @@ class AddCollectionViewCell: UICollectionViewCell {
             case .success(let code):
                 if code == 2000 {
                     self.requestDeleteSuccess()
-                    StaticDelegate.delegate?.unionItemRefresh()
+                    StaticDelegate.mainDelegate?.unionItemRefresh()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
