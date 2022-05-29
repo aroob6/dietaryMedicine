@@ -7,6 +7,7 @@ target 'dietaryMedicine' do
 
 pod 'Moya'
 pod 'Moya/RxSwift'
+pod 'Moya/Combine'
 pod 'RxCocoa'
 pod 'Resolver'
 pod 'SwiftyJSON'

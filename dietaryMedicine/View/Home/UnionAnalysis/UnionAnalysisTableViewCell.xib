@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" restorationIdentifier="UnionAnalysisTableViewCell" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="UnionAnalysisTableViewCell" customModule="dietaryMedicine" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="220"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="220"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufd-EE-evJ">
-                        <rect key="frame" x="0.0" y="10" width="300" height="34"/>
+                        <rect key="frame" x="0.0" y="10" width="300" height="35"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선택하신 조합을 분석해봤어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkO-3I-srD">
                                 <rect key="frame" x="0.0" y="0.0" width="240.5" height="24"/>
@@ -28,14 +28,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QI3-dV-Jck">
-                                <rect key="frame" x="267.5" y="2" width="12.5" height="20.5"/>
+                                <rect key="frame" x="267.5" y="2" width="12.5" height="16.5"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="QI3-dV-Jck" secondAttribute="bottom" constant="10" id="Afx-my-iKa"/>
-                            <constraint firstAttribute="bottom" secondItem="bkO-3I-srD" secondAttribute="bottom" constant="10" id="IT8-rr-OHf"/>
+                            <constraint firstAttribute="bottom" secondItem="QI3-dV-Jck" secondAttribute="bottom" constant="15" id="E65-tZ-mQJ"/>
                             <constraint firstItem="bkO-3I-srD" firstAttribute="top" secondItem="ufd-EE-evJ" secondAttribute="top" id="LG1-Qd-CdJ"/>
                             <constraint firstItem="QI3-dV-Jck" firstAttribute="top" secondItem="ufd-EE-evJ" secondAttribute="top" id="Mk8-Ko-5SA"/>
                             <constraint firstItem="bkO-3I-srD" firstAttribute="leading" secondItem="ufd-EE-evJ" secondAttribute="leading" id="mef-SJ-AFt"/>
@@ -43,19 +42,19 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgb-to-zNk">
-                        <rect key="frame" x="5" y="44" width="275" height="201"/>
+                        <rect key="frame" x="5" y="45" width="270" height="170"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="I67-cb-Kei">
-                                <rect key="frame" x="0.0" y="0.0" width="275" height="201"/>
+                                <rect key="frame" x="0.0" y="0.0" width="270" height="170"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="170" id="3JJ-bb-AIU"/>
                             <constraint firstItem="I67-cb-Kei" firstAttribute="leading" secondItem="wgb-to-zNk" secondAttribute="leading" id="4qO-og-Ifm"/>
                             <constraint firstItem="I67-cb-Kei" firstAttribute="top" secondItem="wgb-to-zNk" secondAttribute="top" id="g8j-2W-c4g"/>
                             <constraint firstAttribute="bottom" secondItem="I67-cb-Kei" secondAttribute="bottom" id="nQF-Eb-ENc"/>
-                            <constraint firstAttribute="height" constant="201" id="oU7-3z-NFD"/>
                             <constraint firstAttribute="trailing" secondItem="I67-cb-Kei" secondAttribute="trailing" id="ptp-Ph-UWs"/>
                         </constraints>
                     </view>
@@ -63,7 +62,7 @@
                 <constraints>
                     <constraint firstItem="ufd-EE-evJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2iQ-zj-5tc"/>
                     <constraint firstItem="wgb-to-zNk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="5MY-nk-Au3"/>
-                    <constraint firstAttribute="trailing" secondItem="wgb-to-zNk" secondAttribute="trailing" constant="20" id="5Zr-lX-7lT"/>
+                    <constraint firstAttribute="trailing" secondItem="wgb-to-zNk" secondAttribute="trailing" constant="25" id="5Zr-lX-7lT"/>
                     <constraint firstAttribute="trailing" secondItem="ufd-EE-evJ" secondAttribute="trailing" id="OMI-fV-gzZ"/>
                     <constraint firstItem="wgb-to-zNk" firstAttribute="top" secondItem="ufd-EE-evJ" secondAttribute="bottom" id="Tq0-fQ-w4y"/>
                     <constraint firstItem="ufd-EE-evJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Zrq-bd-PJA"/>
