@@ -81,29 +81,29 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
         
         guard let unionItemList = unionItemList else { return cell }
         cell.configureCell(unionItemList: unionItemList, indexPathRow: indexPath.item)
-        
+        cell.viewController = viewController
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
         guard let unionItemListCount = unionItemList?.list.count else { return }
         guard unionItemListCount == indexPath.item else {
-            guard let cell = collectionView.cellForItem(at: indexPath) as? AddCollectionViewCell else {
-                return
-            }
-            
-            if cell.deleteImage.isHidden {
-                cell.deleteImage.isHidden = false
-            }
-            else {
+            guard let cell = collectionView.cellForItem(at: indexPath) as? AddCollectionViewCell else { return }
+            if cell.isSelected {
                 guard let vc = viewController else { return }
-                let msg = "삭제하시겠습니까?"
-                UtilFunction.showDeleteMessage(msg: msg, vc: vc) { _ in
-                    cell.requestDelete()
+                UtilFunction.showDeleteMessage(msg: "삭제 하시겠습니까?", vc: vc) { code in
+                    if code == .Okay {
+                        cell.requestDelete()
+                    }
+                    if code == .Cancel {
+                        cell.hiddenDelete()
+                    }
                 }
-                cell.deleteImage.isHidden = true
             }
             return
+            
         }
         
         let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)

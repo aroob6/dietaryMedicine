@@ -35,7 +35,9 @@ class UtilFunction {
         completion : @escaping (CompletionCode) -> Void = {  _ in }
     ) {
         let dialog = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "취소", style: .destructive, handler: nil)
+        let cancel = UIAlertAction(title: "취소", style: .destructive) { _ in
+            completion(CompletionCode.Cancel)
+        }
         let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { _ in
             completion(CompletionCode.Okay)
         }

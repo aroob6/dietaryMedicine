@@ -12,6 +12,7 @@ import RxCocoa
 import Resolver
 import Alamofire
 import Kingfisher
+import MapKit
 
 class AddCollectionViewCell: UICollectionViewCell {
     public static let identifier = "AddCollectionViewCell"
@@ -19,6 +20,19 @@ class AddCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet var deleteImage: UIImageView!
+    
+    weak var viewController: UIViewController?
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                showDelete()
+            }
+            else {
+                hiddenDelete()
+            }
+        }
+    }
     
     private var item: Item?
     var itemType: ItemType = .supplement
@@ -47,6 +61,14 @@ class AddCollectionViewCell: UICollectionViewCell {
         deleteImage.isHidden = true
         
         addImage.layer.cornerRadius = 8
+    }
+    
+    func showDelete() {
+        deleteImage.isHidden = false
+    }
+    
+    func hiddenDelete() {
+        deleteImage.isHidden = true
     }
     
     @objc func requestDelete() {
