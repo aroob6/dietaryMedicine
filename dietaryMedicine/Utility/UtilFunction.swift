@@ -29,4 +29,20 @@ class UtilFunction {
             vc.present(dialog, animated: true)
         }
     }
+    static func showDeleteMessage(
+        msg: String,
+        vc: UIViewController,
+        completion : @escaping (CompletionCode) -> Void = {  _ in }
+    ) {
+        let dialog = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .destructive, handler: nil)
+        let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { _ in
+            completion(CompletionCode.Okay)
+        }
+        dialog.addAction(cancel)
+        dialog.addAction(action)
+        DispatchQueue.main.async {
+            vc.present(dialog, animated: true)
+        }
+    }
 }

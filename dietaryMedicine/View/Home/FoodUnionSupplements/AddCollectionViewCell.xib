@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,31 +22,30 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxU-J0-PGa">
                         <rect key="frame" x="5" y="5" width="95" height="90"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kce-PD-32z">
-                                <rect key="frame" x="12.5" y="10" width="70" height="70"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kce-PD-32z">
+                                <rect key="frame" x="0.0" y="0.0" width="95" height="90"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Fbb-dr-ORy"/>
-                                    <constraint firstAttribute="width" constant="70" id="HUv-k3-JeZ"/>
-                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvz-Pn-kCY">
-                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="CQ1-UZ-0eK"/>
-                                    <constraint firstAttribute="width" constant="20" id="ELG-wM-THt"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="clear" catalog="system" title=" "/>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QnV-Bs-Hqa">
+                                <rect key="frame" x="0.0" y="-5" width="95" height="98"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <imageReference key="image" image="trash" catalog="system" symbolScale="large"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="QnV-Bs-Hqa" secondAttribute="trailing" id="1Gj-0c-vqZ"/>
+                            <constraint firstAttribute="trailing" secondItem="kce-PD-32z" secondAttribute="trailing" id="8j7-OZ-Iss"/>
+                            <constraint firstItem="QnV-Bs-Hqa" firstAttribute="centerY" secondItem="cxU-J0-PGa" secondAttribute="centerY" id="9vc-Do-txx"/>
                             <constraint firstItem="kce-PD-32z" firstAttribute="centerY" secondItem="cxU-J0-PGa" secondAttribute="centerY" id="H5j-E7-7UM"/>
                             <constraint firstItem="kce-PD-32z" firstAttribute="centerX" secondItem="cxU-J0-PGa" secondAttribute="centerX" id="Ril-ak-NHg"/>
-                            <constraint firstItem="Pvz-Pn-kCY" firstAttribute="top" secondItem="cxU-J0-PGa" secondAttribute="top" id="egz-Mn-uF4"/>
-                            <constraint firstItem="Pvz-Pn-kCY" firstAttribute="leading" secondItem="cxU-J0-PGa" secondAttribute="leading" id="khH-tR-K0L"/>
+                            <constraint firstItem="kce-PD-32z" firstAttribute="top" secondItem="cxU-J0-PGa" secondAttribute="top" id="VtG-43-LOS"/>
+                            <constraint firstAttribute="bottom" secondItem="kce-PD-32z" secondAttribute="bottom" id="Xnp-hm-RDA"/>
+                            <constraint firstItem="QnV-Bs-Hqa" firstAttribute="top" secondItem="cxU-J0-PGa" secondAttribute="top" id="dbs-K4-Kbo"/>
+                            <constraint firstAttribute="bottom" secondItem="QnV-Bs-Hqa" secondAttribute="bottom" id="gyg-fz-5eG"/>
+                            <constraint firstItem="kce-PD-32z" firstAttribute="leading" secondItem="cxU-J0-PGa" secondAttribute="leading" id="nks-Ih-zWv"/>
+                            <constraint firstItem="QnV-Bs-Hqa" firstAttribute="centerX" secondItem="cxU-J0-PGa" secondAttribute="centerX" id="otb-ie-WV3"/>
+                            <constraint firstItem="QnV-Bs-Hqa" firstAttribute="leading" secondItem="cxU-J0-PGa" secondAttribute="leading" id="y6N-f2-fta"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -60,14 +60,14 @@
             <size key="customSize" width="105" height="100"/>
             <connections>
                 <outlet property="addImage" destination="kce-PD-32z" id="dEU-7r-E83"/>
-                <outlet property="clearButton" destination="Pvz-Pn-kCY" id="gsY-X1-2tP"/>
+                <outlet property="deleteImage" destination="QnV-Bs-Hqa" id="3nO-ti-fS0"/>
                 <outlet property="view" destination="cxU-J0-PGa" id="2Xb-75-RKp"/>
             </connections>
             <point key="canvasLocation" x="141.30434782608697" y="77.678571428571431"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="clear" catalog="system" width="128" height="114"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

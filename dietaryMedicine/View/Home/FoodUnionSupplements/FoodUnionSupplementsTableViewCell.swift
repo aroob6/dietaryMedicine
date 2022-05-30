@@ -60,7 +60,7 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
     }
 }
 
-extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let unionItemListCount = unionItemList?.list.count else { return 0 }
         if unionItemListCount == 0 {
@@ -87,22 +87,28 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let unionItemListCount = unionItemList?.list.count else { return }
-        guard unionItemListCount == indexPath.item else { return }
+        guard unionItemListCount == indexPath.item else {
+            guard let cell = collectionView.cellForItem(at: indexPath) as? AddCollectionViewCell else {
+                return
+            }
+            
+            if cell.deleteImage.isHidden {
+                cell.deleteImage.isHidden = false
+            }
+            else {
+                guard let vc = viewController else { return }
+                let msg = "삭제하시겠습니까?"
+                UtilFunction.showDeleteMessage(msg: msg, vc: vc) { _ in
+                    cell.requestDelete()
+                }
+                cell.deleteImage.isHidden = true
+            }
+            return
+        }
         
         let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "AddListViewController") as! AddListViewController
         viewController?.navigationController?.pushViewController(vc, animated: false)
     
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        let cellCount = unionItemList?.list.count ?? 1
-//        let totalCellWidth = 110 * (cellCount)
-//        let totalSpacingWidth = 5 * (cellCount - 1)
-//
-//        let leftInset = (collectionView.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-//        let rightInset = leftInset
-//
-//        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: 120)
-//    }
 }

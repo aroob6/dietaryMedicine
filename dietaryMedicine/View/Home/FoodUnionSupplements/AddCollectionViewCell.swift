@@ -18,7 +18,7 @@ class AddCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var addImage: UIImageView!
-    @IBOutlet var clearButton: UIButton!
+    @IBOutlet var deleteImage: UIImageView!
     
     private var item: Item?
     var itemType: ItemType = .supplement
@@ -31,7 +31,6 @@ class AddCollectionViewCell: UICollectionViewCell {
         
         setUpView()
         
-        bindButton()
         bindDeleteItem()
     }
     
@@ -41,13 +40,13 @@ class AddCollectionViewCell: UICollectionViewCell {
         view.layer.shadowOpacity = 0.1
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         view.layer.masksToBounds = false
-    }
-    
-    private func bindButton() {
-        clearButton.rx.tap.bind { [weak self] in
-            self?.requestDelete()
-        }.disposed(by: disposeBag)
-
+        
+        let clearColor = UIColor.black.withAlphaComponent(0.5)
+        deleteImage.backgroundColor = clearColor
+        deleteImage.layer.cornerRadius = 8
+        deleteImage.isHidden = true
+        
+        addImage.layer.cornerRadius = 8
     }
     
     @objc func requestDelete() {
@@ -93,16 +92,16 @@ class AddCollectionViewCell: UICollectionViewCell {
     func configureCell(unionItemList: UnionItemList, indexPathRow: Int) {
         if unionItemList.list.count == indexPathRow {
             addImage.image = UIImage(systemName: "plus")
-            clearButton.isHidden = true
+            addImage.contentMode = .center
             return
         }
         
         let unionItemData = unionItemList.list[indexPathRow]
         self.item = unionItemData
-        clearButton.isHidden = false
         
         if unionItemData.image != "" {
             let imgURL = URL(string: unionItemData.image)
+            addImage.contentMode = .scaleAspectFit
             
             addImage.kf.setImage(
                 with: imgURL,

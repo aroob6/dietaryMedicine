@@ -36,8 +36,8 @@ class LoginViewController: UIViewController {
     }
     
     private func setUI() {
-        idTextField.text = "test1@naver.com"
-        pwTextField.text = "test1"
+        idTextField.text = "test@naver.com"
+        pwTextField.text = "test"
         
         idTextField.delegate = self
         pwTextField.delegate = self
