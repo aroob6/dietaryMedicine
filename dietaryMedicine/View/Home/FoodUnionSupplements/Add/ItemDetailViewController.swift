@@ -25,7 +25,7 @@ class ItemDetailViewController: UIViewController {
             $0.backgroundColor = .clear
             $0.axis = .vertical
             $0.alignment = .fill
-            $0.distribution = .fill
+            $0.distribution = .fillProportionally
         }
         return view
     }()
@@ -51,6 +51,23 @@ class ItemDetailViewController: UIViewController {
     private var foodID = 0
     var itemType = ItemType.supplement
     
+    private var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout().then {
+            $0.scrollDirection = .horizontal
+            $0.minimumInteritemSpacing = 0
+            $0.minimumLineSpacing = 15
+        }
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return view
+    }()
+    
+    private var infoTableView = UITableView()
+    private var analysisView = UIView()
+    private var lowestInfoView = UIView()
+    
+    let tabBarTitle = ["비타민 정보", "비타민 분석", "구매정보"]
+    
     @Injected private var itemDetailViewModel: ItemAddViewModel
     
     //RxSwift
@@ -60,34 +77,93 @@ class ItemDetailViewController: UIViewController {
         super.viewDidLoad()
 
         setUI()
+        setUpCollectionView()
+        
         bindButton()
         bindAddItem()
     }
     
-    private func setUI(){
+    private func setUI() {
         view.backgroundColor = .white
+        stackView.backgroundColor = .mainGray
+        scrollView.backgroundColor = .mainGray
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         scrollView.addSubview(buttonStackView)
         
-        stackView.addArrangedSubview(imgView)
         stackView.addArrangedSubview(name)
-        stackView.addArrangedSubview(content)
-        stackView.addArrangedSubview(link)
+        stackView.addArrangedSubview(imgView)
+        stackView.setCustomSpacing(20, after: imgView)
+        
+        stackView.addArrangedSubview(collectionView)
+        stackView.addArrangedSubview(infoTableView)
+        stackView.addArrangedSubview(analysisView)
+        stackView.setCustomSpacing(20, after: analysisView)
+        
+        stackView.addArrangedSubview(lowestInfoView)
         
         buttonStackView.addArrangedSubview(bookMarkButton)
         buttonStackView.addArrangedSubview(addButton)
+        buttonStackView.setCustomSpacing(10, after: addButton)
         
-        imgView.backgroundColor = .green
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         
-        name.textColor = .black
-        name.backgroundColor = .lightGray
+        stackView.snp.makeConstraints {
+            $0.width.equalTo(self.view.frame.width)
+            $0.top.leading.trailing.equalToSuperview()
+        }
         
-        content.textColor = .black
-        content.backgroundColor = .blue
+        name.snp.makeConstraints {
+            $0.height.equalTo(50)
+        }
         
-        link.textColor = .black
-        link.backgroundColor = .yellow
+        name.backgroundColor = .red
+        
+        imgView.snp.makeConstraints {
+            $0.height.equalTo(300)
+        }
+        
+        imgView.backgroundColor = .yellow
+        
+        collectionView.snp.makeConstraints {
+            $0.height.equalTo(50)
+        }
+        
+        collectionView.backgroundColor = .green
+        
+        infoTableView.snp.makeConstraints {
+            $0.height.equalTo(400)
+        }
+        
+        infoTableView.backgroundColor = .blue
+        
+        analysisView.snp.makeConstraints {
+            $0.height.equalTo(210)
+        }
+        
+        analysisView.backgroundColor = .magenta
+        
+        lowestInfoView.snp.makeConstraints {
+            $0.height.equalTo(195)
+        }
+        
+        lowestInfoView.backgroundColor = .gray
+        
+        buttonStackView.snp.makeConstraints {
+            $0.height.equalTo(55)
+            $0.top.equalTo(stackView.snp.bottom).offset(20)
+            $0.bottom.leading.trailing.equalToSuperview()
+        }
+        
+        bookMarkButton.snp.makeConstraints {
+            $0.width.height.equalTo(55)
+        }
+        
+        addButton.snp.makeConstraints {
+            $0.height.equalTo(55)
+        }
         
         bookMarkButton.setImage(UIImage(named: "bookMark"), for: .normal)
         
@@ -95,44 +171,84 @@ class ItemDetailViewController: UIViewController {
         addButton.setTitle("추가하기", for: .normal)
         addButton.setTitleColor(.white, for: .normal)
         addButton.layer.cornerRadius = 8
-        
-        scrollView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(10)
-        }
-        
-        stackView.snp.makeConstraints {
-            $0.width.equalTo(self.view.frame.width - 20)
-            $0.top.leading.trailing.equalToSuperview()
-
-        }
-        imgView.snp.makeConstraints {
-            $0.height.equalTo(view.frame.height/12 * 5)
-        }
-        name.snp.makeConstraints {
-            $0.height.equalTo(view.frame.height/12 * 1)
-        }
-        content.snp.makeConstraints {
-            $0.height.equalTo(view.frame.height/12 * 5)
-        }
-        link.snp.makeConstraints {
-            $0.height.equalTo(view.frame.height/12 * 1)
-        }
-        
-        buttonStackView.snp.makeConstraints {
-            $0.height.equalTo(60)
-            $0.top.equalTo(stackView.snp.bottom).offset(20)
-            $0.bottom.leading.trailing.equalToSuperview()
-            
-        }
-        
-        bookMarkButton.snp.makeConstraints {
-            $0.width.height.equalTo(60)
-        }
-        
-        addButton.snp.makeConstraints {
-            $0.height.equalTo(60)
-        }
     }
+    
+    func setUpCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        
+    }
+    
+//    private func setUI(){
+//        view.backgroundColor = .white
+//        view.addSubview(scrollView)
+//        scrollView.addSubview(stackView)
+//        scrollView.addSubview(buttonStackView)
+//
+//        stackView.addArrangedSubview(imgView)
+//        stackView.addArrangedSubview(name)
+//        stackView.addArrangedSubview(content)
+//        stackView.addArrangedSubview(link)
+//
+//        buttonStackView.addArrangedSubview(bookMarkButton)
+//        buttonStackView.addArrangedSubview(addButton)
+//
+//        imgView.backgroundColor = .green
+//
+//        name.textColor = .black
+//        name.backgroundColor = .lightGray
+//
+//        content.textColor = .black
+//        content.backgroundColor = .blue
+//
+//        link.textColor = .black
+//        link.backgroundColor = .yellow
+//
+//        bookMarkButton.setImage(UIImage(named: "bookMark"), for: .normal)
+//
+//        addButton.backgroundColor = .mainColor
+//        addButton.setTitle("추가하기", for: .normal)
+//        addButton.setTitleColor(.white, for: .normal)
+//        addButton.layer.cornerRadius = 8
+//
+//        scrollView.snp.makeConstraints {
+//            $0.edges.equalToSuperview().inset(10)
+//        }
+//
+//        stackView.snp.makeConstraints {
+//            $0.width.equalTo(self.view.frame.width - 20)
+//            $0.top.leading.trailing.equalToSuperview()
+//
+//        }
+//        imgView.snp.makeConstraints {
+//            $0.height.equalTo(view.frame.height/12 * 5)
+//        }
+//        name.snp.makeConstraints {
+//            $0.height.equalTo(view.frame.height/12 * 1)
+//        }
+//        content.snp.makeConstraints {
+//            $0.height.equalTo(view.frame.height/12 * 5)
+//        }
+//        link.snp.makeConstraints {
+//            $0.height.equalTo(view.frame.height/12 * 1)
+//        }
+//
+//        buttonStackView.snp.makeConstraints {
+//            $0.height.equalTo(60)
+//            $0.top.equalTo(stackView.snp.bottom).offset(20)
+//            $0.bottom.leading.trailing.equalToSuperview()
+//
+//        }
+//
+//        bookMarkButton.snp.makeConstraints {
+//            $0.width.height.equalTo(60)
+//        }
+//
+//        addButton.snp.makeConstraints {
+//            $0.height.equalTo(60)
+//        }
+//    }
     
     private func bindButton() {
         addButton.rx.tap.bind { [weak self] in
@@ -227,4 +343,25 @@ class ItemDetailViewController: UIViewController {
     }
 
 
+}
+
+extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let tabBarCell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarHeaderCell.identifier, for: indexPath) as! TabBarHeaderCell
+//        tabBarCell.tabBarTitle.text = tabBarTitle[indexPath.row]
+//        tabBarCell.deselectTabItem()
+//        if indexPath.row == 0 {
+//            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+//            tabBarCell.isSelected = true
+//        }
+//        return tabBarCell
+        
+        return UICollectionViewCell()
+    }
+    
+    
 }
