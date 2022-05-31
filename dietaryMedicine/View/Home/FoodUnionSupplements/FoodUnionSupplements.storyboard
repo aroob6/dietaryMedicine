@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -48,42 +47,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="TabBarHeaderCell" reuseIdentifier="TabBarHeaderCell" id="gc0-1U-WmK" customClass="TabBarHeaderCell" customModule="dietaryMedicine" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gc0-1U-WmK">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SGo-WI-H7o">
                                             <rect key="frame" x="0.0" y="0.0" width="130" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChB-Hd-1EK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="48"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dai-6j-7xl">
-                                                    <rect key="frame" x="0.0" y="48" width="130" height="2"/>
-                                                    <color key="backgroundColor" name="mainColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="2" id="Nyb-hA-V4d"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="ChB-Hd-1EK" secondAttribute="trailing" id="6go-Nj-3gV"/>
-                                                <constraint firstAttribute="trailing" secondItem="Dai-6j-7xl" secondAttribute="trailing" id="6ok-7O-pT5"/>
-                                                <constraint firstItem="Dai-6j-7xl" firstAttribute="top" secondItem="ChB-Hd-1EK" secondAttribute="bottom" id="8gW-9P-Lol"/>
-                                                <constraint firstItem="Dai-6j-7xl" firstAttribute="leading" secondItem="SGo-WI-H7o" secondAttribute="leading" id="Dd4-2p-UoU"/>
-                                                <constraint firstItem="ChB-Hd-1EK" firstAttribute="top" secondItem="SGo-WI-H7o" secondAttribute="top" id="JLa-eA-QlQ"/>
-                                                <constraint firstAttribute="bottom" secondItem="Dai-6j-7xl" secondAttribute="bottom" id="R95-IL-gwp"/>
-                                                <constraint firstItem="ChB-Hd-1EK" firstAttribute="leading" secondItem="SGo-WI-H7o" secondAttribute="leading" id="ef6-7T-cQk"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="130" height="50"/>
-                                        <connections>
-                                            <outlet property="selectLine" destination="Dai-6j-7xl" id="8BN-6W-oIv"/>
-                                            <outlet property="tabBarTitle" destination="ChB-Hd-1EK" id="fyQ-qe-LKx"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -161,9 +132,6 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="mainColor">
-            <color red="0.63099998235702515" green="0.45899999141693115" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

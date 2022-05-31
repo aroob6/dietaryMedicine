@@ -19,6 +19,7 @@ class AddListViewController: UIViewController {
                 
         setUpView()
         setUpCollectionView()
+        registerXib()
     }
     
     func setUpView() {
@@ -36,6 +37,11 @@ class AddListViewController: UIViewController {
         tabBarLayout.minimumInteritemSpacing = 0
         tabBarHeader.collectionViewLayout = tabBarLayout
     }
+    
+    private func registerXib() {
+        tabBarHeader.register(UINib(nibName: TabBarHeaderCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: TabBarHeaderCollectionViewCell.identifier)
+    }
+    
 }
 
 extension AddListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -44,14 +50,16 @@ extension AddListViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let tabBarCell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarHeaderCell.identifier, for: indexPath) as! TabBarHeaderCell
-        tabBarCell.tabBarTitle.text = tabBarTitle[indexPath.row]
-        tabBarCell.deselectTabItem()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarHeaderCollectionViewCell.identifier, for: indexPath) as? TabBarHeaderCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.tabBarTitle.text = tabBarTitle[indexPath.row]
+        cell.deselectTabItem()
         if indexPath.row == 0 {
             collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
-            tabBarCell.isSelected = true
+            cell.isSelected = true
         }
-        return tabBarCell
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

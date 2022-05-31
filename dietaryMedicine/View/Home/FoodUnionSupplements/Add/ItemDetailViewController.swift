@@ -42,9 +42,11 @@ class ItemDetailViewController: UIViewController {
     
     private let scrollView = UIScrollView()
     private var imgView = UIImageView()
-    private var name = UILabel()
-    private var content = UILabel()
-    private var link = UILabel()
+    private var name: UILabel = {
+        let label = BasePaddingLabel(padding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
+        return label
+    }()
+    
     private var bookMarkButton = UIButton()
     private var addButton = UIButton()
     private var supplementID = 0
@@ -54,8 +56,6 @@ class ItemDetailViewController: UIViewController {
     private var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout().then {
             $0.scrollDirection = .horizontal
-            $0.minimumInteritemSpacing = 0
-            $0.minimumLineSpacing = 15
         }
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -64,9 +64,16 @@ class ItemDetailViewController: UIViewController {
     
     private var infoTableView = UITableView()
     private var analysisView = UIView()
+    private var analysisLabel = UILabel()
+    private var analysisTableView = UITableView()
+    
     private var lowestInfoView = UIView()
+    private var lowestInfoLabel = UILabel()
     
     let tabBarTitle = ["비타민 정보", "비타민 분석", "구매정보"]
+    let infoType = ["영양제 종류", "브랜드", "데일리 복용량", "영양제 형태"]
+    var supplementData = Supplements()
+    var foodData = Foods()
     
     @Injected private var itemDetailViewModel: ItemAddViewModel
     
@@ -77,7 +84,9 @@ class ItemDetailViewController: UIViewController {
         super.viewDidLoad()
 
         setUI()
-        setUpCollectionView()
+        setTableView()
+        setCollectionView()
+        registerXib()
         
         bindButton()
         bindAddItem()
@@ -87,39 +96,45 @@ class ItemDetailViewController: UIViewController {
         view.backgroundColor = .white
         stackView.backgroundColor = .mainGray
         scrollView.backgroundColor = .mainGray
+        analysisView.backgroundColor = .white
+        lowestInfoView.backgroundColor = .white
+        buttonStackView.backgroundColor = .white
+        
         view.addSubview(scrollView)
+        view.addSubview(buttonStackView)
         scrollView.addSubview(stackView)
-        scrollView.addSubview(buttonStackView)
         
         stackView.addArrangedSubview(name)
         stackView.addArrangedSubview(imgView)
         stackView.setCustomSpacing(20, after: imgView)
-        
         stackView.addArrangedSubview(collectionView)
         stackView.addArrangedSubview(infoTableView)
         stackView.addArrangedSubview(analysisView)
         stackView.setCustomSpacing(20, after: analysisView)
-        
         stackView.addArrangedSubview(lowestInfoView)
+        
+        analysisView.addSubview(analysisLabel)
+        analysisView.addSubview(analysisTableView)
+        lowestInfoView.addSubview(lowestInfoLabel)
         
         buttonStackView.addArrangedSubview(bookMarkButton)
         buttonStackView.addArrangedSubview(addButton)
-        buttonStackView.setCustomSpacing(10, after: addButton)
         
         scrollView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
         
         stackView.snp.makeConstraints {
             $0.width.equalTo(self.view.frame.width)
-            $0.top.leading.trailing.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
         
+        name.font = .boldSystemFont(ofSize: 25)
+        name.backgroundColor = .white
         name.snp.makeConstraints {
             $0.height.equalTo(50)
+//            $0.width.equalTo(self.scrollView).inset(scrollView.layoutMargins)
         }
-        
-        name.backgroundColor = .red
         
         imgView.snp.makeConstraints {
             $0.height.equalTo(300)
@@ -134,27 +149,41 @@ class ItemDetailViewController: UIViewController {
         collectionView.backgroundColor = .green
         
         infoTableView.snp.makeConstraints {
-            $0.height.equalTo(400)
+            $0.height.equalTo(480)
         }
-        
-        infoTableView.backgroundColor = .blue
         
         analysisView.snp.makeConstraints {
             $0.height.equalTo(210)
         }
         
-        analysisView.backgroundColor = .magenta
+        analysisLabel.text = "비타민 분석"
+        analysisLabel.textColor = .textGray
+        analysisLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        analysisTableView.backgroundColor = .magenta
+        analysisTableView.snp.makeConstraints {
+            $0.top.equalTo(analysisLabel.snp.bottom).offset(20)
+            $0.bottom.leading.trailing.equalToSuperview().inset(20)
+        }
         
         lowestInfoView.snp.makeConstraints {
             $0.height.equalTo(195)
         }
         
-        lowestInfoView.backgroundColor = .gray
+        lowestInfoLabel.text = "최저가 정보"
+        lowestInfoLabel.textColor = .textGray
+        lowestInfoLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.leading.trailing.equalToSuperview().inset(20)
+        }
         
         buttonStackView.snp.makeConstraints {
             $0.height.equalTo(55)
-            $0.top.equalTo(stackView.snp.bottom).offset(20)
-            $0.bottom.leading.trailing.equalToSuperview()
+            $0.top.equalTo(scrollView.snp.bottom).offset(10)
+            $0.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(10)
         }
         
         bookMarkButton.snp.makeConstraints {
@@ -162,6 +191,7 @@ class ItemDetailViewController: UIViewController {
         }
         
         addButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview()
             $0.height.equalTo(55)
         }
         
@@ -173,82 +203,29 @@ class ItemDetailViewController: UIViewController {
         addButton.layer.cornerRadius = 8
     }
     
-    func setUpCollectionView() {
+    private func setTableView() {
+        infoTableView.delegate = self
+        infoTableView.dataSource = self
+        
+        infoTableView.isScrollEnabled = false
+        infoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+    }
+    
+    private func setCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        
+        let tabBarLayout = UICollectionViewFlowLayout()
+        tabBarLayout.itemSize = CGSize.init(width: self.view.frame.width / 3, height: 50)
+        tabBarLayout.minimumLineSpacing = 0
+        tabBarLayout.minimumInteritemSpacing = 0
+        collectionView.collectionViewLayout = tabBarLayout
     }
     
-//    private func setUI(){
-//        view.backgroundColor = .white
-//        view.addSubview(scrollView)
-//        scrollView.addSubview(stackView)
-//        scrollView.addSubview(buttonStackView)
-//
-//        stackView.addArrangedSubview(imgView)
-//        stackView.addArrangedSubview(name)
-//        stackView.addArrangedSubview(content)
-//        stackView.addArrangedSubview(link)
-//
-//        buttonStackView.addArrangedSubview(bookMarkButton)
-//        buttonStackView.addArrangedSubview(addButton)
-//
-//        imgView.backgroundColor = .green
-//
-//        name.textColor = .black
-//        name.backgroundColor = .lightGray
-//
-//        content.textColor = .black
-//        content.backgroundColor = .blue
-//
-//        link.textColor = .black
-//        link.backgroundColor = .yellow
-//
-//        bookMarkButton.setImage(UIImage(named: "bookMark"), for: .normal)
-//
-//        addButton.backgroundColor = .mainColor
-//        addButton.setTitle("추가하기", for: .normal)
-//        addButton.setTitleColor(.white, for: .normal)
-//        addButton.layer.cornerRadius = 8
-//
-//        scrollView.snp.makeConstraints {
-//            $0.edges.equalToSuperview().inset(10)
-//        }
-//
-//        stackView.snp.makeConstraints {
-//            $0.width.equalTo(self.view.frame.width - 20)
-//            $0.top.leading.trailing.equalToSuperview()
-//
-//        }
-//        imgView.snp.makeConstraints {
-//            $0.height.equalTo(view.frame.height/12 * 5)
-//        }
-//        name.snp.makeConstraints {
-//            $0.height.equalTo(view.frame.height/12 * 1)
-//        }
-//        content.snp.makeConstraints {
-//            $0.height.equalTo(view.frame.height/12 * 5)
-//        }
-//        link.snp.makeConstraints {
-//            $0.height.equalTo(view.frame.height/12 * 1)
-//        }
-//
-//        buttonStackView.snp.makeConstraints {
-//            $0.height.equalTo(60)
-//            $0.top.equalTo(stackView.snp.bottom).offset(20)
-//            $0.bottom.leading.trailing.equalToSuperview()
-//
-//        }
-//
-//        bookMarkButton.snp.makeConstraints {
-//            $0.width.height.equalTo(60)
-//        }
-//
-//        addButton.snp.makeConstraints {
-//            $0.height.equalTo(60)
-//        }
-//    }
+    private func registerXib() {
+        infoTableView.register(UINib(nibName: ItemInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ItemInfoTableViewCell.identifier)
+        collectionView.register(UINib(nibName: TabBarHeaderCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: TabBarHeaderCollectionViewCell.identifier)
+    }
     
     private func bindButton() {
         addButton.rx.tap.bind { [weak self] in
@@ -294,10 +271,9 @@ class ItemDetailViewController: UIViewController {
     
     func configureCell(supplementList: SupplementList, indexPath: IndexPath) {
         let supplementData = supplementList.data[indexPath.row]
+        self.supplementData = supplementData
         supplementID = supplementData.supplementID
         name.text = supplementData.name
-        content.text = supplementData.content
-        link.text = supplementData.link
         itemType = .supplement
         
         if supplementData.image != "" {
@@ -319,10 +295,9 @@ class ItemDetailViewController: UIViewController {
     
     func configureCell(foodList: FoodList, indexPath: IndexPath) {
         let foodData = foodList.data[indexPath.row]
+        self.foodData = foodData
         foodID = foodData.foodID
         name.text = foodData.name
-        content.text = foodData.content
-        link.text = foodData.link
         itemType = .food
         
         if foodData.image != "" {
@@ -344,24 +319,89 @@ class ItemDetailViewController: UIViewController {
 
 
 }
+extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemInfoTableViewCell.identifier, for: indexPath) as? ItemInfoTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        var nutrientName = ""
+        var brand = ""
+        var nutrientAmount = ""
+        var nutrientUnit = ""
+        var unit = ""
+        
+        switch itemType {
+        case .supplement:
+            nutrientName = supplementData.nutrientAmounts.first?.nutrientNameKor ?? ""
+            brand = supplementData.brand
+            nutrientAmount = String(supplementData.nutrientAmounts.first?.nutrientAmount ?? 0.0)
+            nutrientUnit = supplementData.nutrientAmounts.first?.nutrientAmountUnit ?? ""
+            unit = supplementData.unit
+        case .food:
+            nutrientName = foodData.nutrientAmounts.first?.nutrientNameKor ?? ""
+            brand = foodData.brand
+            nutrientAmount = String(foodData.nutrientAmounts.first?.nutrientAmount ?? 0.0)
+            nutrientUnit = foodData.nutrientAmounts.first?.nutrientAmountUnit ?? ""
+            unit = ""
+        }
+        
+        switch indexPath.row {
+        case 0:
+            cell.type.text = infoType[0]
+            cell.name.text = nutrientName
+        case 1:
+            cell.type.text = infoType[1]
+            cell.name.text = brand
+        case 2:
+            cell.type.text = infoType[2]
+            cell.name.text = nutrientAmount + " " + nutrientUnit
+        case 3:
+            cell.type.text = infoType[3]
+            cell.name.text = unit
+        default:
+            return UITableViewCell()
+        }
+        
+        return cell
+    }
+    
+    
+}
 
 extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return tabBarTitle.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let tabBarCell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarHeaderCell.identifier, for: indexPath) as! TabBarHeaderCell
-//        tabBarCell.tabBarTitle.text = tabBarTitle[indexPath.row]
-//        tabBarCell.deselectTabItem()
-//        if indexPath.row == 0 {
-//            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
-//            tabBarCell.isSelected = true
-//        }
-//        return tabBarCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarHeaderCollectionViewCell.identifier, for: indexPath) as? TabBarHeaderCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.tabBarTitle.text = tabBarTitle[indexPath.row]
+        cell.deselectTabItem()
+        if indexPath.row == 0 {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+            cell.isSelected = true
+        }
+        return cell
         
-        return UICollectionViewCell()
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            scrollView.scroll(to: .info)
+        case 1:
+            scrollView.scroll(to: .analysis)
+        case 2:
+            scrollView.scroll(to: .buyInfo)
+        default:
+            return
+        }
+    }
 }
