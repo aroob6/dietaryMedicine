@@ -18,7 +18,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var birthTextField: UITextField!
     @IBOutlet var genderSementedControl: UISegmentedControl!
-    @IBOutlet var signUpButton: UIButton!
+    
+    
+    private var signUpButton = UIButton()
     
     private var emailText = ""
     private var pwText = ""
@@ -33,19 +35,34 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setUI()
         bindButton()
-        bindSignUp()
+//        bindSignUp()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    private func setUI() {
+        self.view.backgroundColor = .white
+        self.view.addSubview(signUpButton)
+        
+        signUpButton.backgroundColor = .black
+        signUpButton.setTitle("회원가입", for: .normal)
+        signUpButton.snp.makeConstraints {
+            $0.height.equalTo(40)
+            $0.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
+        }
+        
     }
 
     private func bindButton() {
         signUpButton.rx.tap.bind { [weak self] in
             self?.signUpAction()
         }.disposed(by: disposeBag)
+    }
+    
+    private func signUpAction() {
+        let vc = EmailSignUpViewController()
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     private func bindSignUp() {
@@ -80,64 +97,50 @@ class SignUpViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
-    @objc func signUpAction() {
-        guard let emailText = emailTextField.text, !emailText.isEmpty else {
-            let msg = "이메일을 입력하세요"
-            UtilFunction.showMessage(msg: msg, vc: self)
-            return
-        }
-        
-        guard let pwText = pwTextField.text, !pwText.isEmpty else {
-            let msg = "비밀번호를 입력하세요"
-            UtilFunction.showMessage(msg: msg, vc: self)
-            return
-        }
-        
-        guard let nameText = nameTextField.text, !nameText.isEmpty else {
-            let msg = "이름을 입력하세요"
-            UtilFunction.showMessage(msg: msg, vc: self)
-            return
-        }
-        
-        guard let birthText = birthTextField.text, !birthText.isEmpty else {
-            let msg = "생년월일을 입력하세요"
-            UtilFunction.showMessage(msg: msg, vc: self)
-            return
-        }
-
-        switch genderSementedControl.selectedSegmentIndex {
-        case 0:
-            genderText = "m"
-        case 1:
-            genderText = "f"
-        default :
-            return
-        }
-        
-        let year = birthText.substring(from: 0, to: 1)
-        let month = birthText.substring(from: 2, to: 3)
-        let day = birthText.substring(from: 4, to: 5)
-        
-        self.emailText = emailText
-        self.pwText = pwText
-        self.nameText = nameText
-        self.birthText = "19" + year + "-" + month + "-" + day
-        
-        requestSignUp()
-    }
+//    @objc func signUpAction() {
+//        guard let emailText = emailTextField.text, !emailText.isEmpty else {
+//            let msg = "이메일을 입력하세요"
+//            UtilFunction.showMessage(msg: msg, vc: self)
+//            return
+//        }
+//
+//        guard let pwText = pwTextField.text, !pwText.isEmpty else {
+//            let msg = "비밀번호를 입력하세요"
+//            UtilFunction.showMessage(msg: msg, vc: self)
+//            return
+//        }
+//
+//        guard let nameText = nameTextField.text, !nameText.isEmpty else {
+//            let msg = "이름을 입력하세요"
+//            UtilFunction.showMessage(msg: msg, vc: self)
+//            return
+//        }
+//
+//        guard let birthText = birthTextField.text, !birthText.isEmpty else {
+//            let msg = "생년월일을 입력하세요"
+//            UtilFunction.showMessage(msg: msg, vc: self)
+//            return
+//        }
+//
+//        switch genderSementedControl.selectedSegmentIndex {
+//        case 0:
+//            genderText = "m"
+//        case 1:
+//            genderText = "f"
+//        default :
+//            return
+//        }
+//
+//        let year = birthText.substring(from: 0, to: 1)
+//        let month = birthText.substring(from: 2, to: 3)
+//        let day = birthText.substring(from: 4, to: 5)
+//
+//        self.emailText = emailText
+//        self.pwText = pwText
+//        self.nameText = nameText
+//        self.birthText = "19" + year + "-" + month + "-" + day
+//
+//        requestSignUp()
+//    }
 }
 
-extension String {
-    func substring(from: Int, to: Int) -> String {
-        guard from < count, to >= 0, to - from >= 0 else {
-            return ""
-        }
-        
-        // Index 값 획득
-        let startIndex = index(self.startIndex, offsetBy: from)
-        let endIndex = index(self.startIndex, offsetBy: to + 1) // '+1'이 있는 이유: endIndex는 문자열의 마지막 그 다음을 가리키기 때문
-        
-        // 파싱
-        return String(self[startIndex ..< endIndex])
-    }
-}

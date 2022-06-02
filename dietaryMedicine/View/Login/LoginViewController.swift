@@ -15,6 +15,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
+
+    
+    @IBOutlet weak var appleButton: UIButton!
+    @IBOutlet weak var kakaoButton: UIButton!
+    @IBOutlet weak var googleButton: UIButton!
+    @IBOutlet weak var emailButton: UIButton!
     
     @Injected private var loginViewModel: LoginViewModel
     
@@ -46,6 +52,10 @@ class LoginViewController: UIViewController {
     private func bindButton() {
         loginButton.rx.tap.bind { [weak self] in
             self?.loginAction()
+        }.disposed(by: disposeBag)
+        
+        emailButton.rx.tap.bind { [weak self] in
+            self?.moveSignUp()
         }.disposed(by: disposeBag)
     }
     
@@ -105,6 +115,11 @@ class LoginViewController: UIViewController {
         main.modalPresentationStyle = .fullScreen
 
         self.present(main, animated: false)
+    }
+    
+    func moveSignUp() {
+        let vc = EmailSignUpViewController()
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 }
 
