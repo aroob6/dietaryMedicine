@@ -35,76 +35,76 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6yS-is-5ce">
-                                <rect key="frame" x="30" y="138" width="150" height="150"/>
+                                <rect key="frame" x="30" y="138" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="ISJ-Hx-ipL"/>
-                                    <constraint firstAttribute="width" constant="150" id="yvv-K9-bRF"/>
+                                    <constraint firstAttribute="height" constant="60" id="ISJ-Hx-ipL"/>
+                                    <constraint firstAttribute="width" constant="60" id="yvv-K9-bRF"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신을 위한 종합 영양 큐레이팅 서비스" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIE-0h-ets">
-                                <rect key="frame" x="30" y="308" width="200" height="57.5"/>
+                                <rect key="frame" x="30" y="238" width="200" height="57.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="dfg-iC-QqR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mqX-3g-pJQ">
-                                <rect key="frame" x="20" y="465.5" width="374" height="346.5"/>
+                                <rect key="frame" x="20" y="345.5" width="374" height="466.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xw0-Bw-yK9">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="58"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iCq-Gx-X5P">
-                                        <rect key="frame" x="0.0" y="51" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="68" width="374" height="58"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2Z-ck-0eT">
-                                        <rect key="frame" x="0.0" y="102" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="136" width="374" height="58"/>
                                         <color key="tintColor" name="textGray"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="로그인">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                         </buttonConfiguration>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5V-6l-nNn">
-                                        <rect key="frame" x="0.0" y="153" width="374" height="40.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5V-6l-nNn">
+                                        <rect key="frame" x="0.0" y="204" width="374" height="58.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="apple" title="Apple 로그인" subtitle="" imagePadding="20">
+                                        <buttonConfiguration key="configuration" style="plain" image="apple" title="Apple 로그인" subtitle="" imagePadding="110">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
-                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                         </buttonConfiguration>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVg-94-Hdj">
-                                        <rect key="frame" x="0.0" y="203.5" width="374" height="41"/>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVg-94-Hdj">
+                                        <rect key="frame" x="0.0" y="272.5" width="374" height="58"/>
+                                        <color key="backgroundColor" red="1" green="0.89803921568627454" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="kakao" title="카카오 로그인" imagePadding="20">
-                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="kakao" title="카카오 로그인" imagePadding="110">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                         </buttonConfiguration>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjp-Xe-QlA">
-                                        <rect key="frame" x="0.0" y="254.5" width="374" height="41"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjp-Xe-QlA">
+                                        <rect key="frame" x="0.0" y="340.5" width="374" height="58"/>
                                         <color key="backgroundColor" name="mainGray"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="google" title="구글 로그인" imagePadding="35">
-                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="google" title="구글 로그인" imagePadding="115">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ut-wi-sqI">
-                                        <rect key="frame" x="0.0" y="305.5" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="408.5" width="374" height="58"/>
                                         <color key="tintColor" name="textGray"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="이메일 로그인">
-                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
@@ -116,10 +116,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mqX-3g-pJQ" secondAttribute="trailing" constant="20" id="30B-lB-hff"/>
                             <constraint firstItem="lIE-0h-ets" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="7sM-fh-Q4c"/>
                             <constraint firstItem="6yS-is-5ce" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="JYG-pg-z8B"/>
-                            <constraint firstItem="mqX-3g-pJQ" firstAttribute="top" secondItem="lIE-0h-ets" secondAttribute="bottom" constant="100" id="O2B-Ua-1az"/>
+                            <constraint firstItem="mqX-3g-pJQ" firstAttribute="top" secondItem="lIE-0h-ets" secondAttribute="bottom" constant="50" id="O2B-Ua-1az"/>
                             <constraint firstItem="mqX-3g-pJQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Zpe-Ak-bv2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mqX-3g-pJQ" secondAttribute="bottom" constant="50" id="f24-zt-VDL"/>
-                            <constraint firstItem="lIE-0h-ets" firstAttribute="top" secondItem="6yS-is-5ce" secondAttribute="bottom" constant="20" id="ibl-8r-CcA"/>
+                            <constraint firstItem="lIE-0h-ets" firstAttribute="top" secondItem="6yS-is-5ce" secondAttribute="bottom" constant="40" id="ibl-8r-CcA"/>
                             <constraint firstItem="6yS-is-5ce" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="wQU-HN-tHw"/>
                         </constraints>
                     </view>
@@ -149,9 +149,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

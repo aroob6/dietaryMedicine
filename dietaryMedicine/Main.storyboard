@@ -467,6 +467,7 @@
                     <navigationItem key="navigationItem" id="soq-Xh-C3X"/>
                     <connections>
                         <outlet property="name" destination="fQa-SL-0nB" id="sSu-KP-gQG"/>
+                        <outlet property="versionLabel" destination="fuy-hS-0GM" id="E88-vL-Xcd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMY-s3-6xi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

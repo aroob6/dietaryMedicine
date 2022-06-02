@@ -12,11 +12,13 @@ import Then
 class MyPageViewController: UIViewController {
 
     @IBOutlet var name: UILabel!
+    @IBOutlet var versionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         name.text = Info.share.email
-
+        versionLabel.text = UIApplication.appVersion ?? ""
     }
    
 }

@@ -30,6 +30,7 @@
 		84F2FEB828335DE400AA927B /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */; };
 		84FE873A2848860200B1BEB1 /* BirthSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE87392848860200B1BEB1 /* BirthSignUpViewController.swift */; };
 		84FE873C2848899200B1BEB1 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE873B2848899200B1BEB1 /* CompleteViewController.swift */; };
+		84FE873E28489B8D00B1BEB1 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE873D28489B8D00B1BEB1 /* UIApplication.swift */; };
 		9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC528313B2E001960FF /* AppDelegate.swift */; };
 		9A4C3EC828313B2E001960FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC728313B2E001960FF /* SceneDelegate.swift */; };
 		9A4C3ECA28313B2E001960FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC928313B2E001960FF /* LoginViewController.swift */; };
@@ -98,6 +99,7 @@
 		84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		84FE87392848860200B1BEB1 /* BirthSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthSignUpViewController.swift; sourceTree = "<group>"; };
 		84FE873B2848899200B1BEB1 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
+		84FE873D28489B8D00B1BEB1 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		9A4C3EC228313B2E001960FF /* dietaryMedicine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dietaryMedicine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4C3EC528313B2E001960FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A4C3EC728313B2E001960FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				842BFB15283DF35300BC6B21 /* UIFont.swift */,
 				9A69F1D02846553F00FEDED6 /* UILabel.swift */,
 				9A69F1D22846585900FEDED6 /* UIScrollView.swift */,
+				84FE873D28489B8D00B1BEB1 /* UIApplication.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				9A69F1CE284638E000FEDED6 /* ItemInfoTableViewCell.swift in Sources */,
 				842BFB10283DCC4700BC6B21 /* ViewDelegate.swift in Sources */,
 				9A4C3EEC28321DD1001960FF /* HotNewsTableViewCell.swift in Sources */,
+				84FE873E28489B8D00B1BEB1 /* UIApplication.swift in Sources */,
 				9A69F1A42838D0B400FEDED6 /* AddListViewController.swift in Sources */,
 				9A69F1BD283B2E5900FEDED6 /* SupplementsViewModel.swift in Sources */,
 				9A69F1D32846585900FEDED6 /* UIScrollView.swift in Sources */,
