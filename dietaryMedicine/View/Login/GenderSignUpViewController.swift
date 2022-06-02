@@ -11,23 +11,11 @@ import RxSwift
 import RxCocoa
 import Resolver
 
-class GenderSignUpViewController: UIViewController {
-
-    private var stackView: UIStackView = {
-        let view = UIStackView().then {
-            $0.backgroundColor = .clear
-            $0.axis = .vertical
-            $0.alignment = .fill
-            $0.distribution = .fillProportionally
-        }
-        return view
-    }()
+class GenderSignUpViewController: BaseEmailSignUpViewController {
     
-    private var progressBar = UIProgressView()
     private var titleLabel = UILabel()
     private var manButton = UIButton()
     private var femaleButton = UIButton()
-    private var nextButton = UIButton()
     
     private var genderText = ""
     
@@ -39,10 +27,11 @@ class GenderSignUpViewController: UIViewController {
         setUI()
         bindButton()
     }
+    
+    
 
     private func setUI() {
-        self.view.backgroundColor = .white
-        self.navigationItem.title = "프로필 설정"
+        navigationTitle(string: "프로필 설정")
         self.view.addSubview(progressBar)
         self.view.addSubview(stackView)
         self.view.addSubview(nextButton)
@@ -53,11 +42,11 @@ class GenderSignUpViewController: UIViewController {
         stackView.setCustomSpacing(15, after: manButton)
         stackView.addArrangedSubview(femaleButton)
         
-        progressBar.tintColor = .mainColor
-        progressBar.setProgress(0.3, animated: false)
+        setProgressBar(size: 0.3)
         progressBar.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
+        
         stackView.snp.makeConstraints {
             $0.height.equalTo(160)
             $0.top.equalTo(progressBar.snp.bottom).offset(20)
@@ -65,8 +54,7 @@ class GenderSignUpViewController: UIViewController {
         }
         
         nextButton.setTitle("다음", for: .normal)
-        nextButton.backgroundColor = .textGray
-        nextButton.isEnabled = false
+        deEnableNextBtn()
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
@@ -78,21 +66,15 @@ class GenderSignUpViewController: UIViewController {
         }
         
         manButton.setTitle("남성", for: .normal)
-        manButton.setTitleColor(.black, for: .normal)
-        manButton.backgroundColor = .white
-        manButton.layer.borderWidth = 1
-        manButton.layer.borderColor = UIColor.lightGray.cgColor
         manButton.layer.cornerRadius = 8
+        deSelectButton(button: manButton)
         manButton.snp.makeConstraints {
             $0.height.equalTo(50)
         }
         
         femaleButton.setTitle("여성", for: .normal)
-        femaleButton.setTitleColor(.black, for: .normal)
-        femaleButton.backgroundColor = .white
-        femaleButton.layer.borderWidth = 1
-        femaleButton.layer.borderColor = UIColor.lightGray.cgColor
         femaleButton.layer.cornerRadius = 8
+        deSelectButton(button: femaleButton)
         femaleButton.snp.makeConstraints {
             $0.height.equalTo(50)
         }
@@ -115,26 +97,19 @@ class GenderSignUpViewController: UIViewController {
     
     private func manButtonSelect() {
         genderText = "m"
-        manButton.backgroundColor = .mainColor
-        manButton.setTitleColor(.white, for: .normal)
+        selectButton(button: manButton)
+        deSelectButton(button: femaleButton)
         
-        femaleButton.backgroundColor = .white
-        femaleButton.setTitleColor(.black, for: .normal)
-        
-        nextButton.backgroundColor = .mainColor
-        nextButton.isEnabled = true
+        enableNextBtn()
     }
     
     private func femaleButtonSelect() {
         genderText = "f"
-        femaleButton.backgroundColor = .mainColor
-        femaleButton.setTitleColor(.white, for: .normal)
         
-        manButton.backgroundColor = .white
-        manButton.setTitleColor(.black, for: .normal)
+        selectButton(button: femaleButton)
+        deSelectButton(button: manButton)
         
-        nextButton.backgroundColor = .mainColor
-        nextButton.isEnabled = true
+        enableNextBtn()
     }
     
     private func nextAction() {
@@ -142,6 +117,21 @@ class GenderSignUpViewController: UIViewController {
         
         let vc = BirthSignUpViewController()
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    private func selectButton(button: UIButton){
+        button.backgroundColor = .mainColor
+        button.layer.borderColor = UIColor.mainColor?.cgColor
+        button.layer.borderWidth = 1
+        button.setTitleColor(.white, for: .normal)
+        
+    }
+    
+    private func deSelectButton(button: UIButton){
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderWidth = 1
+        button.setTitleColor(.black, for: .normal)
     }
 }
 

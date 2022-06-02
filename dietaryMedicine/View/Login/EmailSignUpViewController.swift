@@ -7,25 +7,8 @@
 
 import UIKit
 
-class SignParameter {
-    static let share = SignParameter()
-    var email = ""
-    var pw = ""
-    var name = ""
-    var birth = ""
-    var gender = ""
-}
-
-class EmailSignUpViewController: UIViewController {
-    private var stackView: UIStackView = {
-        let view = UIStackView().then {
-            $0.backgroundColor = .clear
-            $0.axis = .vertical
-            $0.alignment = .fill
-            $0.distribution = .fillProportionally
-        }
-        return view
-    }()
+class EmailSignUpViewController: BaseEmailSignUpViewController {
+    
     
     private var emailLabel = UILabel()
     private var emailTextField = UITextField()
@@ -33,7 +16,6 @@ class EmailSignUpViewController: UIViewController {
     private var pwTextField = UITextField()
     private var rePwLabel = UILabel()
     private var rePwTextField = UITextField()
-    private var nextButton = UIButton()
     
     private var emailUnderLine = UIView()
     private var pwUnderLine = UIView()
@@ -49,13 +31,18 @@ class EmailSignUpViewController: UIViewController {
         setUI()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addKeyboardNotification()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboardNotification()
     }
     
     private func setUI() {
-        self.navigationItem.title = "회원가입"
-        self.view.backgroundColor = .white
+        navigationTitle(string: "회원가입")
         self.view.addSubview(stackView)
         self.view.addSubview(nextButton)
         
@@ -77,8 +64,7 @@ class EmailSignUpViewController: UIViewController {
         }
         
         nextButton.setTitle("다음", for: .normal)
-        nextButton.backgroundColor = .textGray
-        nextButton.isEnabled = false
+        deEnableNextBtn()
         nextButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
@@ -144,12 +130,10 @@ class EmailSignUpViewController: UIViewController {
     
     @objc func textFieldDidChange() {
         if emailTextField.text != "" && pwTextField.text != "" && rePwTextField.text != "" {
-            nextButton.isEnabled = true
-            nextButton.backgroundColor = .mainColor
+            enableNextBtn()
         }
         else {
-            nextButton.isEnabled = false
-            nextButton.backgroundColor = .textGray
+            deEnableNextBtn()
         }
     }
     

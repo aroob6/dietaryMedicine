@@ -8,23 +8,11 @@
 import UIKit
 import SnapKit
 
-class BirthSignUpViewController: UIViewController {
+class BirthSignUpViewController: BaseEmailSignUpViewController {
     
-    private var stackView: UIStackView = {
-        let view = UIStackView().then {
-            $0.backgroundColor = .clear
-            $0.axis = .vertical
-            $0.alignment = .fill
-            $0.distribution = .fillProportionally
-        }
-        return view
-    }()
-    
-    private var progressBar = UIProgressView()
     private var titleLabel = UILabel()
     private var birthTextField = UITextField()
     private var birthUnderLine = UIView()
-    private var nextButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +20,8 @@ class BirthSignUpViewController: UIViewController {
         setUI()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
     private func setUI() {
-        self.navigationController?.title = "프로필 설정"
-        self.view.backgroundColor = .white
+        navigationTitle(string: "프로필 설정")
         
         self.view.addSubview(progressBar)
         self.view.addSubview(stackView)
@@ -50,11 +33,11 @@ class BirthSignUpViewController: UIViewController {
         stackView.setCustomSpacing(15, after: birthTextField)
         stackView.addArrangedSubview(birthUnderLine)
         
-        progressBar.tintColor = .mainColor
-        progressBar.setProgress(0.6, animated: false)
+        setProgressBar(size: 0.6)
         progressBar.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
+        
         stackView.snp.makeConstraints {
             $0.height.equalTo(101)
             $0.top.equalTo(progressBar.snp.bottom).offset(20)
@@ -62,8 +45,7 @@ class BirthSignUpViewController: UIViewController {
         }
         
         nextButton.setTitle("다음", for: .normal)
-        nextButton.backgroundColor = .textGray
-        nextButton.isEnabled = false
+        deEnableNextBtn()
         nextButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
@@ -97,14 +79,7 @@ class BirthSignUpViewController: UIViewController {
     
     @objc func textFieldDidChange() {
         guard let birthText = birthTextField.text else { return }
-        if birthText.count == 6 {
-            nextButton.backgroundColor = .mainColor
-            nextButton.isEnabled = true
-        }
-        else {
-            nextButton.backgroundColor = .textGray
-            nextButton.isEnabled = false
-        }
+        birthText.count == 6  ? enableNextBtn() : deEnableNextBtn()
     }
 
 }

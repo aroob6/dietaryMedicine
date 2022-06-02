@@ -11,12 +11,10 @@ import RxSwift
 import RxCocoa
 import Resolver
 
-class CompleteViewController: UIViewController {
+class CompleteViewController: BaseEmailSignUpViewController {
 
-    private var progressBar = UIProgressView()
     private var logoImg = UIImageView()
     private var titleLabel = UILabel()
-    private var completeButton = UIButton()
     
     private var emailText = ""
     private var pwText = ""
@@ -38,12 +36,12 @@ class CompleteViewController: UIViewController {
     
 
     private func setUI() {
-        self.navigationItem.title = "프로필 설정"
-        self.view.backgroundColor = .white
+        navigationTitle(string: "프로필 설정")
+        
         self.view.addSubview(progressBar)
         self.view.addSubview(logoImg)
         self.view.addSubview(titleLabel)
-        self.view.addSubview(completeButton)
+        self.view.addSubview(nextButton)
         
         progressBar.tintColor = .mainColor
         progressBar.setProgress(1, animated: false)
@@ -65,10 +63,10 @@ class CompleteViewController: UIViewController {
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(80)
         }
         
-        completeButton.setTitle("시작하기", for: .normal)
-        completeButton.backgroundColor = .mainColor
-        completeButton.addTarget(self, action: #selector(completeAction), for: .touchUpInside)
-        completeButton.snp.makeConstraints {
+        nextButton.setTitle("시작하기", for: .normal)
+        nextButton.backgroundColor = .mainColor
+        nextButton.addTarget(self, action: #selector(completeAction), for: .touchUpInside)
+        nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
