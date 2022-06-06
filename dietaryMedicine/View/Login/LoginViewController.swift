@@ -92,23 +92,6 @@ class LoginViewController: UIViewController {
         moveMainView()
     }
 
-    @objc func loginAction() {
-        guard let idText = idTextField.text, !idText.isEmpty else {
-            let msg = "아이디를 입력하세요"
-            UtilFunction.showMessage(msg: msg, vc: self)
-            return
-        }
-        guard let pwText = pwTextField.text, !pwText.isEmpty else {
-            let msg = "비밀번호를 입력하세요"
-            UtilFunction.showMessage(msg: msg, vc: self)
-            return
-        }
-        self.idText = idText
-        self.pwText = pwText
-        
-        requestLogin()
-    }
-    
     func moveMainView() {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let main = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
@@ -121,6 +104,26 @@ class LoginViewController: UIViewController {
         let vc = EmailSignUpViewController()
         self.navigationController?.pushViewController(vc, animated: false)
     }
+    
+    @objc func loginAction() {
+        guard let idText = idTextField.text, !idText.isEmpty else {
+            idTextField.shakeTextField()
+            let msg = "아이디를 입력하세요"
+            UtilFunction.showMessage(msg: msg, vc: self)
+            return
+        }
+        guard let pwText = pwTextField.text, !pwText.isEmpty else {
+            pwTextField.shakeTextField()
+            let msg = "비밀번호를 입력하세요"
+            UtilFunction.showMessage(msg: msg, vc: self)
+            return
+        }
+        self.idText = idText
+        self.pwText = pwText
+        
+        requestLogin()
+    }
+    
 }
 
 // MARK: - UITextField Delegate

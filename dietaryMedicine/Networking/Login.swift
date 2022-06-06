@@ -37,6 +37,12 @@ import SwiftyJSON
 //    }
 //}
 
+
+enum ResultString {
+    case success
+    case failure
+}
+
 class Login {
     var token = ""
     var email = ""

@@ -89,12 +89,12 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         rePwLabel.text = "비밀번호 확인"
         
         emailTextField.placeholder = "이메일을 입력하세요"
-        pwTextField.placeholder = "비밀번호를 입력하세요"
-        rePwTextField.placeholder = "비밀번호를 입력하세요"
+        pwTextField.placeholder = "소문자, 대문자, 숫자 8자리 이상으로 입력하세요"
+        rePwTextField.placeholder = "소문자, 대문자, 숫자 8자리 이상으로 입력하세요"
         
         emailTextField.keyboardType = .emailAddress
-        pwTextField.isSecureTextEntry = true
-        rePwTextField.isSecureTextEntry = true
+//        pwTextField.isSecureTextEntry = true
+//        rePwTextField.isSecureTextEntry = true
         
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         pwTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
@@ -128,6 +128,12 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         return emailTest.evaluate(with: email)
     }
     
+    func isValidPassword(pwd: String) -> Bool {
+        let passwordRegEx = "^[a-zA-Z0-9]{8,}$"
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
+        return passwordTest.evaluate(with: pwd)
+    }
+    
     @objc func textFieldDidChange() {
         if emailTextField.text != "" && pwTextField.text != "" && rePwTextField.text != "" {
             enableNextBtn()
@@ -139,12 +145,21 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
     
     @objc func nextAction() {
         guard let emailText = emailTextField.text, isValidEmail(email: emailText) else {
+            emailTextField.shakeTextField()
             let msg = "이메일 형식으로 입력하세요"
             UtilFunction.showMessage(msg: msg, vc: self)
             return
         }
         
-        guard let pwText = pwTextField.text, let rePwText = rePwTextField.text, pwText == rePwText else {
+        guard let pwText = pwTextField.text, isValidPassword(pwd: pwText) else {
+            pwTextField.shakeTextField()
+            let msg = "비밀번호 형식을 확인해 주세요"
+            UtilFunction.showMessage(msg: msg, vc: self)
+            return
+        }
+        
+        guard let rePwText = rePwTextField.text, pwText == rePwText else {
+            rePwTextField.shakeTextField()
             let msg = "비밀번호가 같지 않습니다"
             UtilFunction.showMessage(msg: msg, vc: self)
             return

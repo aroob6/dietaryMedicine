@@ -70,7 +70,7 @@ class SignUpViewController: UIViewController {
             .drive() { result in
                 switch result {
                 case .success(let code):
-                    if code == 2000 {
+                    if code == .success {
                         self.requestSignUpSuccess()
                     }
                 case .failure(let error):

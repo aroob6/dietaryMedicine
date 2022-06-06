@@ -43,7 +43,6 @@ class BaseEmailSignUpViewController: UIViewController {
     
     private func setUI() {
         self.view.backgroundColor = .white
-        print("111", nextButton.frame.origin.y)
     }
     
     func setProgressBar(size: Float) {
@@ -100,8 +99,10 @@ class BaseEmailSignUpViewController: UIViewController {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keybaordRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keybaordRectangle.height
-            print("222", nextButton.frame.origin.y)
             nextButton.frame.origin.y -= keyboardHeight
+//            nextButton.frame.origin.y = 427
+            
+            nextButton.layoutSubviews()
             print("333", nextButton.frame.origin.y)
         }
     }

@@ -35,8 +35,12 @@ public extension UIScrollView {
 
     private func scrollToAnalysis() {
         //name 50 img 300 spacing 20 tabbar 50 infotableView 480
-        let centerOffset = CGPoint(x: 0, y: 900)
-        setContentOffset(centerOffset, animated: true)
+//        let centerOffset = CGPoint(x: 0, y: 900)
+//        setContentOffset(centerOffset, animated: true)
+        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom)
+        if(bottomOffset.y > 0) {
+            setContentOffset(bottomOffset, animated: true)
+        }
     }
 
     private func scrollToBuyInfo() {

@@ -16,27 +16,22 @@ class CompleteViewController: BaseEmailSignUpViewController {
     private var logoImg = UIImageView()
     private var titleLabel = UILabel()
     
-    private var emailText = ""
-    private var pwText = ""
-    private var nameText = ""
-    private var birthText = ""
-    private var genderText = ""
-    
-    @Injected private var signUpViewModel: SignUpViewModel
+    @Injected private var loginViewModel: LoginViewModel
     
     //RxSwift
     @Injected private var disposeBag : DisposeBag
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUI()
-        bindSignUp()
+        bindLogin()
     }
     
 
     private func setUI() {
-        navigationTitle(string: "프로필 설정")
+        navigationTitle(string: "회원가입")
         
         self.view.addSubview(progressBar)
         self.view.addSubview(logoImg)
@@ -56,7 +51,7 @@ class CompleteViewController: BaseEmailSignUpViewController {
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(80)
         }
         
-        titleLabel.text = "프로필 설정을 완료했습니다."
+        titleLabel.text = "회원가입을 완료했습니다."
         titleLabel.snp.makeConstraints {
             $0.height.equalTo(100)
             $0.top.equalTo(logoImg.snp.bottom).offset(100)
@@ -72,71 +67,50 @@ class CompleteViewController: BaseEmailSignUpViewController {
         }
     }
     
-    private func bindSignUp() {
-        signUpViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
-            .drive() { result in
+    private func requestLogin() {
+        let parameters: [String: String] = [
+            "email": SignParameter.share.email,
+            "password": SignParameter.share.pw
+        ]
+        
+        loginViewModel.fetch(parameters: parameters)
+    }
+    
+    private func bindLogin() {
+        loginViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
+            .drive { result in
                 switch result {
-                case .success(let code):
-                    if code == 2000 {
-                        self.requestSignUpSuccess()
+                case .success(let loginData):
+                    if !loginData.token.isEmpty {
+                        self.requestLoginSuccess(loginData)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-            }.disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
     }
     
-    private func requestSignUpSuccess() {
-        print("✅: SIGNUP NET SUCCESS")
+    private func requestLoginSuccess(_ result: Login) {
+        print("✅: LOGIN NET SUCCESS")
         
-        self.navigationController?.popToRootViewController(animated: false)
-//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//        let main = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
-//        main.modalPresentationStyle = .fullScreen
-//
-//        self.present(main, animated: false)
-    }
-    
-    private func requestSignUp() {
-        let parameters: [String: String] = [
-            "email": emailText,
-            "password": pwText,
-            "name": nameText,
-            "birth_date": birthText,
-            "gender": genderText
-        ]
-        
-        signUpViewModel.fetch(parameters: parameters)
+        UserDefaultsManager.token = result.token
+        Info.share.name = result.name
+        Info.share.email = result.email
+        moveMainView()
     }
     
     @objc func completeAction() {
-        
-        let year = SignParameter.share.birth.substring(from: 0, to: 1)
-        let month = SignParameter.share.birth.substring(from: 2, to: 3)
-        let day = SignParameter.share.birth.substring(from: 4, to: 5)
-        
-        emailText = SignParameter.share.email
-        pwText = SignParameter.share.pw
-        nameText = SignParameter.share.name
-        birthText = "19" + year + "-" + month + "-" + day
-        genderText = SignParameter.share.gender
-        
-        requestSignUp()
+        //회원가입 된 정보로 로그인
+        requestLogin()
     }
-
-}
-
-
-extension String {
-    func substring(from: Int, to: Int) -> String {
-        guard from < count, to >= 0, to - from >= 0 else {
-            return ""
-        }
-        // Index 값 획득
-        let startIndex = index(self.startIndex, offsetBy: from)
-        let endIndex = index(self.startIndex, offsetBy: to + 1) // '+1'이 있는 이유: endIndex는 문자열의 마지막 그 다음을 가리키기 때문
     
-        // 파싱
-        return String(self[startIndex ..< endIndex])
+    func moveMainView() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let main = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
+        main.modalPresentationStyle = .fullScreen
+
+        self.present(main, animated: false)
     }
+
 }

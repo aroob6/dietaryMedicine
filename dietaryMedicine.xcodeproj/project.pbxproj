@@ -31,6 +31,9 @@
 		84FE873A2848860200B1BEB1 /* BirthSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE87392848860200B1BEB1 /* BirthSignUpViewController.swift */; };
 		84FE873C2848899200B1BEB1 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE873B2848899200B1BEB1 /* CompleteViewController.swift */; };
 		84FE873E28489B8D00B1BEB1 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE873D28489B8D00B1BEB1 /* UIApplication.swift */; };
+		9A2F2964284BA2BD005E5AD2 /* BaseEmailSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F2963284BA2BD005E5AD2 /* BaseEmailSignUpViewController.swift */; };
+		9A2F2966284BA673005E5AD2 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F2965284BA672005E5AD2 /* UITextField.swift */; };
+		9A2F2968284BA771005E5AD2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F2967284BA771005E5AD2 /* String.swift */; };
 		9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC528313B2E001960FF /* AppDelegate.swift */; };
 		9A4C3EC828313B2E001960FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC728313B2E001960FF /* SceneDelegate.swift */; };
 		9A4C3ECA28313B2E001960FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EC928313B2E001960FF /* LoginViewController.swift */; };
@@ -100,6 +103,9 @@
 		84FE87392848860200B1BEB1 /* BirthSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthSignUpViewController.swift; sourceTree = "<group>"; };
 		84FE873B2848899200B1BEB1 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		84FE873D28489B8D00B1BEB1 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		9A2F2963284BA2BD005E5AD2 /* BaseEmailSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEmailSignUpViewController.swift; sourceTree = "<group>"; };
+		9A2F2965284BA672005E5AD2 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		9A2F2967284BA771005E5AD2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9A4C3EC228313B2E001960FF /* dietaryMedicine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dietaryMedicine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4C3EC528313B2E001960FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A4C3EC728313B2E001960FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 		842BFB19284051CC00BC6B21 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				9A2F2963284BA2BD005E5AD2 /* BaseEmailSignUpViewController.swift */,
 				842BFB1A2840520A00BC6B21 /* SignUpViewController.swift */,
 				9A4C3EC928313B2E001960FF /* LoginViewController.swift */,
 				9A4C3ECB28313B2E001960FF /* Login.storyboard */,
@@ -345,6 +352,8 @@
 				9A69F1D02846553F00FEDED6 /* UILabel.swift */,
 				9A69F1D22846585900FEDED6 /* UIScrollView.swift */,
 				84FE873D28489B8D00B1BEB1 /* UIApplication.swift */,
+				9A2F2965284BA672005E5AD2 /* UITextField.swift */,
+				9A2F2967284BA771005E5AD2 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -510,6 +519,7 @@
 				9A69F1D32846585900FEDED6 /* UIScrollView.swift in Sources */,
 				9A4C3ECA28313B2E001960FF /* LoginViewController.swift in Sources */,
 				842BFB262848566B00BC6B21 /* GenderSignUpViewController.swift in Sources */,
+				9A2F2968284BA771005E5AD2 /* String.swift in Sources */,
 				9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */,
 				9A69F1D12846553F00FEDED6 /* UILabel.swift in Sources */,
 				84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */,
@@ -528,6 +538,7 @@
 				9A69F1BB283944F500FEDED6 /* Injection.swift in Sources */,
 				84FE873A2848860200B1BEB1 /* BirthSignUpViewController.swift in Sources */,
 				9A4C3EE128314907001960FF /* MainTabBarController.swift in Sources */,
+				9A2F2966284BA673005E5AD2 /* UITextField.swift in Sources */,
 				842BFB1B2840520A00BC6B21 /* SignUpViewController.swift in Sources */,
 				9A69F1B92839404300FEDED6 /* UserDefaultsManager.swift in Sources */,
 				9A69F1B32838F3B200FEDED6 /* UtilFunction.swift in Sources */,
@@ -538,6 +549,7 @@
 				9A69F1AC2838D89100FEDED6 /* ApiUrl.swift in Sources */,
 				842BFB12283DE58900BC6B21 /* FoodList.swift in Sources */,
 				842BFB22284061F100BC6B21 /* MyPageViewController.swift in Sources */,
+				9A2F2964284BA2BD005E5AD2 /* BaseEmailSignUpViewController.swift in Sources */,
 				9A4C3EDF2831469B001960FF /* HomeViewController.swift in Sources */,
 				9A4C3EF928324113001960FF /* UIColor.swift in Sources */,
 				9A69F1CA284634E500FEDED6 /* TabBarHeaderCollectionViewCell.swift in Sources */,

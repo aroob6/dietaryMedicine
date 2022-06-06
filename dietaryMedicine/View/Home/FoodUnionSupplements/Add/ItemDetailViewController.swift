@@ -19,7 +19,7 @@ enum ItemType {
     case food
 }
 
-class ItemDetailViewController: UIViewController {
+class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
     private var stackView: UIStackView = {
         let view = UIStackView().then {
             $0.backgroundColor = .clear
@@ -90,6 +90,19 @@ class ItemDetailViewController: UIViewController {
         
         bindButton()
         bindAddItem()
+        
+        scrollView.delegate = self
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var headerFrame = collectionView.frame
+        if scrollView.contentOffset.y < 370 {
+            headerFrame.origin.y = collectionView.frame.origin.y
+        }
+        else {
+            headerFrame.origin.y = scrollView.contentOffset.y
+        }
+        collectionView.frame = headerFrame
     }
     
     private func setUI() {
@@ -112,6 +125,7 @@ class ItemDetailViewController: UIViewController {
         stackView.addArrangedSubview(analysisView)
         stackView.setCustomSpacing(20, after: analysisView)
         stackView.addArrangedSubview(lowestInfoView)
+        stackView.bringSubviewToFront(collectionView)
         
         analysisView.addSubview(analysisLabel)
         analysisView.addSubview(analysisTableView)

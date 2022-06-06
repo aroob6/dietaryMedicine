@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class SignUpViewModel: ViewModelProtocol {
     struct Output {
-        let data = PublishRelay<Result<Int, NetworkError>>()
+        let data = PublishRelay<Result<ResultString, NetworkError>>()
     }
     
     @Injected private var provider: MoyaProvider<NetworkingManager>
@@ -27,7 +27,7 @@ class SignUpViewModel: ViewModelProtocol {
             
             switch result {
             case .success:
-                self.output.data.accept(.success(2000))
+                self.output.data.accept(.success(.success))
             case .failure:
                 self.output.data.accept(.failure(.networkError))
             }
