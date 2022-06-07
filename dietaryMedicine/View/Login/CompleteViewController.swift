@@ -31,7 +31,7 @@ class CompleteViewController: BaseEmailSignUpViewController {
     
 
     private func setUI() {
-        navigationTitle(string: "회원가입")
+        navigationTitle()
         
         self.view.addSubview(progressBar)
         self.view.addSubview(logoImg)
@@ -63,7 +63,7 @@ class CompleteViewController: BaseEmailSignUpViewController {
         nextButton.addTarget(self, action: #selector(completeAction), for: .touchUpInside)
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
-            $0.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.bottom.leading.trailing.equalToSuperview()
         }
     }
     
@@ -101,7 +101,6 @@ class CompleteViewController: BaseEmailSignUpViewController {
     }
     
     @objc func completeAction() {
-        //회원가입 된 정보로 로그인
         requestLogin()
     }
     

@@ -50,8 +50,8 @@ class BaseEmailSignUpViewController: UIViewController {
         progressBar.setProgress(size, animated: false)
     }
     
-    func navigationTitle(string: String) {
-        self.navigationItem.title = string
+    func navigationTitle() {
+        self.navigationItem.title = "회원가입"
     }
     
     func enableNextBtn() {
@@ -95,23 +95,25 @@ class BaseEmailSignUpViewController: UIViewController {
         )
     }
     
-    @objc private func keyboardWillShow(_ notification: Notification) {
+    @objc private func keyboardWillShow(_ notification: Notification) { //키보드 올라올떄
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keybaordRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keybaordRectangle.height
-            nextButton.frame.origin.y -= keyboardHeight
-//            nextButton.frame.origin.y = 427
             
-            nextButton.layoutSubviews()
-            print("333", nextButton.frame.origin.y)
+            nextButton.snp.updateConstraints {
+                $0.height.equalTo(60)
+                $0.leading.trailing.equalToSuperview()
+                $0.bottom.equalToSuperview().offset(-keyboardHeight)
+            }
         }
     }
     
-    @objc private func keyboardWillHide(_ notification: Notification) {
+    @objc private func keyboardWillHide(_ notification: Notification) { //키보드 내려갈때
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keybaordRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keybaordRectangle.height
-            nextButton.frame.origin.y += keyboardHeight
+            nextButton.snp.updateConstraints {
+                $0.height.equalTo(60)
+                $0.bottom.leading.trailing.equalToSuperview()
+            }
         }
     }
     

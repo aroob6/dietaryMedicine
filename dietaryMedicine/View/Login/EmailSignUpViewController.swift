@@ -42,7 +42,7 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
     }
     
     private func setUI() {
-        navigationTitle(string: "회원가입")
+        navigationTitle()
         self.view.addSubview(stackView)
         self.view.addSubview(nextButton)
         
@@ -68,7 +68,8 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         nextButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
-            $0.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.bottom.leading.trailing.equalToSuperview()
+//            $0.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
         
         emailUnderLine.backgroundColor = .mainGray
@@ -93,8 +94,8 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         rePwTextField.placeholder = "소문자, 대문자, 숫자 8자리 이상으로 입력하세요"
         
         emailTextField.keyboardType = .emailAddress
-//        pwTextField.isSecureTextEntry = true
-//        rePwTextField.isSecureTextEntry = true
+        pwTextField.isSecureTextEntry = true
+        rePwTextField.isSecureTextEntry = true
         
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         pwTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)

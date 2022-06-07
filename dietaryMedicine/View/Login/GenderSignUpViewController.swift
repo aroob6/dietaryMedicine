@@ -31,7 +31,7 @@ class GenderSignUpViewController: BaseEmailSignUpViewController {
     
 
     private func setUI() {
-        navigationTitle(string: "프로필 설정")
+        navigationTitle()
         self.view.addSubview(progressBar)
         self.view.addSubview(stackView)
         self.view.addSubview(nextButton)
@@ -57,7 +57,7 @@ class GenderSignUpViewController: BaseEmailSignUpViewController {
         deEnableNextBtn()
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
-            $0.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.bottom.leading.trailing.equalToSuperview()
         }
         
         titleLabel.text = "성별을 선택해주세요."
