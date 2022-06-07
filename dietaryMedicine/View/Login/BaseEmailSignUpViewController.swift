@@ -54,6 +54,10 @@ class BaseEmailSignUpViewController: UIViewController {
         self.navigationItem.title = "회원가입"
     }
     
+    func navigationTitle(string: String) {
+        self.navigationItem.title = string
+    }
+    
     func enableNextBtn() {
         nextButton.isEnabled = true
         nextButton.backgroundColor = .mainColor

@@ -11,10 +11,10 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
     
     
     private var emailLabel = UILabel()
-    private var emailTextField = UITextField()
     private var pwLabel = UILabel()
-    private var pwTextField = UITextField()
     private var rePwLabel = UILabel()
+    private var emailTextField = UITextField()
+    private var pwTextField = UITextField()
     private var rePwTextField = UITextField()
     
     private var emailUnderLine = UIView()

@@ -17,7 +17,7 @@
 		842BFB14283DE70400BC6B21 /* FoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */; };
 		842BFB16283DF35300BC6B21 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB15283DF35300BC6B21 /* UIFont.swift */; };
 		842BFB18283F67B800BC6B21 /* ItemDeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */; };
-		842BFB1B2840520A00BC6B21 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB1A2840520A00BC6B21 /* SignUpViewController.swift */; };
+		842BFB1B2840520A00BC6B21 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB1A2840520A00BC6B21 /* EmailLoginViewController.swift */; };
 		842BFB1D284058EC00BC6B21 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB1C284058EC00BC6B21 /* SignUpViewModel.swift */; };
 		842BFB1F2840617E00BC6B21 /* FoodUnionSupplements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842BFB1E2840617E00BC6B21 /* FoodUnionSupplements.storyboard */; };
 		842BFB22284061F100BC6B21 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB21284061F100BC6B21 /* MyPageViewController.swift */; };
@@ -89,7 +89,7 @@
 		842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodsViewModel.swift; path = dietaryMedicine/Utility/FoodsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		842BFB15283DF35300BC6B21 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDeleteViewModel.swift; path = dietaryMedicine/Extension/ItemDeleteViewModel.swift; sourceTree = SOURCE_ROOT; };
-		842BFB1A2840520A00BC6B21 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		842BFB1A2840520A00BC6B21 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		842BFB1C284058EC00BC6B21 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = dietaryMedicine/View/Login/SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
 		842BFB1E2840617E00BC6B21 /* FoodUnionSupplements.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FoodUnionSupplements.storyboard; path = dietaryMedicine/View/Home/FoodUnionSupplements/FoodUnionSupplements.storyboard; sourceTree = SOURCE_ROOT; };
 		842BFB21284061F100BC6B21 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -184,10 +184,10 @@
 		842BFB19284051CC00BC6B21 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				9A2F2963284BA2BD005E5AD2 /* BaseEmailSignUpViewController.swift */,
-				842BFB1A2840520A00BC6B21 /* SignUpViewController.swift */,
-				9A4C3EC928313B2E001960FF /* LoginViewController.swift */,
 				9A4C3ECB28313B2E001960FF /* Login.storyboard */,
+				9A4C3EC928313B2E001960FF /* LoginViewController.swift */,
+				9A2F2963284BA2BD005E5AD2 /* BaseEmailSignUpViewController.swift */,
+				842BFB1A2840520A00BC6B21 /* EmailLoginViewController.swift */,
 				842BFB232848451600BC6B21 /* EmailSignUpViewController.swift */,
 				842BFB252848566A00BC6B21 /* GenderSignUpViewController.swift */,
 				84FE87392848860200B1BEB1 /* BirthSignUpViewController.swift */,
@@ -539,7 +539,7 @@
 				84FE873A2848860200B1BEB1 /* BirthSignUpViewController.swift in Sources */,
 				9A4C3EE128314907001960FF /* MainTabBarController.swift in Sources */,
 				9A2F2966284BA673005E5AD2 /* UITextField.swift in Sources */,
-				842BFB1B2840520A00BC6B21 /* SignUpViewController.swift in Sources */,
+				842BFB1B2840520A00BC6B21 /* EmailLoginViewController.swift in Sources */,
 				9A69F1B92839404300FEDED6 /* UserDefaultsManager.swift in Sources */,
 				9A69F1B32838F3B200FEDED6 /* UtilFunction.swift in Sources */,
 				9A4C3EC828313B2E001960FF /* SceneDelegate.swift in Sources */,

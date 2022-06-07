@@ -101,7 +101,7 @@ class LoginViewController: UIViewController {
     }
     
     func moveSignUp() {
-        let vc = EmailSignUpViewController()
+        let vc = EmailLoginViewController()
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
