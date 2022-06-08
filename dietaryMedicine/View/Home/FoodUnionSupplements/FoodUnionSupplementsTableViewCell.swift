@@ -15,6 +15,7 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
     public static let identifier = "FoodUnionSupplementsTableViewCell"
 
     @IBOutlet var title: UILabel!
+    @IBOutlet var addButton: UIButton!
     @IBOutlet weak var addCollectionView: UICollectionView!
     weak var viewController: UIViewController?
     var unionItemList: UnionItemList? {
@@ -45,6 +46,8 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
             .normal("의 영양성분을 조합하세요.", fontSize: 20)
         attributedString.addAttribute(.backgroundColor, value: pointColor, range: (titleText as NSString).range(of: pointText))
         title.attributedText = attributedString
+        
+        addButton.layer.cornerRadius = 10
     }
     
     private func setCollectionView () {

@@ -31,6 +31,10 @@ class BaseEmailSignUpViewController: UIViewController {
     var progressBar = UIProgressView()
     var nextButton = UIButton()
     
+    var underLine1 = UIView()
+    var underLine2 = UIView()
+    var underLine3 = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +47,20 @@ class BaseEmailSignUpViewController: UIViewController {
     
     private func setUI() {
         self.view.backgroundColor = .white
+        
+        underLine1.backgroundColor = .underLine
+        underLine2.backgroundColor = .underLine
+        underLine3.backgroundColor = .underLine
+        
+        underLine1.snp.makeConstraints {
+            $0.height.equalTo(1)
+        }
+        underLine2.snp.makeConstraints {
+            $0.height.equalTo(1)
+        }
+        underLine3.snp.makeConstraints {
+            $0.height.equalTo(1)
+        }
     }
     
     func setProgressBar(size: Float) {
@@ -121,4 +139,16 @@ class BaseEmailSignUpViewController: UIViewController {
         }
     }
     
+}
+
+// MARK: - UITextField Delegate
+extension BaseEmailSignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextResponder = textField.superview?.viewWithTag(textField.tag + 1) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
 }

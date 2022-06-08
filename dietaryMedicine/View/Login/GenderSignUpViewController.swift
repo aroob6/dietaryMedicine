@@ -61,6 +61,7 @@ class GenderSignUpViewController: BaseEmailSignUpViewController {
         }
         
         titleLabel.text = "성별을 선택해주세요."
+        titleLabel.font = UIFont.systemFont(ofSize: 12)
         titleLabel.snp.makeConstraints {
             $0.height.equalTo(30)
         }
@@ -115,7 +116,7 @@ class GenderSignUpViewController: BaseEmailSignUpViewController {
     private func nextAction() {
         SignParameter.share.gender = genderText
         
-        let vc = BirthSignUpViewController()
+        let vc = NameBirthSignUpViewController()
         self.navigationController?.pushViewController(vc, animated: false)
     }
     

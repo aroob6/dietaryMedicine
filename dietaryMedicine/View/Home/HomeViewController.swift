@@ -51,8 +51,8 @@ class HomeViewController: UIViewController {
             UINib(nibName: FoodUnionSupplementsTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: FoodUnionSupplementsTableViewCell.identifier)
         mainTableView.register(
-            UINib(nibName: UnionAnalysisTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: UnionAnalysisTableViewCell.identifier)
+            UINib(nibName: CombinationRecommendTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: CombinationRecommendTableViewCell.identifier)
         mainTableView.register(
             UINib(nibName: HotNewsTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: HotNewsTableViewCell.identifier)
@@ -114,9 +114,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: UnionAnalysisTableViewCell.identifier,
+                withIdentifier: CombinationRecommendTableViewCell.identifier,
                 for: indexPath
-            ) as? UnionAnalysisTableViewCell else {
+            ) as? CombinationRecommendTableViewCell else {
                 return UITableViewCell()
             }
             return cell

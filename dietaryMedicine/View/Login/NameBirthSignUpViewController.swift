@@ -11,15 +11,13 @@ import RxSwift
 import RxCocoa
 import Resolver
 
-class BirthSignUpViewController: BaseEmailSignUpViewController {
+class NameBirthSignUpViewController: BaseEmailSignUpViewController {
     
     private var nameLabel = UILabel()
-    private var nameTextField = UITextField()
-    private var nameUnderLine = UIView()
-    
     private var birthLabel = UILabel()
+    
+    private var nameTextField = UITextField()
     private var birthTextField = UITextField()
-    private var birthUnderLine = UIView()
     
     private var emailText = ""
     private var pwText = ""
@@ -57,17 +55,13 @@ class BirthSignUpViewController: BaseEmailSignUpViewController {
         self.view.addSubview(nextButton)
         
         stackView.addArrangedSubview(nameLabel)
-        stackView.setCustomSpacing(10, after: nameLabel)
         stackView.addArrangedSubview(nameTextField)
-        stackView.setCustomSpacing(10, after: nameTextField)
-        stackView.addArrangedSubview(nameUnderLine)
-        stackView.setCustomSpacing(20, after: nameUnderLine)
+        stackView.addArrangedSubview(underLine1)
+        stackView.setCustomSpacing(20, after: underLine1)
         
         stackView.addArrangedSubview(birthLabel)
-        stackView.setCustomSpacing(10, after: birthLabel)
         stackView.addArrangedSubview(birthTextField)
-        stackView.setCustomSpacing(10, after: birthTextField)
-        stackView.addArrangedSubview(birthUnderLine)
+        stackView.addArrangedSubview(underLine2)
         
         setProgressBar(size: 0.6)
         progressBar.snp.makeConstraints {
@@ -75,7 +69,7 @@ class BirthSignUpViewController: BaseEmailSignUpViewController {
         }
         
         stackView.snp.makeConstraints {
-            $0.height.equalTo(202)
+            $0.height.equalTo(162)
             $0.top.equalTo(progressBar.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
         }
@@ -88,35 +82,33 @@ class BirthSignUpViewController: BaseEmailSignUpViewController {
             $0.bottom.leading.trailing.equalToSuperview()
         }
         
-        nameUnderLine.backgroundColor = .mainGray
-        nameUnderLine.snp.makeConstraints {
-            $0.height.equalTo(1)
-        }
-        
         nameLabel.text = "이름을 입력해주세요."
+        birthLabel.text = "생년월일을 입력해주세요."
+        
+        nameLabel.font = UIFont.systemFont(ofSize: 12)
+        birthLabel.font = UIFont.systemFont(ofSize: 12)
+        
         nameLabel.snp.makeConstraints {
             $0.height.equalTo(30)
         }
-        
-        nameTextField.placeholder = "이름을 입력해주세요."
-        nameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        nameTextField.snp.makeConstraints {
-            $0.height.equalTo(40)
-        }
-        
-        birthUnderLine.backgroundColor = .mainGray
-        birthUnderLine.snp.makeConstraints {
-            $0.height.equalTo(1)
-        }
-        
-        birthLabel.text = "생년월일을 입력해주세요."
         birthLabel.snp.makeConstraints {
             $0.height.equalTo(30)
         }
         
+        nameTextField.placeholder = "이름을 입력해주세요."
         birthTextField.placeholder = "생년월일 6자리를 입력해주세요."
+        
+        nameTextField.font = UIFont.systemFont(ofSize: 12)
+        birthTextField.font = UIFont.systemFont(ofSize: 12)
+        
         birthTextField.keyboardType = .numberPad
+        
+        nameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         birthTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        
+        nameTextField.snp.makeConstraints {
+            $0.height.equalTo(40)
+        }
         birthTextField.snp.makeConstraints {
             $0.height.equalTo(40)
         }

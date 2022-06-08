@@ -16,4 +16,7 @@ extension UIColor {
     class var textGray: UIColor? {
         return UIColor(named: "textGray")
     }
+    class var underLine: UIColor? {
+        return UIColor(named: "underLine")
+    }
 }

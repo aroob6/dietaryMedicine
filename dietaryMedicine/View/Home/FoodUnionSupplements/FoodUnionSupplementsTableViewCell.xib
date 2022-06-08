@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,11 +35,25 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pV5-5G-FiS">
+                                        <rect key="frame" x="215" y="15" width="70" height="20"/>
+                                        <color key="backgroundColor" name="mainGray"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="6f5-so-vQQ"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="컬렉션 추가">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="10"/>
+                                        </buttonConfiguration>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="3ZD-sj-Qrx" firstAttribute="leading" secondItem="Ned-d6-1mK" secondAttribute="leading" id="8Ab-e4-PTk"/>
+                                    <constraint firstItem="pV5-5G-FiS" firstAttribute="centerY" secondItem="Ned-d6-1mK" secondAttribute="centerY" id="Trd-dC-l9H"/>
                                     <constraint firstItem="3ZD-sj-Qrx" firstAttribute="top" secondItem="Ned-d6-1mK" secondAttribute="top" id="mHA-7D-jaj"/>
+                                    <constraint firstAttribute="trailing" secondItem="pV5-5G-FiS" secondAttribute="trailing" constant="15" id="qbA-Rp-aE8"/>
                                     <constraint firstAttribute="bottom" secondItem="3ZD-sj-Qrx" secondAttribute="bottom" id="ybu-61-KwW"/>
                                 </constraints>
                             </view>
@@ -67,6 +82,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addButton" destination="pV5-5G-FiS" id="Wsd-xL-NTL"/>
                 <outlet property="addCollectionView" destination="TtW-dN-aud" id="Ulb-EU-9HZ"/>
                 <outlet property="title" destination="3ZD-sj-Qrx" id="8KF-Vd-Lhd"/>
             </connections>
@@ -74,6 +90,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="mainGray">
+            <color red="0.96100002527236938" green="0.96899998188018799" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

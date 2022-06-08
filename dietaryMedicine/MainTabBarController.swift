@@ -9,7 +9,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
-    let tabBartitle = ["홈", "검색", "마이페이지"]
+    let tabBartitle = ["홈", "컬렉션", "마이페이지"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

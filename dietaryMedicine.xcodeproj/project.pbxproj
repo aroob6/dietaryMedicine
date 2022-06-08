@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		46DA1F5EC6ABEF7747217A94 /* Pods_dietaryMedicine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 236BFF1A4EB20C3659E90B47 /* Pods_dietaryMedicine.framework */; };
-		842BFB042837561B00BC6B21 /* AnalysisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB022837561B00BC6B21 /* AnalysisTableViewCell.swift */; };
-		842BFB052837561B00BC6B21 /* AnalysisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842BFB032837561B00BC6B21 /* AnalysisTableViewCell.xib */; };
 		842BFB082837699300BC6B21 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB062837699300BC6B21 /* NewsCollectionViewCell.swift */; };
 		842BFB092837699300BC6B21 /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842BFB072837699300BC6B21 /* NewsCollectionViewCell.xib */; };
 		842BFB10283DCC4700BC6B21 /* ViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB0F283DCC4700BC6B21 /* ViewDelegate.swift */; };
@@ -28,7 +26,7 @@
 		84F2FEAE2833261B00AA927B /* AddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2FEAC2833261B00AA927B /* AddTableViewCell.xib */; };
 		84F2FEB528332A4C00AA927B /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB328332A4C00AA927B /* HashTagCollectionViewCell.swift */; };
 		84F2FEB828335DE400AA927B /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */; };
-		84FE873A2848860200B1BEB1 /* BirthSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE87392848860200B1BEB1 /* BirthSignUpViewController.swift */; };
+		84FE873A2848860200B1BEB1 /* NameBirthSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE87392848860200B1BEB1 /* NameBirthSignUpViewController.swift */; };
 		84FE873C2848899200B1BEB1 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE873B2848899200B1BEB1 /* CompleteViewController.swift */; };
 		84FE873E28489B8D00B1BEB1 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE873D28489B8D00B1BEB1 /* UIApplication.swift */; };
 		9A2F2964284BA2BD005E5AD2 /* BaseEmailSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F2963284BA2BD005E5AD2 /* BaseEmailSignUpViewController.swift */; };
@@ -45,8 +43,6 @@
 		9A4C3EE128314907001960FF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EE028314907001960FF /* MainTabBarController.swift */; };
 		9A4C3EE4283213C0001960FF /* FoodUnionSupplementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EE2283213BF001960FF /* FoodUnionSupplementsTableViewCell.swift */; };
 		9A4C3EE5283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EE3283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib */; };
-		9A4C3EE8283219BB001960FF /* UnionAnalysisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EE6283219BB001960FF /* UnionAnalysisTableViewCell.swift */; };
-		9A4C3EE9283219BB001960FF /* UnionAnalysisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EE7283219BB001960FF /* UnionAnalysisTableViewCell.xib */; };
 		9A4C3EEC28321DD1001960FF /* HotNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EEA28321DD1001960FF /* HotNewsTableViewCell.swift */; };
 		9A4C3EED28321DD1001960FF /* HotNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EEB28321DD1001960FF /* HotNewsTableViewCell.xib */; };
 		9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */; };
@@ -75,13 +71,17 @@
 		9A69F1CF284638E000FEDED6 /* ItemInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A69F1CD284638E000FEDED6 /* ItemInfoTableViewCell.xib */; };
 		9A69F1D12846553F00FEDED6 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1D02846553F00FEDED6 /* UILabel.swift */; };
 		9A69F1D32846585900FEDED6 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1D22846585900FEDED6 /* UIScrollView.swift */; };
+		9A7DD3F128508AA100B7FF9B /* AnotherCombinationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD3F028508AA100B7FF9B /* AnotherCombinationTableViewCell.swift */; };
+		9A7DD3F728508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7DD3F228508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.xib */; };
+		9A7DD3F828508AAD00B7FF9B /* AnotherCombinationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7DD3F328508AAD00B7FF9B /* AnotherCombinationTableViewCell.xib */; };
+		9A7DD3F928508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD3F428508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.swift */; };
+		9A7DD3FA28508AAD00B7FF9B /* CombinationRecommendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7DD3F528508AAD00B7FF9B /* CombinationRecommendTableViewCell.xib */; };
+		9A7DD3FB28508AAD00B7FF9B /* CombinationRecommendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD3F628508AAD00B7FF9B /* CombinationRecommendTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		236BFF1A4EB20C3659E90B47 /* Pods_dietaryMedicine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dietaryMedicine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8778B6256CBDCC52975E3A /* Pods-dietaryMedicine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.release.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.release.xcconfig"; sourceTree = "<group>"; };
-		842BFB022837561B00BC6B21 /* AnalysisTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisTableViewCell.swift; sourceTree = "<group>"; };
-		842BFB032837561B00BC6B21 /* AnalysisTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnalysisTableViewCell.xib; sourceTree = "<group>"; };
 		842BFB062837699300BC6B21 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		842BFB072837699300BC6B21 /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
 		842BFB0F283DCC4700BC6B21 /* ViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		84F2FEAC2833261B00AA927B /* AddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTableViewCell.xib; sourceTree = "<group>"; };
 		84F2FEB328332A4C00AA927B /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
-		84FE87392848860200B1BEB1 /* BirthSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthSignUpViewController.swift; sourceTree = "<group>"; };
+		84FE87392848860200B1BEB1 /* NameBirthSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameBirthSignUpViewController.swift; sourceTree = "<group>"; };
 		84FE873B2848899200B1BEB1 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		84FE873D28489B8D00B1BEB1 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		9A2F2963284BA2BD005E5AD2 /* BaseEmailSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEmailSignUpViewController.swift; sourceTree = "<group>"; };
@@ -119,8 +119,6 @@
 		9A4C3EE028314907001960FF /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		9A4C3EE2283213BF001960FF /* FoodUnionSupplementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodUnionSupplementsTableViewCell.swift; sourceTree = "<group>"; };
 		9A4C3EE3283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodUnionSupplementsTableViewCell.xib; sourceTree = "<group>"; };
-		9A4C3EE6283219BB001960FF /* UnionAnalysisTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionAnalysisTableViewCell.swift; sourceTree = "<group>"; };
-		9A4C3EE7283219BB001960FF /* UnionAnalysisTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnionAnalysisTableViewCell.xib; sourceTree = "<group>"; };
 		9A4C3EEA28321DD1001960FF /* HotNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsTableViewCell.swift; sourceTree = "<group>"; };
 		9A4C3EEB28321DD1001960FF /* HotNewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotNewsTableViewCell.xib; sourceTree = "<group>"; };
 		9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -149,6 +147,12 @@
 		9A69F1CD284638E000FEDED6 /* ItemInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemInfoTableViewCell.xib; sourceTree = "<group>"; };
 		9A69F1D02846553F00FEDED6 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		9A69F1D22846585900FEDED6 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		9A7DD3F028508AA100B7FF9B /* AnotherCombinationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnotherCombinationTableViewCell.swift; sourceTree = "<group>"; };
+		9A7DD3F228508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeeMoreCombinationTableViewCell.xib; sourceTree = "<group>"; };
+		9A7DD3F328508AAD00B7FF9B /* AnotherCombinationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnotherCombinationTableViewCell.xib; sourceTree = "<group>"; };
+		9A7DD3F428508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeMoreCombinationTableViewCell.swift; sourceTree = "<group>"; };
+		9A7DD3F528508AAD00B7FF9B /* CombinationRecommendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CombinationRecommendTableViewCell.xib; sourceTree = "<group>"; };
+		9A7DD3F628508AAD00B7FF9B /* CombinationRecommendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinationRecommendTableViewCell.swift; sourceTree = "<group>"; };
 		B5D6626179DC6AFC862A1D3D /* Pods-dietaryMedicine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.debug.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,7 +194,7 @@
 				842BFB1A2840520A00BC6B21 /* EmailLoginViewController.swift */,
 				842BFB232848451600BC6B21 /* EmailSignUpViewController.swift */,
 				842BFB252848566A00BC6B21 /* GenderSignUpViewController.swift */,
-				84FE87392848860200B1BEB1 /* BirthSignUpViewController.swift */,
+				84FE87392848860200B1BEB1 /* NameBirthSignUpViewController.swift */,
 				84FE873B2848899200B1BEB1 /* CompleteViewController.swift */,
 			);
 			path = Login;
@@ -211,7 +215,7 @@
 				84F2FEB328332A4C00AA927B /* HashTagCollectionViewCell.swift */,
 				8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */,
 				9A4C3EEE2832202C001960FF /* FoodUnionSupplements */,
-				9A4C3EEF28322039001960FF /* UnionAnalysis */,
+				9A7DD3EF28508A7500B7FF9B /* CombinationRecommend */,
 				9A4C3EF028322043001960FF /* HotNews */,
 			);
 			path = Home;
@@ -322,17 +326,6 @@
 			path = FoodUnionSupplements;
 			sourceTree = "<group>";
 		};
-		9A4C3EEF28322039001960FF /* UnionAnalysis */ = {
-			isa = PBXGroup;
-			children = (
-				9A4C3EE6283219BB001960FF /* UnionAnalysisTableViewCell.swift */,
-				9A4C3EE7283219BB001960FF /* UnionAnalysisTableViewCell.xib */,
-				842BFB022837561B00BC6B21 /* AnalysisTableViewCell.swift */,
-				842BFB032837561B00BC6B21 /* AnalysisTableViewCell.xib */,
-			);
-			path = UnionAnalysis;
-			sourceTree = "<group>";
-		};
 		9A4C3EF028322043001960FF /* HotNews */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +369,19 @@
 				842BFB0F283DCC4700BC6B21 /* ViewDelegate.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		9A7DD3EF28508A7500B7FF9B /* CombinationRecommend */ = {
+			isa = PBXGroup;
+			children = (
+				9A7DD3F628508AAD00B7FF9B /* CombinationRecommendTableViewCell.swift */,
+				9A7DD3F528508AAD00B7FF9B /* CombinationRecommendTableViewCell.xib */,
+				9A7DD3F028508AA100B7FF9B /* AnotherCombinationTableViewCell.swift */,
+				9A7DD3F328508AAD00B7FF9B /* AnotherCombinationTableViewCell.xib */,
+				9A7DD3F428508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.swift */,
+				9A7DD3F228508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.xib */,
+			);
+			path = CombinationRecommend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,15 +450,16 @@
 				9A4C3ECF28313B30001960FF /* Assets.xcassets in Resources */,
 				9A4C3ECD28313B2E001960FF /* Login.storyboard in Resources */,
 				9A4C3EE5283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib in Resources */,
+				9A7DD3FA28508AAD00B7FF9B /* CombinationRecommendTableViewCell.xib in Resources */,
 				842BFB092837699300BC6B21 /* NewsCollectionViewCell.xib in Resources */,
 				9A69F1CB284634E500FEDED6 /* TabBarHeaderCollectionViewCell.xib in Resources */,
+				9A7DD3F728508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.xib in Resources */,
 				84F2FEAE2833261B00AA927B /* AddTableViewCell.xib in Resources */,
 				9A4C3EDA28314447001960FF /* Main.storyboard in Resources */,
 				8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */,
 				842BFB1F2840617E00BC6B21 /* FoodUnionSupplements.storyboard in Resources */,
-				842BFB052837561B00BC6B21 /* AnalysisTableViewCell.xib in Resources */,
+				9A7DD3F828508AAD00B7FF9B /* AnotherCombinationTableViewCell.xib in Resources */,
 				9A69F1CF284638E000FEDED6 /* ItemInfoTableViewCell.xib in Resources */,
-				9A4C3EE9283219BB001960FF /* UnionAnalysisTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,16 +534,16 @@
 				9A69F1C3283CCA6700FEDED6 /* UnionItemList.swift in Sources */,
 				9A69F1B728393FAE00FEDED6 /* SupplementList.swift in Sources */,
 				9A69F1A62838D0B400FEDED6 /* SupplementsViewController.swift in Sources */,
-				9A4C3EE8283219BB001960FF /* UnionAnalysisTableViewCell.swift in Sources */,
 				9A69F1BF283BCEFE00FEDED6 /* NetworkingManager.swift in Sources */,
-				842BFB042837561B00BC6B21 /* AnalysisTableViewCell.swift in Sources */,
 				842BFB16283DF35300BC6B21 /* UIFont.swift in Sources */,
+				9A7DD3F128508AA100B7FF9B /* AnotherCombinationTableViewCell.swift in Sources */,
 				842BFB082837699300BC6B21 /* NewsCollectionViewCell.swift in Sources */,
 				9A69F1C1283CC7A300FEDED6 /* ItemAddViewModel.swift in Sources */,
 				84F2FEB528332A4C00AA927B /* HashTagCollectionViewCell.swift in Sources */,
 				9A69F1C5283CEDE100FEDED6 /* FoodUnionSupplementsViewModel.swift in Sources */,
 				9A69F1BB283944F500FEDED6 /* Injection.swift in Sources */,
-				84FE873A2848860200B1BEB1 /* BirthSignUpViewController.swift in Sources */,
+				9A7DD3F928508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.swift in Sources */,
+				84FE873A2848860200B1BEB1 /* NameBirthSignUpViewController.swift in Sources */,
 				9A4C3EE128314907001960FF /* MainTabBarController.swift in Sources */,
 				9A2F2966284BA673005E5AD2 /* UITextField.swift in Sources */,
 				842BFB1B2840520A00BC6B21 /* EmailLoginViewController.swift in Sources */,
@@ -546,6 +553,7 @@
 				9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */,
 				9A4C3EE4283213C0001960FF /* FoodUnionSupplementsTableViewCell.swift in Sources */,
 				84F2FEB828335DE400AA927B /* ItemDetailViewController.swift in Sources */,
+				9A7DD3FB28508AAD00B7FF9B /* CombinationRecommendTableViewCell.swift in Sources */,
 				9A69F1AC2838D89100FEDED6 /* ApiUrl.swift in Sources */,
 				842BFB12283DE58900BC6B21 /* FoodList.swift in Sources */,
 				842BFB22284061F100BC6B21 /* MyPageViewController.swift in Sources */,

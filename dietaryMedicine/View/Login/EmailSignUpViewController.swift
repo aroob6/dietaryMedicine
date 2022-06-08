@@ -17,10 +17,6 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
     private var pwTextField = UITextField()
     private var rePwTextField = UITextField()
     
-    private var emailUnderLine = UIView()
-    private var pwUnderLine = UIView()
-    private var rePwUnderLine = UIView()
-    
     private var emailText = ""
     private var pwText = ""
     private var rePwText = ""
@@ -29,6 +25,7 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         super.viewDidLoad()
 
         setUI()
+        setTextField()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,15 +45,15 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         
         stackView.addArrangedSubview(emailLabel)
         stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(emailUnderLine)
-        stackView.setCustomSpacing(10, after: emailUnderLine)
+        stackView.addArrangedSubview(underLine1)
+        stackView.setCustomSpacing(10, after: underLine1)
         stackView.addArrangedSubview(pwLabel)
         stackView.addArrangedSubview(pwTextField)
-        stackView.addArrangedSubview(pwUnderLine)
-        stackView.setCustomSpacing(10, after: pwUnderLine)
+        stackView.addArrangedSubview(underLine2)
+        stackView.setCustomSpacing(10, after: underLine2)
         stackView.addArrangedSubview(rePwLabel)
         stackView.addArrangedSubview(rePwTextField)
-        stackView.addArrangedSubview(rePwUnderLine)
+        stackView.addArrangedSubview(underLine3)
         
         stackView.snp.makeConstraints {
             $0.height.equalTo(203)
@@ -69,29 +66,23 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.bottom.leading.trailing.equalToSuperview()
-//            $0.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-        }
-        
-        emailUnderLine.backgroundColor = .mainGray
-        emailUnderLine.snp.makeConstraints {
-            $0.height.equalTo(1)
-        }
-        pwUnderLine.backgroundColor = .mainGray
-        pwUnderLine.snp.makeConstraints {
-            $0.height.equalTo(1)
-        }
-        rePwUnderLine.backgroundColor = .mainGray
-        rePwUnderLine.snp.makeConstraints {
-            $0.height.equalTo(1)
         }
         
         emailLabel.text = "이메일"
         pwLabel.text = "비밀번호"
         rePwLabel.text = "비밀번호 확인"
         
+        emailLabel.font = UIFont.systemFont(ofSize: 12)
+        pwLabel.font = UIFont.systemFont(ofSize: 12)
+        rePwLabel.font = UIFont.systemFont(ofSize: 12)
+        
         emailTextField.placeholder = "이메일을 입력하세요"
         pwTextField.placeholder = "소문자, 대문자, 숫자 8자리 이상으로 입력하세요"
         rePwTextField.placeholder = "소문자, 대문자, 숫자 8자리 이상으로 입력하세요"
+        
+        emailTextField.font = UIFont.systemFont(ofSize: 12)
+        pwTextField.font = UIFont.systemFont(ofSize: 12)
+        rePwTextField.font = UIFont.systemFont(ofSize: 12)
         
         emailTextField.keyboardType = .emailAddress
         pwTextField.isSecureTextEntry = true
@@ -121,6 +112,11 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
             $0.height.equalTo(40)
         }
         
+    }
+    
+    private func setTextField() {
+        emailTextField.delegate = self
+        pwTextField.delegate = self
     }
     
     func isValidEmail(email: String) -> Bool {
