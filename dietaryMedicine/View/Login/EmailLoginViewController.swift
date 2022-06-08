@@ -107,7 +107,8 @@ class EmailLoginViewController: BaseEmailSignUpViewController {
         }
         
         nextButton.setTitle("다음", for: .normal)
-        deEnableNextBtn()
+//        deEnableNextBtn()
+        enableNextBtn()
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.bottom.leading.trailing.equalToSuperview()

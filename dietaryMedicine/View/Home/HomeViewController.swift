@@ -51,11 +51,11 @@ class HomeViewController: UIViewController {
             UINib(nibName: FoodUnionSupplementsTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: FoodUnionSupplementsTableViewCell.identifier)
         mainTableView.register(
+            UINib(nibName: UnionAnalysisTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: UnionAnalysisTableViewCell.identifier)
+        mainTableView.register(
             UINib(nibName: CombinationRecommendTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: CombinationRecommendTableViewCell.identifier)
-        mainTableView.register(
-            UINib(nibName: HotNewsTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: HotNewsTableViewCell.identifier)
     }
     
     private func requestUnionList() {
@@ -114,17 +114,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: CombinationRecommendTableViewCell.identifier,
+                withIdentifier: UnionAnalysisTableViewCell.identifier,
                 for: indexPath
-            ) as? CombinationRecommendTableViewCell else {
+            ) as? UnionAnalysisTableViewCell else {
                 return UITableViewCell()
             }
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: HotNewsTableViewCell.identifier,
+                withIdentifier: CombinationRecommendTableViewCell.identifier,
                 for: indexPath
-            ) as? HotNewsTableViewCell else {
+            ) as? CombinationRecommendTableViewCell else {
                 return UITableViewCell()
             }
             return cell
