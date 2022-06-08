@@ -43,6 +43,10 @@ enum ResultString {
     case failure
 }
 
+class Check {
+    
+}
+
 class Login {
     var token = ""
     var email = ""

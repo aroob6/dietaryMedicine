@@ -12,7 +12,6 @@ import RxCocoa
 import Resolver
 
 class EmailLoginViewController: BaseEmailSignUpViewController {
-    
     var buttonStackView: UIStackView = {
         let view = UIStackView().then {
             $0.backgroundColor = .clear
@@ -159,6 +158,7 @@ class EmailLoginViewController: BaseEmailSignUpViewController {
         signUpButton.rx.tap.bind { [weak self] in
             self?.signUpAction()
         }.disposed(by: disposeBag)
+        
     }
     
     private func signUpAction() {

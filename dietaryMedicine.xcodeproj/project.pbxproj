@@ -77,6 +77,7 @@
 		9A7DD40228508C4500B7FF9B /* AnalysisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD3FE28508C4500B7FF9B /* AnalysisTableViewCell.swift */; };
 		9A7DD40328508C4500B7FF9B /* UnionAnalysisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7DD3FF28508C4500B7FF9B /* UnionAnalysisTableViewCell.xib */; };
 		9A7DD40428508C4500B7FF9B /* AnalysisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7DD40028508C4500B7FF9B /* AnalysisTableViewCell.xib */; };
+		9A7DD4062850DC2C00B7FF9B /* EmailCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD4052850DC2C00B7FF9B /* EmailCheckViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +154,7 @@
 		9A7DD3FE28508C4500B7FF9B /* AnalysisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisTableViewCell.swift; sourceTree = "<group>"; };
 		9A7DD3FF28508C4500B7FF9B /* UnionAnalysisTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnionAnalysisTableViewCell.xib; sourceTree = "<group>"; };
 		9A7DD40028508C4500B7FF9B /* AnalysisTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnalysisTableViewCell.xib; sourceTree = "<group>"; };
+		9A7DD4052850DC2C00B7FF9B /* EmailCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmailCheckViewModel.swift; path = dietaryMedicine/View/Home/CombinationAnalysis/EmailCheckViewModel.swift; sourceTree = SOURCE_ROOT; };
 		B5D6626179DC6AFC862A1D3D /* Pods-dietaryMedicine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.debug.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,6 +302,7 @@
 				842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */,
 				9A69F1C0283CC7A300FEDED6 /* ItemAddViewModel.swift */,
 				842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */,
+				9A7DD4052850DC2C00B7FF9B /* EmailCheckViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				9A69F1A62838D0B400FEDED6 /* SupplementsViewController.swift in Sources */,
 				9A69F1BF283BCEFE00FEDED6 /* NetworkingManager.swift in Sources */,
 				842BFB16283DF35300BC6B21 /* UIFont.swift in Sources */,
+				9A7DD4062850DC2C00B7FF9B /* EmailCheckViewModel.swift in Sources */,
 				9A7DD3F128508AA100B7FF9B /* AnotherCombinationTableViewCell.swift in Sources */,
 				9A69F1C1283CC7A300FEDED6 /* ItemAddViewModel.swift in Sources */,
 				84F2FEB528332A4C00AA927B /* HashTagCollectionViewCell.swift in Sources */,

@@ -6,21 +6,39 @@
 //
 
 import UIKit
+import SnapKit
+import RxSwift
+import RxCocoa
+import Resolver
 
 class EmailSignUpViewController: BaseEmailSignUpViewController {
+    var emailStackView: UIStackView = {
+        let view = UIStackView().then {
+            $0.backgroundColor = .clear
+            $0.axis = .horizontal
+            $0.alignment = .fill
+            $0.distribution = .fillProportionally
+        }
+        return view
+    }()
     
-    
+    var emailView = UIView()
     private var emailLabel = UILabel()
     private var pwLabel = UILabel()
     private var rePwLabel = UILabel()
     private var emailTextField = UITextField()
     private var pwTextField = UITextField()
     private var rePwTextField = UITextField()
+    private var emailCheckButton = UIButton()
     
     private var emailText = ""
     private var pwText = ""
     private var rePwText = ""
+    private var emailCheck = false
 
+    @Injected private var emailCheckViewModel: EmailCheckViewModel
+    @Injected private var disposeBag : DisposeBag
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,7 +62,9 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         self.view.addSubview(nextButton)
         
         stackView.addArrangedSubview(emailLabel)
-        stackView.addArrangedSubview(emailTextField)
+//        stackView.addArrangedSubview(emailTextField)
+//        stackView.addArrangedSubview(emailStackView)
+        stackView.addArrangedSubview(emailView)
         stackView.addArrangedSubview(underLine1)
         stackView.setCustomSpacing(10, after: underLine1)
         stackView.addArrangedSubview(pwLabel)
@@ -55,14 +75,26 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         stackView.addArrangedSubview(rePwTextField)
         stackView.addArrangedSubview(underLine3)
         
+        emailView.addSubview(emailTextField)
+        emailView.addSubview(emailCheckButton)
+//        emailStackView.addArrangedSubview(emailTextField)
+//        emailStackView.addArrangedSubview(duplicateConfirmButton)
+        
         stackView.snp.makeConstraints {
             $0.height.equalTo(203)
             $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
         }
         
+        emailView.snp.makeConstraints {
+            $0.height.equalTo(40)
+        }
+        
+//        emailStackView.snp.makeConstraints {
+//            $0.height.equalTo(40)
+//        }
+        
         nextButton.setTitle("다음", for: .normal)
         deEnableNextBtn()
-        nextButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.bottom.leading.trailing.equalToSuperview()
@@ -103,13 +135,27 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         }
         
         emailTextField.snp.makeConstraints {
+            $0.width.equalTo(220)
             $0.height.equalTo(40)
+            $0.leading.centerY.equalToSuperview()
         }
         pwTextField.snp.makeConstraints {
             $0.height.equalTo(40)
         }
         rePwTextField.snp.makeConstraints {
             $0.height.equalTo(40)
+        }
+        
+        emailCheckButton.setTitle("중복확인", for: .normal)
+        emailCheckButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        emailCheckButton.backgroundColor = .textGray
+        emailCheckButton.isEnabled = true
+        emailCheckButton.layer.cornerRadius = 8
+        emailCheckButton.snp.makeConstraints {
+            $0.width.equalTo(60)
+            $0.height.equalTo(30)
+            $0.trailing.equalToSuperview()
+            $0.centerY.equalToSuperview()
         }
         
     }
@@ -119,28 +165,28 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         pwTextField.delegate = self
     }
     
-    func isValidEmail(email: String) -> Bool {
+    private func bindButton() {
+        nextButton.rx.tap.bind { [weak self] in
+            self?.nextAction()
+        }.disposed(by: disposeBag)
+        emailCheckButton.rx.tap.bind { [weak self] in
+            self?.emailCheckAction()
+        }.disposed(by: disposeBag)
+    }
+    
+    private func isValidEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: email)
     }
     
-    func isValidPassword(pwd: String) -> Bool {
+    private func isValidPassword(pwd: String) -> Bool {
         let passwordRegEx = "^[a-zA-Z0-9]{8,}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
         return passwordTest.evaluate(with: pwd)
     }
     
-    @objc func textFieldDidChange() {
-        if emailTextField.text != "" && pwTextField.text != "" && rePwTextField.text != "" {
-            enableNextBtn()
-        }
-        else {
-            deEnableNextBtn()
-        }
-    }
-    
-    @objc func nextAction() {
+    private func nextAction() {
         guard let emailText = emailTextField.text, isValidEmail(email: emailText) else {
             emailTextField.shakeTextField()
             let msg = "이메일 형식으로 입력하세요"
@@ -167,5 +213,49 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         
         let vc = GenderSignUpViewController()
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    private func emailCheckAction() {
+        requestEmailCheck()
+    }
+    
+    private func requestEmailCheck() {
+        let parameters: [String: String] = [
+            "email": emailText
+        ]
+        
+        emailCheckViewModel.fetch(parameters: parameters)
+    }
+    
+    private func bindEmailCheck() {
+        emailCheckViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty()).drive { result in
+            switch result {
+            case .success(let data):
+                if data == 0 { //중복이 아닌 경우
+                    print("✅: EMAILCHECK NOT DUPLICATE")
+                    self.emailCheckButton.backgroundColor = .mainColor
+                    self.emailCheckButton.isEnabled = false
+                    let msg = "이메일 중복이 아닙니다"
+                    UtilFunction.showMessage(msg: msg, vc: self)
+                }
+                else { // 1 중복인 경우
+                    print("✅: EMAILCHECK DUPLICATE")
+                    let msg = "이메일 중복 입니다"
+                    UtilFunction.showMessage(msg: msg, vc: self)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    @objc func textFieldDidChange() {
+        if emailTextField.text != "" && pwTextField.text != "" && rePwTextField.text != "" {
+            enableNextBtn()
+        }
+        else {
+            deEnableNextBtn()
+        }
     }
 }
