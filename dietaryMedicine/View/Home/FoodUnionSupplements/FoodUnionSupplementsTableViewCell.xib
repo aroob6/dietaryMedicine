@@ -12,15 +12,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="FoodUnionSupplementsTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="150" id="KGk-i7-Jjw" customClass="FoodUnionSupplementsTableViewCell" customModule="dietaryMedicine" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="FoodUnionSupplementsTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="250" id="KGk-i7-Jjw" customClass="FoodUnionSupplementsTableViewCell" customModule="dietaryMedicine" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PQt-5X-agg">
-                        <rect key="frame" x="15" y="0.0" width="285" height="150"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="PQt-5X-agg">
+                        <rect key="frame" x="15" y="0.0" width="285" height="250"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ned-d6-1mK">
                                 <rect key="frame" x="0.0" y="0.0" width="285" height="50"/>
@@ -54,12 +54,16 @@
                                     <constraint firstItem="pV5-5G-FiS" firstAttribute="centerY" secondItem="Ned-d6-1mK" secondAttribute="centerY" id="Trd-dC-l9H"/>
                                     <constraint firstItem="3ZD-sj-Qrx" firstAttribute="top" secondItem="Ned-d6-1mK" secondAttribute="top" id="mHA-7D-jaj"/>
                                     <constraint firstAttribute="trailing" secondItem="pV5-5G-FiS" secondAttribute="trailing" constant="15" id="qbA-Rp-aE8"/>
+                                    <constraint firstAttribute="height" constant="50" id="vZJ-uD-RNA"/>
                                     <constraint firstAttribute="bottom" secondItem="3ZD-sj-Qrx" secondAttribute="bottom" id="ybu-61-KwW"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TtW-dN-aud">
                                 <rect key="frame" x="0.0" y="50" width="285" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="bcU-Cn-OYr"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5zL-cl-r35">
                                     <size key="itemSize" width="100" height="95"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -67,10 +71,20 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BEH-F5-RKv">
+                                <rect key="frame" x="0.0" y="150" width="285" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="FAp-Gp-hcB"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rsb-yF-LCe">
+                                    <size key="itemSize" width="100" height="95"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="150" id="TxI-hb-qYV"/>
-                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -83,10 +97,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addButton" destination="pV5-5G-FiS" id="Wsd-xL-NTL"/>
-                <outlet property="addCollectionView" destination="TtW-dN-aud" id="Ulb-EU-9HZ"/>
+                <outlet property="addFoodCollectionView" destination="BEH-F5-RKv" id="cql-Kp-jwK"/>
+                <outlet property="addSupplementCollectionView" destination="TtW-dN-aud" id="Ulb-EU-9HZ"/>
                 <outlet property="title" destination="3ZD-sj-Qrx" id="8KF-Vd-Lhd"/>
             </connections>
-            <point key="canvasLocation" x="68.115942028985515" y="85.714285714285708"/>
+            <point key="canvasLocation" x="7" y="79"/>
         </tableViewCell>
     </objects>
     <resources>

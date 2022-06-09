@@ -17,7 +17,7 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        name.text = Info.share.email
+        name.text = Info.share.name
         versionLabel.text = UIApplication.appVersion ?? ""
     }
    

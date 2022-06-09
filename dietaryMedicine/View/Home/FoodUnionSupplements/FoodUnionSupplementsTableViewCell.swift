@@ -16,11 +16,12 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
 
     @IBOutlet var title: UILabel!
     @IBOutlet var addButton: UIButton!
-    @IBOutlet weak var addCollectionView: UICollectionView!
+    @IBOutlet weak var addSupplementCollectionView: UICollectionView!
+    @IBOutlet weak var addFoodCollectionView: UICollectionView!
     weak var viewController: UIViewController?
     var unionItemList: UnionItemList? {
         didSet {
-            addCollectionView.reloadData()
+            addSupplementCollectionView.reloadData()
         }
     }
     
@@ -33,6 +34,7 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         setView()
+        registerXib()
         setCollectionView()
     }
     
@@ -50,32 +52,39 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
         addButton.layer.cornerRadius = 10
     }
     
-    private func setCollectionView () {
-        addCollectionView.delegate = self
-        addCollectionView.dataSource = self
-        registerXib()
-    }
     private func registerXib() {
-        addCollectionView.register(
+        addSupplementCollectionView.register(
             UINib(nibName: AddCollectionViewCell.identifier, bundle: nil),
             forCellWithReuseIdentifier: AddCollectionViewCell.identifier
         )
+        addFoodCollectionView.register(
+            UINib(nibName: AddCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: AddCollectionViewCell.identifier
+        )
+    }
+    
+    private func setCollectionView () {
+        addSupplementCollectionView.delegate = self
+        addSupplementCollectionView.dataSource = self
+        addFoodCollectionView.delegate = self
+        addFoodCollectionView.dataSource = self
     }
 }
 
 extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let unionItemListCount = unionItemList?.list.count else { return 0 }
-        if unionItemListCount == 0 {
-            return 1
-        }
-        else {
-            return unionItemListCount + 1
-        }
+        return 10
+//        guard let unionItemListCount = unionItemList?.list.count else { return 0 }
+//        if unionItemListCount == 0 {
+//            return 1
+//        }
+//        else {
+//            return unionItemListCount + 1
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = addCollectionView.dequeueReusableCell(
+        guard let cell = addSupplementCollectionView.dequeueReusableCell(
             withReuseIdentifier: AddCollectionViewCell.identifier,
             for: indexPath
         ) as? AddCollectionViewCell else {
@@ -83,31 +92,41 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
         }
         
         guard let unionItemList = unionItemList else { return cell }
-        cell.configureCell(unionItemList: unionItemList, indexPathRow: indexPath.item)
-        cell.viewController = viewController
+        
+//        let supplementID = unionItemList.list[indexPath.row].supplementId
+//        let foodID = unionItemList.list[indexPath.row].foodId
+//        let imgUrl = unionItemList.list[indexPath.row].image
+//
+//        if supplementID == 0 {
+//            // 음식
+//            cell.configureCell(unionItemList: unionItemList, indexPathRow: indexPath.row)
+//        }
+//        else if foodID == 0 {
+//            // 영양제
+//            cell.configureCell(unionItemList: unionItemList, indexPathRow: indexPath.row)
+//        }
+//
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
-        guard let unionItemListCount = unionItemList?.list.count else { return }
-        guard unionItemListCount == indexPath.item else {
-            guard let cell = collectionView.cellForItem(at: indexPath) as? AddCollectionViewCell else { return }
-            if cell.isSelected {
-                guard let vc = viewController else { return }
-                UtilFunction.showDeleteMessage(msg: "삭제 하시겠습니까?", vc: vc) { code in
-                    if code == .Okay {
-                        cell.requestDelete()
-                    }
-                    if code == .Cancel {
-                        cell.hiddenDelete()
-                    }
-                }
-            }
-            return
-            
-        }
+//        guard let unionItemListCount = unionItemList?.list.count else { return }
+//        guard unionItemListCount == indexPath.item else {
+//            guard let cell = collectionView.cellForItem(at: indexPath) as? AddCollectionViewCell else { return }
+//            if cell.isSelected {
+//                guard let vc = viewController else { return }
+//                UtilFunction.showDeleteMessage(msg: "삭제 하시겠습니까?", vc: vc) { code in
+//                    if code == .Okay {
+//                        cell.requestDelete()
+//                    }
+//                    if code == .Cancel {
+//                        cell.hiddenDelete()
+//                    }
+//                }
+//            }
+//            return
+//
+//        }
         
         let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "AddListViewController") as! AddListViewController

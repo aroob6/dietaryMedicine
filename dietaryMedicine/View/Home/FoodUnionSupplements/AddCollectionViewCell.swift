@@ -21,8 +21,6 @@ class AddCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet var deleteImage: UIImageView!
     
-    weak var viewController: UIViewController?
-    
     override var isSelected: Bool {
         didSet {
             if isSelected {
@@ -60,6 +58,8 @@ class AddCollectionViewCell: UICollectionViewCell {
         deleteImage.layer.cornerRadius = 8
         deleteImage.isHidden = true
         
+        addImage.image = UIImage(systemName: "plus")
+        addImage.contentMode = .center
         addImage.layer.cornerRadius = 8
     }
     
@@ -112,26 +112,29 @@ class AddCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(unionItemList: UnionItemList, indexPathRow: Int) {
-        if unionItemList.list.count == indexPathRow {
-            addImage.image = UIImage(systemName: "plus")
-            addImage.contentMode = .center
-            return
-        }
+        let unionSupplementData = unionItemList.list[indexPathRow].supplementId
+//        if unionItemList.list.count == indexPathRow {
+//            addImage.image = UIImage(systemName: "plus")
+//            addImage.contentMode = .center
+//            return
+//        }
         
-        let unionItemData = unionItemList.list[indexPathRow]
-        self.item = unionItemData
-        
-        if unionItemData.image != "" {
-            let imgURL = URL(string: unionItemData.image)
-            addImage.contentMode = .scaleAspectFit
-            
-            addImage.kf.setImage(
-                with: imgURL,
-                options: [
-                    .transition(ImageTransition.fade(0.3)),
-                    .keepCurrentImageWhileLoading
-                ]
-            )
-        }
+//        if let unionItemData = unionItemList.list[indexPathRow], unionItemData.combinationId != 0 else {
+//            return
+//        }
+//        self.item = unionItemData
+//        
+//        if unionItemData.image != "" {
+//            let imgURL = URL(string: unionItemData.image)
+//            addImage.contentMode = .scaleAspectFit
+//            
+//            addImage.kf.setImage(
+//                with: imgURL,
+//                options: [
+//                    .transition(ImageTransition.fade(0.3)),
+//                    .keepCurrentImageWhileLoading
+//                ]
+//            )
+//        }
     }
 }
