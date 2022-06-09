@@ -10,10 +10,8 @@ import Alamofire
 import Moya
 import Resolver
 import SwiftyJSON
-import Combine
 
 class LoginViewModel: ViewModelProtocol {
-    var tokens: Set<AnyCancellable> = []
     
     struct Output {
         let data = PublishRelay<Result<Login, NetworkError>>()
@@ -24,33 +22,22 @@ class LoginViewModel: ViewModelProtocol {
     
     func fetch(parameters: Parameters) {
         NetworkingManager.parameter = parameters
-        
-        provider.requestPublisher(.logIn).sink { completion in
-            guard case .failure = completion else { return }
-            self.output.data.accept(.failure(.networkError))
 
-        } receiveValue: { response in
-            if let data = try? Login(JSON(rawValue: response.mapJSON())!) {
-                self.output.data.accept(.success(data))
+        provider.request(.logIn) { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+            case .success(let response):
+                if let data = try? Login(JSON(rawValue: response.mapJSON())!) {
+                    self.output.data.accept(.success(data))
+                }
+                else {
+                    self.output.data.accept(.failure(.jsonParsingError))
+                }
+            case .failure:
+                self.output.data.accept(.failure(.networkError))
             }
-        }.store(in: &tokens)
 
-
-//        provider.request(.logIn) { [weak self] result in
-//            guard let self = self else { return }
-//
-//            switch result {
-//            case .success(let response):
-//                if let data = try? Login(JSON(rawValue: response.mapJSON())!) {
-//                    self.output.data.accept(.success(data))
-//                }
-//                else {
-//                    self.output.data.accept(.failure(.jsonParsingError))
-//                }
-//            case .failure:
-//                self.output.data.accept(.failure(.networkError))
-//            }
-//
-//        }
+        }
     }
 }

@@ -50,10 +50,6 @@ extension NetworkingManager: TargetType {
         switch self {
         case .supplementAll, .foodAll, .unionList:
             return .requestPlain //.get
-        case .emailCheck:
-            return .requestParameters(
-                parameters: NetworkingManager.parameter,
-                encoding: URLEncoding.default) //.post parameter
         default:
             return .requestParameters(
                 parameters: NetworkingManager.parameter,
@@ -64,7 +60,7 @@ extension NetworkingManager: TargetType {
     public var headers: [String : String]? {
         var header = ["Content-Type": "application/json"]
         switch self {
-        case .signUp, .logIn:
+        case .signUp, .logIn, .emailCheck:
             return header
         default:
             header["Authorization"] = "Bearer \(UserDefaultsManager.token)"
@@ -77,7 +73,7 @@ extension NetworkingManager: TargetType {
         switch self {
         case .signUp: return "auth/signup" //가입
         case .logIn: return "auth/signin" //로그인
-        case .emailCheck: return "auth/duplication"
+        case .emailCheck: return "auth/email-duplication"
         case .unionList: return "combination/list" // 조합 리스트
         case .supplementAll: return "supplement/all" //영양제 리스트
         case .supplementAdd: return "combination-item/supplement" //조합 - 영양제 추가

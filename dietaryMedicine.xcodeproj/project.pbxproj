@@ -20,6 +20,8 @@
 		842BFB242848451700BC6B21 /* EmailSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB232848451600BC6B21 /* EmailSignUpViewController.swift */; };
 		842BFB262848566B00BC6B21 /* GenderSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB252848566A00BC6B21 /* GenderSignUpViewController.swift */; };
 		8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */; };
+		84EB38952851E5D7001CBCCC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */; };
+		84EB38962851E5D7001CBCCC /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */; };
 		84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */; };
 		84F2FEAE2833261B00AA927B /* AddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2FEAC2833261B00AA927B /* AddTableViewCell.xib */; };
 		84F2FEB528332A4C00AA927B /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEB328332A4C00AA927B /* HashTagCollectionViewCell.swift */; };
@@ -95,6 +97,8 @@
 		842BFB232848451600BC6B21 /* EmailSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpViewController.swift; sourceTree = "<group>"; };
 		842BFB252848566A00BC6B21 /* GenderSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSignUpViewController.swift; sourceTree = "<group>"; };
 		8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HashTagCollectionViewCell.xib; sourceTree = "<group>"; };
+		84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		84F2FEAC2833261B00AA927B /* AddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTableViewCell.xib; sourceTree = "<group>"; };
 		84F2FEB328332A4C00AA927B /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -372,6 +376,8 @@
 				9A7DD3F328508AAD00B7FF9B /* AnotherCombinationTableViewCell.xib */,
 				9A7DD3F428508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.swift */,
 				9A7DD3F228508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.xib */,
+				84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */,
+				84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */,
 			);
 			path = CombinationRecommend;
 			sourceTree = "<group>";
@@ -449,6 +455,7 @@
 			files = (
 				9A4C3ED228313B30001960FF /* LaunchScreen.storyboard in Resources */,
 				9A7DD40428508C4500B7FF9B /* AnalysisTableViewCell.xib in Resources */,
+				84EB38962851E5D7001CBCCC /* ImageCollectionViewCell.xib in Resources */,
 				9A4C3EF428322082001960FF /* AddCollectionViewCell.xib in Resources */,
 				9A4C3ECF28313B30001960FF /* Assets.xcassets in Resources */,
 				9A4C3ECD28313B2E001960FF /* Login.storyboard in Resources */,
@@ -516,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A69F1AE2838EF4900FEDED6 /* Login.swift in Sources */,
+				84EB38952851E5D7001CBCCC /* ImageCollectionViewCell.swift in Sources */,
 				9A69F1A52838D0B400FEDED6 /* FoodViewController.swift in Sources */,
 				842BFB1D284058EC00BC6B21 /* SignUpViewModel.swift in Sources */,
 				9A69F1B02838F04E00FEDED6 /* LoginViewModel.swift in Sources */,

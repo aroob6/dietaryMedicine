@@ -26,8 +26,10 @@ class EmailCheckViewModel: ViewModelProtocol {
         provider.request(.emailCheck) { result in
             switch result {
             case .success(let response):
-               print(response)
-//                self.output.data.accept(.success(data))
+                if let data = try? response.map(Int.self) {
+                    self.output.data.accept(.success(data))
+                }
+
             case .failure:
                 self.output.data.accept(.failure(.networkError))
             }

@@ -32,8 +32,6 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
     private var emailCheckButton = UIButton()
     
     private var emailText = ""
-    private var pwText = ""
-    private var rePwText = ""
     private var emailCheck = false
 
     @Injected private var emailCheckViewModel: EmailCheckViewModel
@@ -44,6 +42,8 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
 
         setUI()
         setTextField()
+        bindButton()
+        bindEmailCheck()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,8 +62,6 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         self.view.addSubview(nextButton)
         
         stackView.addArrangedSubview(emailLabel)
-//        stackView.addArrangedSubview(emailTextField)
-//        stackView.addArrangedSubview(emailStackView)
         stackView.addArrangedSubview(emailView)
         stackView.addArrangedSubview(underLine1)
         stackView.setCustomSpacing(10, after: underLine1)
@@ -77,8 +75,6 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         
         emailView.addSubview(emailTextField)
         emailView.addSubview(emailCheckButton)
-//        emailStackView.addArrangedSubview(emailTextField)
-//        emailStackView.addArrangedSubview(duplicateConfirmButton)
         
         stackView.snp.makeConstraints {
             $0.height.equalTo(203)
@@ -88,10 +84,6 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         emailView.snp.makeConstraints {
             $0.height.equalTo(40)
         }
-        
-//        emailStackView.snp.makeConstraints {
-//            $0.height.equalTo(40)
-//        }
         
         nextButton.setTitle("다음", for: .normal)
         deEnableNextBtn()
@@ -120,9 +112,9 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         pwTextField.isSecureTextEntry = true
         rePwTextField.isSecureTextEntry = true
         
-        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        pwTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        rePwTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
+        pwTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
+        rePwTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
         
         emailLabel.snp.makeConstraints {
             $0.height.equalTo(20)
@@ -149,7 +141,6 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         emailCheckButton.setTitle("중복확인", for: .normal)
         emailCheckButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         emailCheckButton.backgroundColor = .textGray
-        emailCheckButton.isEnabled = true
         emailCheckButton.layer.cornerRadius = 8
         emailCheckButton.snp.makeConstraints {
             $0.width.equalTo(60)
@@ -187,13 +178,6 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
     }
     
     private func nextAction() {
-        guard let emailText = emailTextField.text, isValidEmail(email: emailText) else {
-            emailTextField.shakeTextField()
-            let msg = "이메일 형식으로 입력하세요"
-            UtilFunction.showMessage(msg: msg, vc: self)
-            return
-        }
-        
         guard let pwText = pwTextField.text, isValidPassword(pwd: pwText) else {
             pwTextField.shakeTextField()
             let msg = "비밀번호 형식을 확인해 주세요"
@@ -216,7 +200,21 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
     }
     
     private func emailCheckAction() {
-        requestEmailCheck()
+        if emailTextField.text == "" {
+            let msg = "이메일을 입력해주세요"
+            UtilFunction.showMessage(msg: msg, vc: self)
+        }
+        else {
+            guard let emailText = emailTextField.text, isValidEmail(email: emailText) else {
+                emailTextField.shakeTextField()
+                let msg = "이메일 형식으로 입력하세요"
+                UtilFunction.showMessage(msg: msg, vc: self)
+                return
+            }
+            
+            self.emailText = emailText
+            requestEmailCheck()
+        }
     }
     
     private func requestEmailCheck() {
@@ -232,16 +230,17 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
             switch result {
             case .success(let data):
                 if data == 0 { //중복이 아닌 경우
-                    print("✅: EMAILCHECK NOT DUPLICATE")
                     self.emailCheckButton.backgroundColor = .mainColor
                     self.emailCheckButton.isEnabled = false
+                    self.emailCheck = true
                     let msg = "이메일 중복이 아닙니다"
                     UtilFunction.showMessage(msg: msg, vc: self)
+                    print("✅: EMAILCHECK NOT DUPLICATE")
                 }
                 else { // 1 중복인 경우
-                    print("✅: EMAILCHECK DUPLICATE")
                     let msg = "이메일 중복 입니다"
                     UtilFunction.showMessage(msg: msg, vc: self)
+                    print("✅: EMAILCHECK DUPLICATE")
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -250,8 +249,19 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         .disposed(by: disposeBag)
     }
     
-    @objc func textFieldDidChange() {
-        if emailTextField.text != "" && pwTextField.text != "" && rePwTextField.text != "" {
+    @objc func textFieldDidChange(sender: UITextField) {
+        switch sender {
+        case emailTextField:
+            emailCheckButton.backgroundColor = .textGray
+            emailCheck = false
+        case pwTextField:
+            print("pwTextField")
+        case rePwTextField:
+            print("rePwTextField")
+        default:
+            return
+        }
+        if emailCheck && emailTextField.text != "" && pwTextField.text != "" && rePwTextField.text != "" {
             enableNextBtn()
         }
         else {

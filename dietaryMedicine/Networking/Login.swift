@@ -8,17 +8,6 @@
 import Foundation
 import SwiftyJSON
 
-
-//struct LoginPatameter: Codable {
-//    var email: String
-//    var password: String
-//    
-//    init(_ email: String, _ password: String) {
-//        self.email = email
-//        self.password = password
-//    }
-//}
-//
 //struct Login: Codable {
 //    let token: String
 //    let email: String
@@ -41,10 +30,6 @@ import SwiftyJSON
 enum ResultString {
     case success
     case failure
-}
-
-class Check {
-    
 }
 
 class Login {
