@@ -11,26 +11,9 @@ import RxCocoa
 import Resolver
 import Then
 
-class FoodViewController: UIViewController {
-//    @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var collectionView: UICollectionView!
-    
-    private var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout().then {
-            $0.scrollDirection = .horizontal
-            $0.minimumInteritemSpacing = 0
-            $0.minimumLineSpacing = 15
-        }
-        
-        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        return view
-    }()
-    private var tableView = UITableView()
+class FoodViewController: BaseItemListViewController {
     private var foodList = FoodList()
-    private var tagList = ["# 비타민", "# 비타민", "# 비타민", "# 비타민", "# 비타민"]
-    
     @Injected private var foodsViewModel: FoodsViewModel
-    @Injected private var disposeBag : DisposeBag
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,19 +28,7 @@ class FoodViewController: UIViewController {
     }
     
     private func setUI (){
-        view.addSubview(collectionView)
-        view.addSubview(tableView)
-        
-        collectionView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(10)
-            $0.top.trailing.equalToSuperview()
-            $0.height.equalTo(50)
-        }
-        
-        tableView.snp.makeConstraints {
-            $0.top.equalTo(collectionView.snp.bottom)
-            $0.bottom.trailing.leading.equalToSuperview()
-        }
+        navigationTitle(string: "음식")
     }
     
     private func setTableView () {
@@ -68,17 +39,6 @@ class FoodViewController: UIViewController {
     private func setCollectionView () {
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    private func registerXib() {
-        tableView.register(
-            UINib(nibName: AddTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: AddTableViewCell.identifier)
-        
-        collectionView.register(
-            UINib(nibName: HashTagCollectionViewCell.identifier, bundle: nil),
-            forCellWithReuseIdentifier: HashTagCollectionViewCell.identifier
-        )
     }
     
     private func requestFoods() {

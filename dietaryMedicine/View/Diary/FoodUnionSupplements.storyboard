@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-1705" y="139"/>
         </scene>
-        <!--Add List View Controller-->
+        <!--View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="AddListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="AddListViewController" customModule="dietaryMedicine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="-926" y="139"/>
         </scene>
-        <!--Supplements View Controller-->
+        <!--View Controller-->
         <scene sceneID="8lL-Y7-j0h">
             <objects>
-                <viewController id="Z8A-yv-Gpq" customClass="SupplementsViewController" customModule="dietaryMedicine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Z8A-yv-Gpq" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OwB-TL-drS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="93" y="-137"/>
         </scene>
-        <!--Food View Controller-->
+        <!--View Controller-->
         <scene sceneID="lWJ-pC-CEB">
             <objects>
-                <viewController id="bs0-Fl-HQb" customClass="FoodViewController" customModule="dietaryMedicine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bs0-Fl-HQb" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jKA-dd-OGO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

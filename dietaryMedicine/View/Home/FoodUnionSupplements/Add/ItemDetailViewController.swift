@@ -70,8 +70,14 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
     private var lowestInfoView = UIView()
     private var lowestInfoLabel = UILabel()
     
-    let tabBarTitle = ["비타민 정보", "비타민 분석", "구매정보"]
-    let infoType = ["영양제 종류", "브랜드", "데일리 복용량", "영양제 형태"]
+    var tabBarTitle: [String] = []
+    var infoType: [String] = []
+    var nutrientName = ""
+    var brand = ""
+    var nutrientAmount = ""
+    var nutrientUnit = ""
+    var unit = ""
+    
     var supplementData = Supplements()
     var foodData = Foods()
     
@@ -147,7 +153,6 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         name.backgroundColor = .white
         name.snp.makeConstraints {
             $0.height.equalTo(50)
-//            $0.width.equalTo(self.scrollView).inset(scrollView.layoutMargins)
         }
         
         imgView.snp.makeConstraints {
@@ -159,8 +164,6 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         collectionView.snp.makeConstraints {
             $0.height.equalTo(50)
         }
-        
-        collectionView.backgroundColor = .green
         
         infoTableView.snp.makeConstraints {
             $0.height.equalTo(480)
@@ -215,6 +218,25 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         addButton.setTitle("추가하기", for: .normal)
         addButton.setTitleColor(.white, for: .normal)
         addButton.layer.cornerRadius = 8
+        
+        switch itemType {
+        case .supplement:
+            tabBarTitle = ["비타민 정보", "비타민 분석", "구매정보"]
+            infoType = ["영양제 종류", "브랜드", "데일리 복용량", "영양제 형태"]
+            nutrientName = supplementData.nutrientAmounts.first?.nutrientNameKor ?? ""
+            brand = supplementData.brand
+            nutrientAmount = String(supplementData.nutrientAmounts.first?.nutrientAmount ?? 0.0)
+            nutrientUnit = supplementData.nutrientAmounts.first?.nutrientAmountUnit ?? ""
+            unit = supplementData.unit
+        case .food:
+            tabBarTitle = ["식품 정보", "식품 분석"]
+            infoType = ["식품 이름", "분류", "1인분"]
+            nutrientName = foodData.nutrientAmounts.first?.nutrientNameKor ?? ""
+            brand = foodData.brand
+            nutrientAmount = String(foodData.nutrientAmounts.first?.nutrientAmount ?? 0.0)
+            nutrientUnit = foodData.nutrientAmounts.first?.nutrientAmountUnit ?? ""
+            unit = ""
+        }
     }
     
     private func setTableView() {
@@ -230,15 +252,19 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         collectionView.dataSource = self
         
         let tabBarLayout = UICollectionViewFlowLayout()
-        tabBarLayout.itemSize = CGSize.init(width: self.view.frame.width / 3, height: 50)
+        tabBarLayout.itemSize = CGSize.init(width: Int(self.view.frame.width) / tabBarTitle.count, height: 50)
         tabBarLayout.minimumLineSpacing = 0
         tabBarLayout.minimumInteritemSpacing = 0
         collectionView.collectionViewLayout = tabBarLayout
     }
     
     private func registerXib() {
-        infoTableView.register(UINib(nibName: ItemInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ItemInfoTableViewCell.identifier)
-        collectionView.register(UINib(nibName: TabBarHeaderCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: TabBarHeaderCollectionViewCell.identifier)
+        infoTableView.register(
+            UINib(nibName: ItemInfoTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ItemInfoTableViewCell.identifier)
+        collectionView.register(
+            UINib(nibName: TabBarHeaderCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: TabBarHeaderCollectionViewCell.identifier)
     }
     
     private func bindButton() {
@@ -335,33 +361,17 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
 }
 extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        switch itemType {
+        case .supplement:
+            return 4
+        case .food:
+            return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemInfoTableViewCell.identifier, for: indexPath) as? ItemInfoTableViewCell else {
             return UITableViewCell()
-        }
-        
-        var nutrientName = ""
-        var brand = ""
-        var nutrientAmount = ""
-        var nutrientUnit = ""
-        var unit = ""
-        
-        switch itemType {
-        case .supplement:
-            nutrientName = supplementData.nutrientAmounts.first?.nutrientNameKor ?? ""
-            brand = supplementData.brand
-            nutrientAmount = String(supplementData.nutrientAmounts.first?.nutrientAmount ?? 0.0)
-            nutrientUnit = supplementData.nutrientAmounts.first?.nutrientAmountUnit ?? ""
-            unit = supplementData.unit
-        case .food:
-            nutrientName = foodData.nutrientAmounts.first?.nutrientNameKor ?? ""
-            brand = foodData.brand
-            nutrientAmount = String(foodData.nutrientAmounts.first?.nutrientAmount ?? 0.0)
-            nutrientUnit = foodData.nutrientAmounts.first?.nutrientAmountUnit ?? ""
-            unit = ""
         }
         
         switch indexPath.row {

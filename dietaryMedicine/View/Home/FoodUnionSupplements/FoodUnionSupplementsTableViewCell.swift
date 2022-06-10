@@ -74,17 +74,20 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
 extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
-//        guard let unionItemListCount = unionItemList?.list.count else { return 0 }
-//        if unionItemListCount == 0 {
-//            return 1
-//        }
-//        else {
-//            return unionItemListCount + 1
-//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = addSupplementCollectionView.dequeueReusableCell(
+        var selcollectionView = collectionView
+        switch collectionView {
+        case addSupplementCollectionView:
+            selcollectionView = addSupplementCollectionView
+        case addFoodCollectionView:
+            selcollectionView = addFoodCollectionView
+        default:
+            return UICollectionViewCell()
+        }
+        
+        guard let cell = selcollectionView.dequeueReusableCell(
             withReuseIdentifier: AddCollectionViewCell.identifier,
             for: indexPath
         ) as? AddCollectionViewCell else {
@@ -92,6 +95,7 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
         }
         
         guard let unionItemList = unionItemList else { return cell }
+        cell.configureCell(collectionView: collectionView, unionItemList: unionItemList, indexPathRow: indexPath.row)
         
 //        let supplementID = unionItemList.list[indexPath.row].supplementId
 //        let foodID = unionItemList.list[indexPath.row].foodId
@@ -106,6 +110,7 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
 //            cell.configureCell(unionItemList: unionItemList, indexPathRow: indexPath.row)
 //        }
 //
+        
         return cell
     }
     
@@ -128,9 +133,31 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
 //
 //        }
         
-        let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "AddListViewController") as! AddListViewController
-        viewController?.navigationController?.pushViewController(vc, animated: false)
+//        let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "AddListViewController") as! AddListViewController
+//        viewController?.navigationController?.pushViewController(vc, animated: false)
+        
+        switch collectionView {
+        case addSupplementCollectionView:
+            let vc = SupplementsViewController()
+            viewController?.navigationController?.pushViewController(vc, animated: false)
+        case addFoodCollectionView:
+            let vc = FoodViewController()
+            viewController?.navigationController?.pushViewController(vc, animated: false)
+        default:
+            return
+        }
+       
     
+    }
+}
+
+extension Array {
+    subscript (safe index: Int) -> Element? {
+        // iOS 9 or later
+        return indices ~= index ? self[index] : nil
+        // iOS 8 or earlier
+        // return startIndex <= index && index < endIndex ? self[index] : nil
+        // return 0 <= index && index < self.count ? self[index] : nil
     }
 }

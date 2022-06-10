@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46DA1F5EC6ABEF7747217A94 /* Pods_dietaryMedicine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 236BFF1A4EB20C3659E90B47 /* Pods_dietaryMedicine.framework */; };
+		84173CBA2852C35D002C8FA9 /* BaseItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84173CB92852C35D002C8FA9 /* BaseItemListViewController.swift */; };
 		842BFB10283DCC4700BC6B21 /* ViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB0F283DCC4700BC6B21 /* ViewDelegate.swift */; };
 		842BFB12283DE58900BC6B21 /* FoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB11283DE58900BC6B21 /* FoodList.swift */; };
 		842BFB14283DE70400BC6B21 /* FoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */; };
@@ -85,6 +86,7 @@
 /* Begin PBXFileReference section */
 		236BFF1A4EB20C3659E90B47 /* Pods_dietaryMedicine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dietaryMedicine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8778B6256CBDCC52975E3A /* Pods-dietaryMedicine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.release.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.release.xcconfig"; sourceTree = "<group>"; };
+		84173CB92852C35D002C8FA9 /* BaseItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItemListViewController.swift; sourceTree = "<group>"; };
 		842BFB0F283DCC4700BC6B21 /* ViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDelegate.swift; sourceTree = "<group>"; };
 		842BFB11283DE58900BC6B21 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodList.swift; path = dietaryMedicine/Utility/FoodList.swift; sourceTree = SOURCE_ROOT; };
 		842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodsViewModel.swift; path = dietaryMedicine/Utility/FoodsViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -92,7 +94,7 @@
 		842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDeleteViewModel.swift; path = dietaryMedicine/Extension/ItemDeleteViewModel.swift; sourceTree = SOURCE_ROOT; };
 		842BFB1A2840520A00BC6B21 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		842BFB1C284058EC00BC6B21 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = dietaryMedicine/View/Login/SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
-		842BFB1E2840617E00BC6B21 /* FoodUnionSupplements.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FoodUnionSupplements.storyboard; path = dietaryMedicine/View/Home/FoodUnionSupplements/FoodUnionSupplements.storyboard; sourceTree = SOURCE_ROOT; };
+		842BFB1E2840617E00BC6B21 /* FoodUnionSupplements.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FoodUnionSupplements.storyboard; path = dietaryMedicine/View/Diary/FoodUnionSupplements.storyboard; sourceTree = SOURCE_ROOT; };
 		842BFB21284061F100BC6B21 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		842BFB232848451600BC6B21 /* EmailSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpViewController.swift; sourceTree = "<group>"; };
 		842BFB252848566A00BC6B21 /* GenderSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSignUpViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		84173CB82852C2DD002C8FA9 /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				9A69F1A12838D0B300FEDED6 /* AddListViewController.swift */,
+				9A69F1C8284634E500FEDED6 /* TabBarHeaderCollectionViewCell.swift */,
+				9A69F1C9284634E500FEDED6 /* TabBarHeaderCollectionViewCell.xib */,
+				842BFB1E2840617E00BC6B21 /* FoodUnionSupplements.storyboard */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
 		842BFB19284051CC00BC6B21 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,12 +243,9 @@
 		84F2FEAA283325F100AA927B /* Add */ = {
 			isa = PBXGroup;
 			children = (
-				9A69F1C8284634E500FEDED6 /* TabBarHeaderCollectionViewCell.swift */,
-				9A69F1C9284634E500FEDED6 /* TabBarHeaderCollectionViewCell.xib */,
-				842BFB1E2840617E00BC6B21 /* FoodUnionSupplements.storyboard */,
-				9A69F1A12838D0B300FEDED6 /* AddListViewController.swift */,
 				84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */,
 				84F2FEAC2833261B00AA927B /* AddTableViewCell.xib */,
+				84173CB92852C35D002C8FA9 /* BaseItemListViewController.swift */,
 				9A69F1A02838D0B300FEDED6 /* SupplementsViewController.swift */,
 				9A69F1A22838D0B300FEDED6 /* FoodViewController.swift */,
 				84F2FEB728335DE400AA927B /* ItemDetailViewController.swift */,
@@ -316,6 +326,7 @@
 			children = (
 				842BFB19284051CC00BC6B21 /* Login */,
 				8446636A2835E3840085E2D7 /* Home */,
+				84173CB82852C2DD002C8FA9 /* Diary */,
 				842BFB20284061CF00BC6B21 /* MyPage */,
 			);
 			path = View;
@@ -523,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A69F1AE2838EF4900FEDED6 /* Login.swift in Sources */,
+				84173CBA2852C35D002C8FA9 /* BaseItemListViewController.swift in Sources */,
 				84EB38952851E5D7001CBCCC /* ImageCollectionViewCell.swift in Sources */,
 				9A69F1A52838D0B400FEDED6 /* FoodViewController.swift in Sources */,
 				842BFB1D284058EC00BC6B21 /* SignUpViewModel.swift in Sources */,

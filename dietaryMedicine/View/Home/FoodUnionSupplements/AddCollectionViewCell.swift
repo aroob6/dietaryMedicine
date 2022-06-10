@@ -21,16 +21,16 @@ class AddCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet var deleteImage: UIImageView!
     
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                showDelete()
-            }
-            else {
-                hiddenDelete()
-            }
-        }
-    }
+//    override var isSelected: Bool {
+//        didSet {
+//            if isSelected {
+//                showDelete()
+//            }
+//            else {
+//                hiddenDelete()
+//            }
+//        }
+//    }
     
     private var item: Item?
     var itemType: ItemType = .supplement
@@ -43,7 +43,7 @@ class AddCollectionViewCell: UICollectionViewCell {
         
         setUpView()
         
-        bindDeleteItem()
+//        bindDeleteItem()
     }
     
     private func setUpView() {
@@ -63,71 +63,93 @@ class AddCollectionViewCell: UICollectionViewCell {
         addImage.layer.cornerRadius = 8
     }
     
-    func showDelete() {
-        deleteImage.isHidden = false
-    }
-    
-    func hiddenDelete() {
-        deleteImage.isHidden = true
-    }
-    
-    @objc func requestDelete() {
-        var parameter : [String: Int] = [:]
-        
-        if item?.supplementId == 0 {
-            itemType = .food
-        }
-        if item?.foodId == 0 {
-            itemType = .supplement
-        }
-
-        switch itemType {
-        case .supplement:
-            parameter["supplement_id"] = item?.supplementId
-        case .food:
-            parameter["food_id"] = item?.foodId
+    func configureCell(collectionView: UICollectionView, unionItemList: UnionItemList, indexPathRow: Int) {
+        guard let unionItemData = unionItemList.list[safe: indexPathRow] else {
+            addImage.image = UIImage(systemName: "plus")
+            addImage.contentMode = .center
+            addImage.layer.cornerRadius = 8
+            return
+            
         }
         
-        itemDeleteViewModel.itemType = itemType
-        itemDeleteViewModel.fetch(parameters: parameter)
+        let imgURL = URL(string: unionItemData.image)
+        addImage.contentMode = .scaleAspectFit
+        
+        addImage.kf.setImage(
+            with: imgURL,
+            options: [
+                .transition(ImageTransition.fade(0.3)),
+                .keepCurrentImageWhileLoading
+            ]
+        )
+        
     }
     
-    private func bindDeleteItem() {
-        itemDeleteViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
-            .drive { result in
-            switch result {
-            case .success(let code):
-                if code == 2000 {
-                    self.requestDeleteSuccess()
-                    StaticDelegate.mainDelegate?.unionItemRefresh()
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }.disposed(by: disposeBag)
-    }
-    
-    private func requestDeleteSuccess() {
-        print("✅: DELETE ITEM NET SUCCESS")
-    }
-    
-    func configureCell(unionItemList: UnionItemList, indexPathRow: Int) {
-        let unionSupplementData = unionItemList.list[indexPathRow].supplementId
+//    func showDelete() {
+//        deleteImage.isHidden = false
+//    }
+//
+//    func hiddenDelete() {
+//        deleteImage.isHidden = true
+//    }
+//
+//    @objc func requestDelete() {
+//        var parameter : [String: Int] = [:]
+//
+//        if item?.supplementId == 0 {
+//            itemType = .food
+//        }
+//        if item?.foodId == 0 {
+//            itemType = .supplement
+//        }
+//
+//        switch itemType {
+//        case .supplement:
+//            parameter["supplement_id"] = item?.supplementId
+//        case .food:
+//            parameter["food_id"] = item?.foodId
+//        }
+//
+//        itemDeleteViewModel.itemType = itemType
+//        itemDeleteViewModel.fetch(parameters: parameter)
+//    }
+//
+//    private func bindDeleteItem() {
+//        itemDeleteViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
+//            .drive { result in
+//            switch result {
+//            case .success(let code):
+//                if code == 2000 {
+//                    self.requestDeleteSuccess()
+//                    StaticDelegate.mainDelegate?.unionItemRefresh()
+//                }
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }.disposed(by: disposeBag)
+//    }
+//
+//    private func requestDeleteSuccess() {
+//        print("✅: DELETE ITEM NET SUCCESS")
+//    }
+//
+//    func configureCell(unionItemList: UnionItemList, indexPathRow: Int) {
+//        let unionSupplementData = unionItemList.list[indexPathRow].supplementId
 //        if unionItemList.list.count == indexPathRow {
 //            addImage.image = UIImage(systemName: "plus")
 //            addImage.contentMode = .center
 //            return
 //        }
-        
+
 //        if let unionItemData = unionItemList.list[indexPathRow], unionItemData.combinationId != 0 else {
 //            return
 //        }
 //        self.item = unionItemData
-//        
+//
 //        if unionItemData.image != "" {
 //            let imgURL = URL(string: unionItemData.image)
 //            addImage.contentMode = .scaleAspectFit
-//            
+//
 //            addImage.kf.setImage(
 //                with: imgURL,
 //                options: [
@@ -136,5 +158,5 @@ class AddCollectionViewCell: UICollectionViewCell {
 //                ]
 //            )
 //        }
-    }
+//    }
 }

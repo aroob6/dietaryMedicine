@@ -12,26 +12,9 @@ import Resolver
 import SnapKit
 import Then
 
-class SupplementsViewController: UIViewController {
-    
-    private var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout().then {
-            $0.scrollDirection = .horizontal
-            $0.minimumInteritemSpacing = 0
-            $0.minimumLineSpacing = 15
-        }
-        
-        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        return view
-    }()
-    
-    private var tableView = UITableView()
+class SupplementsViewController: BaseItemListViewController {
     private var supplementList = SupplementList()
-    private var tagList = ["# 비타민", "# 비타민", "# 비타민", "# 비타민", "# 비타민"]
-    private let collectionViewHeight: CGFloat = 50
-    
     @Injected private var supplementsViewModel: SupplementsViewModel
-    @Injected private var disposeBag : DisposeBag
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,20 +29,7 @@ class SupplementsViewController: UIViewController {
     }
     
     private func setUI (){
-        view.addSubview(collectionView)
-        view.addSubview(tableView)
-        
-        collectionView.snp.makeConstraints {
-            $0.leading.equalTo(self.view.safeAreaLayoutGuide).inset(10)
-            $0.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            $0.height.equalTo(collectionViewHeight)
-        }
-        
-        tableView.snp.makeConstraints { 
-            $0.top.equalTo(collectionView.snp.bottom)
-            $0.bottom.trailing.leading.equalTo(self.view.safeAreaLayoutGuide)
-//            $0.height.equalTo(714 - collectionViewHeight)
-        }
+        navigationTitle(string: "영양제")
     }
     
     private func setTableView () {
@@ -70,17 +40,6 @@ class SupplementsViewController: UIViewController {
     private func setCollectionView () {
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    private func registerXib() {
-        tableView.register(
-            UINib(nibName: AddTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: AddTableViewCell.identifier)
-        
-        collectionView.register(
-            UINib(nibName: HashTagCollectionViewCell.identifier, bundle: nil),
-            forCellWithReuseIdentifier: HashTagCollectionViewCell.identifier
-        )
     }
     
     private func requestSupplements() {
