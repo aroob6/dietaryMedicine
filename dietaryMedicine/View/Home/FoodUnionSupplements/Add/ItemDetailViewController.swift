@@ -42,11 +42,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
     
     private let scrollView = UIScrollView()
     private var imgView = UIImageView()
-    private var name: UILabel = {
-        let label = BasePaddingLabel(padding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
-        return label
-    }()
-    
+    private var name = BasePaddingLabel()
     private var bookMarkButton = UIButton()
     private var addButton = UIButton()
     private var supplementID = 0

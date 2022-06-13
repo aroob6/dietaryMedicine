@@ -21,6 +21,7 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
     weak var viewController: UIViewController?
     var unionItemList: UnionItemList? {
         didSet {
+            addFoodCollectionView.reloadData()
             addSupplementCollectionView.reloadData()
         }
     }
@@ -36,6 +37,7 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
         setView()
         registerXib()
         setCollectionView()
+        bindButton()
     }
     
     private func setView() {
@@ -69,6 +71,17 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
         addFoodCollectionView.delegate = self
         addFoodCollectionView.dataSource = self
     }
+    
+    private func bindButton() {
+        addButton.rx.tap.bind { [weak self] in
+            self?.addAction()
+        }.disposed(by: disposeBag)
+    }
+    
+    private func addAction() {
+        let vc = CollectionAddViewController()
+        viewController?.navigationController?.pushViewController(vc, animated: false)
+    }
 }
 
 extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -77,17 +90,7 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var selcollectionView = collectionView
-        switch collectionView {
-        case addSupplementCollectionView:
-            selcollectionView = addSupplementCollectionView
-        case addFoodCollectionView:
-            selcollectionView = addFoodCollectionView
-        default:
-            return UICollectionViewCell()
-        }
-        
-        guard let cell = selcollectionView.dequeueReusableCell(
+        guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: AddCollectionViewCell.identifier,
             for: indexPath
         ) as? AddCollectionViewCell else {
@@ -95,7 +98,17 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
         }
         
         guard let unionItemList = unionItemList else { return cell }
-        cell.configureCell(collectionView: collectionView, unionItemList: unionItemList, indexPathRow: indexPath.row)
+    
+        switch collectionView {
+        case addSupplementCollectionView:
+            cell.configureCell(type: "s", unionItemList: unionItemList, indexPathRow: indexPath.row)
+            return cell
+        case addFoodCollectionView:
+            cell.configureCell(type: "f", unionItemList: unionItemList, indexPathRow: indexPath.row)
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
         
 //        let supplementID = unionItemList.list[indexPath.row].supplementId
 //        let foodID = unionItemList.list[indexPath.row].foodId
@@ -111,7 +124,7 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
 //        }
 //
         
-        return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -130,12 +143,14 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
 //                }
 //            }
 //            return
-//
+
 //        }
         
 //        let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
 //        let vc = storyboard.instantiateViewController(withIdentifier: "AddListViewController") as! AddListViewController
 //        viewController?.navigationController?.pushViewController(vc, animated: false)
+        
+//        guard let unionItemList = unionItemList else { return }
         
         switch collectionView {
         case addSupplementCollectionView:

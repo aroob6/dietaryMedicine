@@ -81,6 +81,7 @@
 		9A7DD40328508C4500B7FF9B /* UnionAnalysisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7DD3FF28508C4500B7FF9B /* UnionAnalysisTableViewCell.xib */; };
 		9A7DD40428508C4500B7FF9B /* AnalysisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7DD40028508C4500B7FF9B /* AnalysisTableViewCell.xib */; };
 		9A7DD4062850DC2C00B7FF9B /* EmailCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD4052850DC2C00B7FF9B /* EmailCheckViewModel.swift */; };
+		9A7DD40A2854477100B7FF9B /* CollectionAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD4092854477100B7FF9B /* CollectionAddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +162,7 @@
 		9A7DD3FF28508C4500B7FF9B /* UnionAnalysisTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnionAnalysisTableViewCell.xib; sourceTree = "<group>"; };
 		9A7DD40028508C4500B7FF9B /* AnalysisTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnalysisTableViewCell.xib; sourceTree = "<group>"; };
 		9A7DD4052850DC2C00B7FF9B /* EmailCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmailCheckViewModel.swift; path = dietaryMedicine/View/Home/CombinationAnalysis/EmailCheckViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A7DD4092854477100B7FF9B /* CollectionAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAddViewController.swift; sourceTree = "<group>"; };
 		B5D6626179DC6AFC862A1D3D /* Pods-dietaryMedicine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.debug.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -339,6 +341,7 @@
 				9A4C3EE3283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib */,
 				9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */,
 				9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */,
+				9A7DD4092854477100B7FF9B /* CollectionAddViewController.swift */,
 				84F2FEAA283325F100AA927B /* Add */,
 			);
 			path = FoodUnionSupplements;
@@ -551,6 +554,7 @@
 				9A2F2968284BA771005E5AD2 /* String.swift in Sources */,
 				9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */,
 				9A69F1D12846553F00FEDED6 /* UILabel.swift in Sources */,
+				9A7DD40A2854477100B7FF9B /* CollectionAddViewController.swift in Sources */,
 				84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */,
 				9A69F1B52838F65700FEDED6 /* ViewModelProtocol.swift in Sources */,
 				9A69F1C3283CCA6700FEDED6 /* UnionItemList.swift in Sources */,
