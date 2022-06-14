@@ -45,6 +45,9 @@
                 <constraint firstAttribute="bottom" secondItem="QLf-44-lRi" secondAttribute="bottom" id="ETu-3V-4yK"/>
                 <constraint firstItem="QLf-44-lRi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="M7g-qd-VxC"/>
             </constraints>
+            <connections>
+                <outlet property="imgView" destination="SHv-l1-G31" id="Rom-hx-Wi2"/>
+            </connections>
             <point key="canvasLocation" x="136.95652173913044" y="138.28125"/>
         </collectionViewCell>
     </objects>

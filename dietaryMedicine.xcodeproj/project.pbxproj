@@ -16,7 +16,6 @@
 		842BFB18283F67B800BC6B21 /* ItemDeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */; };
 		842BFB1B2840520A00BC6B21 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB1A2840520A00BC6B21 /* EmailLoginViewController.swift */; };
 		842BFB1D284058EC00BC6B21 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB1C284058EC00BC6B21 /* SignUpViewModel.swift */; };
-		842BFB1F2840617E00BC6B21 /* FoodUnionSupplements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842BFB1E2840617E00BC6B21 /* FoodUnionSupplements.storyboard */; };
 		842BFB22284061F100BC6B21 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB21284061F100BC6B21 /* MyPageViewController.swift */; };
 		842BFB242848451700BC6B21 /* EmailSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB232848451600BC6B21 /* EmailSignUpViewController.swift */; };
 		842BFB262848566B00BC6B21 /* GenderSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB252848566A00BC6B21 /* GenderSignUpViewController.swift */; };
@@ -84,6 +83,9 @@
 		9A7DD40428508C4500B7FF9B /* AnalysisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7DD40028508C4500B7FF9B /* AnalysisTableViewCell.xib */; };
 		9A7DD4062850DC2C00B7FF9B /* EmailCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD4052850DC2C00B7FF9B /* EmailCheckViewModel.swift */; };
 		9A7DD40A2854477100B7FF9B /* CollectionAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD4092854477100B7FF9B /* CollectionAddViewController.swift */; };
+		9A7DD40C2858ADE800B7FF9B /* MyNutrientDiaryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD40B2858ADE800B7FF9B /* MyNutrientDiaryList.swift */; };
+		9A7DD40E2858B04800B7FF9B /* NutrientDiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD40D2858B04800B7FF9B /* NutrientDiaryViewModel.swift */; };
+		9A7DD4102858CDCD00B7FF9B /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DD40F2858CDCD00B7FF9B /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,7 +99,6 @@
 		842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDeleteViewModel.swift; path = dietaryMedicine/Extension/ItemDeleteViewModel.swift; sourceTree = SOURCE_ROOT; };
 		842BFB1A2840520A00BC6B21 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		842BFB1C284058EC00BC6B21 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = dietaryMedicine/View/Login/SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
-		842BFB1E2840617E00BC6B21 /* FoodUnionSupplements.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FoodUnionSupplements.storyboard; path = dietaryMedicine/View/Diary/FoodUnionSupplements.storyboard; sourceTree = SOURCE_ROOT; };
 		842BFB21284061F100BC6B21 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		842BFB232848451600BC6B21 /* EmailSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpViewController.swift; sourceTree = "<group>"; };
 		842BFB252848566A00BC6B21 /* GenderSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSignUpViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +168,9 @@
 		9A7DD40028508C4500B7FF9B /* AnalysisTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnalysisTableViewCell.xib; sourceTree = "<group>"; };
 		9A7DD4052850DC2C00B7FF9B /* EmailCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmailCheckViewModel.swift; path = dietaryMedicine/View/Home/CombinationAnalysis/EmailCheckViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9A7DD4092854477100B7FF9B /* CollectionAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAddViewController.swift; sourceTree = "<group>"; };
+		9A7DD40B2858ADE800B7FF9B /* MyNutrientDiaryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyNutrientDiaryList.swift; path = dietaryMedicine/View/Home/FoodUnionSupplements/MyNutrientDiaryList.swift; sourceTree = SOURCE_ROOT; };
+		9A7DD40D2858B04800B7FF9B /* NutrientDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NutrientDiaryViewModel.swift; path = dietaryMedicine/View/Home/FoodUnionSupplements/NutrientDiaryViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A7DD40F2858CDCD00B7FF9B /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		B5D6626179DC6AFC862A1D3D /* Pods-dietaryMedicine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.debug.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,7 +209,6 @@
 				9A69F1A12838D0B300FEDED6 /* NutrientDiaryViewController.swift */,
 				9A69F1C8284634E500FEDED6 /* TabBarHeaderCollectionViewCell.swift */,
 				9A69F1C9284634E500FEDED6 /* TabBarHeaderCollectionViewCell.xib */,
-				842BFB1E2840617E00BC6B21 /* FoodUnionSupplements.storyboard */,
 				8432D3E828587D4A00494064 /* MyCollectionViewController.swift */,
 			);
 			path = Diary;
@@ -308,6 +311,7 @@
 				9A69F1C2283CCA6700FEDED6 /* CombinationItemList.swift */,
 				9A69F1C6283CF31300FEDED6 /* Info.swift */,
 				842BFB11283DE58900BC6B21 /* FoodList.swift */,
+				9A7DD40B2858ADE800B7FF9B /* MyNutrientDiaryList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,6 +329,7 @@
 				842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */,
 				9A7DD4052850DC2C00B7FF9B /* EmailCheckViewModel.swift */,
 				8432D3E62858682500494064 /* NutrientDiaryAddViewModel.swift */,
+				9A7DD40D2858B04800B7FF9B /* NutrientDiaryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				84FE873D28489B8D00B1BEB1 /* UIApplication.swift */,
 				9A2F2965284BA672005E5AD2 /* UITextField.swift */,
 				9A2F2967284BA771005E5AD2 /* String.swift */,
+				9A7DD40F2858CDCD00B7FF9B /* Array.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -487,7 +493,6 @@
 				84F2FEAE2833261B00AA927B /* AddTableViewCell.xib in Resources */,
 				9A4C3EDA28314447001960FF /* Main.storyboard in Resources */,
 				8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */,
-				842BFB1F2840617E00BC6B21 /* FoodUnionSupplements.storyboard in Resources */,
 				9A7DD3F828508AAD00B7FF9B /* AnotherCombinationTableViewCell.xib in Resources */,
 				9A69F1CF284638E000FEDED6 /* ItemInfoTableViewCell.xib in Resources */,
 			);
@@ -558,10 +563,12 @@
 				9A69F1D32846585900FEDED6 /* UIScrollView.swift in Sources */,
 				9A4C3ECA28313B2E001960FF /* LoginViewController.swift in Sources */,
 				842BFB262848566B00BC6B21 /* GenderSignUpViewController.swift in Sources */,
+				9A7DD40E2858B04800B7FF9B /* NutrientDiaryViewModel.swift in Sources */,
 				9A2F2968284BA771005E5AD2 /* String.swift in Sources */,
 				9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */,
 				9A69F1D12846553F00FEDED6 /* UILabel.swift in Sources */,
 				9A7DD40A2854477100B7FF9B /* CollectionAddViewController.swift in Sources */,
+				9A7DD40C2858ADE800B7FF9B /* MyNutrientDiaryList.swift in Sources */,
 				84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */,
 				9A69F1B52838F65700FEDED6 /* ViewModelProtocol.swift in Sources */,
 				9A69F1C3283CCA6700FEDED6 /* CombinationItemList.swift in Sources */,
@@ -601,6 +608,7 @@
 				842BFB14283DE70400BC6B21 /* FoodsViewModel.swift in Sources */,
 				9A69F1C7283CF31300FEDED6 /* Info.swift in Sources */,
 				84FE873C2848899200B1BEB1 /* CompleteViewController.swift in Sources */,
+				9A7DD4102858CDCD00B7FF9B /* Array.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,13 +6,29 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ImageCollectionViewCell: UICollectionViewCell {
     public static let identifier = "ImageCollectionViewCell"
     
+    @IBOutlet weak var imgView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    func configureCell(imgUrl: String?) {
+        let imgURL = imgUrl ?? ""
+        let url = URL(string: imgURL)
+        let processor = RoundCornerImageProcessor(cornerRadius: 8)
+        
+        imgView.kf.setImage(
+            with: url,
+            options: [
+                .transition(ImageTransition.fade(0.3)),
+                .keepCurrentImageWhileLoading,
+                .processor(processor)
+            ]
+        )
+    }
 }

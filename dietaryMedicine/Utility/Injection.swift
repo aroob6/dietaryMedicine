@@ -38,5 +38,6 @@ extension Resolver: ResolverRegistering {
         register { ItemDeleteViewModel() }
         register { EmailCheckViewModel() }
         register { NutrientDiaryAddViewModel() }
+        register { NutrientDiaryViewModel() }
     }
 }

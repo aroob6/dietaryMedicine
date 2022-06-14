@@ -59,7 +59,7 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
         attributedString.addAttribute(.backgroundColor, value: pointColor, range: (titleText as NSString).range(of: pointText))
         title.attributedText = attributedString
         
-        addButton.layer.cornerRadius = 10
+        addButton.layer.cornerRadius = 20
         
 //        supplementTitle = BasePaddingLabel()
 //        foodTitle = BasePaddingLabel()
@@ -167,15 +167,5 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
         else {
             viewController?.navigationController?.pushViewController(vc, animated: false)
         }
-    }
-}
-
-extension Array {
-    subscript (safe index: Int) -> Element? {
-        // iOS 9 or later
-        return indices ~= index ? self[index] : nil
-        // iOS 8 or earlier
-        // return startIndex <= index && index < endIndex ? self[index] : nil
-        // return 0 <= index && index < self.count ? self[index] : nil
     }
 }

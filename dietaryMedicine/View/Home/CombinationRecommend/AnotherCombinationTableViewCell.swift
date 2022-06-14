@@ -11,6 +11,14 @@ class AnotherCombinationTableViewCell: UITableViewCell {
     public static let identifier = "AnotherCombinationTableViewCell"
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var content: UILabel!
+    
+    var myNutrientDiaryList: MyNutrientDiaryList? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
@@ -29,11 +37,17 @@ class AnotherCombinationTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    func configureCell(_ content: String, _ myNutrientDiaryList: MyNutrientDiaryList?) {
+        self.myNutrientDiaryList = myNutrientDiaryList
+        self.content.text = content
+        
+    }
 }
 
 extension AnotherCombinationTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return myNutrientDiaryList?.nutrientDiaryItemList.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -41,6 +55,10 @@ extension AnotherCombinationTableViewCell: UICollectionViewDelegate, UICollectio
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as? ImageCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
+        guard let myNutrientDiaryList = myNutrientDiaryList else { return cell }
+        cell.configureCell(imgUrl: myNutrientDiaryList.nutrientDiaryItemList[indexPath.row].image)
+        
         return cell
     }
     

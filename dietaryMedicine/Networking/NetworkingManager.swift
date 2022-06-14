@@ -24,7 +24,7 @@ public enum NetworkingManager {
     case combinationSupplementList, combinationFoodList
     case supplementAll, supplementAdd, supplementDelete
     case foodAll, foodAdd, foodDelete
-    case nutrientDiaryAdd
+    case nutrientDiaryAdd, nutrientDiaryList
     
 }
 
@@ -38,7 +38,7 @@ extension NetworkingManager: TargetType {
     
     public var method: Moya.Method {
         switch self {
-        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList:
+        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList, .nutrientDiaryList:
             return .get
         case .supplementDelete, .foodDelete:
             return .delete
@@ -49,7 +49,7 @@ extension NetworkingManager: TargetType {
     
     public var task: Task {
         switch self {
-        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList:
+        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList, .nutrientDiaryList:
             return .requestPlain //.get
         default:
             return .requestParameters(
@@ -83,7 +83,8 @@ extension NetworkingManager: TargetType {
         case .foodAll: return "food/all" //음식 리스트
         case .foodAdd: return "combination-item/food" //조합 - 음식 추가
         case .foodDelete: return "combination-item/food" //조합 - 음식 삭제
-        case .nutrientDiaryAdd: return "nutrient-diary" //영양일지(컬렉션) 추가 
+        case .nutrientDiaryAdd: return "nutrient-diary" //영양일지(컬렉션) 추가
+        case .nutrientDiaryList: return "nutrient-diary/list" //영양일지(컬렉션) 리스트
         default:
             return ""
         }

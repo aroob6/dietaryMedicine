@@ -14,6 +14,7 @@ class NutrientDiaryViewController: UIViewController {
     @IBOutlet weak var likeCollection: UIView!
     
     let tabBarTitle = ["내 컬렉션", "좋아요 컬렉션"]
+  
     override func viewDidLoad() {
         super.viewDidLoad()
                 
@@ -40,7 +41,6 @@ class NutrientDiaryViewController: UIViewController {
     private func registerXib() {
         tabBarHeader.register(UINib(nibName: TabBarHeaderCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: TabBarHeaderCollectionViewCell.identifier)
     }
-    
 }
 
 extension NutrientDiaryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
