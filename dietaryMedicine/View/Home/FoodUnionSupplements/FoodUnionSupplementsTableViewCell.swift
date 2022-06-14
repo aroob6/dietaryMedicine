@@ -16,6 +16,8 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
 
     @IBOutlet var title: UILabel!
     @IBOutlet var addButton: UIButton!
+    @IBOutlet var supplementTitle: UILabel!
+    @IBOutlet var foodTitle: UILabel!
     @IBOutlet weak var addSupplementCollectionView: UICollectionView!
     @IBOutlet weak var addFoodCollectionView: UICollectionView!
     weak var viewController: UIViewController?
@@ -58,6 +60,13 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
         title.attributedText = attributedString
         
         addButton.layer.cornerRadius = 10
+        
+//        supplementTitle = BasePaddingLabel()
+//        foodTitle = BasePaddingLabel()
+        supplementTitle.text = "영양제"
+        foodTitle.text = "음식"
+        supplementTitle.font = UIFont.systemFont(ofSize: 15)
+        foodTitle.font = UIFont.systemFont(ofSize: 15)
     }
     
     private func registerXib() {

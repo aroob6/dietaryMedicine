@@ -21,6 +21,7 @@
 		842BFB242848451700BC6B21 /* EmailSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB232848451600BC6B21 /* EmailSignUpViewController.swift */; };
 		842BFB262848566B00BC6B21 /* GenderSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB252848566A00BC6B21 /* GenderSignUpViewController.swift */; };
 		8432D3E72858682600494064 /* NutrientDiaryAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D3E62858682500494064 /* NutrientDiaryAddViewModel.swift */; };
+		8432D3E928587D4A00494064 /* MyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D3E828587D4A00494064 /* MyCollectionViewController.swift */; };
 		8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */; };
 		84EB38952851E5D7001CBCCC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */; };
 		84EB38962851E5D7001CBCCC /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */; };
@@ -48,7 +49,7 @@
 		9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */; };
 		9A4C3EF428322082001960FF /* AddCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */; };
 		9A4C3EF928324113001960FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C3EF828324113001960FF /* UIColor.swift */; };
-		9A69F1A42838D0B400FEDED6 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1A12838D0B300FEDED6 /* AddListViewController.swift */; };
+		9A69F1A42838D0B400FEDED6 /* NutrientDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1A12838D0B300FEDED6 /* NutrientDiaryViewController.swift */; };
 		9A69F1A52838D0B400FEDED6 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1A22838D0B300FEDED6 /* FoodViewController.swift */; };
 		9A69F1A62838D0B400FEDED6 /* SupplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1A02838D0B300FEDED6 /* SupplementsViewController.swift */; };
 		9A69F1AC2838D89100FEDED6 /* ApiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A69F1AB2838D89100FEDED6 /* ApiUrl.swift */; };
@@ -101,6 +102,7 @@
 		842BFB232848451600BC6B21 /* EmailSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpViewController.swift; sourceTree = "<group>"; };
 		842BFB252848566A00BC6B21 /* GenderSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSignUpViewController.swift; sourceTree = "<group>"; };
 		8432D3E62858682500494064 /* NutrientDiaryAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NutrientDiaryAddViewModel.swift; path = dietaryMedicine/View/Home/FoodUnionSupplements/Add/NutrientDiaryAddViewModel.swift; sourceTree = SOURCE_ROOT; };
+		8432D3E828587D4A00494064 /* MyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewController.swift; sourceTree = "<group>"; };
 		8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HashTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -131,7 +133,7 @@
 		9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCollectionViewCell.xib; sourceTree = "<group>"; };
 		9A4C3EF828324113001960FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		9A69F1A02838D0B300FEDED6 /* SupplementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementsViewController.swift; sourceTree = "<group>"; };
-		9A69F1A12838D0B300FEDED6 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
+		9A69F1A12838D0B300FEDED6 /* NutrientDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientDiaryViewController.swift; sourceTree = "<group>"; };
 		9A69F1A22838D0B300FEDED6 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		9A69F1AB2838D89100FEDED6 /* ApiUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrl.swift; sourceTree = "<group>"; };
 		9A69F1AD2838EF4900FEDED6 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Login.swift; path = dietaryMedicine/Networking/Login.swift; sourceTree = SOURCE_ROOT; };
@@ -200,10 +202,11 @@
 		84173CB82852C2DD002C8FA9 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
-				9A69F1A12838D0B300FEDED6 /* AddListViewController.swift */,
+				9A69F1A12838D0B300FEDED6 /* NutrientDiaryViewController.swift */,
 				9A69F1C8284634E500FEDED6 /* TabBarHeaderCollectionViewCell.swift */,
 				9A69F1C9284634E500FEDED6 /* TabBarHeaderCollectionViewCell.xib */,
 				842BFB1E2840617E00BC6B21 /* FoodUnionSupplements.storyboard */,
+				8432D3E828587D4A00494064 /* MyCollectionViewController.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A69F1AE2838EF4900FEDED6 /* Login.swift in Sources */,
+				8432D3E928587D4A00494064 /* MyCollectionViewController.swift in Sources */,
 				84173CBA2852C35D002C8FA9 /* BaseItemListViewController.swift in Sources */,
 				84EB38952851E5D7001CBCCC /* ImageCollectionViewCell.swift in Sources */,
 				9A69F1A52838D0B400FEDED6 /* FoodViewController.swift in Sources */,
@@ -549,7 +553,7 @@
 				9A69F1CE284638E000FEDED6 /* ItemInfoTableViewCell.swift in Sources */,
 				842BFB10283DCC4700BC6B21 /* ViewDelegate.swift in Sources */,
 				84FE873E28489B8D00B1BEB1 /* UIApplication.swift in Sources */,
-				9A69F1A42838D0B400FEDED6 /* AddListViewController.swift in Sources */,
+				9A69F1A42838D0B400FEDED6 /* NutrientDiaryViewController.swift in Sources */,
 				9A69F1BD283B2E5900FEDED6 /* SupplementsViewModel.swift in Sources */,
 				9A69F1D32846585900FEDED6 /* UIScrollView.swift in Sources */,
 				9A4C3ECA28313B2E001960FF /* LoginViewController.swift in Sources */,

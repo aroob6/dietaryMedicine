@@ -7,13 +7,13 @@
 
 import UIKit
 
-class AddListViewController: UIViewController {
+class NutrientDiaryViewController: UIViewController {
 
     @IBOutlet weak var tabBarHeader: UICollectionView!
-    @IBOutlet weak var foodView: UIView!
-    @IBOutlet weak var supplementsView: UIView!
+    @IBOutlet weak var myCollection: UIView!
+    @IBOutlet weak var likeCollection: UIView!
     
-    let tabBarTitle = ["영양제", "식품"]
+    let tabBarTitle = ["내 컬렉션", "좋아요 컬렉션"]
     override func viewDidLoad() {
         super.viewDidLoad()
                 
@@ -23,9 +23,8 @@ class AddListViewController: UIViewController {
     }
     
     func setUpView() {
-        self.navigationItem.title = "영양제 or 식품"
-        tabBarController?.tabBar.isHidden = true
-        supplementsView.isHidden = true
+        self.navigationItem.title = "컬렉션"
+        myCollection.isHidden = true
     }
     func setUpCollectionView() {
         tabBarHeader.delegate = self
@@ -44,7 +43,7 @@ class AddListViewController: UIViewController {
     
 }
 
-extension AddListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension NutrientDiaryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tabBarTitle.count
     }
@@ -65,11 +64,11 @@ extension AddListViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            foodView.isHidden = false
-            supplementsView.isHidden = true
+            likeCollection.isHidden = false
+            myCollection.isHidden = true
         case 1:
-            foodView.isHidden = true
-            supplementsView.isHidden = false
+            likeCollection.isHidden = true
+            myCollection.isHidden = false
         default:
             return
         }

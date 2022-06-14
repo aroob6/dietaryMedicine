@@ -19,6 +19,11 @@ class TabBarHeaderCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        tabBarTitle.font = UIFont.boldSystemFont(ofSize: 14)
+    }
+    
     override func prepareForReuse() {
         isSelected = false
     }

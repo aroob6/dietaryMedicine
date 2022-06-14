@@ -13,6 +13,7 @@ class AnotherCombinationTableViewCell: UITableViewCell {
     @IBOutlet var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         
         registerXib()
         setCollectionView()
