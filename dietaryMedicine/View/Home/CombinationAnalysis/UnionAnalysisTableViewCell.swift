@@ -15,20 +15,14 @@ class UnionAnalysisTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         setUpView()
         setTableView()
         registerXib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     private func setUpView() {
+        self.selectionStyle = .none
         outerView.layer.cornerRadius = 8
         outerView.layer.shadowColor = UIColor.black.cgColor
         outerView.layer.shadowOpacity = 0.1

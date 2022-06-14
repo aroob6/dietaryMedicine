@@ -21,9 +21,10 @@ public enum NetworkingManager {
     public static var parameter = Parameters()
     
     case signUp, logIn, logOut, emailCheck
-    case unionList
+    case combinationSupplementList, combinationFoodList
     case supplementAll, supplementAdd, supplementDelete
     case foodAll, foodAdd, foodDelete
+    case nutrientDiaryAdd
     
 }
 
@@ -37,7 +38,7 @@ extension NetworkingManager: TargetType {
     
     public var method: Moya.Method {
         switch self {
-        case .supplementAll, .foodAll, .unionList:
+        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList:
             return .get
         case .supplementDelete, .foodDelete:
             return .delete
@@ -48,7 +49,7 @@ extension NetworkingManager: TargetType {
     
     public var task: Task {
         switch self {
-        case .supplementAll, .foodAll, .unionList:
+        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList:
             return .requestPlain //.get
         default:
             return .requestParameters(
@@ -74,13 +75,15 @@ extension NetworkingManager: TargetType {
         case .signUp: return "auth/signup" //가입
         case .logIn: return "auth/signin" //로그인
         case .emailCheck: return "auth/email-duplication"
-        case .unionList: return "combination/list" // 조합 리스트
+        case .combinationSupplementList: return "combination/list/supplement" // 조합 리스트 - 영양제
+        case .combinationFoodList: return "combination/list/food" // 조합 리스트 - 음식
         case .supplementAll: return "supplement/all" //영양제 리스트
         case .supplementAdd: return "combination-item/supplement" //조합 - 영양제 추가
         case .supplementDelete: return "combination-item/supplement" //조합 - 영양제 삭제
         case .foodAll: return "food/all" //음식 리스트
         case .foodAdd: return "combination-item/food" //조합 - 음식 추가
         case .foodDelete: return "combination-item/food" //조합 - 음식 삭제
+        case .nutrientDiaryAdd: return "nutrient-diary" //영양일지(컬렉션) 추가 
         default:
             return ""
         }

@@ -19,14 +19,19 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
     @IBOutlet weak var addSupplementCollectionView: UICollectionView!
     @IBOutlet weak var addFoodCollectionView: UICollectionView!
     weak var viewController: UIViewController?
-    var unionItemList: UnionItemList? {
+    var supplementsList: [Item]? {
         didSet {
-            addFoodCollectionView.reloadData()
             addSupplementCollectionView.reloadData()
         }
     }
     
-    @Injected private var foodUnionSupplementsViewModel: FoodUnionSupplementsViewModel
+    var foodsList: [Item]? {
+        didSet {
+            addFoodCollectionView.reloadData()
+        }
+    }
+    
+    @Injected private var foodUnionSupplementsViewModel: CombinationSupplementsViewModel
     
     //RxSwift
     @Injected private var disposeBag : DisposeBag
@@ -41,6 +46,7 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
     }
     
     private func setView() {
+        self.selectionStyle = .none
         let titleText = "당신의 영양제와 식품의 영양성분을 조합하세요."
         let pointText = "영양제와 식품"
         let pointColor = UIColor.mainColor!.withAlphaComponent(0.3)
@@ -80,6 +86,8 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
     
     private func addAction() {
         let vc = CollectionAddViewController()
+        vc.supplementsList = supplementsList
+        vc.foodsList = foodsList
         viewController?.navigationController?.pushViewController(vc, animated: false)
     }
 }
@@ -97,73 +105,59 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
             return UICollectionViewCell()
         }
         
-        guard let unionItemList = unionItemList else { return cell }
+        guard let supplementsList = supplementsList else { return cell }
+        guard let foodsList = foodsList else { return cell }
     
         switch collectionView {
         case addSupplementCollectionView:
-            cell.configureCell(type: "s", unionItemList: unionItemList, indexPathRow: indexPath.row)
+            cell.configureCell(type: "s", itemList: supplementsList, indexPathRow: indexPath.row)
             return cell
         case addFoodCollectionView:
-            cell.configureCell(type: "f", unionItemList: unionItemList, indexPathRow: indexPath.row)
+            cell.configureCell(type: "f", itemList: foodsList, indexPathRow: indexPath.row)
             return cell
         default:
             return UICollectionViewCell()
         }
-        
-//        let supplementID = unionItemList.list[indexPath.row].supplementId
-//        let foodID = unionItemList.list[indexPath.row].foodId
-//        let imgUrl = unionItemList.list[indexPath.row].image
-//
-//        if supplementID == 0 {
-//            // 음식
-//            cell.configureCell(unionItemList: unionItemList, indexPathRow: indexPath.row)
-//        }
-//        else if foodID == 0 {
-//            // 영양제
-//            cell.configureCell(unionItemList: unionItemList, indexPathRow: indexPath.row)
-//        }
-//
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let unionItemListCount = unionItemList?.list.count else { return }
-//        guard unionItemListCount == indexPath.item else {
-//            guard let cell = collectionView.cellForItem(at: indexPath) as? AddCollectionViewCell else { return }
-//            if cell.isSelected {
-//                guard let vc = viewController else { return }
-//                UtilFunction.showDeleteMessage(msg: "삭제 하시겠습니까?", vc: vc) { code in
-//                    if code == .Okay {
-//                        cell.requestDelete()
-//                    }
-//                    if code == .Cancel {
-//                        cell.hiddenDelete()
-//                    }
-//                }
-//            }
-//            return
-
-//        }
+        guard let cell = collectionView.cellForItem(at: indexPath) as? AddCollectionViewCell else { return }
+        guard let supplementsList = supplementsList else { return }
+        guard let foodsList = foodsList else { return }
         
-//        let storyboard = UIStoryboard.init(name: "FoodUnionSupplements", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "AddListViewController") as! AddListViewController
-//        viewController?.navigationController?.pushViewController(vc, animated: false)
-        
-//        guard let unionItemList = unionItemList else { return }
+        var itemType = ItemType.supplement
+        var id = 0
+        var vc = UIViewController()
         
         switch collectionView {
         case addSupplementCollectionView:
-            let vc = SupplementsViewController()
-            viewController?.navigationController?.pushViewController(vc, animated: false)
+            itemType = .supplement
+            id = supplementsList[safe: indexPath.row]?.supplementId ?? 0
+            vc = SupplementsViewController()
         case addFoodCollectionView:
-            let vc = FoodViewController()
-            viewController?.navigationController?.pushViewController(vc, animated: false)
+            itemType = .food
+            id = foodsList[safe: indexPath.row]?.foodId ?? 0
+            vc = FoodViewController()
         default:
             return
         }
-       
-    
+        
+        if cell.addImage.image != UIImage(systemName: "plus") {
+            if cell.isSelected {
+                guard let vc = viewController else { return }
+                UtilFunction.showDeleteMessage(msg: "삭제 하시겠습니까?", vc: vc) { code in
+                    if code == .Okay {
+                        cell.requestDelete(type: itemType, id: id)
+                    }
+                    if code == .Cancel {
+                        cell.hiddenDelete()
+                    }
+                }
+            }
+        }
+        else {
+            viewController?.navigationController?.pushViewController(vc, animated: false)
+        }
     }
 }
 

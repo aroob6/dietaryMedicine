@@ -16,14 +16,9 @@ class AnalysisTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setUpView()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     private func setUpView() {
+        self.selectionStyle = .none
         imgView.layer.cornerRadius = imgView.frame.height / 2
     }
 }

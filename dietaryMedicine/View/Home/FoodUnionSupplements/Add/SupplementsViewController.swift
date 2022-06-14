@@ -85,7 +85,6 @@ extension SupplementsViewController: UITableViewDelegate, UITableViewDataSource 
         ) as? AddTableViewCell else {
                 return UITableViewCell()
         }
-        cell.selectionStyle = .none
         cell.configureCell(supplementList: supplementList, indexPath: indexPath)
         return cell
     }

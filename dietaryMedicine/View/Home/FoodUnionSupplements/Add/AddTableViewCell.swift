@@ -18,7 +18,7 @@ class AddTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
         
     }
     
@@ -32,13 +32,7 @@ class AddTableViewCell: UITableViewCell {
             let imgURL = supplementData.image
             let url = URL(string: imgURL)
             
-            imgView.kf.setImage(
-                with: url,
-                options: [
-                    .transition(ImageTransition.fade(0.3)),
-                    .keepCurrentImageWhileLoading
-                ]
-            )
+            imageSet(url: url)
         }
         else {
             imageView?.image = nil
@@ -55,17 +49,32 @@ class AddTableViewCell: UITableViewCell {
             let imgURL = foodData.image
             let url = URL(string: imgURL)
             
-            imgView.kf.setImage(
-                with: url,
-                options: [
-                    .transition(ImageTransition.fade(0.3)),
-                    .keepCurrentImageWhileLoading
-                ]
-            )
+           imageSet(url: url)
         }
         else {
             imageView?.image = nil
         }
+    }
+    
+    func configureCell(itemList: [Item]?, indexPath: IndexPath) {
+        guard let itemData = itemList?[indexPath.row] else {return }
+        
+        if itemData.image != "" {
+            let imgURL = itemData.image
+            let url = URL(string: imgURL)
+            
+           imageSet(url: url)
+        }
+    }
+    
+    func imageSet(url: URL?) {
+        imgView.kf.setImage(
+            with: url,
+            options: [
+                .transition(ImageTransition.fade(0.3)),
+                .keepCurrentImageWhileLoading
+            ]
+        )
     }
     
 }

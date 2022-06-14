@@ -32,7 +32,6 @@ class AddCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private var item: Item?
     var itemType: ItemType = .supplement
     
     @Injected private var itemDeleteViewModel: ItemDeleteViewModel
@@ -42,7 +41,6 @@ class AddCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         setUpView()
-        
         bindDeleteItem()
     }
     
@@ -59,8 +57,8 @@ class AddCollectionViewCell: UICollectionViewCell {
         deleteImage.isHidden = true
     }
     
-    func configureCell(type: String, unionItemList: UnionItemList, indexPathRow: Int) {
-        guard let unionItemData = unionItemList.list[safe: indexPathRow] else {
+    func configureCell(type: String, itemList: [Item], indexPathRow: Int) {
+        guard let itemData = itemList[safe: indexPathRow] else {
             addImage.image = UIImage(systemName: "plus")
             addImage.contentMode = .center
             addImage.layer.cornerRadius = 8
@@ -68,8 +66,8 @@ class AddCollectionViewCell: UICollectionViewCell {
             
         }
         
-        if type == unionItemData.type {
-            let imgURL = URL(string: unionItemData.image)
+        if type == itemData.type {
+            let imgURL = URL(string: itemData.image)
             addImage.contentMode = .scaleAspectFit
             addImage.layer.cornerRadius = 8
             
@@ -91,21 +89,14 @@ class AddCollectionViewCell: UICollectionViewCell {
         deleteImage.isHidden = true
     }
 
-    @objc func requestDelete() {
+    func requestDelete(type: ItemType, id: Int) {
         var parameter : [String: Int] = [:]
 
-        if item?.supplementId == 0 {
-            itemType = .food
-        }
-        if item?.foodId == 0 {
-            itemType = .supplement
-        }
-
-        switch itemType {
+        switch type {
         case .supplement:
-            parameter["supplement_id"] = item?.supplementId
+            parameter["supplement_id"] = id
         case .food:
-            parameter["food_id"] = item?.foodId
+            parameter["food_id"] = id
         }
 
         itemDeleteViewModel.itemType = itemType
@@ -130,31 +121,4 @@ class AddCollectionViewCell: UICollectionViewCell {
     private func requestDeleteSuccess() {
         print("✅: DELETE ITEM NET SUCCESS")
     }
-//
-//    func configureCell(unionItemList: UnionItemList, indexPathRow: Int) {
-//        let unionSupplementData = unionItemList.list[indexPathRow].supplementId
-//        if unionItemList.list.count == indexPathRow {
-//            addImage.image = UIImage(systemName: "plus")
-//            addImage.contentMode = .center
-//            return
-//        }
-
-//        if let unionItemData = unionItemList.list[indexPathRow], unionItemData.combinationId != 0 else {
-//            return
-//        }
-//        self.item = unionItemData
-//
-//        if unionItemData.image != "" {
-//            let imgURL = URL(string: unionItemData.image)
-//            addImage.contentMode = .scaleAspectFit
-//
-//            addImage.kf.setImage(
-//                with: imgURL,
-//                options: [
-//                    .transition(ImageTransition.fade(0.3)),
-//                    .keepCurrentImageWhileLoading
-//                ]
-//            )
-//        }
-//    }
 }

@@ -84,7 +84,6 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
         ) as? AddTableViewCell else {
                 return UITableViewCell()
         }
-        cell.selectionStyle = .none
         cell.configureCell(foodList: foodList, indexPath: indexPath)
         return cell
     }

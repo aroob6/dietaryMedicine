@@ -30,11 +30,13 @@ extension Resolver: ResolverRegistering {
         //viewModel
         register { SignUpViewModel() }
         register { LoginViewModel() }
-        register { FoodUnionSupplementsViewModel() }
+        register { CombinationSupplementsViewModel() }
+        register { CombinationFoodsViewModel() }
         register { SupplementsViewModel() }
         register { FoodsViewModel() }
         register { ItemAddViewModel() }
         register { ItemDeleteViewModel() }
         register { EmailCheckViewModel() }
+        register { NutrientDiaryAddViewModel() }
     }
 }

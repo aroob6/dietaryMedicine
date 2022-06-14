@@ -17,9 +17,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var name: UILabel!
     
-    private var unionItemList = UnionItemList()
+    private var supplementsList: CombinationItemList?
+    private var foodList: CombinationItemList?
     
-    @Injected private var foodUnionSupplementsViewModel: FoodUnionSupplementsViewModel
+    @Injected private var combinationSupplementsViewModel: CombinationSupplementsViewModel
+    @Injected private var combinationFoodsViewModel: CombinationFoodsViewModel
     
     //RxSwift
     @Injected private var disposeBag : DisposeBag
@@ -38,7 +40,7 @@ class HomeViewController: UIViewController {
         setTableView()
         registerXib()
         
-        bindUnionList()
+        bindCombinationList()
     }
     private func setTableView () {
         mainTableView.delegate = self
@@ -46,7 +48,6 @@ class HomeViewController: UIViewController {
         mainTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     private func registerXib() {
-
         mainTableView.register(
             UINib(nibName: FoodUnionSupplementsTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: FoodUnionSupplementsTableViewCell.identifier)
@@ -61,25 +62,42 @@ class HomeViewController: UIViewController {
     private func requestUnionList() {
         let parameter: [String : String] = [:]
         
-        foodUnionSupplementsViewModel.fetch(parameters: parameter)
+        combinationSupplementsViewModel.fetch(parameters: parameter)
+        combinationFoodsViewModel.fetch(parameters: parameter)
     }
     
-    private func bindUnionList() {
-        foodUnionSupplementsViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
+    private func bindCombinationList() {
+        combinationSupplementsViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
             .drive { result in
             switch result {
-            case .success(let unionListData):
-                self.requestUnionListSuccess(unionListData)
+            case .success(let list):
+                self.requestItemListSuccess(.supplement, list)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }.disposed(by: disposeBag)
+        
+        combinationFoodsViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty())
+            .drive { result in
+            switch result {
+            case .success(let list):
+                self.requestItemListSuccess(.food, list)
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }.disposed(by: disposeBag)
     }
     
-    private func requestUnionListSuccess(_ result: UnionItemList) {
-        print("✅: UNIONLIST NET SUCCESS")
+    private func requestItemListSuccess(_ type: ItemType, _ result: CombinationItemList) {
+        switch type {
+        case .supplement:
+            supplementsList = result
+            print("✅: SUPPLEMENTSLIST NET SUCCESS")
+        case .food:
+            foodList = result
+            print("✅: FOODSLIST NET SUCCESS")
+        }
         
-        unionItemList = result
         mainTableView.reloadData()
     }
 }
@@ -108,8 +126,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             ) as? FoodUnionSupplementsTableViewCell else {
                 return UITableViewCell()
             }
+            
+            guard let supplementsList = supplementsList?.list else { return cell }
+            guard let foodList = foodList?.list else { return cell }
+            
             cell.viewController = self
-            cell.unionItemList = unionItemList
+            cell.supplementsList = supplementsList
+            cell.foodsList = foodList
             
             return cell
         case 1:

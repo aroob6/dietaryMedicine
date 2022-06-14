@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import Resolver
+import Alamofire
 
 class CollectionAddViewController: UIViewController {
 
@@ -27,15 +31,33 @@ class CollectionAddViewController: UIViewController {
     private var titleTextField = UITextField()
     private var contentTextField = UITextField()
     
+    var supplementsList: [Item]?
+    var foodsList: [Item]?
+    var itemList = [Item]()
+    var titleText = ""
+    var contentText = ""
+    
+    @Injected private var nutrientDiaryAddViewModel: NutrientDiaryAddViewModel
+    @Injected private var disposeBag: DisposeBag
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUI()
         registerXib()
         setTableView()
+        setItem()
+        
+        bindButton()
+        bindNutrientDiaryAdd()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     private func setUI(){
+        self.navigationItem.title = "컬렉션 추가"
         self.tabBarController?.tabBar.isHidden = true
         self.view.backgroundColor = .white
         self.view.addSubview(tableViewLabel)
@@ -118,7 +140,73 @@ class CollectionAddViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    private func bindButton() {
+        addButton.rx.tap.bind { [weak self] in
+            self?.addAction()
+        }.disposed(by: disposeBag)
+    }
+    
+    private func setItem() {
+        guard let supplementsList = supplementsList else { return }
+        guard let foodsList = foodsList else { return }
+        
+        for i in 0 ..< supplementsList.count {
+            itemList.append(supplementsList[i])
+        }
+        for i in 0 ..< foodsList.count {
+            itemList.append(foodsList[i])
+        }
+    }
+    
+    private func addAction() {
+        guard let titleText = titleTextField.text, !titleText.isEmpty else {
+            let msg = "컬렉션 제목을 입력해주세요."
+            UtilFunction.showMessage(msg: msg, vc: self)
+            return
+        }
+        
+        guard let contentText = titleTextField.text, !contentText.isEmpty else {
+            let msg = "컬렉션 내용을 입력해주세요."
+            UtilFunction.showMessage(msg: msg, vc: self)
+            return
+        }
+        
+        self.titleText = titleText
+        self.contentText = contentText
+        
+        requestNutrientDiaryAdd()
+    }
+    
+    private func requestNutrientDiaryAdd() {
+        let parameter: [String : String] = [
+            "title": titleText,
+            "content": contentText
+        ]
+        
+        nutrientDiaryAddViewModel.fetch(parameters: parameter)
+    }
 
+    private func bindNutrientDiaryAdd() {
+        nutrientDiaryAddViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty()).drive { result in
+            switch result {
+            case .success(let code):
+                if code == 2000 {
+                    self.requestNutrientDiaryListSuccess()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    private func requestNutrientDiaryListSuccess() {
+        print("✅: NUTRIENTDIARYADD NET SUCCESS")
+        
+        self.navigationController?.popViewController(animated: false)
+    }
 }
 
 extension CollectionAddViewController: UITableViewDelegate, UITableViewDataSource {
@@ -127,7 +215,7 @@ extension CollectionAddViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return (supplementsList?.count ?? 0) + (foodsList?.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -136,6 +224,7 @@ extension CollectionAddViewController: UITableViewDelegate, UITableViewDataSourc
             for: indexPath) as? AddTableViewCell else {
             return UITableViewCell()
         }
+        cell.configureCell(itemList: itemList, indexPath: indexPath)
         return cell
     }
 }

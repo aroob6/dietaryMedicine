@@ -7,15 +7,11 @@
 
 import SwiftyJSON
 
-struct UnionItemList {
+struct CombinationItemList {
     var list = [Item]()
     
-    init() {
-        
-    }
-    
     init(_ json: JSON) {
-        if let array = json["combination_items"].array {
+        if let array = json.array {
             list = array.map { Item($0) }
         }
     }
