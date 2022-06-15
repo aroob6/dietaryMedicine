@@ -20,15 +20,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufd-EE-evJ">
-                        <rect key="frame" x="15" y="10" width="285" height="35"/>
+                        <rect key="frame" x="20" y="10" width="280" height="35"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkO-3I-srD">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FcU-dr-ZUw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repeat" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QI3-dV-Jck">
-                                <rect key="frame" x="243" y="1.5" width="22" height="17"/>
+                                <rect key="frame" x="238" y="1.5" width="22" height="17"/>
                                 <color key="tintColor" name="textGray"/>
                             </imageView>
                         </subviews>
@@ -50,7 +54,7 @@
                     </tableView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ufd-EE-evJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="2iQ-zj-5tc"/>
+                    <constraint firstItem="ufd-EE-evJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="2iQ-zj-5tc"/>
                     <constraint firstAttribute="trailing" secondItem="ufd-EE-evJ" secondAttribute="trailing" id="OMI-fV-gzZ"/>
                     <constraint firstItem="I67-cb-Kei" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="TkW-oq-LVK"/>
                     <constraint firstItem="ufd-EE-evJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Zrq-bd-PJA"/>

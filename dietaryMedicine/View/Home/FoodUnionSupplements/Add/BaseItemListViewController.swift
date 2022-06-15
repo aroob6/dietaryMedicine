@@ -30,6 +30,11 @@ class BaseItemListViewController: UIViewController {
     let collectionViewHeight: CGFloat = 50
     @Injected var disposeBag : DisposeBag
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -30,6 +30,7 @@ class CombinationRecommendTableViewCell: UITableViewCell {
     
     private func setUpView() {
         titleLabel.text = Info.share.name + "님 이 조합은 어때요?"
+        self.selectionStyle = .none
     }
     
     private func setTableView() {

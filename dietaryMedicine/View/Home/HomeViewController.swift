@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         tabBarController?.tabBar.isHidden = false
-        requestUnionList()
+        
     }
     
     override func viewDidLoad() {
@@ -40,6 +40,7 @@ class HomeViewController: UIViewController {
         setTableView()
         registerXib()
         
+        requestUnionList()
         bindCombinationList()
     }
     private func setTableView () {

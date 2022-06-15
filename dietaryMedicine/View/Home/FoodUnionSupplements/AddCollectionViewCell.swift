@@ -21,17 +21,6 @@ class AddCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet var deleteImage: UIImageView!
     
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                showDelete()
-            }
-            else {
-                hiddenDelete()
-            }
-        }
-    }
-    
     var itemType: ItemType = .supplement
     
     @Injected private var itemDeleteViewModel: ItemDeleteViewModel
@@ -55,6 +44,8 @@ class AddCollectionViewCell: UICollectionViewCell {
         deleteImage.backgroundColor = clearColor
         deleteImage.layer.cornerRadius = 8
         deleteImage.isHidden = true
+        
+        hiddenDelete()
     }
     
     func configureCell(type: String, itemList: [Item], indexPathRow: Int) {

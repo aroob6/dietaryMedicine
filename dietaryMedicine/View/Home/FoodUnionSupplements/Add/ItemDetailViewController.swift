@@ -62,6 +62,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
     private var analysisView = UIView()
     private var analysisLabel = UILabel()
     private var analysisTableView = UITableView()
+    private var moreAnalysisButton = UIButton()
     
     private var lowestInfoView = UIView()
     private var lowestInfoLabel = UILabel()
@@ -131,6 +132,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         
         analysisView.addSubview(analysisLabel)
         analysisView.addSubview(analysisTableView)
+        analysisView.addSubview(moreAnalysisButton)
         lowestInfoView.addSubview(lowestInfoLabel)
         
         buttonStackView.addArrangedSubview(bookMarkButton)
@@ -161,24 +163,30 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
             $0.height.equalTo(50)
         }
         
-        infoTableView.snp.makeConstraints {
-            $0.height.equalTo(480)
-        }
-        
         analysisView.snp.makeConstraints {
-            $0.height.equalTo(210)
+            $0.height.equalTo(300)
         }
         
-        analysisLabel.text = "비타민 분석"
+        analysisLabel.text = "영양소 분석"
         analysisLabel.textColor = .textGray
+        analysisLabel.font = UIFont.boldSystemFont(ofSize: 14)
         analysisLabel.snp.makeConstraints {
             $0.height.equalTo(20)
             $0.top.leading.trailing.equalToSuperview().inset(20)
         }
         
-        analysisTableView.backgroundColor = .magenta
         analysisTableView.snp.makeConstraints {
-            $0.top.equalTo(analysisLabel.snp.bottom).offset(20)
+            $0.top.equalTo(analysisLabel.snp.bottom).offset(10)
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        moreAnalysisButton.setTitle("분석 더보기", for: .normal)
+        moreAnalysisButton.setTitleColor(.black, for: .normal)
+        moreAnalysisButton.backgroundColor = .mainGray
+        moreAnalysisButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        moreAnalysisButton.snp.makeConstraints {
+            $0.height.equalTo(50)
+            $0.top.equalTo(analysisTableView.snp.bottom).offset(10)
             $0.bottom.leading.trailing.equalToSuperview().inset(20)
         }
         
@@ -188,6 +196,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         
         lowestInfoLabel.text = "최저가 정보"
         lowestInfoLabel.textColor = .textGray
+        lowestInfoLabel.font = UIFont.boldSystemFont(ofSize: 14)
         lowestInfoLabel.snp.makeConstraints {
             $0.height.equalTo(20)
             $0.top.leading.trailing.equalToSuperview().inset(20)
@@ -217,6 +226,9 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         
         switch itemType {
         case .supplement:
+            infoTableView.snp.makeConstraints {
+                $0.height.equalTo(480)
+            }
             tabBarTitle = ["비타민 정보", "비타민 분석", "구매정보"]
             infoType = ["영양제 종류", "브랜드", "데일리 복용량", "영양제 형태"]
             nutrientName = supplementData.nutrientAmounts.first?.nutrientNameKor ?? ""
@@ -224,7 +236,13 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
             nutrientAmount = String(supplementData.nutrientAmounts.first?.nutrientAmount ?? 0.0)
             nutrientUnit = supplementData.nutrientAmounts.first?.nutrientAmountUnit ?? ""
             unit = supplementData.unit
+            
         case .food:
+            //최저가 정보, 영양제 형태 없음 
+            lowestInfoView.isHidden = true
+            infoTableView.snp.makeConstraints {
+                $0.height.equalTo(360)
+            }
             tabBarTitle = ["식품 정보", "식품 분석"]
             infoType = ["식품 이름", "분류", "1인분"]
             nutrientName = foodData.nutrientAmounts.first?.nutrientNameKor ?? ""
@@ -238,9 +256,13 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
     private func setTableView() {
         infoTableView.delegate = self
         infoTableView.dataSource = self
+        analysisTableView.delegate = self
+        analysisTableView.dataSource = self
         
         infoTableView.isScrollEnabled = false
+        
         infoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        analysisTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
     private func setCollectionView() {
@@ -258,6 +280,12 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         infoTableView.register(
             UINib(nibName: ItemInfoTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: ItemInfoTableViewCell.identifier)
+        analysisTableView.register(
+            UINib(nibName: AnalysisTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: AnalysisTableViewCell.identifier)
+        analysisTableView.register(
+            UINib(nibName: SeeMoreCombinationTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: SeeMoreCombinationTableViewCell.identifier)
         collectionView.register(
             UINib(nibName: TabBarHeaderCollectionViewCell.identifier, bundle: nil),
             forCellWithReuseIdentifier: TabBarHeaderCollectionViewCell.identifier)
@@ -356,41 +384,64 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
 
 }
 extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == analysisTableView {
+            return 90
+        }
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch itemType {
-        case .supplement:
-            return 4
-        case .food:
+        switch tableView {
+        case infoTableView:
+            switch itemType {
+            case .supplement: return 4
+            case .food: return 3
+            }
+        case analysisTableView:
             return 3
+            
+        default:
+            return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemInfoTableViewCell.identifier, for: indexPath) as? ItemInfoTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        switch indexPath.row {
-        case 0:
-            cell.type.text = infoType[0]
-            cell.name.text = nutrientName
-        case 1:
-            cell.type.text = infoType[1]
-            cell.name.text = brand
-        case 2:
-            cell.type.text = infoType[2]
-            cell.name.text = nutrientAmount + " " + nutrientUnit
-        case 3:
-            cell.type.text = infoType[3]
-            cell.name.text = unit
+        switch tableView {
+        case infoTableView:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemInfoTableViewCell.identifier, for: indexPath) as? ItemInfoTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            switch indexPath.row {
+            case 0:
+                cell.type.text = infoType[0]
+                cell.name.text = nutrientName
+            case 1:
+                cell.type.text = infoType[1]
+                cell.name.text = brand
+            case 2:
+                cell.type.text = infoType[2]
+                cell.name.text = nutrientAmount + " " + nutrientUnit
+            case 3:
+                cell.type.text = infoType[3]
+                cell.name.text = unit
+            default:
+                return UITableViewCell()
+            }
+            
+            return cell
+        case analysisTableView:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AnalysisTableViewCell.identifier, for: indexPath) as? AnalysisTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            return cell
+            
         default:
             return UITableViewCell()
         }
-        
-        return cell
     }
-    
-    
 }
 
 extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {

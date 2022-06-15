@@ -11,6 +11,7 @@ class AnotherCombinationTableViewCell: UITableViewCell {
     public static let identifier = "AnotherCombinationTableViewCell"
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var content: UILabel!
     
     var myNutrientDiaryList: MyNutrientDiaryList? {
@@ -38,8 +39,9 @@ class AnotherCombinationTableViewCell: UITableViewCell {
         collectionView.dataSource = self
     }
     
-    func configureCell(_ content: String, _ myNutrientDiaryList: MyNutrientDiaryList?) {
+    func configureCell(_ title: String, _ content: String, _ myNutrientDiaryList: MyNutrientDiaryList?) {
         self.myNutrientDiaryList = myNutrientDiaryList
+        self.titleLabel.text = title
         self.content.text = content
         
     }

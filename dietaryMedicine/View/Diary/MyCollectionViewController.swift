@@ -93,7 +93,8 @@ extension MyCollectionViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
         }
         guard let myNutrientDiaryList = myNutrientDiaryList else { return cell }
-        cell.configureCell(myNutrientDiaryList[indexPath.row].content, myNutrientDiaryList[indexPath.row])
+        let myNutrientDiaryData = myNutrientDiaryList[indexPath.row]
+        cell.configureCell(myNutrientDiaryData.title, myNutrientDiaryData.content, myNutrientDiaryData)
         
         return cell
     }

@@ -13,7 +13,7 @@ import Alamofire
 
 class FoodUnionSupplementsTableViewCell: UITableViewCell {
     public static let identifier = "FoodUnionSupplementsTableViewCell"
-
+    @IBOutlet var titleBackView: UIView!
     @IBOutlet var title: UILabel!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var supplementTitle: UILabel!
@@ -49,24 +49,22 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
     
     private func setView() {
         self.selectionStyle = .none
-        let titleText = "당신의 영양제와 식품의 영양성분을 조합하세요."
+//        let titleText = "당신의 영양제와 식품의 영양성분을 조합하세요."
+//        let pointColor = UIColor.mainColor!.withAlphaComponent(0.3)
         let pointText = "영양제와 식품"
-        let pointColor = UIColor.mainColor!.withAlphaComponent(0.3)
         let attributedString = NSMutableAttributedString()
-            .normal("당신의 ", fontSize: 20)
-            .bold( pointText, fontSize: 20)
-            .normal("의 영양성분을 조합하세요.", fontSize: 20)
-        attributedString.addAttribute(.backgroundColor, value: pointColor, range: (titleText as NSString).range(of: pointText))
+            .normal("당신의 ", fontSize: 18)
+            .bold( pointText, fontSize: 18)
+            .normal("의 영양성분을 조합하세요.", fontSize: 18)
+//        attributedString.addAttribute(.backgroundColor, value: pointColor, range: (titleText as NSString).range(of: pointText))
         title.attributedText = attributedString
         
-        addButton.layer.cornerRadius = 20
+        addButton.layer.cornerRadius = 15
         
-//        supplementTitle = BasePaddingLabel()
-//        foodTitle = BasePaddingLabel()
         supplementTitle.text = "영양제"
         foodTitle.text = "음식"
-        supplementTitle.font = UIFont.systemFont(ofSize: 15)
-        foodTitle.font = UIFont.systemFont(ofSize: 15)
+        supplementTitle.font = UIFont.systemFont(ofSize: 14)
+        foodTitle.font = UIFont.systemFont(ofSize: 14)
     }
     
     private func registerXib() {
@@ -152,15 +150,15 @@ extension FoodUnionSupplementsTableViewCell: UICollectionViewDelegate, UICollect
         }
         
         if cell.addImage.image != UIImage(systemName: "plus") {
-            if cell.isSelected {
-                guard let vc = viewController else { return }
-                UtilFunction.showDeleteMessage(msg: "삭제 하시겠습니까?", vc: vc) { code in
-                    if code == .Okay {
-                        cell.requestDelete(type: itemType, id: id)
-                    }
-                    if code == .Cancel {
-                        cell.hiddenDelete()
-                    }
+            cell.showDelete()
+            guard let vc = viewController else { return }
+            UtilFunction.showDeleteMessage(msg: "삭제 하시겠습니까?", vc: vc) { code in
+                if code == .Okay {
+                    cell.requestDelete(type: itemType, id: id)
+                    cell.hiddenDelete()
+                }
+                if code == .Cancel {
+                    cell.hiddenDelete()
                 }
             }
         }

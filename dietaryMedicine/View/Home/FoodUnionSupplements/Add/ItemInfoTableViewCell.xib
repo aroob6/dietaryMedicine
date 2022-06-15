@@ -23,16 +23,16 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="CuB-Gl-fZi"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" name="textGray"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비타민" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gn6-Vl-blU">
-                        <rect key="frame" x="20" y="60" width="290" height="20"/>
+                        <rect key="frame" x="20" y="50" width="290" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="MWl-TH-vR5"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,7 +45,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gn6-Vl-blU" firstAttribute="top" secondItem="OyK-0Q-V2o" secondAttribute="bottom" constant="20" id="0tw-wY-tRx"/>
+                    <constraint firstItem="gn6-Vl-blU" firstAttribute="top" secondItem="OyK-0Q-V2o" secondAttribute="bottom" constant="10" id="0tw-wY-tRx"/>
                     <constraint firstAttribute="trailing" secondItem="OyK-0Q-V2o" secondAttribute="trailing" constant="10" id="PF1-Rc-jYC"/>
                     <constraint firstItem="L3n-lO-fKI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QNM-ZI-hmw"/>
                     <constraint firstItem="gn6-Vl-blU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="UEC-hq-6Ie"/>
@@ -54,7 +54,7 @@
                     <constraint firstAttribute="bottom" secondItem="L3n-lO-fKI" secondAttribute="bottom" id="eUV-Mn-scq"/>
                     <constraint firstAttribute="trailing" secondItem="gn6-Vl-blU" secondAttribute="trailing" constant="10" id="mwE-7b-1Gu"/>
                     <constraint firstAttribute="trailing" secondItem="L3n-lO-fKI" secondAttribute="trailing" id="sUH-7s-z2r"/>
-                    <constraint firstItem="L3n-lO-fKI" firstAttribute="top" secondItem="gn6-Vl-blU" secondAttribute="bottom" constant="20" id="sdW-1B-kkK"/>
+                    <constraint firstItem="L3n-lO-fKI" firstAttribute="top" secondItem="gn6-Vl-blU" secondAttribute="bottom" constant="30" id="sdW-1B-kkK"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

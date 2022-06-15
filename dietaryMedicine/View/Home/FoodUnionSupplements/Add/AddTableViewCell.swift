@@ -25,7 +25,7 @@ class AddTableViewCell: UITableViewCell {
     func configureCell(supplementList: SupplementList, indexPath: IndexPath) {
         let supplementData = supplementList.data[indexPath.row]
         name.text = supplementData.name
-        content.text = supplementData.content
+        content.text = supplementData.brand
         price.text = String(supplementData.price)
         
         if supplementData.image != "" {

@@ -22,6 +22,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ned-d6-1mK">
                         <rect key="frame" x="15" y="0.0" width="285" height="50"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Anz-r9-caw">
+                                <rect key="frame" x="55" y="10" width="90" height="15"/>
+                                <color key="backgroundColor" red="0.87058823529411766" green="0.81176470588235294" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="hwK-yr-kyS"/>
+                                    <constraint firstAttribute="width" constant="90" id="mcq-6Z-dO2"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZD-sj-Qrx">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
                                 <constraints>
@@ -45,11 +53,12 @@
                                 </buttonConfiguration>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3ZD-sj-Qrx" firstAttribute="leading" secondItem="Ned-d6-1mK" secondAttribute="leading" id="8Ab-e4-PTk"/>
                             <constraint firstItem="pV5-5G-FiS" firstAttribute="centerY" secondItem="Ned-d6-1mK" secondAttribute="centerY" id="Trd-dC-l9H"/>
+                            <constraint firstItem="Anz-r9-caw" firstAttribute="leading" secondItem="Ned-d6-1mK" secondAttribute="leading" constant="55" id="Z4x-QE-xTd"/>
                             <constraint firstItem="3ZD-sj-Qrx" firstAttribute="top" secondItem="Ned-d6-1mK" secondAttribute="top" id="mHA-7D-jaj"/>
+                            <constraint firstItem="Anz-r9-caw" firstAttribute="top" secondItem="Ned-d6-1mK" secondAttribute="top" constant="10" id="qRq-kM-8uR"/>
                             <constraint firstAttribute="trailing" secondItem="pV5-5G-FiS" secondAttribute="trailing" constant="15" id="qbA-Rp-aE8"/>
                             <constraint firstAttribute="height" constant="50" id="vZJ-uD-RNA"/>
                             <constraint firstAttribute="bottom" secondItem="3ZD-sj-Qrx" secondAttribute="bottom" id="ybu-61-KwW"/>

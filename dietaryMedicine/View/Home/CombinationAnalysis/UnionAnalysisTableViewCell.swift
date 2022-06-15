@@ -10,57 +10,62 @@ import UIKit
 class UnionAnalysisTableViewCell: UITableViewCell {
     public static let identifier = "UnionAnalysisTableViewCell"
 
-    @IBOutlet var outerView: UIView!
-    @IBOutlet var tableView: UITableView!
+//    @IBOutlet var outerView: UIView!
+//    @IBOutlet var tableView: UITableView!
+    @IBOutlet var lackCollenctionView: UICollectionView!
+    @IBOutlet var overCollenctionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setUpView()
-        setTableView()
+//        setUpView()
+//        setTableView()c
+
+        setCollectionView()
         registerXib()
     }
     
-    private func setUpView() {
-        self.selectionStyle = .none
-        outerView.layer.cornerRadius = 8
-        outerView.layer.shadowColor = UIColor.black.cgColor
-        outerView.layer.shadowOpacity = 0.1
-        outerView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        outerView.layer.masksToBounds = false
-    }
+//    private func setUpView() {
+//        self.selectionStyle = .none
+//        outerView.layer.cornerRadius = 8
+//        outerView.layer.shadowColor = UIColor.black.cgColor
+//        outerView.layer.shadowOpacity = 0.1
+//        outerView.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        outerView.layer.masksToBounds = false
+//    }
     
-    private func setTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+    private func setCollectionView() {
+        lackCollenctionView.delegate = self
+        lackCollenctionView.dataSource = self
+        overCollenctionView.delegate = self
+        overCollenctionView.dataSource = self
     }
     
     private func registerXib() {
-        tableView.register(
-            UINib(nibName: AnalysisTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: AnalysisTableViewCell.identifier)
+        lackCollenctionView.register(
+            UINib(nibName: NutrientImageCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: NutrientImageCollectionViewCell.identifier)
+        overCollenctionView.register(
+            UINib(nibName: NutrientImageCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: NutrientImageCollectionViewCell.identifier)
     }
 }
-
-extension UnionAnalysisTableViewCell: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-}
-
-extension UnionAnalysisTableViewCell: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+extension UnionAnalysisTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch collectionView {
+        case lackCollenctionView:
+            return 10
+        case overCollenctionView:
+            return 10
+        default:
+            return 0
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: AnalysisTableViewCell.identifier,
-            for: indexPath) as? AnalysisTableViewCell
-        else {
-            return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NutrientImageCollectionViewCell.identifier, for: indexPath) as? NutrientImageCollectionViewCell else {
+            return UICollectionViewCell()
         }
-        
         return cell
     }
     

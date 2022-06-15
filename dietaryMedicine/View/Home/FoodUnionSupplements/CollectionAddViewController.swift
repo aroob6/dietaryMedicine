@@ -40,6 +40,11 @@ class CollectionAddViewController: UIViewController {
     @Injected private var nutrientDiaryAddViewModel: NutrientDiaryAddViewModel
     @Injected private var disposeBag: DisposeBag
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,7 +63,6 @@ class CollectionAddViewController: UIViewController {
     
     private func setUI(){
         self.navigationItem.title = "컬렉션 추가"
-        self.tabBarController?.tabBar.isHidden = true
         self.view.backgroundColor = .white
         self.view.addSubview(tableViewLabel)
         self.view.addSubview(stackView)
