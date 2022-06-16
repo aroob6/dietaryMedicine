@@ -109,6 +109,7 @@ class CompleteViewController: BaseEmailSignUpViewController {
         let main = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
         main.modalPresentationStyle = .fullScreen
 
+        self.navigationController?.popViewController(animated: false)
         self.present(main, animated: false)
     }
 

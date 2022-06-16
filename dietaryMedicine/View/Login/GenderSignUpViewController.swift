@@ -54,7 +54,7 @@ class GenderSignUpViewController: BaseEmailSignUpViewController {
         }
         
         nextButton.setTitle("다음", for: .normal)
-        deEnableNextBtn()
+        nextButton.deEnableBtn()
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.bottom.leading.trailing.equalToSuperview()
@@ -101,7 +101,7 @@ class GenderSignUpViewController: BaseEmailSignUpViewController {
         selectButton(button: manButton)
         deSelectButton(button: femaleButton)
         
-        enableNextBtn()
+        nextButton.enableBth()
     }
     
     private func femaleButtonSelect() {
@@ -110,7 +110,7 @@ class GenderSignUpViewController: BaseEmailSignUpViewController {
         selectButton(button: femaleButton)
         deSelectButton(button: manButton)
         
-        enableNextBtn()
+        nextButton.enableBth()
     }
     
     private func nextAction() {

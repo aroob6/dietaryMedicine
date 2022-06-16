@@ -14,11 +14,6 @@ import RxCocoa
 import Resolver
 import SwiftUI
 
-enum ItemType {
-    case supplement
-    case food
-}
-
 class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
     private var stackView: UIStackView = {
         let view = UIStackView().then {
@@ -66,6 +61,10 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
     
     private var lowestInfoView = UIView()
     private var lowestInfoLabel = UILabel()
+    private var lowestInfoImgView = UIImageView()
+    private var lowestInfoTitle = UILabel()
+    private var lowestInfoPrice = UILabel()
+    private var lowestInfoButton = UIButton()
     
     var tabBarTitle: [String] = []
     var infoType: [String] = []
@@ -133,7 +132,12 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         analysisView.addSubview(analysisLabel)
         analysisView.addSubview(analysisTableView)
         analysisView.addSubview(moreAnalysisButton)
+        
         lowestInfoView.addSubview(lowestInfoLabel)
+        lowestInfoView.addSubview(lowestInfoImgView)
+        lowestInfoView.addSubview(lowestInfoTitle)
+        lowestInfoView.addSubview(lowestInfoPrice)
+        lowestInfoView.addSubview(lowestInfoButton)
         
         buttonStackView.addArrangedSubview(bookMarkButton)
         buttonStackView.addArrangedSubview(addButton)
@@ -191,7 +195,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         
         lowestInfoView.snp.makeConstraints {
-            $0.height.equalTo(195)
+            $0.height.equalTo(200)
         }
         
         lowestInfoLabel.text = "최저가 정보"
@@ -200,6 +204,44 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         lowestInfoLabel.snp.makeConstraints {
             $0.height.equalTo(20)
             $0.top.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        lowestInfoImgView.backgroundColor = .lightGray
+        lowestInfoImgView.snp.makeConstraints {
+            $0.width.height.equalTo(100)
+            $0.top.equalTo(lowestInfoLabel.snp.bottom).offset(15)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        lowestInfoTitle.text = "마켓컬리 어쩌고"
+        lowestInfoTitle.font = UIFont.boldSystemFont(ofSize: 16)
+        lowestInfoTitle.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.equalTo(lowestInfoLabel.snp.bottom).offset(15)
+            $0.leading.equalTo(lowestInfoImgView.snp.trailing).offset(20)
+            $0.trailing.equalToSuperview().inset(40)
+        }
+        
+        lowestInfoPrice.text = "가격"
+        lowestInfoPrice.font = UIFont.systemFont(ofSize: 14)
+        lowestInfoPrice.textColor = .textGray
+        lowestInfoPrice.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.equalTo(lowestInfoTitle.snp.bottom).offset(10)
+            $0.leading.equalTo(lowestInfoImgView.snp.trailing).offset(20)
+            $0.trailing.equalToSuperview().inset(40)
+        }
+        
+        lowestInfoButton.setTitle("구매하기", for: .normal)
+        lowestInfoButton.setTitleColor(.black, for: .normal)
+        lowestInfoButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        lowestInfoButton.backgroundColor = .mainGray
+        lowestInfoButton.layer.cornerRadius = 8
+        lowestInfoButton.snp.makeConstraints {
+            $0.width.equalTo(120)
+            $0.height.equalTo(40)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(20)
         }
         
         buttonStackView.snp.makeConstraints {
@@ -235,7 +277,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
             brand = supplementData.brand
             nutrientAmount = String(supplementData.nutrientAmounts.first?.nutrientAmount ?? 0.0)
             nutrientUnit = supplementData.nutrientAmounts.first?.nutrientAmountUnit ?? ""
-            unit = supplementData.unit
+            unit = unitChange(unit: supplementData.unit)
             
         case .food:
             //최저가 정보, 영양제 형태 없음 
@@ -260,6 +302,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         analysisTableView.dataSource = self
         
         infoTableView.isScrollEnabled = false
+        analysisTableView.isScrollEnabled = false
         
         infoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         analysisTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
@@ -320,7 +363,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.popToRootViewController(animated: false)
     }
     
-    @objc func requestAddItem() {
+    private func requestAddItem() {
         var parameter : [String: Int] = [:]
         
         switch itemType {
@@ -331,6 +374,19 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         itemDetailViewModel.itemType = itemType
         itemDetailViewModel.fetch(parameters: parameter)
+    }
+    
+    private func unitChange(unit: String) -> String {
+        switch unit {
+        case "L":
+            return "액체"
+        case "T":
+            return "알약"
+        case "P":
+            return "파우더"
+        default:
+            return ""
+        }
     }
     
     func configureCell(supplementList: SupplementList, indexPath: IndexPath) {
@@ -399,7 +455,7 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
             case .food: return 3
             }
         case analysisTableView:
-            return 3
+            return 2
             
         default:
             return 0

@@ -37,12 +37,22 @@ class CollectionAddViewController: UIViewController {
     var titleText = ""
     var contentText = ""
     
+//    private var keyBoardManager: KeyboardManager?
+//    private var scrollView = UIScrollView()
+    
     @Injected private var nutrientDiaryAddViewModel: NutrientDiaryAddViewModel
     @Injected private var disposeBag: DisposeBag
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+//        keyBoardManager = KeyboardManager(view: view, set: false)
+//        keyBoardManager?.addKeyboardNotification()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        keyBoardManager?.removeKeyboardNotification()
     }
     
     override func viewDidLoad() {
@@ -63,7 +73,13 @@ class CollectionAddViewController: UIViewController {
     
     private func setUI(){
         self.navigationItem.title = "컬렉션 추가"
+//        self.navigationController?.navigationBar.backgroundColor = .white
         self.view.backgroundColor = .white
+//        self.view.addSubview(scrollView)
+//
+//        scrollView.addSubview(tableViewLabel)
+//        scrollView.addSubview(stackView)
+//        scrollView.addSubview(addButton)
         self.view.addSubview(tableViewLabel)
         self.view.addSubview(stackView)
         self.view.addSubview(addButton)
@@ -74,6 +90,10 @@ class CollectionAddViewController: UIViewController {
         stackView.addArrangedSubview(titleTextField)
         stackView.addArrangedSubview(contentLabel)
         stackView.addArrangedSubview(contentTextField)
+        
+//        scrollView.snp.makeConstraints {
+//            $0.edges.equalTo(self.view.safeAreaLayoutGuide)
+//        }
         
         tableViewLabel.text = "내 아이템"
         tableViewLabel.font = UIFont.boldSystemFont(ofSize: 14)

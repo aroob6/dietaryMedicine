@@ -23,10 +23,10 @@
                         <rect key="frame" x="15" y="0.0" width="285" height="50"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Anz-r9-caw">
-                                <rect key="frame" x="55" y="10" width="90" height="15"/>
+                                <rect key="frame" x="55" y="11" width="90" height="14"/>
                                 <color key="backgroundColor" red="0.87058823529411766" green="0.81176470588235294" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="hwK-yr-kyS"/>
+                                    <constraint firstAttribute="height" constant="14" id="hwK-yr-kyS"/>
                                     <constraint firstAttribute="width" constant="90" id="mcq-6Z-dO2"/>
                                 </constraints>
                             </view>
@@ -58,7 +58,7 @@
                             <constraint firstItem="pV5-5G-FiS" firstAttribute="centerY" secondItem="Ned-d6-1mK" secondAttribute="centerY" id="Trd-dC-l9H"/>
                             <constraint firstItem="Anz-r9-caw" firstAttribute="leading" secondItem="Ned-d6-1mK" secondAttribute="leading" constant="55" id="Z4x-QE-xTd"/>
                             <constraint firstItem="3ZD-sj-Qrx" firstAttribute="top" secondItem="Ned-d6-1mK" secondAttribute="top" id="mHA-7D-jaj"/>
-                            <constraint firstItem="Anz-r9-caw" firstAttribute="top" secondItem="Ned-d6-1mK" secondAttribute="top" constant="10" id="qRq-kM-8uR"/>
+                            <constraint firstItem="Anz-r9-caw" firstAttribute="top" secondItem="Ned-d6-1mK" secondAttribute="top" constant="11" id="qRq-kM-8uR"/>
                             <constraint firstAttribute="trailing" secondItem="pV5-5G-FiS" secondAttribute="trailing" constant="15" id="qbA-Rp-aE8"/>
                             <constraint firstAttribute="height" constant="50" id="vZJ-uD-RNA"/>
                             <constraint firstAttribute="bottom" secondItem="3ZD-sj-Qrx" secondAttribute="bottom" id="ybu-61-KwW"/>

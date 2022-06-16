@@ -13,28 +13,27 @@ import Resolver
 
 class NameBirthSignUpViewController: BaseEmailSignUpViewController {
     
+    private var nameView = UIView()
     private var nameLabel = UILabel()
     private var birthLabel = UILabel()
     
     private var nameTextField = UITextField()
     private var birthTextField = UITextField()
+    private var nameCheckButton = UIButton()
     
-    private var emailText = ""
-    private var pwText = ""
-    private var nameText = ""
-    private var birthText = ""
-    private var genderText = ""
+    private var nameCheck = false
     
     @Injected private var signUpViewModel: SignUpViewModel
-    
-    //RxSwift
+    @Injected private var checkViewModel: CheckViewModel
     @Injected private var disposeBag : DisposeBag
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUI()
+        bindButton()
         bindSignUp()
+        bindNameCheck()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,13 +54,17 @@ class NameBirthSignUpViewController: BaseEmailSignUpViewController {
         self.view.addSubview(nextButton)
         
         stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(nameTextField)
+//        stackView.addArrangedSubview(nameTextField)
+        stackView.addArrangedSubview(nameView)
         stackView.addArrangedSubview(underLine1)
         stackView.setCustomSpacing(20, after: underLine1)
         
         stackView.addArrangedSubview(birthLabel)
         stackView.addArrangedSubview(birthTextField)
         stackView.addArrangedSubview(underLine2)
+        
+        nameView.addSubview(nameTextField)
+        nameView.addSubview(nameCheckButton)
         
         setProgressBar(size: 0.6)
         progressBar.snp.makeConstraints {
@@ -75,14 +78,17 @@ class NameBirthSignUpViewController: BaseEmailSignUpViewController {
         }
         
         nextButton.setTitle("다음", for: .normal)
-        deEnableNextBtn()
-        nextButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
+        nextButton.deEnableBtn()
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.bottom.leading.trailing.equalToSuperview()
         }
         
-        nameLabel.text = "이름을 입력해주세요."
+        nameView.snp.makeConstraints {
+            $0.height.equalTo(40)
+        }
+        
+        nameLabel.text = "닉네임을 입력해주세요."
         birthLabel.text = "생년월일을 입력해주세요."
         
         nameLabel.font = UIFont.systemFont(ofSize: 12)
@@ -95,7 +101,7 @@ class NameBirthSignUpViewController: BaseEmailSignUpViewController {
             $0.height.equalTo(30)
         }
         
-        nameTextField.placeholder = "이름을 입력해주세요."
+        nameTextField.placeholder = "닉네임을 입력해주세요."
         birthTextField.placeholder = "생년월일 6자리를 입력해주세요."
         
         nameTextField.font = UIFont.systemFont(ofSize: 12)
@@ -103,15 +109,38 @@ class NameBirthSignUpViewController: BaseEmailSignUpViewController {
         
         birthTextField.keyboardType = .numberPad
         
-        nameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        birthTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        nameTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
+        birthTextField.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
         
         nameTextField.snp.makeConstraints {
+            $0.width.equalTo(220)
             $0.height.equalTo(40)
+            $0.leading.centerY.equalToSuperview()
         }
         birthTextField.snp.makeConstraints {
             $0.height.equalTo(40)
         }
+        
+        nameCheckButton.setTitle("중복확인", for: .normal)
+        nameCheckButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        nameCheckButton.backgroundColor = .textGray
+        nameCheckButton.layer.cornerRadius = 8
+        nameCheckButton.snp.makeConstraints {
+            $0.width.equalTo(60)
+            $0.height.equalTo(30)
+            $0.trailing.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+    }
+    
+    private func bindButton() {
+        nextButton.rx.tap.bind { [weak self] in
+            self?.nextAction()
+        }.disposed(by: disposeBag)
+        
+        nameCheckButton.rx.tap.bind { [weak self] in
+            self?.nameCheckAction()
+        }.disposed(by: disposeBag)
     }
     
     private func bindSignUp() {
@@ -137,37 +166,86 @@ class NameBirthSignUpViewController: BaseEmailSignUpViewController {
     
     private func requestSignUp() {
         let parameters: [String: String] = [
-            "email": emailText,
-            "password": pwText,
-            "name": nameText,
-            "birth_date": birthText,
-            "gender": genderText
+            "email": SignParameter.share.email,
+            "password": SignParameter.share.pw,
+            "name": SignParameter.share.name,
+            "birth_date": SignParameter.share.birth,
+            "gender": SignParameter.share.gender
         ]
         
         signUpViewModel.fetch(parameters: parameters)
     }
     
-    @objc func nextAction() {
-        SignParameter.share.name = nameTextField.text ?? ""
-        SignParameter.share.birth = birthTextField.text ?? ""
+    private func nextAction() {
+        guard let birthText = birthTextField.text else {
+            return
+        }
         
-        let year = SignParameter.share.birth.substring(from: 0, to: 1)
-        let month = SignParameter.share.birth.substring(from: 2, to: 3)
-        let day = SignParameter.share.birth.substring(from: 4, to: 5)
+        let year = birthText.substring(from: 0, to: 1)
+        let month = birthText.substring(from: 2, to: 3)
+        let day = birthText.substring(from: 4, to: 5)
         
-        emailText = SignParameter.share.email
-        pwText = SignParameter.share.pw
-        nameText = SignParameter.share.name
-        birthText = "19" + year + "-" + month + "-" + day
-        genderText = SignParameter.share.gender
+        SignParameter.share.birth = "19" + year + "-" + month + "-" + day
         
         requestSignUp()
     }
     
-    @objc func textFieldDidChange() {
+    private func nameCheckAction() {
+        guard let nameText = nameTextField.text, nameText != "" else {
+            let msg = "닉네임을 입력해주세요"
+            UtilFunction.showMessage(msg: msg, vc: self)
+            return
+        }
+        SignParameter.share.name = nameText
+        requestNameCheck()
+    }
+    
+    private func requestNameCheck() {
+        let parameters: [String: String] = [
+            "name": SignParameter.share.name
+        ]
+        checkViewModel.checkType = .name
+        checkViewModel.fetch(parameters: parameters)
+    }
+    
+    private func bindNameCheck() {
+        checkViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty()).drive { result in
+            switch result {
+            case .success(let data):
+                if data == 0 { //중복이 아닌 경우
+                    self.nameCheckButton.enableBth()
+                    self.nameCheck = true
+                    let msg = "닉네임 중복이 아닙니다"
+                    UtilFunction.showMessage(msg: msg, vc: self)
+                    print("✅: NICKNAME NOT DUPLICATE")
+                }
+                else { // 1 중복인 경우
+                    let msg = "닉네임 중복 입니다"
+                    UtilFunction.showMessage(msg: msg, vc: self)
+                    print("✅: NICKNAME DUPLICATE")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    @objc func textFieldDidChange(sender: UITextField) {
+        switch sender {
+        case nameTextField:
+            nameCheckButton.backgroundColor = .textGray
+            nameCheckButton.isEnabled = true
+            nameCheck = false
+        case birthTextField:
+            print("birthTextField")
+        default:
+            return
+        }
+        
         guard let nameText = nameTextField.text else { return }
         guard let birthText = birthTextField.text else { return }
-        nameText.count != 0 && birthText.count == 6  ? enableNextBtn() : deEnableNextBtn()
+        nameText.count != 0 && birthText.count == 6  ? nextButton.enableBth() : nextButton.deEnableBtn()
     }
 
 }

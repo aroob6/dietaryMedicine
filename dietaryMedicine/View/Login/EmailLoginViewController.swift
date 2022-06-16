@@ -36,14 +36,12 @@ class EmailLoginViewController: BaseEmailSignUpViewController {
     private var pwText: String = ""
     
     @Injected private var loginViewModel: LoginViewModel
-    
-    //RxSwift
     @Injected private var disposeBag : DisposeBag
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailTextField.text = "test7@naver.com"
+        emailTextField.text = "test10@naver.com"
         pwTextField.text = "qwerqwer"
         
         setUI()
@@ -107,7 +105,7 @@ class EmailLoginViewController: BaseEmailSignUpViewController {
         
         nextButton.setTitle("다음", for: .normal)
 //        deEnableNextBtn()
-        enableNextBtn()
+        nextButton.enableBth()
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.bottom.leading.trailing.equalToSuperview()
@@ -210,10 +208,10 @@ class EmailLoginViewController: BaseEmailSignUpViewController {
 
     @objc func textFieldDidChange() {
         if emailTextField.text != "" && pwTextField.text != "" {
-            enableNextBtn()
+            nextButton.enableBth()
         }
         else {
-            deEnableNextBtn()
+            nextButton.deEnableBtn()
         }
     }
     

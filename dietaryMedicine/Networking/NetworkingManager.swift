@@ -20,7 +20,7 @@ enum NetworkError: Error {
 public enum NetworkingManager {
     public static var parameter = Parameters()
     
-    case signUp, logIn, logOut, emailCheck
+    case signUp, logIn, logOut, emailCheck, nameCheck
     case combinationSupplementList, combinationFoodList
     case supplementAll, supplementAdd, supplementDelete
     case foodAll, foodAdd, foodDelete
@@ -61,7 +61,7 @@ extension NetworkingManager: TargetType {
     public var headers: [String : String]? {
         var header = ["Content-Type": "application/json"]
         switch self {
-        case .signUp, .logIn, .emailCheck:
+        case .signUp, .logIn, .emailCheck, .nameCheck:
             return header
         default:
             header["Authorization"] = "Bearer \(UserDefaultsManager.token)"
@@ -75,6 +75,7 @@ extension NetworkingManager: TargetType {
         case .signUp: return "auth/signup" //가입
         case .logIn: return "auth/signin" //로그인
         case .emailCheck: return "auth/email-duplication"
+        case .nameCheck: return "auth/name-duplication"
         case .combinationSupplementList: return "combination/list/supplement" // 조합 리스트 - 영양제
         case .combinationFoodList: return "combination/list/food" // 조합 리스트 - 음식
         case .supplementAll: return "supplement/all" //영양제 리스트

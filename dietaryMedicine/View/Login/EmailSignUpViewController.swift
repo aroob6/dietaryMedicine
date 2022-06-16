@@ -22,7 +22,7 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         return view
     }()
     
-    var emailView = UIView()
+    private var emailView = UIView()
     private var emailLabel = UILabel()
     private var pwLabel = UILabel()
     private var rePwLabel = UILabel()
@@ -34,7 +34,7 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
     private var emailText = ""
     private var emailCheck = false
 
-    @Injected private var emailCheckViewModel: EmailCheckViewModel
+    @Injected private var checkViewModel: CheckViewModel
     @Injected private var disposeBag : DisposeBag
     
     override func viewDidLoad() {
@@ -86,7 +86,7 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         }
         
         nextButton.setTitle("다음", for: .normal)
-        deEnableNextBtn()
+        nextButton.deEnableBtn()
         nextButton.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.bottom.leading.trailing.equalToSuperview()
@@ -221,17 +221,16 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         let parameters: [String: String] = [
             "email": emailText
         ]
-        
-        emailCheckViewModel.fetch(parameters: parameters)
+        checkViewModel.checkType = .email
+        checkViewModel.fetch(parameters: parameters)
     }
     
     private func bindEmailCheck() {
-        emailCheckViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty()).drive { result in
+        checkViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty()).drive { result in
             switch result {
             case .success(let data):
                 if data == 0 { //중복이 아닌 경우
-                    self.emailCheckButton.backgroundColor = .mainColor
-                    self.emailCheckButton.isEnabled = false
+                    self.emailCheckButton.enableBth()
                     self.emailCheck = true
                     let msg = "이메일 중복이 아닙니다"
                     UtilFunction.showMessage(msg: msg, vc: self)
@@ -253,6 +252,7 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
         switch sender {
         case emailTextField:
             emailCheckButton.backgroundColor = .textGray
+            emailCheckButton.isEnabled = true
             emailCheck = false
         case pwTextField:
             print("pwTextField")
@@ -262,10 +262,10 @@ class EmailSignUpViewController: BaseEmailSignUpViewController {
             return
         }
         if emailCheck && emailTextField.text != "" && pwTextField.text != "" && rePwTextField.text != "" {
-            enableNextBtn()
+            nextButton.enableBth()
         }
         else {
-            deEnableNextBtn()
+            nextButton.deEnableBtn()
         }
     }
 }

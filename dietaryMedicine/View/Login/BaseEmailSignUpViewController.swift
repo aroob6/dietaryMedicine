@@ -35,6 +35,8 @@ class BaseEmailSignUpViewController: UIViewController {
     var underLine2 = UIView()
     var underLine3 = UIView()
     
+    var keyBoardManager: KeyboardManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +49,7 @@ class BaseEmailSignUpViewController: UIViewController {
     
     private func setUI() {
         self.view.backgroundColor = .white
+        keyBoardManager = KeyboardManager(btn: nextButton, set: true)
         
         underLine1.backgroundColor = .underLine
         underLine2.backgroundColor = .underLine
@@ -76,67 +79,12 @@ class BaseEmailSignUpViewController: UIViewController {
         self.navigationItem.title = string
     }
     
-    func enableNextBtn() {
-        nextButton.isEnabled = true
-        nextButton.backgroundColor = .mainColor
-        nextButton.setTitleColor(.white, for: .normal)
-    }
-    
-    func deEnableNextBtn() {
-        nextButton.isEnabled = false
-        nextButton.backgroundColor = .textGray
-        nextButton.setTitleColor(.white, for: .normal)
-    }
-    
     func addKeyboardNotification() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillHide),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
+        keyBoardManager?.addKeyboardNotification()
     }
     
     func removeKeyboardNotification(){
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
-    
-    @objc private func keyboardWillShow(_ notification: Notification) { //키보드 올라올떄
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keybaordRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keybaordRectangle.height
-            
-            nextButton.snp.updateConstraints {
-                $0.height.equalTo(60)
-                $0.leading.trailing.equalToSuperview()
-                $0.bottom.equalToSuperview().offset(-keyboardHeight)
-            }
-        }
-    }
-    
-    @objc private func keyboardWillHide(_ notification: Notification) { //키보드 내려갈때
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            nextButton.snp.updateConstraints {
-                $0.height.equalTo(60)
-                $0.bottom.leading.trailing.equalToSuperview()
-            }
-        }
+        keyBoardManager?.removeKeyboardNotification()
     }
     
 }
