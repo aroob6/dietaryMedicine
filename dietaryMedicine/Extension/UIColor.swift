@@ -19,4 +19,8 @@ extension UIColor {
     class var underLine: UIColor? {
         return UIColor(named: "underLine")
     }
+    
+    class var analysisColor: UIColor? {
+        return UIColor(named: "analysisColor")
+    }
 }

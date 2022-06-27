@@ -27,6 +27,9 @@
 		8432D3F1285AC06D00494064 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D3F0285AC06D00494064 /* Enum.swift */; };
 		8432D3F3285AF3F100494064 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D3F2285AF3F100494064 /* UIButton.swift */; };
 		8432D3F5285AF41100494064 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D3F4285AF41100494064 /* KeyboardManager.swift */; };
+		8432D3FE2869673100494064 /* NutrientAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D3FD2869673100494064 /* NutrientAnalysis.swift */; };
+		8432D4022869680C00494064 /* NutrientAnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D4012869680B00494064 /* NutrientAnalysisViewModel.swift */; };
+		8432D404286979EC00494064 /* EachNutrientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D403286979EC00494064 /* EachNutrientViewController.swift */; };
 		8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */; };
 		84EB38952851E5D7001CBCCC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */; };
 		84EB38962851E5D7001CBCCC /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */; };
@@ -116,6 +119,9 @@
 		8432D3F0285AC06D00494064 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		8432D3F2285AF3F100494064 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		8432D3F4285AF41100494064 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		8432D3FD2869673100494064 /* NutrientAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientAnalysis.swift; sourceTree = "<group>"; };
+		8432D4012869680B00494064 /* NutrientAnalysisViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientAnalysisViewModel.swift; sourceTree = "<group>"; };
+		8432D403286979EC00494064 /* EachNutrientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachNutrientViewController.swift; sourceTree = "<group>"; };
 		8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HashTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -324,6 +330,7 @@
 				9A69F1C6283CF31300FEDED6 /* Info.swift */,
 				842BFB11283DE58900BC6B21 /* FoodList.swift */,
 				9A7DD40B2858ADE800B7FF9B /* MyNutrientDiaryList.swift */,
+				8432D3FD2869673100494064 /* NutrientAnalysis.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -342,6 +349,7 @@
 				9A7DD4052850DC2C00B7FF9B /* CheckViewModel.swift */,
 				8432D3E62858682500494064 /* NutrientDiaryAddViewModel.swift */,
 				9A7DD40D2858B04800B7FF9B /* NutrientDiaryViewModel.swift */,
+				8432D4012869680B00494064 /* NutrientAnalysisViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -429,10 +437,11 @@
 			children = (
 				9A7DD3FD28508C4500B7FF9B /* UnionAnalysisTableViewCell.swift */,
 				9A7DD3FF28508C4500B7FF9B /* UnionAnalysisTableViewCell.xib */,
-				9A7DD3FE28508C4500B7FF9B /* AnalysisTableViewCell.swift */,
-				9A7DD40028508C4500B7FF9B /* AnalysisTableViewCell.xib */,
 				8432D3EA28599A2000494064 /* NutrientImageCollectionViewCell.swift */,
 				8432D3EB28599A2000494064 /* NutrientImageCollectionViewCell.xib */,
+				8432D403286979EC00494064 /* EachNutrientViewController.swift */,
+				9A7DD3FE28508C4500B7FF9B /* AnalysisTableViewCell.swift */,
+				9A7DD40028508C4500B7FF9B /* AnalysisTableViewCell.xib */,
 			);
 			path = CombinationAnalysis;
 			sourceTree = "<group>";
@@ -567,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A69F1AE2838EF4900FEDED6 /* Login.swift in Sources */,
+				8432D4022869680C00494064 /* NutrientAnalysisViewModel.swift in Sources */,
 				8432D3E928587D4A00494064 /* MyCollectionViewController.swift in Sources */,
 				84173CBA2852C35D002C8FA9 /* BaseItemListViewController.swift in Sources */,
 				84EB38952851E5D7001CBCCC /* ImageCollectionViewCell.swift in Sources */,
@@ -587,6 +597,7 @@
 				9A2F2968284BA771005E5AD2 /* String.swift in Sources */,
 				9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */,
 				9A69F1D12846553F00FEDED6 /* UILabel.swift in Sources */,
+				8432D404286979EC00494064 /* EachNutrientViewController.swift in Sources */,
 				9A7DD40A2854477100B7FF9B /* CollectionAddViewController.swift in Sources */,
 				9A7DD40C2858ADE800B7FF9B /* MyNutrientDiaryList.swift in Sources */,
 				84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */,
@@ -632,6 +643,7 @@
 				9A69F1C7283CF31300FEDED6 /* Info.swift in Sources */,
 				84FE873C2848899200B1BEB1 /* CompleteViewController.swift in Sources */,
 				9A7DD4102858CDCD00B7FF9B /* Array.swift in Sources */,
+				8432D3FE2869673100494064 /* NutrientAnalysis.swift in Sources */,
 				8432D3EF2859BDA400494064 /* UIWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,9 +19,12 @@ class HomeViewController: UIViewController {
     
     private var supplementsList: CombinationItemList?
     private var foodList: CombinationItemList?
+    private var nutrientAnalysis: NutrientAnalysis?
     
     @Injected private var combinationSupplementsViewModel: CombinationSupplementsViewModel
     @Injected private var combinationFoodsViewModel: CombinationFoodsViewModel
+    
+    @Injected private var nutrientAnalysisViewModel: NutrientAnalysisViewModel
     
     //RxSwift
     @Injected private var disposeBag : DisposeBag
@@ -65,6 +68,7 @@ class HomeViewController: UIViewController {
         
         combinationSupplementsViewModel.fetch(parameters: parameter)
         combinationFoodsViewModel.fetch(parameters: parameter)
+        nutrientAnalysisViewModel.fetch(parameters: parameter)
     }
     
     private func bindCombinationList() {
@@ -87,6 +91,16 @@ class HomeViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }.disposed(by: disposeBag)
+        
+        nutrientAnalysisViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty()).drive { result in
+            switch result {
+            case .success(let list):
+                self.requestNutrientAnalysisSuccess(list)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }.disposed(by: disposeBag)
     }
     
     private func requestItemListSuccess(_ type: ItemType, _ result: CombinationItemList) {
@@ -98,6 +112,13 @@ class HomeViewController: UIViewController {
             foodList = result
             print("✅: FOODSLIST NET SUCCESS")
         }
+        
+        mainTableView.reloadData()
+    }
+    
+    private func requestNutrientAnalysisSuccess(_ result: NutrientAnalysis) {
+            nutrientAnalysis = result
+            print("✅: NUTRIENTANALYSIS NET SUCCESS")
         
         mainTableView.reloadData()
     }
@@ -143,6 +164,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             ) as? UnionAnalysisTableViewCell else {
                 return UITableViewCell()
             }
+            
+            cell.viewController = self
+            cell.nutrientAnalysis = nutrientAnalysis
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(

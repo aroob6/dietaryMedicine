@@ -20,11 +20,12 @@ enum NetworkError: Error {
 public enum NetworkingManager {
     public static var parameter = Parameters()
     
-    case signUp, logIn, logOut, emailCheck, nameCheck
-    case combinationSupplementList, combinationFoodList
-    case supplementAll, supplementAdd, supplementDelete
-    case foodAll, foodAdd, foodDelete
-    case nutrientDiaryAdd, nutrientDiaryList
+    case signUp, logIn, logOut, emailCheck, nameCheck //회원가입
+    case combinationSupplementList, combinationFoodList //조합
+    case supplementAll, supplementAdd, supplementDelete //영양제
+    case foodAll, foodAdd, foodDelete //음식
+    case nutrientAnalysis //영양분석
+    case nutrientDiaryAdd, nutrientDiaryList //영양일지
     
 }
 
@@ -38,7 +39,7 @@ extension NetworkingManager: TargetType {
     
     public var method: Moya.Method {
         switch self {
-        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList, .nutrientDiaryList:
+        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList, .nutrientDiaryList, .nutrientAnalysis:
             return .get
         case .supplementDelete, .foodDelete:
             return .delete
@@ -49,7 +50,7 @@ extension NetworkingManager: TargetType {
     
     public var task: Task {
         switch self {
-        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList, .nutrientDiaryList:
+        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList, .nutrientDiaryList, .nutrientAnalysis:
             return .requestPlain //.get
         default:
             return .requestParameters(
@@ -84,6 +85,7 @@ extension NetworkingManager: TargetType {
         case .foodAll: return "food/all" //음식 리스트
         case .foodAdd: return "combination-item/food" //조합 - 음식 추가
         case .foodDelete: return "combination-item/food" //조합 - 음식 삭제
+        case .nutrientAnalysis: return "nutrient/test" // 영양분석
         case .nutrientDiaryAdd: return "nutrient-diary" //영양일지(컬렉션) 추가
         case .nutrientDiaryList: return "nutrient-diary/list" //영양일지(컬렉션) 리스트
         default:

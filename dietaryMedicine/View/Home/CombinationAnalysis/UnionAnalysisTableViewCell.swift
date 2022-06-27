@@ -9,30 +9,24 @@ import UIKit
 
 class UnionAnalysisTableViewCell: UITableViewCell {
     public static let identifier = "UnionAnalysisTableViewCell"
-
-//    @IBOutlet var outerView: UIView!
-//    @IBOutlet var tableView: UITableView!
+    weak var viewController: UIViewController?
+    
     @IBOutlet var lackCollenctionView: UICollectionView!
     @IBOutlet var overCollenctionView: UICollectionView!
+    
+    var nutrientAnalysis: NutrientAnalysis? {
+        didSet {
+            lackCollenctionView.reloadData()
+            overCollenctionView.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        setUpView()
-//        setTableView()c
-
         setCollectionView()
         registerXib()
     }
-    
-//    private func setUpView() {
-//        self.selectionStyle = .none
-//        outerView.layer.cornerRadius = 8
-//        outerView.layer.shadowColor = UIColor.black.cgColor
-//        outerView.layer.shadowOpacity = 0.1
-//        outerView.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        outerView.layer.masksToBounds = false
-//    }
     
     private func setCollectionView() {
         lackCollenctionView.delegate = self
@@ -54,9 +48,9 @@ extension UnionAnalysisTableViewCell: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case lackCollenctionView:
-            return 10
+            return nutrientAnalysis?.deficiency.count ?? 0
         case overCollenctionView:
-            return 10
+            return nutrientAnalysis?.excess.count ?? 0
         default:
             return 0
         }
@@ -66,8 +60,31 @@ extension UnionAnalysisTableViewCell: UICollectionViewDelegate, UICollectionView
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NutrientImageCollectionViewCell.identifier, for: indexPath) as? NutrientImageCollectionViewCell else {
             return UICollectionViewCell()
         }
-        return cell
+        
+        guard let nutrientAnalysis = nutrientAnalysis else { return cell }
+        
+        switch collectionView {
+        case lackCollenctionView:
+            cell.configureCell(data: nutrientAnalysis.deficiency, indexPath: indexPath)
+            return cell
+        case overCollenctionView:
+            cell.configureCell(data: nutrientAnalysis.excess, indexPath: indexPath)
+            return cell
+        default:
+            return cell
+        }
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = EachNutrientViewController()
+        
+        switch collectionView {
+        case lackCollenctionView:
+            viewController?.navigationController?.pushViewController(vc, animated: false)
+        case overCollenctionView:
+            viewController?.navigationController?.pushViewController(vc, animated: false)
+        default:
+            return
+        }
+    }
 }

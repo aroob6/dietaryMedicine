@@ -103,7 +103,7 @@ class EmailLoginViewController: BaseEmailSignUpViewController {
             $0.height.equalTo(30)
         }
         
-        nextButton.setTitle("다음", for: .normal)
+        nextButton.setTitle("로그인", for: .normal)
 //        deEnableNextBtn()
         nextButton.enableBth()
         nextButton.snp.makeConstraints {
