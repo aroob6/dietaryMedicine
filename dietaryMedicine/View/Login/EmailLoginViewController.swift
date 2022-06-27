@@ -198,12 +198,12 @@ class EmailLoginViewController: BaseEmailSignUpViewController {
     }
 
     private func moveMainView() {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let main = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
+        guard let main = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController else { return }
         main.modalPresentationStyle = .fullScreen
 
-        self.navigationController?.popViewController(animated: false)
-        self.present(main, animated: false)
+        self.present(main, animated: false) {
+            self.navigationController?.popToRootViewController(animated: false)
+        }
     }
 
     @objc func textFieldDidChange() {
