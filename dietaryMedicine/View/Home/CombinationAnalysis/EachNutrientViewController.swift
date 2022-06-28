@@ -14,6 +14,10 @@ class EachNutrientViewController: UIViewController {
     private var nutrientView = UIView()
     private var currentView = UIView()
     
+    private var nutrientImgView = UIImageView()
+    private var nutrientLabel = UILabel()
+    private var progressBar = UIProgressView()
+    
     private var currentLabel = UILabel()
     private var countLabel = UILabel()
     private var underLine = UIView()
@@ -45,6 +49,10 @@ class EachNutrientViewController: UIViewController {
         contentView.addSubview(analysisView)
         contentView.addSubview(nutrientView)
         contentView.addSubview(currentView)
+        
+        nutrientView.addSubview(nutrientImgView)
+        nutrientView.addSubview(nutrientLabel)
+        nutrientView.addSubview(progressBar)
         
         currentView.addSubview(currentLabel)
         currentView.addSubview(countLabel)
@@ -82,6 +90,29 @@ class EachNutrientViewController: UIViewController {
             $0.height.equalTo(150)
             $0.top.equalTo(analysisView.snp.bottom).offset(30)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
+        }
+        
+        nutrientImgView.backgroundColor = .red
+        nutrientImgView.layer.cornerRadius = nutrientImgView.frame.height / 2
+        nutrientImgView.snp.makeConstraints {
+            $0.width.height.equalTo(50)
+            $0.top.leading.equalToSuperview().inset(20)
+        }
+        
+        nutrientLabel.text = "비타민 과다"
+        nutrientLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        nutrientLabel.snp.makeConstraints {
+            $0.height.equalTo(50)
+            $0.top.equalToSuperview().inset(20)
+            $0.leading.equalTo(nutrientImgView.snp.trailing).offset(20)
+        }
+        
+        progressBar.tintColor = .analysisColor
+        progressBar.setProgress(0.5, animated: false)
+        progressBar.snp.makeConstraints {
+            $0.height.equalTo(5)
+            $0.top.equalTo(nutrientImgView.snp.bottom).offset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
         }
         
         currentView.backgroundColor = .white

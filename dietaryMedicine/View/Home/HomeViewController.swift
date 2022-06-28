@@ -15,7 +15,6 @@ import Alamofire
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var mainTableView: UITableView!
-    @IBOutlet weak var name: UILabel!
     
     private var supplementsList: CombinationItemList?
     private var foodList: CombinationItemList?
@@ -37,15 +36,26 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        name.text = Info.share.email
-        StaticDelegate.mainDelegate = self
-
+        
+        setUI()
         setTableView()
         registerXib()
         
         requestUnionList()
         bindCombinationList()
     }
+    
+    private func setUI() {
+        StaticDelegate.mainDelegate = self
+        
+        let leftBarItem = UIBarButtonItem.init(image: UIImage(named: "logo"), style: .plain, target: nil, action: nil)
+        let rightBarItem = UIBarButtonItem.init(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: nil)
+        rightBarItem.tintColor = .black
+        
+        self.navigationItem.leftBarButtonItem = leftBarItem
+        self.navigationItem.rightBarButtonItem = rightBarItem
+    }
+    
     private func setTableView () {
         mainTableView.delegate = self
         mainTableView.dataSource = self
