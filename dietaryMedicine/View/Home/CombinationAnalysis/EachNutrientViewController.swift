@@ -10,6 +10,7 @@ import UIKit
 class EachNutrientViewController: UIViewController {
     private var scrollView = UIScrollView()
     private var contentView = UIView()
+    private var analysisView = UIView()
     private var nutrientView = UIView()
     private var currentView = UIView()
     
@@ -17,6 +18,8 @@ class EachNutrientViewController: UIViewController {
     private var countLabel = UILabel()
     private var underLine = UIView()
     private var tableView = UITableView()
+    
+    let bottomLayoutGuideBox = UIView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,16 +29,22 @@ class EachNutrientViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        registerXib()
+        setTableView()
     }
 
     private func setUI(){
         self.navigationItem.title = "개별 영양분 분석"
         self.view.backgroundColor = .analysisColor
-        self.view.addSubview(scrollView)
+        bottomLayoutGuideBox.backgroundColor = .white
         
+        self.view.addSubview(scrollView)
+        self.view.addSubview(bottomLayoutGuideBox)
         scrollView.addSubview(contentView)
-        scrollView.addSubview(nutrientView)
-        scrollView.addSubview(currentView)
+        
+        contentView.addSubview(analysisView)
+        contentView.addSubview(nutrientView)
+        contentView.addSubview(currentView)
         
         currentView.addSubview(currentLabel)
         currentView.addSubview(countLabel)
@@ -44,22 +53,34 @@ class EachNutrientViewController: UIViewController {
         
         scrollView.backgroundColor = .clear
         scrollView.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            $0.bottom.equalTo(self.view.snp.bottom)
+            $0.bottom.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+//            $0.bottom.equalTo(self.view.snp.bottom)
         }
         
-        contentView.backgroundColor = .white
-        contentView.layer.cornerRadius = 16
+        bottomLayoutGuideBox.snp.makeConstraints {
+            $0.left.equalTo(self.view)
+            $0.right.equalTo(self.view)
+            $0.top.equalTo(self.bottomLayoutGuide.snp.top)
+            $0.bottom.equalTo(self.bottomLayoutGuide.snp.bottom)
+        }
+        
         contentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        analysisView.backgroundColor = .white
+        analysisView.layer.cornerRadius = 16
+        analysisView.snp.makeConstraints {
             $0.height.equalTo(260)
-            $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
+            $0.top.equalTo(contentView.snp.top).inset(10)
+            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
         }
         
         nutrientView.backgroundColor = .white
         nutrientView.layer.cornerRadius = 16
         nutrientView.snp.makeConstraints {
             $0.height.equalTo(150)
-            $0.top.equalTo(contentView.snp.bottom).offset(30)
+            $0.top.equalTo(analysisView.snp.bottom).offset(30)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
         }
         
@@ -67,7 +88,7 @@ class EachNutrientViewController: UIViewController {
         currentView.snp.makeConstraints {
             $0.top.equalTo(nutrientView.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            $0.bottom.equalTo(self.view.snp.bottom)
+            $0.bottom.equalTo(contentView.snp.bottom)
         }
         
         currentLabel.text = "현황"
@@ -87,7 +108,7 @@ class EachNutrientViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(20)
         }
         
-        underLine.backgroundColor = .underLine
+        underLine.backgroundColor = .mainGray
         underLine.snp.makeConstraints {
             $0.height.equalTo(1)
             $0.top.equalTo(currentLabel.snp.bottom).offset(20)
@@ -96,8 +117,36 @@ class EachNutrientViewController: UIViewController {
         }
         
         tableView.snp.makeConstraints {
-            $0.top.equalTo(underLine.snp.bottom).offset(20)
+            $0.height.equalTo(150 * 5)
+            $0.top.equalTo(underLine.snp.bottom).offset(10)
             $0.bottom.leading.trailing.equalToSuperview()
         }
+    }
+    
+    private func registerXib() {
+        tableView.register(
+            UINib(nibName: CurrentTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: CurrentTableViewCell.identifier)
+    }
+    
+    private func setTableView () {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+}
+
+extension EachNutrientViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CurrentTableViewCell.identifier, for: indexPath) as? CurrentTableViewCell else { return UITableViewCell() }
+        
+        return cell
     }
 }

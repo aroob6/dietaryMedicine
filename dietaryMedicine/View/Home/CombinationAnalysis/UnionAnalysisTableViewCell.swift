@@ -23,6 +23,7 @@ class UnionAnalysisTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         
         setCollectionView()
         registerXib()

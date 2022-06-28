@@ -44,18 +44,21 @@ class CompleteViewController: BaseEmailSignUpViewController {
             $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
         
-        logoImg.image = UIImage(named: "logo")
+        logoImg.image = UIImage(named: "logo2")
         logoImg.snp.makeConstraints {
-            $0.height.equalTo(150)
+            $0.width.equalTo(200)
+            $0.height.equalTo(180)
             $0.top.equalTo(progressBar.snp.bottom).offset(100)
-            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(80)
+            $0.centerX.equalToSuperview()
         }
         
         titleLabel.text = "회원가입을 완료했습니다."
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.snp.makeConstraints {
+
             $0.height.equalTo(100)
             $0.top.equalTo(logoImg.snp.bottom).offset(100)
-            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(80)
+            $0.centerX.equalToSuperview()
         }
         
         nextButton.setTitle("시작하기", for: .normal)
