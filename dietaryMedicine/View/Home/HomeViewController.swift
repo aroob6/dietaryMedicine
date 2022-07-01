@@ -48,11 +48,14 @@ class HomeViewController: UIViewController {
     private func setUI() {
         StaticDelegate.mainDelegate = self
         
-        let leftBarItem = UIBarButtonItem.init(image: UIImage(named: "logo"), style: .plain, target: nil, action: nil)
+//        let leftBarItem = UIBarButtonItem.init(image: UIImage(named: "logoText"), style: .plain, target: nil, action: nil)
+        let logo = UIImage(named: "logoText")
+        let logoView = UIImageView(image: logo)
         let rightBarItem = UIBarButtonItem.init(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: nil)
         rightBarItem.tintColor = .black
         
-        self.navigationItem.leftBarButtonItem = leftBarItem
+        self.navigationItem.titleView = logoView
+//        self.navigationItem.leftBarButtonItem = leftBarItem
         self.navigationItem.rightBarButtonItem = rightBarItem
     }
     

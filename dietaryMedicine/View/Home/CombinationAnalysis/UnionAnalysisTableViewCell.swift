@@ -77,12 +77,17 @@ extension UnionAnalysisTableViewCell: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let nutrientAnalysis = nutrientAnalysis else { return }
         let vc = EachNutrientViewController()
         
         switch collectionView {
         case lackCollenctionView:
+            vc.nutrientStandardText = "부족"
+            vc.nutrientData = nutrientAnalysis.deficiency[indexPath.row]
             viewController?.navigationController?.pushViewController(vc, animated: false)
         case overCollenctionView:
+            vc.nutrientStandardText = "과다"
+            vc.nutrientData = nutrientAnalysis.excess[indexPath.row]
             viewController?.navigationController?.pushViewController(vc, animated: false)
         default:
             return

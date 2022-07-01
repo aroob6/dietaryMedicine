@@ -25,6 +25,10 @@ class DeficiencyNutrient {
     var nutrientName = ""
     var nutrientImg = ""
     
+    convenience init() {
+        self.init(JSON())
+    }
+    
     init(_ json: JSON) {
         self.nutrientName = json["nutrient_name"].stringValue
         self.nutrientImg = json["circle_image"].stringValue

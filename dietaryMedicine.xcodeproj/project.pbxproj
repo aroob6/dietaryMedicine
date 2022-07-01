@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46DA1F5EC6ABEF7747217A94 /* Pods_dietaryMedicine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 236BFF1A4EB20C3659E90B47 /* Pods_dietaryMedicine.framework */; };
+		840FA3C8286E70DF007DBADE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FA3C7286E70DF007DBADE /* UIImageView.swift */; };
 		84173CBA2852C35D002C8FA9 /* BaseItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84173CB92852C35D002C8FA9 /* BaseItemListViewController.swift */; };
 		842BFB10283DCC4700BC6B21 /* ViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB0F283DCC4700BC6B21 /* ViewDelegate.swift */; };
 		842BFB12283DE58900BC6B21 /* FoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BFB11283DE58900BC6B21 /* FoodList.swift */; };
@@ -102,6 +103,7 @@
 /* Begin PBXFileReference section */
 		236BFF1A4EB20C3659E90B47 /* Pods_dietaryMedicine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dietaryMedicine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8778B6256CBDCC52975E3A /* Pods-dietaryMedicine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.release.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.release.xcconfig"; sourceTree = "<group>"; };
+		840FA3C7286E70DF007DBADE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		84173CB92852C35D002C8FA9 /* BaseItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItemListViewController.swift; sourceTree = "<group>"; };
 		842BFB0F283DCC4700BC6B21 /* ViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDelegate.swift; sourceTree = "<group>"; };
 		842BFB11283DE58900BC6B21 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodList.swift; path = dietaryMedicine/Utility/FoodList.swift; sourceTree = SOURCE_ROOT; };
@@ -395,6 +397,7 @@
 				9A7DD40F2858CDCD00B7FF9B /* Array.swift */,
 				8432D3EE2859BDA400494064 /* UIWindow.swift */,
 				8432D3F2285AF3F100494064 /* UIButton.swift */,
+				840FA3C7286E70DF007DBADE /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				9A7DD40128508C4500B7FF9B /* UnionAnalysisTableViewCell.swift in Sources */,
 				9A69F1CA284634E500FEDED6 /* TabBarHeaderCollectionViewCell.swift in Sources */,
 				842BFB18283F67B800BC6B21 /* ItemDeleteViewModel.swift in Sources */,
+				840FA3C8286E70DF007DBADE /* UIImageView.swift in Sources */,
 				8432D3EC28599A2000494064 /* NutrientImageCollectionViewCell.swift in Sources */,
 				842BFB14283DE70400BC6B21 /* FoodsViewModel.swift in Sources */,
 				9A69F1C7283CF31300FEDED6 /* Info.swift in Sources */,

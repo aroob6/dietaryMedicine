@@ -36,19 +36,12 @@ class NutrientImageCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(data: [DeficiencyNutrient], indexPath: IndexPath) {
-        let lackData = data[indexPath.row]
+        let data = data[indexPath.row]
         
-        let imgURL = URL(string: lackData.nutrientImg)
+        let imgURL = URL(string: data.nutrientImg)
         let processor = RoundCornerImageProcessor(cornerRadius: 8)
         
-        title.text = lackData.nutrientName
-        imgView.kf.setImage(
-            with: imgURL,
-            options: [
-                .transition(ImageTransition.fade(0.3)),
-                .keepCurrentImageWhileLoading,
-                .processor(processor)
-            ]
-        )
+        title.text = data.nutrientName
+        imgView.kingFisherSetImage(url: imgURL!, processor: processor)
     }
 }

@@ -12,16 +12,16 @@ class SupplementList {
     var pageCount = 0
     var data = [Supplements]()
     
+    convenience init() {
+        self.init(JSON())
+    }
+    
     init(_ json: JSON) {
         error = json["error"].stringValue
         pageCount = json["page_count"].intValue
         if let array = json["data"].array {
             data = array.map { Supplements($0) }
         }
-    }
-    
-    convenience init() {
-        self.init(JSON())
     }
 }
 
@@ -37,6 +37,10 @@ class Supplements {
     var unit = ""
     var nutrientAmounts = [NutrientAmount]()
     
+    convenience init() {
+        self.init(JSON())
+    }
+    
     init(_ json: JSON) {
         supplementID = json["supplement_id"].intValue
         brand = json["brand"].stringValue
@@ -51,10 +55,6 @@ class Supplements {
         if let array = json["nutrient_amounts"].array {
             nutrientAmounts = array.map { NutrientAmount($0) }
         }
-    }
-    
-    convenience init() {
-        self.init(JSON())
     }
 }
 

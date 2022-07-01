@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class EachNutrientViewController: UIViewController {
     private var scrollView = UIScrollView()
@@ -13,6 +14,9 @@ class EachNutrientViewController: UIViewController {
     private var analysisView = UIView()
     private var nutrientView = UIView()
     private var currentView = UIView()
+    
+    private var titleLabel = UILabel()
+    private var contentLabel = UILabel()
     
     private var nutrientImgView = UIImageView()
     private var nutrientLabel = UILabel()
@@ -23,7 +27,10 @@ class EachNutrientViewController: UIViewController {
     private var underLine = UIView()
     private var tableView = UITableView()
     
-    let bottomLayoutGuideBox = UIView()
+    private let bottomLayoutGuideBox = UIView()
+    
+    var nutrientData = DeficiencyNutrient()
+    var nutrientStandardText = ""
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,6 +57,9 @@ class EachNutrientViewController: UIViewController {
         contentView.addSubview(nutrientView)
         contentView.addSubview(currentView)
         
+        analysisView.addSubview(titleLabel)
+        analysisView.addSubview(contentLabel)
+        
         nutrientView.addSubview(nutrientImgView)
         nutrientView.addSubview(nutrientLabel)
         nutrientView.addSubview(progressBar)
@@ -62,7 +72,6 @@ class EachNutrientViewController: UIViewController {
         scrollView.backgroundColor = .clear
         scrollView.snp.makeConstraints {
             $0.bottom.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-//            $0.bottom.equalTo(self.view.snp.bottom)
         }
         
         bottomLayoutGuideBox.snp.makeConstraints {
@@ -84,6 +93,26 @@ class EachNutrientViewController: UIViewController {
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
         }
         
+        titleLabel.text = Info.share.name + "님의 " + nutrientData.nutrientName
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.snp.makeConstraints {
+            $0.height.equalTo(30)
+            $0.top.equalToSuperview().inset(10)
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        contentLabel.text = "비타민 B6는 신경전달물질 합성, 유전자 발현 등 여러 반응을 보조해요. \n\n비타민 B6 효능: 혈당 유지, 지루성 피부염, 관절염, 지방대사 \n비타민 B6 부족 시: 빈혈, 신경 손상, 피부염, 습진, 면역반응 억제 \n비타민 B6 과다 시: 신경을 손상시켜 발과 다리에 통증과 무감각증을 유발할 수 있어요\n비타민 B6 과다 시: 신경을 손상시켜 발과 다리에 통증과 무감각증을 유발할 수 있어요\n비타민 B6 과다 시: 신경을 손상시켜 발과 다리에 통증과 무감각증을 유발할 수 있어요"
+        contentLabel.font = UIFont.systemFont(ofSize: 14)
+        contentLabel.textColor = .textGray
+        contentLabel.numberOfLines = 0
+        contentLabel.sizeToFit()
+        
+        contentLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(5)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(10)
+        }
+        
         nutrientView.backgroundColor = .white
         nutrientView.layer.cornerRadius = 16
         nutrientView.snp.makeConstraints {
@@ -92,14 +121,17 @@ class EachNutrientViewController: UIViewController {
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
         }
         
-        nutrientImgView.backgroundColor = .red
+        let imgURL = URL(string: nutrientData.nutrientImg)
+        let processor = RoundCornerImageProcessor(cornerRadius: 8)
+        nutrientImgView.kingFisherSetImage(url: imgURL!, processor: processor)
+
         nutrientImgView.layer.cornerRadius = nutrientImgView.frame.height / 2
         nutrientImgView.snp.makeConstraints {
             $0.width.height.equalTo(50)
             $0.top.leading.equalToSuperview().inset(20)
         }
         
-        nutrientLabel.text = "비타민 과다"
+        nutrientLabel.text = nutrientData.nutrientName + " " + nutrientStandardText
         nutrientLabel.font = UIFont.boldSystemFont(ofSize: 14)
         nutrientLabel.snp.makeConstraints {
             $0.height.equalTo(50)

@@ -22,13 +22,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
         let url = URL(string: imgURL)
         let processor = RoundCornerImageProcessor(cornerRadius: 8)
         
-        imgView.kf.setImage(
-            with: url,
-            options: [
-                .transition(ImageTransition.fade(0.3)),
-                .keepCurrentImageWhileLoading,
-                .processor(processor)
-            ]
-        )
+        imgView.kingFisherSetImage(url: url!, processor: processor)
     }
 }

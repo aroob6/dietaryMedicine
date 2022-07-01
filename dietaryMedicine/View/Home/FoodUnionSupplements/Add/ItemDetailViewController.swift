@@ -400,13 +400,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
             let imgURL = supplementData.image
             let url = URL(string: imgURL)
             
-            imgView.kf.setImage(
-                with: url,
-                options: [
-                    .transition(ImageTransition.fade(0.3)),
-                    .keepCurrentImageWhileLoading
-                ]
-            )
+            imgView.kingFisherSetImage(url: url!)
         }
         else {
             imgView.image = nil
@@ -424,13 +418,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
             let imgURL = foodData.image
             let url = URL(string: imgURL)
             
-            imgView.kf.setImage(
-                with: url,
-                options: [
-                    .transition(ImageTransition.fade(0.3)),
-                    .keepCurrentImageWhileLoading
-                ]
-            )
+            imgView.kingFisherSetImage(url: url!)
         }
         else {
             imgView.image = nil

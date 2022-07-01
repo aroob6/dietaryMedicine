@@ -69,14 +69,7 @@ class AddTableViewCell: UITableViewCell {
     
     func imageSet(url: URL?) {
         let processor = RoundCornerImageProcessor(cornerRadius: 8)
-        imgView.kf.setImage(
-            with: url,
-            options: [
-                .transition(ImageTransition.fade(0.3)),
-                .keepCurrentImageWhileLoading,
-                .processor(processor)
-            ]
-        )
+        imgView.kingFisherSetImage(url: url!, processor: processor)
     }
     
 }

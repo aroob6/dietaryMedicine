@@ -62,14 +62,7 @@ class AddCollectionViewCell: UICollectionViewCell {
             let processor = RoundCornerImageProcessor(cornerRadius: 8)
             addImage.contentMode = .scaleAspectFit
             
-            addImage.kf.setImage(
-                with: imgURL,
-                options: [
-                    .transition(ImageTransition.fade(0.3)),
-                    .keepCurrentImageWhileLoading,
-                    .processor(processor)
-                ]
-            )
+            addImage.kingFisherSetImage(url: imgURL!, processor: processor)
         }
     }
     

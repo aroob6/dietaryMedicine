@@ -12,16 +12,16 @@ class FoodList {
     var pageCount = 0
     var data = [Foods]()
     
+    convenience init() {
+        self.init(JSON())
+    }
+    
     init(_ json: JSON) {
         error = json["error"].stringValue
         pageCount = json["page_count"].intValue
         if let array = json["data"].array {
             data = array.map { Foods($0) }
         }
-    }
-    
-    convenience init() {
-        self.init(JSON())
     }
 }
 
@@ -36,6 +36,11 @@ class Foods {
     var amount = 0
     var nutrientAmounts = [NutrientAmount]()
     
+    
+    convenience init() {
+        self.init(JSON())
+    }
+    
     init(_ json: JSON) {
         foodID = json["food_id"].intValue
         brand = json["brand"].stringValue
@@ -49,9 +54,5 @@ class Foods {
         if let array = json["nutrient_amounts"].array {
             nutrientAmounts = array.map { NutrientAmount($0) }
         }
-    }
-    
-    convenience init() {
-        self.init(JSON())
     }
 }
