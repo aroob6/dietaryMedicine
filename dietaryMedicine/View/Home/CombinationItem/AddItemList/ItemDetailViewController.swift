@@ -161,8 +161,6 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
             $0.height.equalTo(300)
         }
         
-        imgView.backgroundColor = .yellow
-        
         collectionView.snp.makeConstraints {
             $0.height.equalTo(50)
         }
