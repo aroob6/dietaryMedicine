@@ -190,7 +190,7 @@ class CollectionAddViewController: UIViewController {
             return
         }
         
-        guard let contentText = titleTextField.text, !contentText.isEmpty else {
+        guard let contentText = contentTextField.text, !contentText.isEmpty else {
             let msg = "컬렉션 내용을 입력해주세요."
             UtilFunction.showMessage(msg: msg, vc: self)
             return

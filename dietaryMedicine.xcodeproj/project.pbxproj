@@ -267,14 +267,27 @@
 				9A4C3EDE2831469B001960FF /* HomeViewController.swift */,
 				84F2FEB328332A4C00AA927B /* HashTagCollectionViewCell.swift */,
 				8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */,
-				9A4C3EEE2832202C001960FF /* FoodUnionSupplements */,
+				84ABADD7286EC651003F6C4F /* CombinationItem */,
 				9A7DD3FC28508C0C00B7FF9B /* CombinationAnalysis */,
 				9A7DD3EF28508A7500B7FF9B /* CombinationRecommend */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		84F2FEAA283325F100AA927B /* Add */ = {
+		84ABADD7286EC651003F6C4F /* CombinationItem */ = {
+			isa = PBXGroup;
+			children = (
+				9A4C3EE2283213BF001960FF /* FoodUnionSupplementsTableViewCell.swift */,
+				9A4C3EE3283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib */,
+				9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */,
+				9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */,
+				9A7DD4092854477100B7FF9B /* CollectionAddViewController.swift */,
+				84ABADD8286EC685003F6C4F /* AddItemList */,
+			);
+			path = CombinationItem;
+			sourceTree = "<group>";
+		};
+		84ABADD8286EC685003F6C4F /* AddItemList */ = {
 			isa = PBXGroup;
 			children = (
 				84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */,
@@ -286,7 +299,7 @@
 				9A69F1CC284638E000FEDED6 /* ItemInfoTableViewCell.swift */,
 				9A69F1CD284638E000FEDED6 /* ItemInfoTableViewCell.xib */,
 			);
-			path = Add;
+			path = AddItemList;
 			sourceTree = "<group>";
 		};
 		9A4C3EB928313B2E001960FF = {
@@ -369,19 +382,6 @@
 				842BFB20284061CF00BC6B21 /* MyPage */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		9A4C3EEE2832202C001960FF /* FoodUnionSupplements */ = {
-			isa = PBXGroup;
-			children = (
-				9A4C3EE2283213BF001960FF /* FoodUnionSupplementsTableViewCell.swift */,
-				9A4C3EE3283213C0001960FF /* FoodUnionSupplementsTableViewCell.xib */,
-				9A4C3EF128322082001960FF /* AddCollectionViewCell.swift */,
-				9A4C3EF228322082001960FF /* AddCollectionViewCell.xib */,
-				9A7DD4092854477100B7FF9B /* CollectionAddViewController.swift */,
-				84F2FEAA283325F100AA927B /* Add */,
-			);
-			path = FoodUnionSupplements;
 			sourceTree = "<group>";
 		};
 		9A4C3EF72832405B001960FF /* Extension */ = {
