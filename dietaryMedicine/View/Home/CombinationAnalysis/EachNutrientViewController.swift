@@ -21,6 +21,12 @@ class EachNutrientViewController: UIViewController {
     private var nutrientImgView = UIImageView()
     private var nutrientLabel = UILabel()
     private var progressBar = UIProgressView()
+    private var triangleRecommend = TriangleView()
+    private var triangleRecommendLabel = UILabel()
+    private var triangleMax = TriangleView()
+    private var triangleMaxLabel = UILabel()
+    private var triangleCurrent = TriangleView()
+    private var triangleCurrentLabel = UILabel()
     
     private var currentLabel = UILabel()
     private var countLabel = UILabel()
@@ -63,6 +69,12 @@ class EachNutrientViewController: UIViewController {
         nutrientView.addSubview(nutrientImgView)
         nutrientView.addSubview(nutrientLabel)
         nutrientView.addSubview(progressBar)
+        nutrientView.addSubview(triangleRecommend)
+        nutrientView.addSubview(triangleRecommendLabel)
+        nutrientView.addSubview(triangleMax)
+        nutrientView.addSubview(triangleMaxLabel)
+        nutrientView.addSubview(triangleCurrent)
+        nutrientView.addSubview(triangleCurrentLabel)
         
         currentView.addSubview(currentLabel)
         currentView.addSubview(countLabel)
@@ -140,11 +152,68 @@ class EachNutrientViewController: UIViewController {
         }
         
         progressBar.tintColor = .analysisColor
-        progressBar.setProgress(0.5, animated: false)
+        progressBar.setProgress(0.95, animated: false)
         progressBar.snp.makeConstraints {
-            $0.height.equalTo(5)
+            $0.width.equalTo(290)
+            $0.height.equalTo(3)
             $0.top.equalTo(nutrientImgView.snp.bottom).offset(20)
-            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        let currentValue = progressBar.progress
+        let recommendValue = 0.1
+        let maxValue = 0.6
+        
+        
+        triangleRecommend.backgroundColor = .white
+        triangleRecommend.snp.makeConstraints {
+            $0.width.equalTo(6)
+            $0.height.equalTo(5)
+            $0.top.equalTo(progressBar.snp.bottom).offset(5)
+            $0.leading.equalToSuperview().inset(290 * recommendValue + 15)
+        }
+        
+        triangleRecommendLabel.text = "권장"
+        triangleRecommendLabel.textColor = .textGray
+        triangleRecommendLabel.font = UIFont.systemFont(ofSize: 8)
+        triangleRecommendLabel.snp.makeConstraints {
+            $0.width.equalTo(40)
+            $0.top.equalTo(triangleCurrent.snp.bottom).offset(5)
+            $0.centerX.equalTo(triangleRecommend.snp.centerX).offset(13)
+        }
+        
+        triangleMax.backgroundColor = .white
+        triangleMax.snp.makeConstraints {
+            $0.width.equalTo(6)
+            $0.height.equalTo(5)
+            $0.top.equalTo(progressBar.snp.bottom).offset(5)
+            $0.leading.equalToSuperview().inset(290 * maxValue + 15)
+        }
+        
+        triangleMaxLabel.text = "최대"
+        triangleMaxLabel.textColor = .textGray
+        triangleMaxLabel.font = UIFont.systemFont(ofSize: 8)
+        triangleMaxLabel.snp.makeConstraints {
+            $0.width.equalTo(40)
+            $0.top.equalTo(triangleCurrent.snp.bottom).offset(5)
+            $0.centerX.equalTo(triangleMax.snp.centerX).offset(13)
+        }
+        
+        triangleCurrent.backgroundColor = .white
+        triangleCurrent.snp.makeConstraints {
+            $0.width.equalTo(6)
+            $0.height.equalTo(5)
+            $0.top.equalTo(progressBar.snp.bottom).offset(5)
+            $0.leading.equalToSuperview().inset(290 * currentValue + 15)
+        }
+        
+        triangleCurrentLabel.text = "현재"
+        triangleCurrentLabel.textColor = .textGray
+        triangleCurrentLabel.font = UIFont.systemFont(ofSize: 8)
+        triangleCurrentLabel.snp.makeConstraints {
+            $0.width.equalTo(40)
+            $0.top.equalTo(triangleCurrent.snp.bottom).offset(5)
+            $0.centerX.equalTo(triangleCurrent.snp.centerX).offset(13)
         }
         
         currentView.backgroundColor = .white

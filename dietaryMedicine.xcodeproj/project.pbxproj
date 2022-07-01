@@ -34,6 +34,7 @@
 		8432D407286ABF6C00494064 /* CurrentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D405286ABF6C00494064 /* CurrentTableViewCell.swift */; };
 		8432D408286ABF6C00494064 /* CurrentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8432D406286ABF6C00494064 /* CurrentTableViewCell.xib */; };
 		8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */; };
+		84ABADDA286ED4E0003F6C4F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABADD9286ED4E0003F6C4F /* UIView.swift */; };
 		84EB38952851E5D7001CBCCC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */; };
 		84EB38962851E5D7001CBCCC /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */; };
 		84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */; };
@@ -129,6 +130,7 @@
 		8432D405286ABF6C00494064 /* CurrentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTableViewCell.swift; sourceTree = "<group>"; };
 		8432D406286ABF6C00494064 /* CurrentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentTableViewCell.xib; sourceTree = "<group>"; };
 		8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HashTagCollectionViewCell.xib; sourceTree = "<group>"; };
+		84ABADD9286ED4E0003F6C4F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				8432D3EE2859BDA400494064 /* UIWindow.swift */,
 				8432D3F2285AF3F100494064 /* UIButton.swift */,
 				840FA3C7286E70DF007DBADE /* UIImageView.swift */,
+				84ABADD9286ED4E0003F6C4F /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				9A69F1B92839404300FEDED6 /* UserDefaultsManager.swift in Sources */,
 				9A69F1B32838F3B200FEDED6 /* UtilFunction.swift in Sources */,
 				9A7DD40228508C4500B7FF9B /* AnalysisTableViewCell.swift in Sources */,
+				84ABADDA286ED4E0003F6C4F /* UIView.swift in Sources */,
 				9A4C3EC828313B2E001960FF /* SceneDelegate.swift in Sources */,
 				9A4C3EF328322082001960FF /* AddCollectionViewCell.swift in Sources */,
 				9A4C3EE4283213C0001960FF /* FoodUnionSupplementsTableViewCell.swift in Sources */,
