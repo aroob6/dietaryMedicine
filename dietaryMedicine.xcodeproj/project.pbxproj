@@ -108,15 +108,15 @@
 		84173CB92852C35D002C8FA9 /* BaseItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItemListViewController.swift; sourceTree = "<group>"; };
 		842BFB0F283DCC4700BC6B21 /* ViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDelegate.swift; sourceTree = "<group>"; };
 		842BFB11283DE58900BC6B21 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodList.swift; path = dietaryMedicine/Utility/FoodList.swift; sourceTree = SOURCE_ROOT; };
-		842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodsViewModel.swift; path = dietaryMedicine/Utility/FoodsViewModel.swift; sourceTree = SOURCE_ROOT; };
+		842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodsViewModel.swift; path = dietaryMedicine/ViewModel/Home/FoodsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		842BFB15283DF35300BC6B21 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
-		842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDeleteViewModel.swift; path = dietaryMedicine/Extension/ItemDeleteViewModel.swift; sourceTree = SOURCE_ROOT; };
+		842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDeleteViewModel.swift; path = dietaryMedicine/ViewModel/Home/ItemDeleteViewModel.swift; sourceTree = SOURCE_ROOT; };
 		842BFB1A2840520A00BC6B21 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
-		842BFB1C284058EC00BC6B21 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = dietaryMedicine/View/Login/SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
+		842BFB1C284058EC00BC6B21 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = dietaryMedicine/ViewModel/Login/SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
 		842BFB21284061F100BC6B21 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		842BFB232848451600BC6B21 /* EmailSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpViewController.swift; sourceTree = "<group>"; };
 		842BFB252848566A00BC6B21 /* GenderSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSignUpViewController.swift; sourceTree = "<group>"; };
-		8432D3E62858682500494064 /* NutrientDiaryAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NutrientDiaryAddViewModel.swift; path = dietaryMedicine/View/Home/FoodUnionSupplements/Add/NutrientDiaryAddViewModel.swift; sourceTree = SOURCE_ROOT; };
+		8432D3E62858682500494064 /* NutrientDiaryAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NutrientDiaryAddViewModel.swift; path = dietaryMedicine/ViewModel/Home/NutrientDiaryAddViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8432D3E828587D4A00494064 /* MyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewController.swift; sourceTree = "<group>"; };
 		8432D3EA28599A2000494064 /* NutrientImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		8432D3EB28599A2000494064 /* NutrientImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutrientImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -164,17 +164,17 @@
 		9A69F1A22838D0B300FEDED6 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		9A69F1AB2838D89100FEDED6 /* ApiUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrl.swift; sourceTree = "<group>"; };
 		9A69F1AD2838EF4900FEDED6 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Login.swift; path = dietaryMedicine/Networking/Login.swift; sourceTree = SOURCE_ROOT; };
-		9A69F1AF2838F04E00FEDED6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = dietaryMedicine/Networking/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1AF2838F04E00FEDED6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = dietaryMedicine/ViewModel/Login/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1B22838F3B200FEDED6 /* UtilFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunction.swift; sourceTree = "<group>"; };
 		9A69F1B42838F65700FEDED6 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModelProtocol.swift; path = dietaryMedicine/Utility/ViewModelProtocol.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1B628393FAE00FEDED6 /* SupplementList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SupplementList.swift; path = dietaryMedicine/Utility/SupplementList.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1B82839404300FEDED6 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		9A69F1BA283944F500FEDED6 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
-		9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SupplementsViewModel.swift; path = dietaryMedicine/Utility/SupplementsViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SupplementsViewModel.swift; path = dietaryMedicine/ViewModel/Home/SupplementsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1BE283BCEFD00FEDED6 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
-		9A69F1C0283CC7A300FEDED6 /* ItemAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemAddViewModel.swift; path = dietaryMedicine/Networking/ItemAddViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1C0283CC7A300FEDED6 /* ItemAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemAddViewModel.swift; path = dietaryMedicine/ViewModel/Home/ItemAddViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1C2283CCA6700FEDED6 /* CombinationItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CombinationItemList.swift; path = dietaryMedicine/Networking/CombinationItemList.swift; sourceTree = SOURCE_ROOT; };
-		9A69F1C4283CEDE100FEDED6 /* CombinationItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CombinationItemViewModel.swift; path = dietaryMedicine/Networking/CombinationItemViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A69F1C4283CEDE100FEDED6 /* CombinationItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CombinationItemViewModel.swift; path = dietaryMedicine/ViewModel/Home/CombinationItemViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1C6283CF31300FEDED6 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Info.swift; path = dietaryMedicine/Networking/Info.swift; sourceTree = SOURCE_ROOT; };
 		9A69F1C8284634E500FEDED6 /* TabBarHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		9A69F1C9284634E500FEDED6 /* TabBarHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -192,10 +192,10 @@
 		9A7DD3FE28508C4500B7FF9B /* AnalysisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisTableViewCell.swift; sourceTree = "<group>"; };
 		9A7DD3FF28508C4500B7FF9B /* UnionAnalysisTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnionAnalysisTableViewCell.xib; sourceTree = "<group>"; };
 		9A7DD40028508C4500B7FF9B /* AnalysisTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnalysisTableViewCell.xib; sourceTree = "<group>"; };
-		9A7DD4052850DC2C00B7FF9B /* CheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckViewModel.swift; path = dietaryMedicine/View/Home/CombinationAnalysis/CheckViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A7DD4052850DC2C00B7FF9B /* CheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckViewModel.swift; path = dietaryMedicine/ViewModel/Login/CheckViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9A7DD4092854477100B7FF9B /* CollectionAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAddViewController.swift; sourceTree = "<group>"; };
 		9A7DD40B2858ADE800B7FF9B /* MyNutrientDiaryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyNutrientDiaryList.swift; path = dietaryMedicine/View/Home/FoodUnionSupplements/MyNutrientDiaryList.swift; sourceTree = SOURCE_ROOT; };
-		9A7DD40D2858B04800B7FF9B /* NutrientDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NutrientDiaryViewModel.swift; path = dietaryMedicine/View/Home/FoodUnionSupplements/NutrientDiaryViewModel.swift; sourceTree = SOURCE_ROOT; };
+		9A7DD40D2858B04800B7FF9B /* NutrientDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NutrientDiaryViewModel.swift; path = dietaryMedicine/ViewModel/Diary/NutrientDiaryViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9A7DD40F2858CDCD00B7FF9B /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		B5D6626179DC6AFC862A1D3D /* Pods-dietaryMedicine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dietaryMedicine.debug.xcconfig"; path = "Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -304,6 +304,38 @@
 			path = AddItemList;
 			sourceTree = "<group>";
 		};
+		84ABADDB2873FD5E003F6C4F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				842BFB1C284058EC00BC6B21 /* SignUpViewModel.swift */,
+				9A69F1AF2838F04E00FEDED6 /* LoginViewModel.swift */,
+				9A7DD4052850DC2C00B7FF9B /* CheckViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		84ABADDC2873FD68003F6C4F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9A69F1C4283CEDE100FEDED6 /* CombinationItemViewModel.swift */,
+				9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */,
+				842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */,
+				9A69F1C0283CC7A300FEDED6 /* ItemAddViewModel.swift */,
+				842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */,
+				8432D3E62858682500494064 /* NutrientDiaryAddViewModel.swift */,
+				8432D4012869680B00494064 /* NutrientAnalysisViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		84ABADDD2873FDD4003F6C4F /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				9A7DD40D2858B04800B7FF9B /* NutrientDiaryViewModel.swift */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
 		9A4C3EB928313B2E001960FF = {
 			isa = PBXGroup;
 			children = (
@@ -360,17 +392,9 @@
 			isa = PBXGroup;
 			children = (
 				9A69F1B42838F65700FEDED6 /* ViewModelProtocol.swift */,
-				9A69F1AF2838F04E00FEDED6 /* LoginViewModel.swift */,
-				842BFB1C284058EC00BC6B21 /* SignUpViewModel.swift */,
-				9A69F1C4283CEDE100FEDED6 /* CombinationItemViewModel.swift */,
-				9A69F1BC283B2E5900FEDED6 /* SupplementsViewModel.swift */,
-				842BFB13283DE70400BC6B21 /* FoodsViewModel.swift */,
-				9A69F1C0283CC7A300FEDED6 /* ItemAddViewModel.swift */,
-				842BFB17283F67B800BC6B21 /* ItemDeleteViewModel.swift */,
-				9A7DD4052850DC2C00B7FF9B /* CheckViewModel.swift */,
-				8432D3E62858682500494064 /* NutrientDiaryAddViewModel.swift */,
-				9A7DD40D2858B04800B7FF9B /* NutrientDiaryViewModel.swift */,
-				8432D4012869680B00494064 /* NutrientAnalysisViewModel.swift */,
+				84ABADDB2873FD5E003F6C4F /* Login */,
+				84ABADDC2873FD68003F6C4F /* Home */,
+				84ABADDD2873FDD4003F6C4F /* Diary */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
