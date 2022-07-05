@@ -97,14 +97,44 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollViewY = scrollView.contentOffset.y
         var headerFrame = collectionView.frame
-        if scrollView.contentOffset.y < 370 {
+        
+        if scrollViewY < 370 {
             headerFrame.origin.y = collectionView.frame.origin.y
         }
         else {
             headerFrame.origin.y = scrollView.contentOffset.y
         }
         collectionView.frame = headerFrame
+        
+        guard let selectedCell0 = collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) else {
+            return
+        }
+        guard let selectedCell1 = collectionView.cellForItem(at: IndexPath(row: 1, section: 0)) else {
+            return
+        }
+        guard let selectedCell2 = collectionView.cellForItem(at: IndexPath(row: 2, section: 0)) else {
+            return
+        }
+        
+        let bottomOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.size.height + scrollView.contentInset.bottom)
+        
+        if scrollViewY < analysisView.frame.origin.y - 50 {
+            selectedCell0.isSelected = true
+            selectedCell1.isSelected = false
+            selectedCell2.isSelected = false
+        }
+        if scrollView.contentOffset.y >= analysisView.frame.origin.y - 50 {
+            selectedCell0.isSelected = false
+            selectedCell1.isSelected = true
+            selectedCell2.isSelected = false
+        }
+        if scrollViewY == bottomOffset.y {
+            selectedCell0.isSelected = false
+            selectedCell1.isSelected = false
+            selectedCell2.isSelected = true
+        }
     }
     
     private func setUI() {
@@ -166,7 +196,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         
         analysisView.snp.makeConstraints {
-            $0.height.equalTo(300)
+            $0.height.equalTo(1030) // 130 + (분석 갯수 * 90)
         }
         
         analysisLabel.text = "영양소 분석"
@@ -441,7 +471,7 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
             case .food: return 3
             }
         case analysisTableView:
-            return 2
+            return 10
             
         default:
             return 0
@@ -508,11 +538,11 @@ extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            scrollView.scroll(to: .info)
+            scrollView.scroll(to: .info, y: infoTableView.frame.origin.y)
         case 1:
-            scrollView.scroll(to: .analysis)
+            scrollView.scroll(to: .analysis, y: analysisView.frame.origin.y)
         case 2:
-            scrollView.scroll(to: .buyInfo)
+            scrollView.scroll(to: .buyInfo, y: lowestInfoView.frame.origin.y)
         default:
             return
         }

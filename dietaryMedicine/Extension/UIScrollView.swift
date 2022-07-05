@@ -14,36 +14,32 @@ public enum ScrollDirection {
 }
 
 public extension UIScrollView {
-    func scroll(to direction: ScrollDirection) {
+    func scroll(to direction: ScrollDirection, y: CGFloat) {
         DispatchQueue.main.async {
             switch direction {
             case .info:
-                self.scrollToInfo()
+                self.scrollToInfo(y)
             case .analysis:
-                self.scrollToAnalysis()
+                self.scrollToAnalysis(y)
             case .buyInfo:
-                self.scrollToBuyInfo()
+                self.scrollToBuyInfo(y)
             }
         }
     }
 
-    private func scrollToInfo() {
-        //name 50 img 300 spacing 20
-        let centerOffset = CGPoint(x: 0, y: 370)
+    private func scrollToInfo(_ y: CGFloat) { //50은 헤더 크기
+        let centerOffset = CGPoint(x: 0, y: y - 50)
         setContentOffset(centerOffset, animated: true)
     }
 
-    private func scrollToAnalysis() {
-        //name 50 img 300 spacing 20 tabbar 50 infotableView 480
-//        let centerOffset = CGPoint(x: 0, y: 900)
-//        setContentOffset(centerOffset, animated: true)
-        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom)
-        if(bottomOffset.y > 0) {
-            setContentOffset(bottomOffset, animated: true)
-        }
+    private func scrollToAnalysis(_ y: CGFloat) {
+        let centerOffset = CGPoint(x: 0, y: y - 50)
+        setContentOffset(centerOffset, animated: true)
     }
 
-    private func scrollToBuyInfo() {
+    private func scrollToBuyInfo(_ y: CGFloat) {
+//        let centerOffset = CGPoint(x: 0, y: y - 50)
+//        setContentOffset(centerOffset, animated: true)
         let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom)
         if(bottomOffset.y > 0) {
             setContentOffset(bottomOffset, animated: true)

@@ -181,6 +181,10 @@ class EmailLoginViewController: BaseEmailSignUpViewController {
                     if !loginData.token.isEmpty {
                         self.requestLoginSuccess(loginData)
                     }
+                    else {
+                        let msg = "아이디 또는 비밀번호를 확인하세요"
+                        UtilFunction.showMessage(msg: msg, vc: self)
+                    }
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

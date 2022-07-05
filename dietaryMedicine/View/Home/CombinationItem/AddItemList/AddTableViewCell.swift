@@ -26,7 +26,7 @@ class AddTableViewCell: UITableViewCell {
         let supplementData = supplementList.data[indexPath.row]
         name.text = supplementData.name
         content.text = supplementData.brand
-        price.text = String(supplementData.price)
+        price.text = String(supplementData.price) + "원"
         
         if supplementData.image != "" {
             let imgURL = supplementData.image
@@ -43,7 +43,7 @@ class AddTableViewCell: UITableViewCell {
         let foodData = foodList.data[indexPath.row]
         name.text = foodData.name
         content.text = foodData.content
-        price.text = String(foodData.price)
+        price.text = "" //String(foodData.price)
         
         if foodData.image != "" {
             let imgURL = foodData.image

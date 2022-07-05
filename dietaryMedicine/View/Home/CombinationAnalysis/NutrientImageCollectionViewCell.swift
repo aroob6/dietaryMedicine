@@ -37,11 +37,12 @@ class NutrientImageCollectionViewCell: UICollectionViewCell {
     
     func configureCell(data: [DeficiencyNutrient], indexPath: IndexPath) {
         let data = data[indexPath.row]
-        
-        let imgURL = URL(string: data.nutrientImg)
-        let processor = RoundCornerImageProcessor(cornerRadius: 8)
-        
         title.text = data.nutrientName
-        imgView.kingFisherSetImage(url: imgURL!, processor: processor)
+        
+        guard let imgURL = URL(string: data.nutrientImg) else {
+            return
+        }
+        let processor = RoundCornerImageProcessor(cornerRadius: 8)
+        imgView.kingFisherSetImage(url: imgURL, processor: processor)
     }
 }
