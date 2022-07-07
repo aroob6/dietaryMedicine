@@ -35,7 +35,7 @@
 		8432D408286ABF6C00494064 /* CurrentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8432D406286ABF6C00494064 /* CurrentTableViewCell.xib */; };
 		8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */; };
 		84ABADDA286ED4E0003F6C4F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABADD9286ED4E0003F6C4F /* UIView.swift */; };
-		84ABADDF28765BE2003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84ABADDE28765BE2003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist */; };
+		84ABADE72876C68D003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84ABADE62876C68D003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist */; };
 		84EB38952851E5D7001CBCCC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */; };
 		84EB38962851E5D7001CBCCC /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */; };
 		84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */; };
@@ -132,7 +132,7 @@
 		8432D406286ABF6C00494064 /* CurrentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentTableViewCell.xib; sourceTree = "<group>"; };
 		8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HashTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		84ABADD9286ED4E0003F6C4F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		84ABADDE28765BE2003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-dietaryMedicine-acknowledgements.plist"; path = "../../Pods-dietaryMedicine-acknowledgements.plist"; sourceTree = "<group>"; };
+		84ABADE62876C68D003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "Pods-dietaryMedicine-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
@@ -359,7 +359,7 @@
 		9A4C3EC428313B2E001960FF /* dietaryMedicine */ = {
 			isa = PBXGroup;
 			children = (
-				84ABADDE28765BE2003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist */,
+				84ABADE62876C68D003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist */,
 				9A69F1B12838F39E00FEDED6 /* Utility */,
 				9A69F1AA2838D85B00FEDED6 /* Networking */,
 				9A4C3EF72832405B001960FF /* Extension */,
@@ -558,7 +558,7 @@
 				9A69F1CB284634E500FEDED6 /* TabBarHeaderCollectionViewCell.xib in Resources */,
 				8432D3ED28599A2000494064 /* NutrientImageCollectionViewCell.xib in Resources */,
 				9A7DD3F728508AAD00B7FF9B /* SeeMoreCombinationTableViewCell.xib in Resources */,
-				84ABADDF28765BE2003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist in Resources */,
+				84ABADE72876C68D003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist in Resources */,
 				84F2FEAE2833261B00AA927B /* AddTableViewCell.xib in Resources */,
 				9A4C3EDA28314447001960FF /* Main.storyboard in Resources */,
 				8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */,
