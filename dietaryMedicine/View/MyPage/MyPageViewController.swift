@@ -11,12 +11,15 @@ import Then
 import Resolver
 import RxSwift
 import RxCocoa
+import RxGesture
+import AcknowList
 
 class MyPageViewController: UIViewController {
 
     @IBOutlet var name: UILabel!
     @IBOutlet var versionLabel: UILabel!
-    @IBOutlet var logOut: UIView!
+    @IBOutlet var logOutView: UIView!
+    @IBOutlet var lincenseView: UIView!
     
     @Injected private var disposeBag : DisposeBag
     
@@ -33,16 +36,26 @@ class MyPageViewController: UIViewController {
     }
    
     private func bindButton() {
-        let tabGesture = UITapGestureRecognizer()
-        logOut.addGestureRecognizer(tabGesture)
+        logOutView.rx.tapGesture()
+            .when(.recognized)
+            .bind { [weak self] _ in
+                self?.logOutAction()
+            }.disposed(by: disposeBag)
         
-        tabGesture.rx.event.bind { [weak self] _ in
-            self?.logOutAction()
-        }.disposed(by: disposeBag)
+        lincenseView.rx.tapGesture()
+            .when(.recognized)
+            .bind { [weak self] _ in
+                self?.lincenseAction()
+            }.disposed(by: disposeBag)
     }
     
     private func logOutAction() {
         UserDefaultsManager.token = ""
         self.dismiss(animated: false)
+    }
+    
+    private func lincenseAction() {
+        let acknowList = AcknowListViewController(fileNamed: "Pods-dietaryMedicine-acknowledgements")
+        navigationController?.pushViewController(acknowList, animated: true)
     }
 }

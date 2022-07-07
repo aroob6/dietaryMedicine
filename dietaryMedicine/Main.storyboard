@@ -372,8 +372,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LN9-Ny-GgP">
                                                 <rect key="frame" x="0.0" y="75" width="414" height="75"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="약관 및 정책" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uP-KP-ggG">
-                                                        <rect key="frame" x="20" y="27.5" width="82.5" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오픈소스 라이선스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uP-KP-ggG">
+                                                        <rect key="frame" x="20" y="27.5" width="122" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -490,7 +490,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="soq-Xh-C3X"/>
                     <connections>
-                        <outlet property="logOut" destination="6gT-Rf-dqr" id="PJ2-Fv-Ap8"/>
+                        <outlet property="lincenseView" destination="LN9-Ny-GgP" id="3x9-4L-tdE"/>
+                        <outlet property="logOutView" destination="6gT-Rf-dqr" id="PJ2-Fv-Ap8"/>
                         <outlet property="name" destination="fQa-SL-0nB" id="sSu-KP-gQG"/>
                         <outlet property="versionLabel" destination="fuy-hS-0GM" id="E88-vL-Xcd"/>
                     </connections>
@@ -502,7 +503,6 @@
         <!--My Collection View Controller-->
         <scene sceneID="Pv2-04-uJ3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oWa-cC-VRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MyCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hga-ib-ECu" customClass="MyCollectionViewController" customModule="dietaryMedicine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rOQ-0y-8pi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="675"/>
@@ -513,6 +513,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="NSV-TI-OYJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="xpY-wq-ZG8" secondAttribute="trailing" id="7cU-35-BlU"/>
@@ -525,20 +526,22 @@
                         <outlet property="tableView" destination="xpY-wq-ZG8" id="2Yf-tT-8Uh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWa-cC-VRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1055" y="2039"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tsp-72-cP3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hVE-7B-aWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="DH2-Qk-8hK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D1d-Mc-hz3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="675"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Rre-Qp-9Ku"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hVE-7B-aWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-261" y="2039"/>
         </scene>

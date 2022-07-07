@@ -9,12 +9,14 @@ pod 'Moya'
 pod 'Moya/RxSwift'
 pod 'Moya/Combine'
 pod 'RxCocoa'
+pod 'RxGesture'
 pod 'Resolver'
 pod 'SwiftyJSON'
 pod 'SwiftLint'
 pod 'Kingfisher'
 pod 'SnapKit'
 pod 'Then'
+pod 'AcknowList'
 
   # Pods for dietaryMedicine
 
