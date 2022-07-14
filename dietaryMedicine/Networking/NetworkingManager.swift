@@ -85,7 +85,7 @@ extension NetworkingManager: TargetType {
         case .foodAll: return "food/all" //음식 리스트
         case .foodAdd: return "combination-item/food" //조합 - 음식 추가
         case .foodDelete: return "combination-item/food" //조합 - 음식 삭제
-        case .nutrientAnalysis: return "nutrient/test" // 영양분석
+        case .nutrientAnalysis: return "combination/main/analysis" // 영양분석
         case .nutrientDiaryAdd: return "nutrient-diary" //영양일지(컬렉션) 추가
         case .nutrientDiaryList: return "nutrient-diary/list" //영양일지(컬렉션) 리스트
         default:

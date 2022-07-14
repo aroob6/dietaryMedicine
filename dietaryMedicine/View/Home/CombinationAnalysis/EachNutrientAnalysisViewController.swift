@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class EachNutrientViewController: UIViewController {
+class EachNutrientAnalysisViewController: UIViewController {
     static let progressBarSize: Float = 290.0
     
     private var scrollView = UIScrollView()
@@ -156,7 +156,7 @@ class EachNutrientViewController: UIViewController {
         progressBar.tintColor = .analysisColor
         progressBar.setProgress(0.95, animated: false)
         progressBar.snp.makeConstraints {
-            $0.width.equalTo(EachNutrientViewController.progressBarSize)
+            $0.width.equalTo(EachNutrientAnalysisViewController.progressBarSize)
             $0.height.equalTo(3)
             $0.top.equalTo(nutrientImgView.snp.bottom).offset(20)
             $0.leading.equalToSuperview().inset(20)
@@ -172,7 +172,7 @@ class EachNutrientViewController: UIViewController {
             $0.width.equalTo(6)
             $0.height.equalTo(5)
             $0.top.equalTo(progressBar.snp.bottom).offset(5)
-            $0.leading.equalToSuperview().inset(EachNutrientViewController.progressBarSize * recommendValue + 15)
+            $0.leading.equalToSuperview().inset(EachNutrientAnalysisViewController.progressBarSize * recommendValue + 15)
         }
         
         triangleRecommendLabel.text = "권장"
@@ -189,7 +189,7 @@ class EachNutrientViewController: UIViewController {
             $0.width.equalTo(6)
             $0.height.equalTo(5)
             $0.top.equalTo(progressBar.snp.bottom).offset(5)
-            $0.leading.equalToSuperview().inset(EachNutrientViewController.progressBarSize * maxValue + 15)
+            $0.leading.equalToSuperview().inset(EachNutrientAnalysisViewController.progressBarSize * maxValue + 15)
         }
         
         triangleMaxLabel.text = "최대"
@@ -206,7 +206,7 @@ class EachNutrientViewController: UIViewController {
             $0.width.equalTo(6)
             $0.height.equalTo(5)
             $0.top.equalTo(progressBar.snp.bottom).offset(5)
-            $0.leading.equalToSuperview().inset(EachNutrientViewController.progressBarSize * currentValue + 15)
+            $0.leading.equalToSuperview().inset(EachNutrientAnalysisViewController.progressBarSize * currentValue + 15)
         }
         
         triangleCurrentLabel.text = "현재"
@@ -269,7 +269,7 @@ class EachNutrientViewController: UIViewController {
     }
 }
 
-extension EachNutrientViewController: UITableViewDelegate, UITableViewDataSource {
+extension EachNutrientAnalysisViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }

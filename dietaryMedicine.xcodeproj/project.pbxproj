@@ -30,12 +30,13 @@
 		8432D3F5285AF41100494064 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D3F4285AF41100494064 /* KeyboardManager.swift */; };
 		8432D3FE2869673100494064 /* NutrientAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D3FD2869673100494064 /* NutrientAnalysis.swift */; };
 		8432D4022869680C00494064 /* NutrientAnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D4012869680B00494064 /* NutrientAnalysisViewModel.swift */; };
-		8432D404286979EC00494064 /* EachNutrientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D403286979EC00494064 /* EachNutrientViewController.swift */; };
+		8432D404286979EC00494064 /* EachNutrientAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D403286979EC00494064 /* EachNutrientAnalysisViewController.swift */; };
 		8432D407286ABF6C00494064 /* CurrentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432D405286ABF6C00494064 /* CurrentTableViewCell.swift */; };
 		8432D408286ABF6C00494064 /* CurrentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8432D406286ABF6C00494064 /* CurrentTableViewCell.xib */; };
 		8446636C2837126F0085E2D7 /* HashTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */; };
 		84ABADDA286ED4E0003F6C4F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABADD9286ED4E0003F6C4F /* UIView.swift */; };
 		84ABADE72876C68D003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84ABADE62876C68D003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist */; };
+		84ABADEA287FEC58003F6C4F /* AllNutrientAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABADE9287FEC56003F6C4F /* AllNutrientAnalysisViewController.swift */; };
 		84EB38952851E5D7001CBCCC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */; };
 		84EB38962851E5D7001CBCCC /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */; };
 		84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */; };
@@ -127,12 +128,13 @@
 		8432D3F4285AF41100494064 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		8432D3FD2869673100494064 /* NutrientAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientAnalysis.swift; sourceTree = "<group>"; };
 		8432D4012869680B00494064 /* NutrientAnalysisViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientAnalysisViewModel.swift; sourceTree = "<group>"; };
-		8432D403286979EC00494064 /* EachNutrientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachNutrientViewController.swift; sourceTree = "<group>"; };
+		8432D403286979EC00494064 /* EachNutrientAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachNutrientAnalysisViewController.swift; sourceTree = "<group>"; };
 		8432D405286ABF6C00494064 /* CurrentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTableViewCell.swift; sourceTree = "<group>"; };
 		8432D406286ABF6C00494064 /* CurrentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentTableViewCell.xib; sourceTree = "<group>"; };
 		8446636B2837126F0085E2D7 /* HashTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HashTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		84ABADD9286ED4E0003F6C4F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		84ABADE62876C68D003F6C4F /* Pods-dietaryMedicine-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "Pods-dietaryMedicine-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-dietaryMedicine/Pods-dietaryMedicine-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
+		84ABADE9287FEC56003F6C4F /* AllNutrientAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNutrientAnalysisViewController.swift; sourceTree = "<group>"; };
 		84EB38932851E5D7001CBCCC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		84EB38942851E5D7001CBCCC /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		84F2FEAB2833261B00AA927B /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
@@ -476,7 +478,8 @@
 				9A7DD3FF28508C4500B7FF9B /* UnionAnalysisTableViewCell.xib */,
 				8432D3EA28599A2000494064 /* NutrientImageCollectionViewCell.swift */,
 				8432D3EB28599A2000494064 /* NutrientImageCollectionViewCell.xib */,
-				8432D403286979EC00494064 /* EachNutrientViewController.swift */,
+				84ABADE9287FEC56003F6C4F /* AllNutrientAnalysisViewController.swift */,
+				8432D403286979EC00494064 /* EachNutrientAnalysisViewController.swift */,
 				8432D405286ABF6C00494064 /* CurrentTableViewCell.swift */,
 				8432D406286ABF6C00494064 /* CurrentTableViewCell.xib */,
 				9A7DD3FE28508C4500B7FF9B /* AnalysisTableViewCell.swift */,
@@ -638,7 +641,7 @@
 				9A2F2968284BA771005E5AD2 /* String.swift in Sources */,
 				9A4C3EC628313B2E001960FF /* AppDelegate.swift in Sources */,
 				9A69F1D12846553F00FEDED6 /* UILabel.swift in Sources */,
-				8432D404286979EC00494064 /* EachNutrientViewController.swift in Sources */,
+				8432D404286979EC00494064 /* EachNutrientAnalysisViewController.swift in Sources */,
 				9A7DD40A2854477100B7FF9B /* CollectionAddViewController.swift in Sources */,
 				9A7DD40C2858ADE800B7FF9B /* MyNutrientDiaryList.swift in Sources */,
 				84F2FEAD2833261B00AA927B /* AddTableViewCell.swift in Sources */,
@@ -683,6 +686,7 @@
 				842BFB18283F67B800BC6B21 /* ItemDeleteViewModel.swift in Sources */,
 				840FA3C8286E70DF007DBADE /* UIImageView.swift in Sources */,
 				8432D3EC28599A2000494064 /* NutrientImageCollectionViewCell.swift in Sources */,
+				84ABADEA287FEC58003F6C4F /* AllNutrientAnalysisViewController.swift in Sources */,
 				842BFB14283DE70400BC6B21 /* FoodsViewModel.swift in Sources */,
 				9A69F1C7283CF31300FEDED6 /* Info.swift in Sources */,
 				84FE873C2848899200B1BEB1 /* CompleteViewController.swift in Sources */,

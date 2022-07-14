@@ -102,7 +102,7 @@ class NameBirthSignUpViewController: BaseEmailSignUpViewController {
         }
         
         nameTextField.placeholder = "닉네임을 입력해주세요."
-        birthTextField.placeholder = "생년월일 6자리를 입력해주세요."
+        birthTextField.placeholder = "생년월일 8자리를 입력해주세요.(ex. 20221231)"
         
         nameTextField.font = UIFont.systemFont(ofSize: 12)
         birthTextField.font = UIFont.systemFont(ofSize: 12)
@@ -181,11 +181,11 @@ class NameBirthSignUpViewController: BaseEmailSignUpViewController {
             return
         }
         
-        let year = birthText.substring(from: 0, to: 1)
-        let month = birthText.substring(from: 2, to: 3)
-        let day = birthText.substring(from: 4, to: 5)
+        let year = birthText.substring(from: 0, to: 3)
+        let month = birthText.substring(from: 4, to: 5)
+        let day = birthText.substring(from: 6, to: 7)
         
-        SignParameter.share.birth = "19" + year + "-" + month + "-" + day
+        SignParameter.share.birth = year + "-" + month + "-" + day
         
         requestSignUp()
     }
@@ -245,7 +245,7 @@ class NameBirthSignUpViewController: BaseEmailSignUpViewController {
         
         guard let nameText = nameTextField.text else { return }
         guard let birthText = birthTextField.text else { return }
-        nameText.count != 0 && birthText.count == 6  ? nextButton.enableBth() : nextButton.deEnableBtn()
+        nameText.count != 0 && birthText.count == 8  ? nextButton.enableBth() : nextButton.deEnableBtn()
     }
 
 }

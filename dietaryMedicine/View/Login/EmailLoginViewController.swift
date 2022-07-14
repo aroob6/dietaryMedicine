@@ -41,7 +41,7 @@ class EmailLoginViewController: BaseEmailSignUpViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailTextField.text = "test10@naver.com"
+        emailTextField.text = "test1@test.com"
         pwTextField.text = "qwerqwer"
         
         setUI()
