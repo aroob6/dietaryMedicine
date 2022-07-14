@@ -78,7 +78,7 @@ extension UnionAnalysisTableViewCell: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let nutrientAnalysis = nutrientAnalysis else { return }
-        let vc = EachNutrientViewController()
+        let vc = EachNutrientAnalysisViewController()
         
         switch collectionView {
         case lackCollenctionView:
