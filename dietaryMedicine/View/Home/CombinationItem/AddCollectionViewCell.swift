@@ -66,6 +66,20 @@ class AddCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func configureCellAll(type: String, itemList: [Item], indexPathRow: Int) {
+        guard let itemData = itemList[safe: indexPathRow] else {
+            return
+        }
+        
+        if type == itemData.type {
+            let imgURL = URL(string: itemData.image)
+            let processor = RoundCornerImageProcessor(cornerRadius: 8)
+            addImage.contentMode = .scaleAspectFit
+            
+            addImage.kingFisherSetImage(url: imgURL!, processor: processor)
+        }
+    }
+    
     func showDelete() {
         deleteImage.isHidden = false
     }

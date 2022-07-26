@@ -34,8 +34,6 @@ class FoodUnionSupplementsTableViewCell: UITableViewCell {
     }
     
     @Injected private var foodUnionSupplementsViewModel: CombinationSupplementsViewModel
-    
-    //RxSwift
     @Injected private var disposeBag : DisposeBag
     
     override func awakeFromNib() {

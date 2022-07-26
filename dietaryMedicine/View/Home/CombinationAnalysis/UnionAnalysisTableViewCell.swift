@@ -6,27 +6,42 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import Resolver
 
 class UnionAnalysisTableViewCell: UITableViewCell {
     public static let identifier = "UnionAnalysisTableViewCell"
     weak var viewController: UIViewController?
     
+    @IBOutlet var allNutrientAnalysis: UIButton!
     @IBOutlet var lackCollenctionView: UICollectionView!
     @IBOutlet var overCollenctionView: UICollectionView!
     
-    var nutrientAnalysis: NutrientAnalysis? {
+    @Injected private var disposeBag : DisposeBag
+    
+    var nutrientAnalysis: EachNutrientAnalysis? {
         didSet {
             lackCollenctionView.reloadData()
             overCollenctionView.reloadData()
         }
     }
+    var supplementsList: [Item]?
+    var foodsList: [Item]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
         
+        bindButton()
         setCollectionView()
         registerXib()
+    }
+    
+    private func bindButton() {
+        allNutrientAnalysis.rx.tap.bind { [weak self] in
+            self?.showAllNutrientAnalysis()
+        }.disposed(by: disposeBag)
     }
     
     private func setCollectionView() {
@@ -43,6 +58,13 @@ class UnionAnalysisTableViewCell: UITableViewCell {
         overCollenctionView.register(
             UINib(nibName: NutrientImageCollectionViewCell.identifier, bundle: nil),
             forCellWithReuseIdentifier: NutrientImageCollectionViewCell.identifier)
+    }
+    
+    private func showAllNutrientAnalysis() {
+        let vc = AllNutrientAnalysisViewController()
+        vc.supplementsList = supplementsList
+        vc.foodsList = foodsList
+        viewController?.navigationController?.pushViewController(vc, animated: false)
     }
 }
 extension UnionAnalysisTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {

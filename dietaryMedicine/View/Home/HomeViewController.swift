@@ -6,11 +6,9 @@
 //
 
 import UIKit
-import SnapKit
 import RxSwift
 import RxCocoa
 import Resolver
-import Alamofire
 
 class HomeViewController: UIViewController {
 
@@ -18,14 +16,11 @@ class HomeViewController: UIViewController {
     
     private var supplementsList: CombinationItemList?
     private var foodList: CombinationItemList?
-    private var nutrientAnalysis: NutrientAnalysis?
+    private var eachNutrientAnalysis: EachNutrientAnalysis?
     
     @Injected private var combinationSupplementsViewModel: CombinationSupplementsViewModel
     @Injected private var combinationFoodsViewModel: CombinationFoodsViewModel
-    
-    @Injected private var nutrientAnalysisViewModel: NutrientAnalysisViewModel
-    
-    //RxSwift
+    @Injected private var eachNutrientAnalysisViewModel: EachNutrientAnalysisViewModel
     @Injected private var disposeBag : DisposeBag
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +76,7 @@ class HomeViewController: UIViewController {
         
         combinationSupplementsViewModel.fetch(parameters: parameter)
         combinationFoodsViewModel.fetch(parameters: parameter)
-        nutrientAnalysisViewModel.fetch(parameters: parameter)
+        eachNutrientAnalysisViewModel.fetch(parameters: parameter)
     }
     
     private func bindCombinationList() {
@@ -105,7 +100,7 @@ class HomeViewController: UIViewController {
             }
         }.disposed(by: disposeBag)
         
-        nutrientAnalysisViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty()).drive { result in
+        eachNutrientAnalysisViewModel.output.data.asDriver(onErrorDriveWith: Driver.empty()).drive { result in
             switch result {
             case .success(let list):
                 self.requestNutrientAnalysisSuccess(list)
@@ -129,8 +124,8 @@ class HomeViewController: UIViewController {
         mainTableView.reloadData()
     }
     
-    private func requestNutrientAnalysisSuccess(_ result: NutrientAnalysis) {
-            nutrientAnalysis = result
+    private func requestNutrientAnalysisSuccess(_ result: EachNutrientAnalysis) {
+            eachNutrientAnalysis = result
             print("✅: NUTRIENTANALYSIS NET SUCCESS")
         
         mainTableView.reloadData()
@@ -178,8 +173,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
+            guard let supplementsList = supplementsList?.list else { return cell }
+            guard let foodList = foodList?.list else { return cell }
+            
             cell.viewController = self
-            cell.nutrientAnalysis = nutrientAnalysis
+            cell.nutrientAnalysis = eachNutrientAnalysis
+            cell.supplementsList = supplementsList
+            cell.foodsList = foodList
+            
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(

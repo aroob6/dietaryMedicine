@@ -26,10 +26,9 @@ class AnalysisTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpView()
     }
     
-    private func setUpView() {
+    func configure(nutrientName: String, nutrientImgUrl: String) {
         self.selectionStyle = .none
         self.contentView.addSubview(nutrientView)
         
@@ -49,7 +48,7 @@ class AnalysisTableViewCell: UITableViewCell {
             $0.edges.equalToSuperview()
         }
         
-        let imgURL = URL(string: "https://nutrition-helper-bucket.s3.ap-northeast-2.amazonaws.com/image/nutrient-circle/1/LC.png") ?? URL(string: "")
+        let imgURL = URL(string: nutrientImgUrl)
         let processor = RoundCornerImageProcessor(cornerRadius: 8)
         nutrientImgView.kingFisherSetImage(url: imgURL!, processor: processor)
 
@@ -60,7 +59,7 @@ class AnalysisTableViewCell: UITableViewCell {
             $0.leading.equalToSuperview()
         }
         
-        nutrientLabel.text = "네임" //nutrientData.nutrientName + " " + nutrientStandardText
+        nutrientLabel.text = nutrientName //nutrientData.nutrientName + " " + nutrientStandardText
         nutrientLabel.font = UIFont.boldSystemFont(ofSize: 14)
         nutrientLabel.snp.makeConstraints {
             $0.height.equalTo(30)
@@ -80,7 +79,6 @@ class AnalysisTableViewCell: UITableViewCell {
         let currentValue = progressBar.progress
         let recommendValue = 0.1
         let maxValue = 0.6
-        
         
         triangleRecommend.backgroundColor = .white
         triangleRecommend.snp.makeConstraints {

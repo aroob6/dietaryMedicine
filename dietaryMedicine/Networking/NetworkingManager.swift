@@ -24,7 +24,8 @@ public enum NetworkingManager {
     case combinationSupplementList, combinationFoodList //조합
     case supplementAll, supplementAdd, supplementDelete //영양제
     case foodAll, foodAdd, foodDelete //음식
-    case nutrientAnalysis //영양분석
+    case eachNutrientAnalysis //개별영양분석
+    case allNutrientAnalysis //전체영양분석
     case nutrientDiaryAdd, nutrientDiaryList //영양일지
     
 }
@@ -39,7 +40,7 @@ extension NetworkingManager: TargetType {
     
     public var method: Moya.Method {
         switch self {
-        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList, .nutrientDiaryList, .nutrientAnalysis:
+        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList, .nutrientDiaryList, .eachNutrientAnalysis, .allNutrientAnalysis:
             return .get
         case .supplementDelete, .foodDelete:
             return .delete
@@ -50,7 +51,7 @@ extension NetworkingManager: TargetType {
     
     public var task: Task {
         switch self {
-        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList, .nutrientDiaryList, .nutrientAnalysis:
+        case .supplementAll, .foodAll, .combinationSupplementList, .combinationFoodList, .nutrientDiaryList, .eachNutrientAnalysis, .allNutrientAnalysis:
             return .requestPlain //.get
         default:
             return .requestParameters(
@@ -85,7 +86,8 @@ extension NetworkingManager: TargetType {
         case .foodAll: return "food/all" //음식 리스트
         case .foodAdd: return "combination-item/food" //조합 - 음식 추가
         case .foodDelete: return "combination-item/food" //조합 - 음식 삭제
-        case .nutrientAnalysis: return "combination/main/analysis" // 영양분석
+        case .eachNutrientAnalysis: return "combination/main/analysis" // 개별영양분석
+        case .allNutrientAnalysis: return "combination/all/analysis" // 전체영양분석
         case .nutrientDiaryAdd: return "nutrient-diary" //영양일지(컬렉션) 추가
         case .nutrientDiaryList: return "nutrient-diary/list" //영양일지(컬렉션) 리스트
         default:

@@ -1,8 +1,8 @@
 //
-//  NutrientAnalysisViewModel.swift
+//  AllNutrientAnalysisViewModel.swift
 //  dietaryMedicine
 //
-//  Created by bora on 2022/06/27.
+//  Created by bora on 2022/07/26.
 //
 
 import RxCocoa
@@ -11,9 +11,9 @@ import Moya
 import Resolver
 import SwiftyJSON
 
-class NutrientAnalysisViewModel: ViewModelProtocol {
+class AllNutrientAnalysisViewModel: ViewModelProtocol {
     struct Output {
-        let data = PublishRelay<Result<NutrientAnalysis, NetworkError>>()
+        let data = PublishRelay<Result<AllNutrientAnalysis, NetworkError>>()
     }
     
     @Injected private var provider: MoyaProvider<NetworkingManager>
@@ -23,10 +23,10 @@ class NutrientAnalysisViewModel: ViewModelProtocol {
     func fetch(parameters: Parameters) {
         NetworkingManager.parameter = parameters
         
-        provider.request(.nutrientAnalysis) { result in
+        provider.request(.allNutrientAnalysis) { result in
             switch result {
             case .success(let response):
-                if let data = try? NutrientAnalysis(JSON(rawValue: response.mapJSON())!) {
+                if let data = try? AllNutrientAnalysis(JSON(rawValue: response.mapJSON())!) {
                     self.output.data.accept(.success(data))
                 }
             case .failure:

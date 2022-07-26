@@ -39,6 +39,7 @@ extension Resolver: ResolverRegistering {
         register { CheckViewModel() }
         register { NutrientDiaryAddViewModel() }
         register { NutrientDiaryViewModel() }
-        register { NutrientAnalysisViewModel() }
+        register { EachNutrientAnalysisViewModel() }
+        register { AllNutrientAnalysisViewModel() }
     }
 }

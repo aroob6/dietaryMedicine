@@ -508,6 +508,11 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
+            cell.configure(
+                nutrientName: "영양제",
+                nutrientImgUrl: "https://nutrition-helper-bucket.s3.ap-northeast-2.amazonaws.com/image/nutrient-circle/1/LC.png"
+            )
+            
             return cell
             
         default:
